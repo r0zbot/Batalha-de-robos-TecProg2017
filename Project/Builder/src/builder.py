@@ -3,8 +3,8 @@
 # or the standard input if no arguments are provided.
 #
 # Usage:
-#   (1) python builder.py < input > output
-#   (2) python builder.py input > output
+#   (1) $ python builder.py < input.txt > output.cpp
+#   (2) $ python builder.py input.txt > output.cpp
 
 import fileinput
 
@@ -54,7 +54,7 @@ class Builder:
                     if arg in labels:
                         arg = labels[arg]
                 aux = "," if (ip != 0) else ""
-                print("\t{}Instruction(Code::{}, {})".format(aux, opCode, arg))
+                print("\t{}Instruction(Code::{}, {})".format(aux, opCode.upper(), arg))
                 ip += 1
         print("};\n")
 
