@@ -5,6 +5,7 @@ Machine::Machine(Instruction *prog) {
     this->memo = vector<int>(100);
     this->prog = prog;
     this->ip = 0;
+    this->rbp = 0;
     this->map_functions();
 }
 
@@ -134,6 +135,10 @@ void Machine::push() {
     this->data.push(this->fetch_arg());
 }
 
+void Machine::rest() {
+    //TODO
+}
+
 void Machine::return_from_procedure() {
     this->ip = this->exec.top();
     this->exec.pop();
@@ -143,8 +148,18 @@ void Machine::rotate_carry_left() {
     this->data.push(this->memo[this->fetch_arg()]);
 }
 
+void Machine::save() {
+    this->rbp = this->fetch_arg();
+}
+
 void Machine::store() {
     this->memo[this->fetch_arg()] = this->data.top();
+    this->data.pop();
+}
+
+void Machine::stl() {
+    //TODO Entender oq essa porra faz
+    this->exec.push(this->data.top());
     this->data.pop();
 }
 
@@ -182,8 +197,11 @@ void Machine::map_functions() {
     this->functions[Code::POP]  = &Machine::pop;
     this->functions[Code::PRN]  = &Machine::print;
     this->functions[Code::PUSH] = &Machine::push;
+    this->functions[Code::REST]  = &Machine::rest;
     this->functions[Code::RET]  = &Machine::return_from_procedure;
     this->functions[Code::RCL]  = &Machine::rotate_carry_left;
+    this->functions[Code::SAVE]  = &Machine::save;
+    this->functions[Code::STL]  = &Machine::stl;
     this->functions[Code::STO]  = &Machine::store;
     this->functions[Code::SUB]  = &Machine::subtract;
 }

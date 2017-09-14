@@ -18,6 +18,7 @@ class Machine {
 
     private:
         int ip;
+        int rbp;
         
         vector<int> memo;
 
@@ -52,9 +53,12 @@ class Machine {
         void pop();
         void print();
         void push();
+        void rest();
         void return_from_procedure();
         void rotate_carry_left();
+        void save();
         void store();
+        void stl();
         void subtract();
 
         const int  fetch_arg() const;

@@ -27,6 +27,8 @@ enum class Code {
     RCL,
     END,
     PRN,
+    SAVE,
+    REST
 };
 
 
