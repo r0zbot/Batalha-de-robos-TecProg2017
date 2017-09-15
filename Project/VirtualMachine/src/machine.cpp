@@ -5,6 +5,7 @@ Machine::Machine(Instruction *prog) {
     this->memo = vector<int>(100);
     this->prog = prog;
     this->ip = 0;
+    this->rbp = 0;
     this->map_functions();
 }
 
@@ -18,6 +19,7 @@ void Machine::add() {
 
 void Machine::call() {
     this->exec.push(this->ip);
+    this->rbpStack.push(this->rbp);
     this->jump();
 }
 
@@ -134,8 +136,15 @@ void Machine::push() {
     this->data.push(this->fetch_arg());
 }
 
+void Machine::rce(){
+    this->memo[this->rbp+this->fetch_arg()] = this->exec.top();
+    this->exec.pop();
+}
+
 void Machine::return_from_procedure() {
     this->ip = this->exec.top();
+    this->rbp = this->rbpStack.top();
+    this->rbpStack.pop();
     this->exec.pop();
 }
 
@@ -145,6 +154,12 @@ void Machine::rotate_carry_left() {
 
 void Machine::store() {
     this->memo[this->fetch_arg()] = this->data.top();
+    this->rbp++;
+    this->data.pop();
+}
+
+void Machine::stl() {
+    this->exec.push(this->data.top());
     this->data.pop();
 }
 
@@ -182,8 +197,10 @@ void Machine::map_functions() {
     this->functions[Code::POP]  = &Machine::pop;
     this->functions[Code::PRN]  = &Machine::print;
     this->functions[Code::PUSH] = &Machine::push;
-    this->functions[Code::RET]  = &Machine::return_from_procedure;
+    this->functions[Code::RCE]  = &Machine::rce;
     this->functions[Code::RCL]  = &Machine::rotate_carry_left;
+    this->functions[Code::RET]  = &Machine::return_from_procedure;
+    this->functions[Code::STL]  = &Machine::stl;
     this->functions[Code::STO]  = &Machine::store;
     this->functions[Code::SUB]  = &Machine::subtract;
 }
