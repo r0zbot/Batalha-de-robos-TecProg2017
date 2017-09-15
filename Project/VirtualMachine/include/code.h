@@ -26,7 +26,9 @@ enum class Code {
     STO,
     RCL,
     END,
-    PRN
+    PRN,
+    ALC,
+    FRE
 };
 
 

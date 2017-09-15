@@ -15,11 +15,11 @@ class Machine {
     private:
         int ip;
         int rbp;
-        
+
+        vector<int> exec;
         vector<int> memo;
 
         stack<int> data;
-        stack<int> exec;
         stack<int> rbpStack;
 
         Instruction *prog;
