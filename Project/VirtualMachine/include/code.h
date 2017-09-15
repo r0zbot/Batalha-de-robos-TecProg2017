@@ -26,9 +26,7 @@ enum class Code {
     STO,
     RCL,
     END,
-    PRN,
-    SAVE,
-    REST
+    PRN
 };
 
 

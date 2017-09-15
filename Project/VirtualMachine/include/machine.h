@@ -1,10 +1,6 @@
 #ifndef VIRTUALMACHINE_MACHINE_H
 #define VIRTUALMACHINE_MACHINE_H
 
-
-#include <stdio.h>
-#include <stdbool.h>
-
 #include <map>
 #include <stack>
 #include <vector>
@@ -24,10 +20,11 @@ class Machine {
 
         stack<int> data;
         stack<int> exec;
+        stack<int> rbpStack;
 
         Instruction *prog;
 
-        typedef void (Machine::*Function)(void);
+        typedef void (Machine::*Function)();
         map<Code, Function> functions;
 
         void map_functions();
@@ -53,10 +50,9 @@ class Machine {
         void pop();
         void print();
         void push();
-        void rest();
+        void rce();
         void return_from_procedure();
         void rotate_carry_left();
-        void save();
         void store();
         void stl();
         void subtract();
