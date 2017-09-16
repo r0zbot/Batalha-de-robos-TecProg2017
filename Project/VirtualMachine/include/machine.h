@@ -34,11 +34,13 @@ class Machine {
         explicit Machine(Instruction *prog);
 
         void add();
+        void allocate();
         void call();
         void divide();
         void duplicate();
         void equals();
         void execute();
+        void free_memory();
         void greater();
         void greater_equal();
         void jump();

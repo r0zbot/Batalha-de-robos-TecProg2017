@@ -71,6 +71,6 @@ setlocal ENABLEDELAYEDEXPANSION
     echo.
     echo -------------------------
     echo Done
-    pause
 
 :end
+pause

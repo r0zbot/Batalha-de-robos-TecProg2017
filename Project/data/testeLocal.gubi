@@ -1,0 +1,20 @@
+push 3
+push 5
+push 7
+push 9
+call yo
+prn
+end
+yo: push 11
+    push 13
+    push 15
+    alc 5
+    stl 2
+    stl 3
+    stl 4
+    prn
+    rce 3
+    prn
+    rce 2
+    prn
+    ret

@@ -15,7 +15,6 @@ using namespace std;
 template <class T>
 class Stack {
     private:
-        int rbp;
         int rsp;
         int size;
 
@@ -25,13 +24,12 @@ class Stack {
         Stack(int size){
             this->data = vector<T>(size);
             this->data[0] = 0;
-            this->rbp = 0;
             this->rsp = 0;
             this->size = size;
         };
 
         void pop(){
-            if(this->rsp < this->size){
+            if(this->rsp > 0){
                 this->rsp--;
             }
             else{
@@ -56,5 +54,17 @@ class Stack {
                 error("Pilha vazia");
             }
         };
+
+        int getSize(){
+            return this->size;
+        }
+
+        void setPosition(int pos, T val){
+            this->data[pos] = val;
+        }
+
+        T getPosition(int pos){
+            return this->data[pos];
+        }
 };
 #endif //VIRTUALMACHINE_STACK_H

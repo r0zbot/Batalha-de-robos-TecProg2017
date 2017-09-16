@@ -1,4 +1,5 @@
 #include "../include/machine.h"
+#include "../include/util.h"
 
 Machine::Machine(Instruction *prog) :
 memo(100), data(512), exec(512), rbpStack(512)
@@ -15,6 +16,16 @@ void Machine::add() {
     int n2 = this->data.top();
     this->data.pop();
     this->data.push(n1 + n2);
+}
+
+void Machine::allocate() {
+    int size = this->fetch_arg();
+    if(this->rbp + size < this->exec.getSize()){
+        this->rbp += size;
+    }
+    else{
+        error("Memoria insuficiente na pilha de execucao");
+    }
 }
 
 void Machine::call() {
@@ -55,6 +66,10 @@ void Machine::execute() {
             (this->*f)();
         }
     }
+}
+
+void Machine::free_memory() {
+    this->rbp = this->rbpStack.top();
 }
 
 void Machine::greater() {
@@ -137,13 +152,18 @@ void Machine::push() {
 }
 
 void Machine::rce(){
-    this->memo[this->rbp+this->fetch_arg()] = this->exec.top();
-    this->exec.pop();
+    int pos = this->rbpStack.top() + this->fetch_arg();
+    if(pos<this->rbp){
+        this->data.push(this->exec.getPosition(pos));
+    }
+    else{
+        error("Tentativa de acesso fora da zona alocada!");
+    }
 }
 
 void Machine::return_from_procedure() {
     this->ip = this->exec.top();
-    this->rbp = this->rbpStack.top();
+    this->free_memory();
     this->rbpStack.pop();
     this->exec.pop();
 }
@@ -154,13 +174,18 @@ void Machine::rotate_carry_left() {
 
 void Machine::store() {
     this->memo[this->fetch_arg()] = this->data.top();
-    this->rbp++;
     this->data.pop();
 }
 
 void Machine::stl() {
-    this->exec.push(this->data.top());
-    this->data.pop();
+    int pos = this->rbpStack.top() + this->fetch_arg();
+    if(pos<this->rbp){
+        this->exec.setPosition(pos, this->data.top());
+        this->data.pop();
+    }
+    else{
+        error("Fora da memória local alocada");
+    }
 }
 
 void Machine::subtract() {
@@ -181,10 +206,12 @@ const int Machine::fetch_arg() const {
 
 void Machine::map_functions() {
     this->functions[Code::ADD]  = &Machine::add;
+    this->functions[Code::ALC]  = &Machine::allocate;
     this->functions[Code::CALL] = &Machine::call;
     this->functions[Code::DIV]  = &Machine::divide;
     this->functions[Code::DUP]  = &Machine::duplicate;
     this->functions[Code::EQ]   = &Machine::equals;
+    this->functions[Code::FRE]  = &Machine::free_memory;
     this->functions[Code::GT]   = &Machine::greater;
     this->functions[Code::GE]   = &Machine::greater_equal;
     this->functions[Code::JMP]  = &Machine::jump;
