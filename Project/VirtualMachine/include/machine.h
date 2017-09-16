@@ -2,10 +2,11 @@
 #define VIRTUALMACHINE_MACHINE_H
 
 #include <map>
-#include <stack>
 #include <vector>
 
 #include "instruction.h"
+#include "stack.h"
+
 
 using namespace std;
 
@@ -16,11 +17,11 @@ class Machine {
         int ip;
         int rbp;
 
-        vector<int> exec;
         vector<int> memo;
 
-        stack<int> data;
-        stack<int> rbpStack;
+        Stack<int> data;
+        Stack<int> exec = Stack<int>(0);
+        Stack<int> rbpStack = Stack<int>(0);
 
         Instruction *prog;
 
@@ -30,7 +31,7 @@ class Machine {
         void map_functions();
 
     public:
-        Machine(Instruction *prog);
+        explicit Machine(Instruction *prog);
 
         void add();
         void call();

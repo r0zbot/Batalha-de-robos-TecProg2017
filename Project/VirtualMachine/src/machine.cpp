@@ -1,8 +1,8 @@
 #include "../include/machine.h"
 
-
-Machine::Machine(Instruction *prog) {
-    this->memo = vector<int>(100);
+Machine::Machine(Instruction *prog) :
+memo(100), data(512), exec(512), rbpStack(512)
+{
     this->prog = prog;
     this->ip = 0;
     this->rbp = 0;
@@ -45,6 +45,7 @@ void Machine::equals() {
 
 void Machine::execute() {
     bool run = true;
+    test();
     while (run) {
         this->ip++;
         if (this->fetch_code() == Code::END) {
