@@ -7,6 +7,7 @@
 #   (2) $ python builder.py input.txt > output.cpp
 
 import fileinput
+import sys
 
 
 class Builder:
@@ -69,3 +70,4 @@ if __name__ == "__main__":
     Builder.create_header()
     Builder.decode_input()
     Builder.create_main()
+    sys.exit(0) #TODO: return something else to indicate exception
