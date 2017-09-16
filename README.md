@@ -17,7 +17,7 @@ No Windows, basta arrastar um arquivo _.gubi_ para o batch script _run.bat_, ou 
 ### Linux
 1. Criar um arquivo _main.cpp_, usando para isso o builder.py encontrado em `Project/Builder/src/`, e movê-lo para a pasta `Project/VirtualMachine/src/`. 
 
-Ex: `Project/Builder/src/builder.py < Project/data/fibo.gubi > Project/VirtualMachine/src/main.cpp`
+  ... Ex: `Project/Builder/src/builder.py < Project/data/fibo.gubi > Project/VirtualMachine/src/main.cpp`
 
 1. `cd Project/VirtualMachine`
 
