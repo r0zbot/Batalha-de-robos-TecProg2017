@@ -45,7 +45,6 @@ void Machine::equals() {
 
 void Machine::execute() {
     bool run = true;
-    test();
     while (run) {
         this->ip++;
         if (this->fetch_code() == Code::END) {

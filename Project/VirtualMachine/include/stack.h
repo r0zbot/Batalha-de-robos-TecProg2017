@@ -2,10 +2,16 @@
 #define VIRTUALMACHINE_STACK_H
 
 #include <vector>
-#include <util.h>
+#include <string>
+#include "util.cpp"
 
 using namespace std;
 
+/*
+ * Devido ao uso de templates, os métodos devem ser declarados aqui
+ * para evitar linker errors
+ * https://stackoverflow.com/questions/648900/c-templates-undefined-reference
+ */
 template <class T>
 class Stack {
     private:
@@ -44,12 +50,11 @@ class Stack {
 
         T top(){
             if(this->rsp > 0){
-                return this->data[this->rsp];
+                return this->data[this->rsp-1];
             }
             else {
                 error("Pilha vazia");
             }
         };
 };
-void test();
 #endif //VIRTUALMACHINE_STACK_H

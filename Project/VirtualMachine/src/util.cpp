@@ -1,4 +1,4 @@
-#include "util.h"
+#include "../include/util.h"
 
 static void error(string msg) {
     fprintf(stderr,"%s\n", msg);
