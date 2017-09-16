@@ -22,6 +22,7 @@ void Machine::allocate() {
     int size = this->fetch_arg();
     if(this->rbp + size < this->exec.getSize()){
         this->rbp += size;
+        this->exec.setRsp(this->rbp);
     }
     else{
         error("Memoria insuficiente na pilha de execucao");
@@ -30,6 +31,7 @@ void Machine::allocate() {
 
 void Machine::call() {
     this->exec.push(this->ip);
+    this->rbp = this->exec.getRsp();
     this->rbpStack.push(this->rbp);
     this->jump();
 }
@@ -70,6 +72,7 @@ void Machine::execute() {
 
 void Machine::free_memory() {
     this->rbp = this->rbpStack.top();
+    this->exec.setRsp(this->rbp);
 }
 
 void Machine::greater() {
@@ -152,7 +155,7 @@ void Machine::push() {
 }
 
 void Machine::rce(){
-    int pos = this->rbpStack.top() + this->fetch_arg();
+    int pos = this->rbpStack.top()-1 + this->fetch_arg();
     if(pos<this->rbp){
         this->data.push(this->exec.getPosition(pos));
     }
@@ -162,8 +165,8 @@ void Machine::rce(){
 }
 
 void Machine::return_from_procedure() {
-    this->ip = this->exec.top();
     this->free_memory();
+    this->ip = this->exec.top();
     this->rbpStack.pop();
     this->exec.pop();
 }
@@ -178,7 +181,7 @@ void Machine::store() {
 }
 
 void Machine::stl() {
-    int pos = this->rbpStack.top() + this->fetch_arg();
+    int pos = this->rbpStack.top()-1 + this->fetch_arg();
     if(pos<this->rbp){
         this->exec.setPosition(pos, this->data.top());
         this->data.pop();

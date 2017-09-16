@@ -55,6 +55,14 @@ class Stack {
             }
         };
 
+        T getPosition(int pos){
+            return this->data[pos];
+        }
+
+        int getRsp(){
+            return this->rsp;
+        }
+
         int getSize(){
             return this->size;
         }
@@ -63,8 +71,8 @@ class Stack {
             this->data[pos] = val;
         }
 
-        T getPosition(int pos){
-            return this->data[pos];
+        void setRsp(int val){
+            this->rsp = val;
         }
 };
 #endif //VIRTUALMACHINE_STACK_H

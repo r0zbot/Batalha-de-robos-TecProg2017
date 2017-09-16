@@ -8,7 +8,7 @@ end
 yo: push 11
     push 13
     push 15
-    alc 5
+    alc 4
     stl 2
     stl 3
     stl 4
@@ -17,4 +17,15 @@ yo: push 11
     prn
     rce 2
     prn
+    call yo2
     ret
+yo2: push 95
+     push 39
+     alc 10
+     stl 6
+     stl 5
+     rce 6
+     rce 5
+     prn
+     prn
+     ret
