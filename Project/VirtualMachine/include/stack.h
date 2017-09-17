@@ -56,7 +56,7 @@ class Stack {
 
         const T top() const {
             if (this->rsp > 0) {
-                return this->data[this->rsp-1];
+                return this->data[this->rsp - 1];
             }
             else {
                 error("Stack is empty");
