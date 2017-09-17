@@ -21,7 +21,7 @@ class Stack {
         vector<T> data;
 
     public:
-        Stack(int size) {
+        Stack(const int size) {
             this->data = vector<T>(size);
             this->data[0] = 0;
             this->rsp = 0;
