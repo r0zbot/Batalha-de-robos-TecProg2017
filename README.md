@@ -25,3 +25,8 @@ Ex: `Project/Builder/src/builder.py < Project/data/fibo.gubi > Project/VirtualMa
 1. Compilar os arquivos usando o comando `cmake --build build -- -j3`. O binário estará na pasta `Project/VirtualMachine/bin/`
 
 1. Executar o binário compilado `bin/VirtualMachine`
+
+## Integrantes do grupo
+* Daniel Martinez
+* Lucas Moretto
+* Pedro Paulo Bambace
