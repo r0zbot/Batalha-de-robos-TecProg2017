@@ -8,16 +8,16 @@
 class Instruction {
 
     private:
-        Code code;
-        
         int arg;
+
+        Code code;
 
     public:
         Instruction(const Code code, const int arg);
-        
-        const Code get_code() const;
 
         const int get_arg() const;
+        
+        const Code get_code() const;
 };
 
 

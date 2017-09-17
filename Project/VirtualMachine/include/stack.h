@@ -1,19 +1,19 @@
 #ifndef VIRTUALMACHINE_STACK_H
 #define VIRTUALMACHINE_STACK_H
 
-#include <vector>
+
 #include <string>
+
+#include <vector>
+
 #include "util.cpp"
 
 using namespace std;
 
-/*
- * Devido ao uso de templates, os métodos devem ser declarados aqui
- * para evitar linker errors
- * https://stackoverflow.com/questions/648900/c-templates-undefined-reference
- */
+
 template <class T>
 class Stack {
+
     private:
         int rsp;
         int size;
@@ -21,50 +21,53 @@ class Stack {
         vector<T> data;
 
     public:
-        Stack(int size){
+        Stack(int size) {
             this->data = vector<T>(size);
             this->data[0] = 0;
             this->rsp = 0;
             this->size = size;
         };
 
-        void pop(){
-            if(this->rsp > 0){
+        void pop() {
+            if (this->rsp > 0) {
                 this->rsp--;
             }
-            else{
-                error("Pilha já vazia");
+            else {
+                error("Stack is empty");
             }
         };
-        void push(T value){
-            if(this->rsp < this->size){
+
+        void push(const T value) {
+            if (this->rsp < this->size) {
                 this->data[this->rsp++] = value;
             }
-            else{
-                error("Pilha cheia");
+            else {
+                error("Stack is full");
             }
         };
 
 
-        T top(){
-            if(this->rsp > 0){
+        const T top() const {
+            if (this->rsp > 0) {
                 return this->data[this->rsp-1];
             }
             else {
-                error("Pilha vazia");
+                error("Stack is empty");
             }
         };
 
-        int getSize(){
+        const int getSize() const {
             return this->size;
         }
 
-        void setPosition(int pos, T val){
+        void setPosition(const int pos, const T val) {
             this->data[pos] = val;
         }
 
-        T getPosition(int pos){
+        const T getPosition(const int pos) const {
             return this->data[pos];
         }
 };
-#endif //VIRTUALMACHINE_STACK_H
+
+
+#endif

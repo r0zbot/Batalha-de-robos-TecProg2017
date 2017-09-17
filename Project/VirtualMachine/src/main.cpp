@@ -1,4 +1,4 @@
-//Move this file to /VirtualMachine/src so this can work on production
+// Move this file to /VirtualMachine/src so this can work on production
 
 #include "../include/code.h"
 #include "../include/instruction.h"

@@ -1,9 +1,9 @@
 #include "../include/machine.h"
 #include "../include/util.h"
 
+
 Machine::Machine(Instruction *prog) :
-memo(100), data(512), exec(512), rbpStack(512)
-{
+memo(100), data(512), exec(512), rbpStack(512) {
     this->prog = prog;
     this->ip = 0;
     this->rbp = 0;
@@ -20,7 +20,7 @@ void Machine::add() {
 
 void Machine::allocate() {
     int size = this->fetch_arg();
-    if(this->rbp + size < this->exec.getSize()){
+    if (this->rbp + size < this->exec.getSize()){
         this->rbp += size;
     }
     else{
@@ -151,12 +151,12 @@ void Machine::push() {
     this->data.push(this->fetch_arg());
 }
 
-void Machine::rce(){
+void Machine::rce() {
     int pos = this->rbpStack.top() + this->fetch_arg();
-    if(pos<this->rbp){
+    if (pos < this->rbp) {
         this->data.push(this->exec.getPosition(pos));
     }
-    else{
+    else {
         error("Tentativa de acesso fora da zona alocada!");
     }
 }
@@ -168,7 +168,7 @@ void Machine::return_from_procedure() {
     this->exec.pop();
 }
 
-void Machine::rotate_carry_left() {
+void Machine::recall() {
     this->data.push(this->memo[this->fetch_arg()]);
 }
 
@@ -179,11 +179,11 @@ void Machine::store() {
 
 void Machine::stl() {
     int pos = this->rbpStack.top() + this->fetch_arg();
-    if(pos<this->rbp){
+    if (pos < this->rbp) {
         this->exec.setPosition(pos, this->data.top());
         this->data.pop();
     }
-    else{
+    else {
         error("Fora da memória local alocada");
     }
 }
@@ -196,12 +196,12 @@ void Machine::subtract() {
     this->data.push(n2 - n1);
 }
 
-const Code Machine::fetch_code() const {
-    return this->prog[this->ip - 1].get_code();
-}
-
 const int Machine::fetch_arg() const {
     return this->prog[this->ip - 1].get_arg();
+}
+
+const Code Machine::fetch_code() const {
+    return this->prog[this->ip - 1].get_code();
 }
 
 void Machine::map_functions() {
@@ -225,7 +225,7 @@ void Machine::map_functions() {
     this->functions[Code::PRN]  = &Machine::print;
     this->functions[Code::PUSH] = &Machine::push;
     this->functions[Code::RCE]  = &Machine::rce;
-    this->functions[Code::RCL]  = &Machine::rotate_carry_left;
+    this->functions[Code::RCL]  = &Machine::recall;
     this->functions[Code::RET]  = &Machine::return_from_procedure;
     this->functions[Code::STL]  = &Machine::stl;
     this->functions[Code::STO]  = &Machine::store;

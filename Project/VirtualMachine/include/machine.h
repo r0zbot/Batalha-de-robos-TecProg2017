@@ -55,7 +55,7 @@ class Machine {
         void push();
         void rce();
         void return_from_procedure();
-        void rotate_carry_left();
+        void recall();
         void store();
         void stl();
         void subtract();

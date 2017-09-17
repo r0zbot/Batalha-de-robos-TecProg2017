@@ -1,7 +1,3 @@
-# The 'fileinput' module will loop through all the lines in the input
-# specified as file names given in command-line arguments,
-# or the standard input if no arguments are provided.
-#
 # Usage:
 #   (1) $ python builder.py < input.txt > output.cpp
 #   (2) $ python builder.py input.txt > output.cpp
@@ -12,7 +8,7 @@ import sys
 
 class Builder:
 
-    TODO = "//Move this file to /VirtualMachine/src so this can work on production"
+    TODO = "// Move this file to /VirtualMachine/src so this can work on production"
 
     INCLUDES = (
         '#include "../include/code.h"',
@@ -70,4 +66,4 @@ if __name__ == "__main__":
     Builder.create_header()
     Builder.decode_input()
     Builder.create_main()
-    sys.exit(0) #TODO: return something else to indicate exception
+    sys.exit(0)  # TODO: return something else to indicate exception
