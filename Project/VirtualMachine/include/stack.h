@@ -26,7 +26,15 @@ class Stack {
             this->data[0] = 0;
             this->rsp = 0;
             this->size = size;
-        };
+        }
+
+        const T get_position(const int pos) const {
+            return this->data[pos];
+        }
+
+        const int get_rsp() const {
+            return this->rsp;
+        }
 
         void pop() {
             if (this->rsp > 0) {
@@ -35,7 +43,7 @@ class Stack {
             else {
                 error("Stack is empty");
             }
-        };
+        }
 
         void push(const T value) {
             if (this->rsp < this->size) {
@@ -44,8 +52,7 @@ class Stack {
             else {
                 error("Stack is full");
             }
-        };
-
+        }
 
         const T top() const {
             if (this->rsp > 0) {
@@ -54,18 +61,18 @@ class Stack {
             else {
                 error("Stack is empty");
             }
-        };
+        }
 
-        const int getSize() const {
+        const int get_size() const {
             return this->size;
         }
 
-        void setPosition(const int pos, const T val) {
+        void set_position(const int pos, const T val) {
             this->data[pos] = val;
         }
 
-        const T getPosition(const int pos) const {
-            return this->data[pos];
+        void set_rsp(const int val) {
+            this->rsp = val;
         }
 };
 
