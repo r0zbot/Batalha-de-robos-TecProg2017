@@ -1,5 +1,6 @@
+#include <utility>
+
 #include "../include/machine.h"
-#include "../include/util.h"
 
 
 Machine::Machine(Instruction *prog) :
@@ -155,7 +156,7 @@ void Machine::push() {
 }
 
 void Machine::rce(){
-    int pos = this->rbpStack.top()-1 + this->fetch_arg();
+    int pos = this->rbpStack.top() - 1 + this->fetch_arg();
     if(pos<this->rbp){
         this->data.push(this->exec.get_position(pos));
     }
@@ -208,29 +209,29 @@ const Code Machine::fetch_code() const {
 }
 
 void Machine::map_functions() {
-    this->functions[Code::ADD]  = &Machine::add;
-    this->functions[Code::ALC]  = &Machine::allocate;
-    this->functions[Code::CALL] = &Machine::call;
-    this->functions[Code::DIV]  = &Machine::divide;
-    this->functions[Code::DUP]  = &Machine::duplicate;
-    this->functions[Code::EQ]   = &Machine::equals;
-    this->functions[Code::FRE]  = &Machine::free_memory;
-    this->functions[Code::GT]   = &Machine::greater;
-    this->functions[Code::GE]   = &Machine::greater_equal;
-    this->functions[Code::JMP]  = &Machine::jump;
-    this->functions[Code::JIF]  = &Machine::jump_if_false;
-    this->functions[Code::JIT]  = &Machine::jump_if_true;
-    this->functions[Code::LT]   = &Machine::lower;
-    this->functions[Code::LE]   = &Machine::lower_equal;
-    this->functions[Code::MUL]  = &Machine::multiply;
-    this->functions[Code::NE]   = &Machine::not_equal;
-    this->functions[Code::POP]  = &Machine::pop;
-    this->functions[Code::PRN]  = &Machine::print;
-    this->functions[Code::PUSH] = &Machine::push;
-    this->functions[Code::RCE]  = &Machine::rce;
-    this->functions[Code::RCL]  = &Machine::recall;
-    this->functions[Code::RET]  = &Machine::return_from_procedure;
-    this->functions[Code::STL]  = &Machine::stl;
-    this->functions[Code::STO]  = &Machine::store;
-    this->functions[Code::SUB]  = &Machine::subtract;
+    this->functions.insert(make_pair(Code::ADD,  &Machine::add));
+    this->functions.insert(make_pair(Code::ALC,  &Machine::allocate));
+    this->functions.insert(make_pair(Code::CALL, &Machine::call));
+    this->functions.insert(make_pair(Code::DIV,  &Machine::divide));
+    this->functions.insert(make_pair(Code::DUP,  &Machine::duplicate));
+    this->functions.insert(make_pair(Code::EQ,   &Machine::equals));
+    this->functions.insert(make_pair(Code::FRE,  &Machine::free_memory));
+    this->functions.insert(make_pair(Code::GT,   &Machine::greater));
+    this->functions.insert(make_pair(Code::GE,   &Machine::greater_equal));
+    this->functions.insert(make_pair(Code::JMP,  &Machine::jump));
+    this->functions.insert(make_pair(Code::JIF,  &Machine::jump_if_false));
+    this->functions.insert(make_pair(Code::JIT,  &Machine::jump_if_true));
+    this->functions.insert(make_pair(Code::LT,   &Machine::lower));
+    this->functions.insert(make_pair(Code::LE,   &Machine::lower_equal));
+    this->functions.insert(make_pair(Code::MUL,  &Machine::multiply));
+    this->functions.insert(make_pair(Code::NE,   &Machine::not_equal));
+    this->functions.insert(make_pair(Code::POP,  &Machine::pop));
+    this->functions.insert(make_pair(Code::PRN,  &Machine::print));
+    this->functions.insert(make_pair(Code::PUSH, &Machine::push));
+    this->functions.insert(make_pair(Code::RCE,  &Machine::rce));
+    this->functions.insert(make_pair(Code::RCL,  &Machine::recall));
+    this->functions.insert(make_pair(Code::RET,  &Machine::return_from_procedure));
+    this->functions.insert(make_pair(Code::STL,  &Machine::stl));
+    this->functions.insert(make_pair(Code::STO,  &Machine::store));
+    this->functions.insert(make_pair(Code::SUB,  &Machine::subtract));
 }

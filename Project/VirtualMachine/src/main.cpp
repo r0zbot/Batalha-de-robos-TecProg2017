@@ -38,8 +38,34 @@ Instruction prog[] = {
 	,Instruction(Code::RET, 0)
 };
 
+Instruction fat[] = {
+		{Code::PUSH, 8},  // 0
+		{Code::CALL, 4},  // 1
+		{Code::PRN,  0},  // 2
+		{Code::END,  0},  // 3
+
+		// FAT
+		{Code::ALC,  1},  // 4
+		{Code::DUP,  0},  // 5
+		{Code::STL,  1},  // 6 n
+		{Code::PUSH, 1},  // 7
+		{Code::EQ,   0},  // 8 n == 1 ?
+		{Code::JIF, 13},  // 9
+		{Code::PUSH, 1},  // 10
+		{Code::FRE,  1},  // 11
+		{Code::RET,  0},  // 12
+		{Code::RCE,  1},  // 13 n
+		{Code::PUSH, 1},  // 14
+		{Code::SUB,  0},  // 15 n-1
+		{Code::CALL, 4},  // 16 fat(n-1)
+		{Code::RCE,  1},  // 17 n
+		{Code::MUL,  0},  // 18 n * fat(n-1)
+		{Code::FRE,  1},  // 19
+		{Code::RET,  0}   // 20
+};
+
 int main() {
-	Machine m (prog);
+	Machine m (fat);
 	m.execute();
 	return 0;
 }

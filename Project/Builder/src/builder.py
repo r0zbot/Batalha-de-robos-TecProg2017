@@ -34,25 +34,31 @@ class Builder:
     def decode_input(cls):
         ip = 0
         labels = {}
+        instructions = []
         print("Instruction prog[] = {")
         for line in fileinput.input():
             line = cls.remove_comments(line)
             if line.strip():
-                opCode = ""
-                arg = 0
-                keys = line.split()
-                if len(keys) > 0 and keys[0].endswith(":"):
-                    labels[keys[0][:-1]] = ip
-                    keys.pop(0)
-                if len(keys) > 0:
-                    opCode = keys.pop(0)
-                if len(keys) > 0:
-                    arg = keys.pop(0)
-                    if arg in labels:
-                        arg = labels[arg]
-                aux = "," if (ip != 0) else ""
-                print("\t{}Instruction(Code::{}, {})".format(aux, opCode.upper(), arg))
+                instructions.append(line)
+                if ":" in line:
+                    labels[line.split()[0][:-1]] = ip
                 ip += 1
+        ip = 0
+        for line in instructions:
+            opCode = ""
+            arg = 0
+            keys = line.split()
+            if len(keys) > 0 and keys[0].endswith(":"):
+                keys.pop(0)
+            if len(keys) > 0:
+                opCode = keys.pop(0)
+            if len(keys) > 0:
+                arg = keys.pop(0)
+                if arg in labels:
+                    arg = labels[arg]
+            aux = "," if (ip != 0) else ""
+            print("\t{}Instruction(Code::{}, {})".format(aux, opCode.upper(), arg))
+            ip += 1
         print("};\n")
 
     @classmethod
