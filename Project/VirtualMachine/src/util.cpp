@@ -1,12 +1,11 @@
 #include "../include/util.h"
 
 
-//TODO: com string ele da erro na dll. Com char* ele da warning, o que fazer?
-static void error(char *msg) {
-    fprintf(stderr, "%s\n", msg);
+static void error(const string& msg) {
+    cout << msg << '\n';
 }
 
-static void fatal(char *msg, int cod) {
+static void fatal(const string& msg, int cod) {
     error(msg);
     exit(cod);
 }

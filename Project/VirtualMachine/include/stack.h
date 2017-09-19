@@ -21,60 +21,19 @@ class Stack {
         vector<T> data;
 
     public:
-        Stack(const int size) {
-            this->data = vector<T>(size);
-            this->data[0] = 0;
-            this->rsp = 0;
-            this->size = size;
-        }
+        Stack(const int size);
 
-        const T get_position(const int pos) const {
-            return this->data[pos];
-        }
+        const int get_rsp() const;
+        const int get_size() const;
 
-        const int get_rsp() const {
-            return this->rsp;
-        }
+        const T get_position(const int pos) const;
+        const T top() const;
 
-        void pop() {
-            if (this->rsp > 0) {
-                this->rsp--;
-            }
-            else {
-                error("Stack is empty");
-            }
-        }
-
-        void push(const T value) {
-            if (this->rsp < this->size) {
-                this->data[this->rsp++] = value;
-            }
-            else {
-                error("Stack is full");
-            }
-        }
-
-        const T top() const {
-            if (this->rsp > 0) {
-                return this->data[this->rsp - 1];
-            }
-            else {
-                error("Stack is empty");
-            }
-        }
-
-        const int get_size() const {
-            return this->size;
-        }
-
-        void set_position(const int pos, const T val) {
-            this->data[pos] = val;
-        }
-
-        void set_rsp(const int val) {
-            this->rsp = val;
-        }
+        void pop();
+        void push(const T value);
+        void set_position(const int pos, const T val);
+        void set_rsp(const int val);
 };
-
+#include "stack.cpp"
 
 #endif
