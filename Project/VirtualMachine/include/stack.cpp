@@ -25,8 +25,7 @@ void Stack<T>::pop() {
         this->rsp--;
     }
     else {
-        string e = "Stack is empty";
-        error(e);
+        error("Stack is empty");
     }
 }
 
@@ -36,8 +35,7 @@ void Stack<T>::push(const T value) {
         this->data[this->rsp++] = value;
     }
     else {
-        string e = "Stack is full";
-        error(e);
+        error("Stack is full");
     }
 }
 
@@ -47,8 +45,7 @@ const T Stack<T>::top() const {
         return this->data[this->rsp - 1];
     }
     else {
-        string e = "Stack is empty";
-        error(e);
+        error("Stack is empty");
     }
 }
 
