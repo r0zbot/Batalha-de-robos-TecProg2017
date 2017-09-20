@@ -3,7 +3,7 @@
 
 Para executar o projeto é necessário ter instaladas e no PATH do seu sistema as seguintes ferramentas:
 
-* `CMake >= 3.8`
+* `CMake >= 3.2`
 * `make >= 3.2 `
 * `g++ >= 6.0`
 * `Python 3`
@@ -20,7 +20,7 @@ Ex: `Project/Builder/src/builder.py < Project/data/fibo.gubi > Project/VirtualMa
 
 1. `cd Project/VirtualMachine`
 
-1. Dentro da pasta `Project/VirtualMachine/`, checar o ambiente e criar a estrutura necessária para a compilação usando o comando `cmake -H. -G "MinGW Makefiles" -Bbuild`
+1. Dentro da pasta `Project/VirtualMachine/`, checar o ambiente e criar a estrutura necessária para a compilação usando o comando `cmake -H. -Bbuild`
 
 1. Compilar os arquivos usando o comando `cmake --build build -- -j3`. O binário estará na pasta `Project/VirtualMachine/bin/`
 
