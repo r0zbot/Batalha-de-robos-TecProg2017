@@ -1,7 +1,7 @@
 #include "../include/util.h"
 
 static void error(const string& msg) {
-    cout << msg << '\n';
+    fprintf(stderr,"%s\n", msg.c_str());
 }
 
 static void fatal(const string& msg, int cod) {
