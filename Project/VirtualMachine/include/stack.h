@@ -1,7 +1,6 @@
 #ifndef VIRTUALMACHINE_STACK_H
 #define VIRTUALMACHINE_STACK_H
 
-
 #include <string>
 
 #include <vector>
@@ -9,7 +8,6 @@
 #include "util.cpp"
 
 using namespace std;
-
 
 template <class T>
 class Stack {
@@ -34,6 +32,7 @@ class Stack {
         void set_position(const int pos, const T val);
         void set_rsp(const int val);
 };
-#include "stack.cpp"
+
+#include "../src/stack.tpp"
 
 #endif

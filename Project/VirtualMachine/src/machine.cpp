@@ -2,7 +2,6 @@
 
 #include "../include/machine.h"
 
-
 Machine::Machine(Instruction *prog) :
 memo(100), data(512), exec(512), rbpStack(512) {
     this->prog = prog;

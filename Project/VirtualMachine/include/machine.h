@@ -1,16 +1,13 @@
 #ifndef VIRTUALMACHINE_MACHINE_H
 #define VIRTUALMACHINE_MACHINE_H
 
-
 #include <map>
 #include <vector>
 
 #include "instruction.h"
 #include "stack.h"
 
-
 using namespace std;
-
 
 class Machine {
 
@@ -65,6 +62,5 @@ class Machine {
 
         const Code fetch_code() const;
 };
-
 
 #endif

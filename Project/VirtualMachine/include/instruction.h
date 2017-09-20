@@ -1,9 +1,7 @@
 #ifndef VIRTUALMACHINE_INSTRUCTION_H
 #define VIRTUALMACHINE_INSTRUCTION_H
 
-
 #include "code.h"
-
 
 class Instruction {
 
@@ -19,6 +17,5 @@ class Instruction {
         
         const Code get_code() const;
 };
-
 
 #endif

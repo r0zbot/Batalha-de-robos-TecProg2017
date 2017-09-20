@@ -1,6 +1,5 @@
 #include "../include/util.h"
 
-
 static void error(const string& msg) {
     cout << msg << '\n';
 }

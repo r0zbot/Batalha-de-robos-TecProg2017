@@ -1,7 +1,6 @@
 #ifndef VIRTUALMACHINE_CODE_H
 #define VIRTUALMACHINE_CODE_H
 
-
 enum class Code {
     ADD,
     ALC,
@@ -30,6 +29,5 @@ enum class Code {
     STO,
     SUB, 
 };
-
 
 #endif
