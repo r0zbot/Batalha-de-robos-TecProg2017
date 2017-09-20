@@ -18,8 +18,8 @@ class Machine {
         vector<int> memo;
 
         Stack<int> data;
-        Stack<int> exec = Stack<int>(0);
-        Stack<int> rbpStack = Stack<int>(0);
+        Stack<int> exec;
+        Stack<int> rbpStack;
 
         Instruction *prog;
 
