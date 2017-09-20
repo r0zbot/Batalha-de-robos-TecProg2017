@@ -5,7 +5,7 @@ Para executar o projeto é necessário ter instaladas e no PATH do seu sistema a
 
 * `CMake >= 3.2`
 * `make >= 3.2 `
-* `g++ >= 6.0`
+* `g++ >= 6.0` (são usadas features do C++11)
 * `Python 3`
 
 ## Compilando
