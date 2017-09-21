@@ -1,4 +1,5 @@
 # Batalha-de-robos-TecProg2017
+
 ## Requisitos
 
 Para executar o projeto é necessário ter instaladas e no PATH do seu sistema as seguintes ferramentas:
@@ -22,7 +23,7 @@ Executar o _run.sh_ com o endereço do arquivo _.gubi_ como argumento da linha d
 
 ### Compilando manualmente 
 
-1. Criar um arquivo _main.cpp_ (substiuindo o existente se necessário), usando para isso o builder.py encontrado em `Project/Builder/src/`, e movê-lo para a pasta `Project/VirtualMachine/src/`. 
+1. Criar um arquivo _main.cpp_ (substituindo o existente se necessário), usando para isso o builder.py encontrado em `Project/Builder/src/`, e movê-lo para a pasta `Project/VirtualMachine/src/`. 
 Ex: `Project/Builder/src/builder.py < Project/data/fibo.gubi > Project/VirtualMachine/src/main.cpp`
 
 1. `cd Project/VirtualMachine`
