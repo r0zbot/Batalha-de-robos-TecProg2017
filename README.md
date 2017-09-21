@@ -1,4 +1,6 @@
-# Batalha-de-robos-TecProg2017
+# Batalha de robôs - TecProg2017
+
+## [Changelog](changelog.md)
 
 ## Requisitos
 
