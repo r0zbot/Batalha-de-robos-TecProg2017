@@ -8,5 +8,5 @@
 * Implementadas instruções _ALC_ e _FRE_, para alocação e liberação de memória local respectivamente.
 * Implementadas instruções _STL_ e _RCE_ como especificado na documentação.
 * Corrigida instrução _RET_ como especificado na documentação.
-* Implementação própria de _Pilha_ para tornar possível alocar espaçoes de memória dentro dela.
+* Implementação própria de Pilha para tornar possível alocar espaços de memória dentro dela.
 * Criado script de execução e _build_ automático com detecção de erros para Windows.
