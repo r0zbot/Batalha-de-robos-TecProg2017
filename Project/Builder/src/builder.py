@@ -21,7 +21,7 @@ class Builder:
         print(cls.TODO + "\n")
         for i in cls.INCLUDES:
             print(i)
-        print()
+        print("")
 
     @classmethod
     def create_main(cls):

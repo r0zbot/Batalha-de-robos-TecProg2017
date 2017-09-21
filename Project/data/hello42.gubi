@@ -1,9 +1,0 @@
-PUSH 43
-hello: PUSH 42
-    DUP
-    STL
-    PRN
-    RET
-CALL hello
-PRN
-END
