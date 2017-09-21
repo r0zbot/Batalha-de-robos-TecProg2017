@@ -1,5 +1,5 @@
-## Changelog (em relação ao código fornecido pelo professor)
-### Primeira fase:
+## Changelog
+### Primeira fase (mudanças em relação ao código fornecido pelo professor):
 * Refatorado código para C++.
 * Implementado arquivo CMakeLists para construção do projeto _cross-platform_.
 * Implementado Montador completo.
