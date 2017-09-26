@@ -6,7 +6,7 @@
 #include <vector>
 
 #include "instruction.h"
-#include "memory.h"
+#include "frame.h"
 
 using namespace std;
 
@@ -15,7 +15,7 @@ class Machine {
     private:
         int ip;
 
-        Memory exec;
+        Frame exec;
 
         stack<int> data;
 

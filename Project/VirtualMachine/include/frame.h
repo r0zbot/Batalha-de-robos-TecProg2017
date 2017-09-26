@@ -1,11 +1,11 @@
-#ifndef VIRTUALMACHINE_MEMORY_H
-#define VIRTUALMACHINE_MEMORY_H
+#ifndef VIRTUALMACHINE_FRAME_H
+#define VIRTUALMACHINE_FRAME_H
 
 #include <vector>
 
 using namespace std;
 
-class Memory {
+class Frame {
 
     private:
         int ebp;
@@ -14,7 +14,7 @@ class Memory {
         vector<int> data;
 
     public:
-        explicit Memory(int size);
+        explicit Frame(int size);
 
         int back();
         int get(int i) const;
