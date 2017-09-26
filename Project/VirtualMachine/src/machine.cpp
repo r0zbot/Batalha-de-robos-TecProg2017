@@ -2,12 +2,18 @@
 
 #include "../include/machine.h"
 
-Machine::Machine(Instruction *prog) :
-memo(100), data(512), exec(512), rbpStack(512) {
-    this->prog = prog;
+Machine::Machine(const vector<Instruction> &prog) :
+exec(512), memo(200), prog(prog) {
     this->ip = 0;
-    this->rbp = 0;
     this->map_functions();
+}
+
+Code Machine::fetch_code() const {
+    return this->prog[this->ip - 1].get_code();
+}
+
+int Machine::fetch_arg() const {
+    return this->prog[this->ip - 1].get_arg();
 }
 
 void Machine::add() {
@@ -19,20 +25,11 @@ void Machine::add() {
 }
 
 void Machine::allocate() {
-    int size = this->fetch_arg();
-    if (this->rbp + size < this->exec.get_size()){
-        this->rbp += size;
-        this->exec.set_rsp(this->rbp);
-    }
-    else{
-        error("Memoria insuficiente na pilha de execucao");
-    }
+    this->exec.alloc(this->fetch_arg());
 }
 
 void Machine::call() {
     this->exec.push(this->ip);
-    this->rbp = this->exec.get_rsp();
-    this->rbpStack.push(this->rbp);
     this->jump();
 }
 
@@ -45,7 +42,8 @@ void Machine::divide() {
 }
 
 void Machine::duplicate() {
-    this->data.push(this->data.top());
+    int n = this->data.top();
+    this->data.push(n);
 }
 
 void Machine::equals() {
@@ -71,8 +69,7 @@ void Machine::execute() {
 }
 
 void Machine::free_memory() {
-    this->rbp = this->rbpStack.top();
-    this->exec.set_rsp(this->rbp);
+    this->exec.free(this->fetch_arg());
 }
 
 void Machine::greater() {
@@ -154,21 +151,12 @@ void Machine::push() {
     this->data.push(this->fetch_arg());
 }
 
-void Machine::rce(){
-    int pos = this->rbpStack.top() - 1 + this->fetch_arg();
-    if(pos<this->rbp){
-        this->data.push(this->exec.get_position(pos));
-    }
-    else{
-        error("Tentativa de acesso fora da zona alocada!");
-    }
+void Machine::rce() {
+    this->data.push(this->exec.get(this->fetch_arg()));
 }
 
 void Machine::return_from_procedure() {
-    this->free_memory();
-    this->ip = this->exec.top();
-    this->rbpStack.pop();
-    this->exec.pop();
+    this->ip = this->exec.back();
 }
 
 void Machine::recall() {
@@ -181,14 +169,8 @@ void Machine::store() {
 }
 
 void Machine::stl() {
-    int pos = this->rbpStack.top() - 1 + this->fetch_arg();
-    if(pos<this->rbp){
-        this->exec.set_position(pos, this->data.top());
-        this->data.pop();
-    }
-    else{
-        error("Fora da memória local alocada");
-    }
+    this->exec.set(this->fetch_arg(), this->data.top());
+    this->data.pop();
 }
 
 void Machine::subtract() {
@@ -197,14 +179,6 @@ void Machine::subtract() {
     int n2 = this->data.top();
     this->data.pop();
     this->data.push(n2 - n1);
-}
-
-const int Machine::fetch_arg() const {
-    return this->prog[this->ip - 1].get_arg();
-}
-
-const Code Machine::fetch_code() const {
-    return this->prog[this->ip - 1].get_code();
 }
 
 void Machine::map_functions() {

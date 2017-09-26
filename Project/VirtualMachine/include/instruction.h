@@ -6,16 +6,16 @@
 class Instruction {
 
     private:
-        int arg;
-
         Code code;
 
-    public:
-        Instruction(const Code code, const int arg);
+        int arg;
 
-        const int get_arg() const;
+    public:
+        Instruction(Code code, int arg);
+
+        int get_arg() const;
         
-        const Code get_code() const;
+        Code get_code() const;
 };
 
 #endif

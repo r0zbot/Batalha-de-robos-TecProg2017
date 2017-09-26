@@ -2,10 +2,11 @@
 #define VIRTUALMACHINE_MACHINE_H
 
 #include <map>
+#include <stack>
 #include <vector>
 
 #include "instruction.h"
-#include "stack.h"
+#include "memory.h"
 
 using namespace std;
 
@@ -13,15 +14,13 @@ class Machine {
 
     private:
         int ip;
-        int rbp;
+
+        Memory exec;
+
+        stack<int> data;
 
         vector<int> memo;
-
-        Stack<int> data;
-        Stack<int> exec;
-        Stack<int> rbpStack;
-
-        Instruction *prog;
+        vector<Instruction> prog;
 
         typedef void (Machine::*Function)();
         map<Code, Function> functions;
@@ -29,7 +28,11 @@ class Machine {
         void map_functions();
 
     public:
-        explicit Machine(Instruction *prog);
+        explicit Machine(const vector<Instruction> &prog);
+
+        Code fetch_code() const;
+
+        int  fetch_arg() const;
 
         void add();
         void allocate();
@@ -57,10 +60,6 @@ class Machine {
         void store();
         void stl();
         void subtract();
-
-        const int  fetch_arg() const;
-
-        const Code fetch_code() const;
 };
 
 #endif

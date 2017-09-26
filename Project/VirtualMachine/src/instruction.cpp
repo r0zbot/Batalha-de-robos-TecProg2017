@@ -5,10 +5,10 @@ Instruction::Instruction(const Code code, const int arg) {
     this->arg = arg;
 }
 
-const int Instruction::get_arg() const {
+int Instruction::get_arg() const {
     return this->arg;
 }
 
-const Code Instruction::get_code() const {
+Code Instruction::get_code() const {
     return this->code;
 }
