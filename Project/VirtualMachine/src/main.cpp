@@ -11,7 +11,7 @@ using namespace std;
 int main() {
 
     vector<Instruction> prog ({
-        Instruction(Code::PUSH, 8)
+        Instruction(Code::PUSH, 5)
         ,Instruction(Code::CALL, 4)
         ,Instruction(Code::PRN, 0)
         ,Instruction(Code::END, 0)

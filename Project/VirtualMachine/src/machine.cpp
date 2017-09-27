@@ -1,9 +1,10 @@
 #include <utility>
 
+#include "../include/log.h"
 #include "../include/machine.h"
 
 Machine::Machine(const vector<Instruction> &prog) :
-exec(512), memo(200), prog(prog) {
+exec(600), memo(200), prog(prog) {
     this->ip = 0;
     this->map_functions();
 }
@@ -24,7 +25,7 @@ void Machine::add() {
     this->data.push(n1 + n2);
 }
 
-void Machine::allocate() {
+void Machine::alloc() {
     this->exec.alloc(this->fetch_arg());
 }
 
@@ -62,8 +63,13 @@ void Machine::execute() {
             run = false;
         }
         else {
-            Function f = this->functions[this->fetch_code()];
-            (this->*f)();
+            try {
+                Function f = this->functions[this->fetch_code()];
+                (this->*f)();
+            }
+            catch (const exception &e) {
+                Log::error(e.what());
+            }
         }
     }
 }
@@ -183,7 +189,7 @@ void Machine::subtract() {
 
 void Machine::map_functions() {
     this->functions.insert(make_pair(Code::ADD,  &Machine::add));
-    this->functions.insert(make_pair(Code::ALC,  &Machine::allocate));
+    this->functions.insert(make_pair(Code::ALC,  &Machine::alloc));
     this->functions.insert(make_pair(Code::CALL, &Machine::call));
     this->functions.insert(make_pair(Code::DIV,  &Machine::divide));
     this->functions.insert(make_pair(Code::DUP,  &Machine::duplicate));

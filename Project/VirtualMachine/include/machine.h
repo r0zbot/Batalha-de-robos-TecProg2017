@@ -35,7 +35,7 @@ class Machine {
         int  fetch_arg() const;
 
         void add();
-        void allocate();
+        void alloc();
         void call();
         void divide();
         void duplicate();
