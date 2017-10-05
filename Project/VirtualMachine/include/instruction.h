@@ -4,8 +4,13 @@
 #include <code.h>
 
 /**
- * The <b>Instruction</b> class represents an instruction object with an
- * option code from the <b>Code</b> enum class, representing a function,
+ * @file  instruction.h
+ * @class Instruction
+ *
+ * @brief This class represents functions to be executed by the {@link #Machine}.
+ *
+ * The <b>Instruction</b> class represents an instruction object
+ * with an option/function code from the <b>Code</b> enum class
  * and the instruction argument.
  */
 class Instruction {
@@ -19,8 +24,8 @@ class Instruction {
 
     public:
         /**
-         * Constructs a <b>Instruction</b> with the specified
-         * option code and the instruction argument.
+         * @brief Constructs a <b>Instruction</b> with the specified
+         *        option code and the instruction argument.
          *
          * @param [code] The instruction option code.
          * @param [arg]  The instruction argument.
@@ -28,14 +33,14 @@ class Instruction {
         Instruction(Code code, int arg);
 
         /**
-         * Returns the instruction argument.
+         * @brief Gets the instruction argument.
          *
          * @return The instruction argument.
          */
         int get_arg() const;
 
         /**
-         * Returns the instruction option code.
+         * @brief Gets the instruction option code.
          *
          * @return The instruction option code.
          */

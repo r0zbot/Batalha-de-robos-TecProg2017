@@ -86,6 +86,9 @@ $(document).ready(function(){initNavTree('class_frame_operation_exception.html',
 <div class="title">FrameOperationException Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The <b>FrameOperationException</b> represents errors that occurred in a <a class="el" href="class_stack_frame.html">StackFrame</a>.  
+ <a href="class_frame_operation_exception.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for FrameOperationException:</div>
 <div class="dyncontent">
@@ -98,12 +101,15 @@ Inheritance diagram for FrameOperationException:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab7c6886e04c07f85a0a55e09bdf36bbe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_operation_exception.html#ab7c6886e04c07f85a0a55e09bdf36bbe">FrameOperationException</a> (const string &amp;msg)</td></tr>
+<tr class="memdesc:ab7c6886e04c07f85a0a55e09bdf36bbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <b>FrameOperationException</b> with the specified detail message.  <a href="#ab7c6886e04c07f85a0a55e09bdf36bbe">More...</a><br /></td></tr>
 <tr class="separator:ab7c6886e04c07f85a0a55e09bdf36bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa10666e484fe06fd18647c5fbb944c3b"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_operation_exception.html#aa10666e484fe06fd18647c5fbb944c3b">what</a> () const override  throw ()</td></tr>
+<tr class="memdesc:aa10666e484fe06fd18647c5fbb944c3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a C-style character string describing the exception name and the general cause of the current error.  <a href="#aa10666e484fe06fd18647c5fbb944c3b">More...</a><br /></td></tr>
 <tr class="separator:aa10666e484fe06fd18647c5fbb944c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <b>FrameOperationException</b> class is the general class of exceptions produced by failed or interrupted process during the execution of instructions inside of a <b>Frame</b> scope. </p>
+<div class="textblock"><p>The <b>FrameOperationException</b> represents errors that occurred in a <a class="el" href="class_stack_frame.html">StackFrame</a>. </p>
+<p>The <b>FrameOperationException</b> class is the general class of exceptions produced by failed or interrupted process during the execution of instructions inside of a <a class="el" href="class_stack_frame.html">StackFrame</a> scope. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab7c6886e04c07f85a0a55e09bdf36bbe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab7c6886e04c07f85a0a55e09bdf36bbe">&#9670;&nbsp;</a></span>FrameOperationException()</h2>
@@ -128,7 +134,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Constructs a <b>FrameOperationException</b> with the specified detail message.</p>
+
+<p>Constructs a <b>FrameOperationException</b> with the specified detail message. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">[msg]</td><td>The detail message (which is saved for later retrieval by the <a class="el" href="class_frame_operation_exception.html#aa10666e484fe06fd18647c5fbb944c3b">what()</a> method). </td></tr>
@@ -167,7 +174,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns a C-style character string describing the exception name and the general cause of the current error.</p>
+
+<p>Returns a C-style character string describing the exception name and the general cause of the current error. </p>
 <dl class="section return"><dt>Returns</dt><dd>The specified detail message passed to the exception. </dd></dl>
 
 </div>

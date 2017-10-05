@@ -1,6 +1,6 @@
 var hierarchy =
 [
-    [ "exception", null, [
+    [ "std::exception", null, [
       [ "FrameOperationException", "class_frame_operation_exception.html", null ]
     ] ],
     [ "Instruction", "class_instruction.html", null ],

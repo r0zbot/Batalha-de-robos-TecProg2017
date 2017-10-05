@@ -6,7 +6,11 @@
 using namespace std;
 
 /**
- * The <b>Log</b> class takes control over the internal logging events.
+ * @file  log.h
+ * @class Log
+ *
+ * @brief The <b>Log</b> class takes control over the internal logging events.
+ *
  * These events fall into one of four priority categories:
  * <ul>
  * <li><b>DEBUG</b> = Use the <b>DEBUG</b> level priority for log messages that convey extra information regarding
@@ -28,28 +32,28 @@ class Log {
 
     public:
         /**
-         * 	Log a message with debug priority.
+         * @brief Log a message with debug priority.
          *
          * @param [msg] The string to be write in the log standard output.
          */
         static void debug(const string &msg);
 
         /**
-         * 	Log a message with error priority.
+         * @brief Log a message with error priority.
          *
          * @param [msg] The string to be write in the log standard output.
          */
         static void error(const string &msg);
 
         /**
-         * 	Log a message with info priority.
+         * @brief Log a message with info priority.
          *
          * @param [msg] The string to be write in the log standard output.
          */
         static void info(const string &msg);
 
         /**
-         * 	Log a message with warn priority.
+         * @brief Log a message with warn priority.
          *
          * @param [msg] The string to be write in the log standard output.
          */

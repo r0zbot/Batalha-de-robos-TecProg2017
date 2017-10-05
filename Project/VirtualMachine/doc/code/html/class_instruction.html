@@ -86,18 +86,25 @@ $(document).ready(function(){initNavTree('class_instruction.html','');});
 <div class="title">Instruction Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class represents functions to be executed by the <a class="el" href="class_machine.html">Machine</a>.  
+ <a href="class_instruction.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6fc0ff5a2f631358a4a09c348212c764"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_instruction.html#a6fc0ff5a2f631358a4a09c348212c764">Instruction</a> (<a class="el" href="code_8h.html#af31477bc48f67856bedb0fa8e5b5281d">Code</a> code, int arg)</td></tr>
+<tr class="memdesc:a6fc0ff5a2f631358a4a09c348212c764"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <b>Instruction</b> with the specified option code and the instruction argument.  <a href="#a6fc0ff5a2f631358a4a09c348212c764">More...</a><br /></td></tr>
 <tr class="separator:a6fc0ff5a2f631358a4a09c348212c764"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01a2623e07fa99119492d38e70f2682b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_instruction.html#a01a2623e07fa99119492d38e70f2682b">get_arg</a> () const</td></tr>
+<tr class="memdesc:a01a2623e07fa99119492d38e70f2682b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the instruction argument.  <a href="#a01a2623e07fa99119492d38e70f2682b">More...</a><br /></td></tr>
 <tr class="separator:a01a2623e07fa99119492d38e70f2682b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a850cd00ab2ad148046efae216abc2baf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="code_8h.html#af31477bc48f67856bedb0fa8e5b5281d">Code</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_instruction.html#a850cd00ab2ad148046efae216abc2baf">get_code</a> () const</td></tr>
+<tr class="memdesc:a850cd00ab2ad148046efae216abc2baf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the instruction option code.  <a href="#a850cd00ab2ad148046efae216abc2baf">More...</a><br /></td></tr>
 <tr class="separator:a850cd00ab2ad148046efae216abc2baf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <b>Instruction</b> class represents an instruction object with an option code from the <b>Code</b> enum class, representing a function, and the instruction argument. </p>
+<div class="textblock"><p>This class represents functions to be executed by the <a class="el" href="class_machine.html">Machine</a>. </p>
+<p>The <b>Instruction</b> class represents an instruction object with an option/function code from the <b>Code</b> enum class and the instruction argument. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6fc0ff5a2f631358a4a09c348212c764"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6fc0ff5a2f631358a4a09c348212c764">&#9670;&nbsp;</a></span>Instruction()</h2>
@@ -124,7 +131,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructs a <b>Instruction</b> with the specified option code and the instruction argument.</p>
+
+<p>Constructs a <b>Instruction</b> with the specified option code and the instruction argument. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">[code]</td><td>The instruction option code. </td></tr>
@@ -150,7 +158,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns the instruction argument.</p>
+
+<p>Gets the instruction argument. </p>
 <dl class="section return"><dt>Returns</dt><dd>The instruction argument. </dd></dl>
 
 </div>
@@ -169,7 +178,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns the instruction option code.</p>
+
+<p>Gets the instruction option code. </p>
 <dl class="section return"><dt>Returns</dt><dd>The instruction option code. </dd></dl>
 
 </div>

@@ -7,9 +7,15 @@
 using namespace std;
 
 /**
- * The <b>FrameOperationException</b> class is the general class of exceptions
- * produced by failed or interrupted process during the execution of instructions
- * inside of a <b>Frame</b> scope.
+ * @file  frame_operation_exception.h
+ * @class FrameOperationException
+ *
+ * @brief The <b>FrameOperationException</b> represents errors
+ *        that occurred in a {@link #StackFrame}.
+ *
+ * The <b>FrameOperationException</b> class is the general class
+ * of exceptions produced by failed or interrupted process during
+ * the execution of instructions inside of a {@link #StackFrame} scope.
  */
 class FrameOperationException: public exception {
 
@@ -22,7 +28,7 @@ class FrameOperationException: public exception {
 
     public:
         /**
-         * Constructs a <b>FrameOperationException</b> with the specified detail message.
+         * @brief Constructs a <b>FrameOperationException</b> with the specified detail message.
          *
          * @param [msg]
          *        The detail message (which is saved for later retrieval
@@ -31,8 +37,8 @@ class FrameOperationException: public exception {
         explicit FrameOperationException(const string &msg);
 
         /**
-         * Returns a C-style character string describing the exception name
-         * and the general cause of the current error.
+         * @brief Returns a C-style character string describing the exception name
+         *        and the general cause of the current error.
          *
          * @return The specified detail message passed to the exception.
          */

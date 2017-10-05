@@ -5,7 +5,9 @@
  * @file code.h
  * @enum Code
  *
- * The <b>Code</b> enum class contains the option codes for the instructions
+ * @brief The <b>Code</b> is a strongly typed enum that defines {@link #Instruction} codes.
+ *
+ * The <b>Code</b> enum class contains the option codes for instructions
  * implemented in the <b>Machine</b>.
  */
 enum class Code {

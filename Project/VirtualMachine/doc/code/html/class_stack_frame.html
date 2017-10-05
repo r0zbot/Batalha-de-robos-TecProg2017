@@ -86,27 +86,38 @@ $(document).ready(function(){initNavTree('class_stack_frame.html','');});
 <div class="title">StackFrame Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The <b>StackFrame</b> class is the collection of all data on the stack associated with programs subcalls.  
+ <a href="class_stack_frame.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4403f78e66c3177e849a95a02e3ddca9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stack_frame.html#a4403f78e66c3177e849a95a02e3ddca9">StackFrame</a> (int size)</td></tr>
+<tr class="memdesc:a4403f78e66c3177e849a95a02e3ddca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <b>StackFrame</b> with the specified size.  <a href="#a4403f78e66c3177e849a95a02e3ddca9">More...</a><br /></td></tr>
 <tr class="separator:a4403f78e66c3177e849a95a02e3ddca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6fd0915d90cd7622944e53643faac17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stack_frame.html#ac6fd0915d90cd7622944e53643faac17">alloc</a> (int n)</td></tr>
+<tr class="memdesc:ac6fd0915d90cd7622944e53643faac17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates the specified amount of space from the current top pointer.  <a href="#ac6fd0915d90cd7622944e53643faac17">More...</a><br /></td></tr>
 <tr class="separator:ac6fd0915d90cd7622944e53643faac17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00931305179aaa8150655033d0919b68"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stack_frame.html#a00931305179aaa8150655033d0919b68">back</a> ()</td></tr>
+<tr class="memdesc:a00931305179aaa8150655033d0919b68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the address from where the <a class="el" href="class_machine.html">Machine</a> shall continue the program execution.  <a href="#a00931305179aaa8150655033d0919b68">More...</a><br /></td></tr>
 <tr class="separator:a00931305179aaa8150655033d0919b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b922098c90f148e0b7b3f0730915a31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stack_frame.html#a6b922098c90f148e0b7b3f0730915a31">free</a> (int n)</td></tr>
+<tr class="memdesc:a6b922098c90f148e0b7b3f0730915a31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees the specified amount of space in the current frame scope.  <a href="#a6b922098c90f148e0b7b3f0730915a31">More...</a><br /></td></tr>
 <tr class="separator:a6b922098c90f148e0b7b3f0730915a31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab806c3aaa05bd6714f9fcffe86bcf3b9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stack_frame.html#ab806c3aaa05bd6714f9fcffe86bcf3b9">get</a> (int i) const</td></tr>
+<tr class="memdesc:ab806c3aaa05bd6714f9fcffe86bcf3b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the element at an "i" offset from the current base pointer value.  <a href="#ab806c3aaa05bd6714f9fcffe86bcf3b9">More...</a><br /></td></tr>
 <tr class="separator:ab806c3aaa05bd6714f9fcffe86bcf3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6133be4a99488a53ae339a04d4530b48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stack_frame.html#a6133be4a99488a53ae339a04d4530b48">push</a> (int val)</td></tr>
+<tr class="memdesc:a6133be4a99488a53ae339a04d4530b48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the specified value at the top of the <b>StackFrame</b>.  <a href="#a6133be4a99488a53ae339a04d4530b48">More...</a><br /></td></tr>
 <tr class="separator:a6133be4a99488a53ae339a04d4530b48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0df9aaf8d1cc758ccf6732f4bd3f7ffe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stack_frame.html#a0df9aaf8d1cc758ccf6732f4bd3f7ffe">set</a> (int i, int val)</td></tr>
+<tr class="memdesc:a0df9aaf8d1cc758ccf6732f4bd3f7ffe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the specified value at an certain offset from the current base pointer.  <a href="#a0df9aaf8d1cc758ccf6732f4bd3f7ffe">More...</a><br /></td></tr>
 <tr class="separator:a0df9aaf8d1cc758ccf6732f4bd3f7ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <b>StackFrame</b> class allow access to both function parameters, and automatic/local function variables. The <b>StackFrame</b> class is the collection of all data on the stack associated with one subprogram call.</p>
-<p>When a function is called, a new partition is created at the current top pointer location. The <b>StackFrame</b> acts like a partition of the <b>Machine</b> data stack. All items from previous functions are in the "bottom" of the <b>StackFrame</b>, and should not be modified. Each current function has access to the remainder of the stack, from the <b>StackFrame</b> until the end of the stack page. The current function always has access to the "top" of the stack, and so functions do not need to take account of the memory usage of other functions or programs.</p>
+<div class="textblock"><p>The <b>StackFrame</b> class is the collection of all data on the stack associated with programs subcalls. </p>
+<p>The <b>StackFrame</b> class allow access to both function parameters, and automatic/local function variables.</p>
+<p>When a function is called, a new partition is created at the current top pointer location. The <b>StackFrame</b> acts like a partition of the <a class="el" href="class_machine.html">Machine</a> data stack. All items from previous functions are in the "bottom" of the <b>StackFrame</b>, and should not be modified. Each current function has access to the remainder of the stack, from the <b>StackFrame</b> until the end of the stack page. The current function always has access to the "top" of the stack, and so functions do not need to take account of the memory usage of other functions or programs.</p>
 <p>When the program enters a block such a function or method, space must be allocated on top of the <b>StackFrame</b> for the local variables inside the function scope. When the program leaves the block, the space must be freed again. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4403f78e66c3177e849a95a02e3ddca9"></a>
@@ -132,7 +143,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Constructs a <b>StackFrame</b> with the specified size.</p>
+
+<p>Constructs a <b>StackFrame</b> with the specified size. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">[size]</td><td>The <b>StackFrame</b> size. </td></tr>
@@ -158,10 +170,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Allocates the specified amount of space from the current top pointer.</p>
+
+<p>Allocates the specified amount of space from the current top pointer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">[n]</td><td>The amount of space that must be allocated in the <b>StackFrame</b>. </td></tr>
+    <tr><td class="paramname">[n]</td><td>The amount of space that must be allocated in the <b>StackFrame</b>.</td></tr>
   </table>
   </dd>
 </dl>
@@ -188,8 +201,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Frees the memory allocated in the current function scope then return the address from where the <b>Machine</b> shall continue the program execution.</p>
-<dl class="section return"><dt>Returns</dt><dd>the address from where the <b>Machine</b> shall continue the program execution. </dd></dl>
+
+<p>Returns the address from where the <a class="el" href="class_machine.html">Machine</a> shall continue the program execution. </p>
+<dl class="section return"><dt>Returns</dt><dd>The address from where the <a class="el" href="class_machine.html">Machine</a> shall continue the program execution. </dd></dl>
 
 </div>
 </div>
@@ -208,10 +222,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Frees the specified amount of space in the current frame scope.</p>
+
+<p>Frees the specified amount of space in the current frame scope. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">[n]</td><td>The amount of space that must be freed in the current <b>StackFrame</b> scope. </td></tr>
+    <tr><td class="paramname">[n]</td><td>The amount of space that must be freed in the current <b>StackFrame</b> scope.</td></tr>
   </table>
   </dd>
 </dl>
@@ -239,14 +254,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns the element at an "i" offset from the current base pointer value.</p>
+
+<p>Returns the element at an "i" offset from the current base pointer value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">[i]</td><td>The offset from the current base pointer. </td></tr>
+    <tr><td class="paramname">[i]</td><td>The offset from the current base pointer.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The element at the specified offset from the current base pointer value. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The element at the specified offset from the current base pointer value.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">FrameOperationException</td><td>if the position specified is out of the current <b>StackFrame</b> scope. </td></tr>
@@ -271,10 +287,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Stores the specified value at the top of the <b>StackFrame</b>.</p>
+
+<p>Stores the specified value at the top of the <b>StackFrame</b>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">[val]</td><td>The value to be stored at the top of the <b>StackFrame</b>. </td></tr>
+    <tr><td class="paramname">[val]</td><td>The value to be stored at the top of the <b>StackFrame</b>.</td></tr>
   </table>
   </dd>
 </dl>
@@ -312,11 +329,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Stores the specified value at an certain offset from the current base pointer.</p>
+
+<p>Stores the specified value at an certain offset from the current base pointer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">[i]</td><td>The offset from the current base pointer. </td></tr>
-    <tr><td class="paramname">[val]</td><td>The value to be stored. </td></tr>
+    <tr><td class="paramname">[val]</td><td>The value to be stored.</td></tr>
   </table>
   </dd>
 </dl>

@@ -84,6 +84,7 @@ var NAVTREEINDEX0 =
 "dir_6bcdd895099c5baf303d04ab453e583d.html":[1,0,0,0],
 "dir_d44c64559bbebec7f509842c48db8b23.html":[1,0,0],
 "files.html":[1,0],
+"frame__operation__exception_8h.html":[1,0,0,0,0],
 "frame__operation__exception_8h_source.html":[1,0,0,0,0],
 "functions.html":[0,3,0],
 "functions_func.html":[0,3,1],
@@ -91,9 +92,13 @@ var NAVTREEINDEX0 =
 "globals_enum.html":[1,1,1],
 "hierarchy.html":[0,2],
 "index.html":[],
+"instruction_8h.html":[1,0,0,2],
 "instruction_8h_source.html":[1,0,0,2],
+"log_8h.html":[1,0,0,3],
 "log_8h_source.html":[1,0,0,3],
+"machine_8h.html":[1,0,0,4],
 "machine_8h_source.html":[1,0,0,4],
 "pages.html":[],
+"stack__frame_8h.html":[1,0,0,5],
 "stack__frame_8h_source.html":[1,0,0,5]
 };
