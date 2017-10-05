@@ -1,4 +1,4 @@
-#include "log.h"
+#include <log.h>
 
 void Log::debug(const string &msg) {
     fprintf(stdout, "<DEBUG> %s\n", msg.c_str());

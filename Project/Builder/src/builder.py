@@ -12,9 +12,9 @@ class Builder:
 
     INCLUDES = (
         '#include <vector>\n',
-        '#include "../include/code.h"',
-        '#include "../include/instruction.h"',
-        '#include "../include/machine.h"'
+        '#include <code.h>',
+        '#include <instruction.h>',
+        '#include <machine.h>'
     )
 
     @classmethod

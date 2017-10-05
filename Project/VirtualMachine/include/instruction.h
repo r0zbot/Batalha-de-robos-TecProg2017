@@ -1,7 +1,7 @@
 #ifndef VIRTUALMACHINE_INSTRUCTION_H
 #define VIRTUALMACHINE_INSTRUCTION_H
 
-#include "code.h"
+#include <code.h>
 
 /**
  * The <b>Instruction</b> class represents an instruction object with an

@@ -1,7 +1,7 @@
 #include <exception/frame_operation_exception.h>
 
-#include "stack_frame.h"
-#include "log.h"
+#include <log.h>
+#include <stack_frame.h>
 
 StackFrame::StackFrame(const int size): data(size) {
     this->ebp = 0;

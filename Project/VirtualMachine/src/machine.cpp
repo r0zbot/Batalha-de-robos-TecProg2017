@@ -1,7 +1,7 @@
 #include <utility>
 
-#include "../include/log.h"
-#include "../include/machine.h"
+#include <log.h>
+#include <machine.h>
 
 Machine::Machine(const vector<Instruction> &prog) :
 exec(600), memo(200), prog(prog) {

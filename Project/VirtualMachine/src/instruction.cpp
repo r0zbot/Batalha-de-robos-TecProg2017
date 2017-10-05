@@ -1,4 +1,4 @@
-#include "../include/instruction.h"
+#include <instruction.h>
 
 Instruction::Instruction(const Code code, const int arg) {
     this->code = code;
