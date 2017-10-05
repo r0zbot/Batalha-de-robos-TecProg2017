@@ -39,6 +39,9 @@ Project/VirtualMachine/temp/*
 
 ## Plugin-specific files:
 
+# Doxygen
+Doxyfile
+
 # IntelliJ
 /out/
 

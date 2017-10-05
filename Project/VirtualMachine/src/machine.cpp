@@ -74,7 +74,7 @@ void Machine::execute() {
     }
 }
 
-void Machine::free_memory() {
+void Machine::free() {
     this->exec.free(this->fetch_arg());
 }
 
@@ -194,7 +194,7 @@ void Machine::map_functions() {
     this->functions.insert(make_pair(Code::DIV,  &Machine::divide));
     this->functions.insert(make_pair(Code::DUP,  &Machine::duplicate));
     this->functions.insert(make_pair(Code::EQ,   &Machine::equals));
-    this->functions.insert(make_pair(Code::FRE,  &Machine::free_memory));
+    this->functions.insert(make_pair(Code::FRE,  &Machine::free));
     this->functions.insert(make_pair(Code::GT,   &Machine::greater));
     this->functions.insert(make_pair(Code::GE,   &Machine::greater_equal));
     this->functions.insert(make_pair(Code::JMP,  &Machine::jump));
