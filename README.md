@@ -2,6 +2,8 @@
 
 ## [Changelog](changelog.md)
 
+## [Documentação](changelog.md)
+
 ## Requisitos
 
 Para executar o projeto é necessário ter instaladas e no PATH do seu sistema as seguintes ferramentas:

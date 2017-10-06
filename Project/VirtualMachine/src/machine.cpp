@@ -2,9 +2,10 @@
 
 #include <log.h>
 #include <machine.h>
+#include <config.h>
 
 Machine::Machine(const vector<Instruction> &prog) :
-exec(600), memo(200), prog(prog) {
+exec(MACHINE_EXECUTION_STACK_SIZE), memo(MACHINE_MEMORY_SIZE), prog(prog) {
     this->ip = 0;
     this->map_functions();
 }
