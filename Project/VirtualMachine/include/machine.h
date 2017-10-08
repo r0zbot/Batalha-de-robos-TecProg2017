@@ -43,22 +43,22 @@ using namespace std;
  * values to be used in the operations will be on the stack).
  * <p>
  * <ul>
- * <li> {@link #add}
- * <li> {@link #divide}
- * <li> {@link #multiply}
- * <li> {@link #subtract}
+ *   <li> {@link #add}      </li>
+ *   <li> {@link #divide}   </li>
+ *   <li> {@link #multiply} </li>
+ *   <li> {@link #subtract} </li>
  * </ul>
  * <p>
  * <b>Executing logical comparisons.</b> You can check if one operand is
  * greater than, less than, equal to, or not equal to another operand in
  * the stack by using the methods:
  * <ul>
- * <li> {@link #equals()}
- * <li> {@link #greater()}
- * <li> {@link #greater_equal()}
- * <li> {@link #lower()}
- * <li> {@link #lower_equal()}
- * <li> {@link #not_equal()}
+ *   <li> {@link #equals}        </li>
+ *   <li> {@link #greater}       </li>
+ *   <li> {@link #greater_equal} </li>
+ *   <li> {@link #lower}         </li>
+ *   <li> {@link #lower_equal}   </li>
+ *   <li> {@link #not_equal}     </li>
  * </ul>
  * The methods above will use both of the topmost (most recent) values in
  * the stack, and will push back the result of their comparison.
@@ -67,15 +67,15 @@ using namespace std;
  * use the following methods to store or remove short-lived temporary values
  * from the stack:
  * <ul>
- * <li> {@link #push}
- * <li> {@link #pop}
+ *   <li> {@link #push}  </li>
+ *   <li> {@link #pop}   </li>
  * </ul>
  * <p>
  * <b>Jump instructions.</b> You can use the following methods to execute jump instructions:
  * <ul>
- * <li> {@link #jump()}
- * <li> {@link #jump_if_false()}
- * <li> {@link #jump_if_true()}
+ *   <li> {@link #jump}           </li>
+ *   <li> {@link #jump_if_false}  </li>
+ *   <li> {@link #jump_if_true}   </li>
  * </ul>
  * The first method transfers control unconditionally to another instruction.
  * The other two methods are conditional jumps that use the topmost value of
@@ -83,8 +83,8 @@ using namespace std;
  * <p>
  * <b>Executing subroutines.</b>You can start and stop subroutines by using the following methods:
  * <ul>
- * <li> {@link #call()}
- * <li> {@link #return_from_procedure()}
+ *   <li> {@link #call}                  </li>
+ *   <li> {@link #return_from_procedure} </li>
  * </ul>
  * The first method starts a subprocess specified in the instruction argument.
  * The second method stops the execution of the topmost subprogram in the
@@ -93,8 +93,8 @@ using namespace std;
  * <b>Allocating and freeing memory in the StackFrame.</b> You can reserve/free
  * space to use local variables inside subprograms by using the following methods:
  * <ul>
- * <li> {@link #alloc()}
- * <li> {@link #free()}
+ *   <li> {@link #alloc}  </li>
+ *   <li> {@link #free}   </li>
  * </ul>
  * <p>
  * <b>Starting a Machine with a set of instructions.</b> As an example, you
@@ -167,7 +167,7 @@ class Machine {
         explicit Machine(const vector<Instruction> &prog);
 
         /**
-         * @brief Sum both of the topmost values of the stack.
+         * @brief Sums both of the topmost values of the stack.
          *
          * Pops both of the topmost (most recent) values of the
          * stack, then replaces those two values by their sum.
@@ -206,7 +206,7 @@ class Machine {
         void duplicate();
 
         /**
-         * @brief Executes an equals comparison both of the topmost
+         * @brief Executes an equals comparison for both of the topmost
          *        values of the stack.
          *
          * Pops both of topmost (most recent) values of the stack,
@@ -246,7 +246,7 @@ class Machine {
         int fetch_arg() const;
 
         /**
-         * @brief Executes an greater comparison both of the topmost
+         * @brief Executes an greater comparison for both of the topmost
          *        values of the stack.
          *
          * Pops both of topmost (most recent) values of the stack, then
@@ -256,7 +256,7 @@ class Machine {
         void greater();
 
         /**
-         * @brief Executes an greater equals comparison both of the topmost
+         * @brief Executes an greater equals comparison for both of the topmost
          *        values of the stack.
          *
          * Pops both of the topmost (most recent) values of the stack,
@@ -274,7 +274,7 @@ class Machine {
         void jump();
 
         /**
-         * @brief Executes a jump if the topmost value of the stack if false.
+         * @brief Executes a jump if the topmost value of the stack is false.
          *
          * Jumps to the instruction specified by the argument of the
          * jump function if the topmost (most recent) value of
@@ -283,7 +283,7 @@ class Machine {
         void jump_if_false();
 
         /**
-         * @brief Executes a jump if the topmost value of the stack if true.
+         * @brief Executes a jump if the topmost value of the stack is true.
          *
          * Jumps to the instruction specified by the argument of the
          * jump function if the topmost (most recent) value of
@@ -292,7 +292,7 @@ class Machine {
         void jump_if_true();
 
         /**
-         * @brief Executes an lower comparison both of the topmost
+         * @brief Executes an lower comparison for both of the topmost
          *        values of the stack.
          *
          * Pops both of the topmost (most recent) values of the stack, then
@@ -302,7 +302,7 @@ class Machine {
         void lower();
 
         /**
-         * @brief Executes an lower equals comparison both of the topmost
+         * @brief Executes an lower equals comparison for both of the topmost
          *        values of the stack.
          *
          * Pops both of the topmost (most recent) values of the stack, then
@@ -320,7 +320,7 @@ class Machine {
         void multiply();
 
         /**
-         * @brief Executes an not equals comparison both of the topmost
+         * @brief Executes an not equals comparison for both of the topmost
          *        values of the stack.
          *
          * Pops both of the topmost (most recent) values of the stack, then
@@ -335,7 +335,7 @@ class Machine {
         void pop();
 
         /**
-         * @brief Prints the top value of the stack.
+         * @brief Prints the topmost value of the stack.
          *
          * Pops and prints the topmost (most recent) value of the stack.
          */
