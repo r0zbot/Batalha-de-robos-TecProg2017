@@ -58,6 +58,19 @@ class Log {
          * @param [msg] The string to be write in the log standard output.
          */
         static void warn(const string &msg);
+
+       /**
+        * @enum Level
+        *
+        * @brief Defines logging levels for use within the application.
+        */
+        enum Level{
+            DEBUG = 0,
+            INFO = 1,
+            WARN = 2,
+            ERROR = 3,
+            NONE = 4
+        };
 };
 
 #endif
