@@ -6,6 +6,7 @@ Army::Army(){
 
 void Army::add_machine(int id, Machine &machine) {
     //this->machines[id] = machine; TODO: O que esta errado aqui? isso nao compila
+    //Reference https://stackoverflow.com/questions/26409558/ambiguous-map-insert-in-boost
 }
 
 Machine &Army::get_machine(int id) {

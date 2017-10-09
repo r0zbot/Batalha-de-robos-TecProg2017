@@ -19,6 +19,7 @@ using namespace std;
 
 
 class Arena{
+    //TODO better documentation
     private:
         int machine_id_index = 0;
         longlong time = 0;

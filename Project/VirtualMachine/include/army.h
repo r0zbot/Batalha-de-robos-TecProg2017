@@ -7,7 +7,7 @@
 
 using namespace std;
 typedef map<int, Machine>::iterator MachineIterator;
-
+//TODO better documentation
 class Army{
     private:
         map<int, Machine> machines;

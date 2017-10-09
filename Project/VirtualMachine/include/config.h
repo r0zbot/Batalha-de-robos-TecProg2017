@@ -10,7 +10,7 @@
  *
  */
 
-//TODO documentar melhor
+//TODO better documentation
 #define LOGGING_LEVEL DEBUG
 
 #define ARENA_HEIGHT 300
