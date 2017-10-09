@@ -10,6 +10,8 @@
 
 using namespace std;
 
+typedef const vector<Instruction> Program;
+
 /**
  * @file  machine.h
  * @class Machine
@@ -164,7 +166,7 @@ class Machine {
          *
          * @param [prog] A set of instructions representing a program.
          */
-        explicit Machine(const vector<Instruction> &prog);
+        explicit Machine(Program &prog);
 
         /**
          * @brief Sums both of the topmost values of the stack.
@@ -216,8 +218,8 @@ class Machine {
         void equals();
 
         /**
-         * @brief Starts the execution of the main program specified during
-         *        the construction of the <b>Machine</b>.
+         * @brief Calls {@link #run} until the machine no longer has
+         * code to execute.
          */
         void execute();
 
@@ -372,6 +374,20 @@ class Machine {
          * Instruction Pointer.
          */
         void recall();
+
+
+        /**
+         * @brief Runs the current virtual machine for a determined
+         *        amount of cycles.
+         *
+         * @param [cycles] The determined amount of cycles the machine
+         * should run for.
+         *
+         * @return A boolean that values as true when the machine
+         * still has instructions left, and false when the machine
+         * reaches an {@link #end} instruction.
+         */
+        bool run(int cycles);
 
         /**
          * @brief Stores a value as a global variable.

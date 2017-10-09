@@ -4,7 +4,7 @@
 #include <machine.h>
 #include <config.h>
 
-Machine::Machine(const vector<Instruction> &prog) :
+Machine::Machine(Program &prog) :
 exec(MACHINE_EXECUTION_STACK_SIZE), memo(MACHINE_MEMORY_SIZE), prog(prog) {
     this->ip = 0;
     this->map_functions();
@@ -57,22 +57,7 @@ void Machine::equals() {
 }
 
 void Machine::execute() {
-    bool run = true;
-    while (run) {
-        this->ip++;
-        if (this->fetch_code() == Code::END) {
-            run = false;
-        }
-        else {
-            try {
-                Function f = this->functions[this->fetch_code()];
-                (this->*f)();
-            }
-            catch (const exception &e) {
-                Log::error(e.what());
-            }
-        }
-    }
+    while (run(1));
 }
 
 void Machine::free() {
@@ -168,6 +153,25 @@ void Machine::return_from_procedure() {
 
 void Machine::recall() {
     this->data.push(this->memo[this->fetch_arg()]);
+}
+
+bool Machine::run(int cycles) {
+    for(int i=0; i<cycles; i++){
+        this->ip++;
+        if (this->fetch_code() == Code::END) {
+            return false;
+        }
+        else {
+            try {
+                Function f = this->functions[this->fetch_code()];
+                (this->*f)();
+            }
+            catch (const exception &e) {
+                Log::error(e.what());
+            }
+        }
+    }
+    return true;
 }
 
 void Machine::store() {

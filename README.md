@@ -2,7 +2,7 @@
 
 ## [Changelog](changelog.md)
 
-## [Documentação](https://r0zbot.github.io/Batalha-de-robos-TecProg2017/VirtualMachine/)
+## [Documentação da Virtual Machine](https://r0zbot.github.io/Batalha-de-robos-TecProg2017/VirtualMachine/)
 
 ## Requisitos
 
