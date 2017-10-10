@@ -4,7 +4,7 @@
 
 #include <code.h>
 #include <instruction.h>
-#include <machine.h>
+#include <arena.h>
 
 using namespace std;
 
@@ -37,6 +37,21 @@ int main() {
     });
 
     Machine m (prog);
-    m.execute();
+    //m.execute();
+    Arena a;
+    Army exercito1("Exercito loko");
+    Army exercito2("Exercito bosta");
+    a.insert_army(exercito1);
+    a.insert_army(exercito2);
+    a.create_machine(exercito1, prog);
+    a.create_machine(exercito2, prog);
+    a.create_machine(exercito2, prog);
+    a.create_machine(exercito2, prog);
+
+    a.update();
+    a.update();
+    a.update();
+    a.update();
+    a.update();
     return 0;
 }

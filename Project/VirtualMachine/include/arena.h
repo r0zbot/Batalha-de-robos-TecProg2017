@@ -4,7 +4,7 @@
 #include <config.h>
 #include <machine.h>
 #include <army.h>
-#include <map>
+#include <vector>
 
 
 using namespace std;
@@ -24,11 +24,12 @@ class Arena{
         int machine_id_index = 0;
         longlong time = 0;
 
-        map<int, Army> armies;
         int arena_space[ARENA_HEIGHT][ARENA_WIDTH];
+        Army *armies[MAX_ARMY_AMOUNT];
+        int armies_size = 0;
 
     public:
-        Arena();
+        explicit Arena();
 
         /**
          * @brief Creates a new machine on the board and assigns it to an army.
@@ -38,8 +39,8 @@ class Arena{
          */
         void create_machine(Army &army, Program &prog);
         longlong get_elapsed_time();
-        void insert_army();
-        void remove_army();
+        void insert_army(Army &army);
+        void remove_army(int id);
         void update();
 
 };

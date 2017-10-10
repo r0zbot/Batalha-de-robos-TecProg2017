@@ -11,11 +11,13 @@ typedef map<int, Machine>::iterator MachineIterator;
 class Army{
     private:
         map<int, Machine> machines;
+        string name;
 
     public:
-        Army();
+        explicit Army(string name);
         void add_machine(int id, Machine &machine);
         longlong machine_count();
+        string get_name();
         Machine& get_machine(int id);
         MachineIterator machine_iterator_begin();
         MachineIterator machine_iterator_end();

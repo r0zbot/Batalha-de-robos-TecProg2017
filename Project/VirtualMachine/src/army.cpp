@@ -1,16 +1,19 @@
 #include <army.h>
 
-Army::Army(){
-
+Army::Army(string name){
+    this->name = name;
 }
 
 void Army::add_machine(int id, Machine &machine) {
-    //this->machines[id] = machine; TODO: O que esta errado aqui? isso nao compila
-    //Reference https://stackoverflow.com/questions/26409558/ambiguous-map-insert-in-boost
+    this->machines.insert({id, machine});
 }
 
 Machine &Army::get_machine(int id) {
     return this->machines.at(id);
+}
+
+string Army::get_name() {
+    return this->name;
 }
 
 longlong Army::machine_count() {
