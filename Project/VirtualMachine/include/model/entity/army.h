@@ -1,10 +1,13 @@
 #ifndef VIRTUALMACHINE_ARMY_H
 #define VIRTUALMACHINE_ARMY_H
 
-#include <config.h>
-#include <machine.h>
 #include <map>
-#include <robot.h>
+
+#include <controller/classes/machine.h>
+
+#include <model/entity/robot.h>
+
+#include <util/config.h>
 
 using namespace std;
 //TODO better documentation

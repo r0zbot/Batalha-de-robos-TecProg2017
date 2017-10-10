@@ -1,4 +1,4 @@
-#include <entity.h>
+#include <model/interface/entity.h>
 
 Entity::Entity(int id, int posX, int posY) {
     this->id = id;

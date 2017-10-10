@@ -1,8 +1,9 @@
 #include <utility>
 
-#include <log.h>
-#include <machine.h>
-#include <config.h>
+#include <controller/classes/machine.h>
+
+#include <util/config.h>
+#include <util/log.h>
 
 Machine::Machine(Program &prog)
     : exec(MACHINE_EXECUTION_STACK_SIZE), memo(MACHINE_MEMORY_SIZE), prog(prog) {

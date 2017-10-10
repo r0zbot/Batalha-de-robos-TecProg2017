@@ -1,11 +1,13 @@
 #ifndef VIRTUALMACHINE_ARENA_H
 #define VIRTUALMACHINE_ARENA_H
 
-#include <config.h>
-#include <machine.h>
-#include <army.h>
 #include <vector>
 
+#include <controller/classes/machine.h>
+
+#include <model/entity/army.h>
+
+#include <util/config.h>
 
 using namespace std;
 

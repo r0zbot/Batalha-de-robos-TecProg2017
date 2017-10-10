@@ -1,4 +1,4 @@
-#include <instruction.h>
+#include <controller/classes/instruction.h>
 
 Instruction::Instruction(const Code code, const int arg) {
     this->code = code;

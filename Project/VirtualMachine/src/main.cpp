@@ -2,9 +2,10 @@
 
 #include <vector>
 
-#include <code.h>
-#include <instruction.h>
-#include <arena.h>
+#include <controller/classes/code.h>
+#include <controller/classes/instruction.h>
+
+#include <model/entity/arena.h>
 
 using namespace std;
 

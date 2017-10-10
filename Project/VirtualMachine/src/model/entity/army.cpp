@@ -1,6 +1,8 @@
-#include <army.h>
-#include <log.h>
 #include <concat.hpp>
+
+#include <model/entity/army.h>
+
+#include <util/log.h>
 
 Army::Army(const int id, const string name){
     this->id = id;
@@ -34,4 +36,3 @@ void Army::update() {
         robot.second.update();
     }
 }
-

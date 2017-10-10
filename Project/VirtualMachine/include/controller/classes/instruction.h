@@ -1,7 +1,7 @@
 #ifndef VIRTUALMACHINE_INSTRUCTION_H
 #define VIRTUALMACHINE_INSTRUCTION_H
 
-#include <code.h>
+#include <controller/classes/code.h>
 
 /**
  * @file  instruction.h
