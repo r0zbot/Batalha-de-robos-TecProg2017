@@ -39,21 +39,16 @@ int main() {
     Machine m (prog);
     //m.execute();
     Arena a;
-    Army exercito1("Exercito loko");
-    Army exercito2("Exercito bosta");
-    a.create_machine(exercito1, prog);
-    a.create_machine(exercito2, prog);
-    a.create_machine(exercito2, prog);
-    a.create_machine(exercito2, prog);
+    int armyId1 = a.insert_army("Exercito loko");
+    a.create_robot(a.get_army(armyId1), 0, 0, prog);
+    a.create_robot(a.get_army(armyId1), 0, 1, prog);
+    a.create_robot(a.get_army(armyId1), 0, 2, prog);
 
-    a.insert_army(Army("asdsa",1));
-    a.insert_army(exercito2);
+    int armyId2 = a.insert_army("Exercito bosta");
+    a.create_robot(a.get_army(armyId2), 1, 0, prog);
+    a.create_robot(a.get_army(armyId2), 1, 1, prog);
+    a.create_robot(a.get_army(armyId2), 1, 2, prog);
 
-
-    a.update();
-    a.update();
-    a.update();
-    a.update();
     a.update();
     return 0;
 }

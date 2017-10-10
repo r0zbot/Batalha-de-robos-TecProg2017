@@ -31,16 +31,13 @@ class Arena{
     public:
         explicit Arena();
 
-        /**
-         * @brief Creates a new machine on the board and assigns it to an army.
-         *
-         * @param [army] The army the new machine will be assigned to.
-         * @param [prog] The code the machine should run.
-         */
-        void create_machine(Army &army, Program &prog);
+
+        Army & get_army(int id);
         longlong get_elapsed_time();
         int insert_army(string name);
+        int create_robot(Army &army, int posX, int posY, Program prog);
         void remove_army(int id);
+        void system(int op, int arg);
         void update();
 
 };

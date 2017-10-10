@@ -16,11 +16,11 @@ class Army{
 
     public:
         explicit Army(int id, string name);
-            void add_robot(int id, Robot &robot);
-        longlong robot_count();
+        void insert_robot(Robot robot);
         int get_id();
         string get_name() const;
-        Robot& get_robot(int id) const;
+        Robot& get_robot(int id);
+        longlong robot_count();
 
         void update();
 };
