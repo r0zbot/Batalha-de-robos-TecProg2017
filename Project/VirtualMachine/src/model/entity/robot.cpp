@@ -1,9 +1,9 @@
-#include <robot.h>
-#include <config.h>
+#include <model/entity/robot.h>
+
+#include <util/config.h>
 
 Robot::Robot(int id, int posX, int posY, Program prog)
     : Entity(id, posX, posY), machine(prog){
-
 }
 
 void Robot::replace_machine(const Program prog) {

@@ -1,7 +1,9 @@
-#include <arena.h>
-#include <log.h>
 #include <concat.hpp>
-#include <stdio.h>
+
+#include <model/entity/arena.h>
+
+#include <util/log.h>
+
 Arena::Arena() {
     for(int i=0; i<ARENA_HEIGHT; i++){
         for (int j=0; j<ARENA_WIDTH; j++){

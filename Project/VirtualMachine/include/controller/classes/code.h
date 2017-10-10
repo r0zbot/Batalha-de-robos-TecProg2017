@@ -11,7 +11,6 @@
  * implemented in the <b>Machine</b>.
  */
 enum class Code {
-
     ADD,  ///< Pops both topmost elements from the stack and pushes its sum
 
     ALC,  ///< Allocates a specific amount of space in the current frame scope

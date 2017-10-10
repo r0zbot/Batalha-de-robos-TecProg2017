@@ -1,12 +1,9 @@
-//
-// Created by Daniel on 10/10/2017.
-//
-
 #ifndef VIRTUALMACHINE_ROBOT_H
 #define VIRTUALMACHINE_ROBOT_H
 
-#include <machine.h>
-#include <entity.h>
+#include <controller/classes/machine.h>
+
+#include <model/interface/entity.h>
 
 class Robot: public Entity{
     private:
@@ -17,4 +14,4 @@ class Robot: public Entity{
         void update() override;
 };
 
-#endif //VIRTUALMACHINE_ROBOT_H
+#endif

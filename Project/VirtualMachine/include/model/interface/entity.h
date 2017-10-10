@@ -1,7 +1,7 @@
 #ifndef VIRTUALMACHINE_ENTITY_H
 #define VIRTUALMACHINE_ENTITY_H
 
-class Entity{
+class Entity {
     private:
         int id;
         int posX, posY;
@@ -15,4 +15,5 @@ class Entity{
         int set_posY(int y);
         virtual void update()=0;
 };
-#endif //VIRTUALMACHINE_ENTITY_H
+
+#endif

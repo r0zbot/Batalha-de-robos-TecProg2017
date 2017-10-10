@@ -5,8 +5,8 @@
 #include <stack>
 #include <vector>
 
-#include <instruction.h>
-#include <stack_frame.h>
+#include <controller/classes/instruction.h>
+#include <controller/classes/stack_frame.h>
 
 using namespace std;
 
@@ -383,9 +383,8 @@ class Machine {
          * @param [cycles] The determined amount of cycles the machine
          * should run for.
          *
-         * @return A boolean that values as true when the machine
-         * still has instructions left, and false when the machine
-         * reaches an {@link #end} instruction.
+         * @return True if the machine still has instructions left,
+         *         and false if the machine reaches an {@link #end} instruction.
          */
         bool run(int cycles);
 

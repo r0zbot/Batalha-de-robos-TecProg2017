@@ -32,9 +32,9 @@ class Builder:
 
     __INCLUDES = (
         '#include <vector>\n',
-        '#include <code.h>',
-        '#include <instruction.h>',
-        '#include <machine.h>'
+        '#include <controller/classes/code.h>',
+        '#include <controller/classes/instruction.h>',
+        '#include <controller/classes/machine.h>'
     )
 
     __TODO = "// Move this file to /VirtualMachine/src so this can work on production"
