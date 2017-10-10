@@ -41,12 +41,14 @@ int main() {
     Arena a;
     Army exercito1("Exercito loko");
     Army exercito2("Exercito bosta");
-    a.insert_army(exercito1);
-    a.insert_army(exercito2);
     a.create_machine(exercito1, prog);
     a.create_machine(exercito2, prog);
     a.create_machine(exercito2, prog);
     a.create_machine(exercito2, prog);
+
+    a.insert_army(Army("asdsa",1));
+    a.insert_army(exercito2);
+
 
     a.update();
     a.update();

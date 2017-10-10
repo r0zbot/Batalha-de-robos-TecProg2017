@@ -4,23 +4,25 @@
 #include <config.h>
 #include <machine.h>
 #include <map>
+#include <robot.h>
 
 using namespace std;
-typedef map<int, Machine>::iterator MachineIterator;
 //TODO better documentation
 class Army{
     private:
-        map<int, Machine> machines;
+        int id;
+        map<int, Robot> robots;
         string name;
 
     public:
-        explicit Army(string name);
-        void add_machine(int id, Machine &machine);
-        longlong machine_count();
-        string get_name();
-        Machine& get_machine(int id);
-        MachineIterator machine_iterator_begin();
-        MachineIterator machine_iterator_end();
+        explicit Army(int id, string name);
+            void add_robot(int id, Robot &robot);
+        longlong robot_count();
+        int get_id();
+        string get_name() const;
+        Robot& get_robot(int id) const;
+
+        void update();
 };
 
 #endif

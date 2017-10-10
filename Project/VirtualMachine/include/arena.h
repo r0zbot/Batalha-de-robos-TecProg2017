@@ -25,7 +25,7 @@ class Arena{
         longlong time = 0;
 
         int arena_space[ARENA_HEIGHT][ARENA_WIDTH];
-        Army *armies[MAX_ARMY_AMOUNT];
+        vector<Army> armies;
         int armies_size = 0;
 
     public:
@@ -39,7 +39,7 @@ class Arena{
          */
         void create_machine(Army &army, Program &prog);
         longlong get_elapsed_time();
-        void insert_army(Army &army);
+        int insert_army(string name);
         void remove_army(int id);
         void update();
 

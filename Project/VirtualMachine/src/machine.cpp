@@ -4,8 +4,8 @@
 #include <machine.h>
 #include <config.h>
 
-Machine::Machine(Program &prog) :
-exec(MACHINE_EXECUTION_STACK_SIZE), memo(MACHINE_MEMORY_SIZE), prog(prog) {
+Machine::Machine(Program &prog)
+    : exec(MACHINE_EXECUTION_STACK_SIZE), memo(MACHINE_MEMORY_SIZE), prog(prog) {
     this->ip = 0;
     this->map_functions();
 }

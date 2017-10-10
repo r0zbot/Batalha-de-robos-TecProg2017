@@ -1,30 +1,33 @@
 #include <army.h>
 
-Army::Army(string name){
+Army::Army(const int id, const string name){
+    this->id = id;
     this->name = name;
 }
 
-void Army::add_machine(int id, Machine &machine) {
-    this->machines.insert({id, machine});
+void Army::add_robot(const int id, Robot &robot) {
+    this->robots.insert({id, robot});
 }
 
-Machine &Army::get_machine(int id) {
-    return this->machines.at(id);
+int Army::get_id() {
+    return this->id;
 }
 
-string Army::get_name() {
+Robot &Army::get_robot(const int id) const {
+    return this->robots.at(id);
+}
+
+string Army::get_name() const{
     return this->name;
 }
 
-longlong Army::machine_count() {
-    return this->machines.size();
+longlong Army::robot_count() {
+    return this->robots.size();
 }
 
-MachineIterator Army::machine_iterator_begin() {
-    return this->machines.begin();
-}
-
-MachineIterator Army::machine_iterator_end() {
-    return this->machines.end();
+void Army::update() {
+    for(auto &robot : this->robots){
+        robot.second.update();
+    }
 }
 
