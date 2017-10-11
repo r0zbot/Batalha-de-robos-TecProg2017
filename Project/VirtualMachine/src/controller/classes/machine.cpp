@@ -195,30 +195,29 @@ void Machine::subtract() {
 }
 
 void Machine::map_functions() {
-    //TODO: Fix parameters mismatches below
-    this->functions.insert(make_pair(Code::ADD,  &Machine::add));
-    this->functions.insert(make_pair(Code::ALC,  &Machine::alloc));
-    this->functions.insert(make_pair(Code::CALL, &Machine::call));
-    this->functions.insert(make_pair(Code::DIV,  &Machine::divide));
-    this->functions.insert(make_pair(Code::DUP,  &Machine::duplicate));
-    this->functions.insert(make_pair(Code::EQ,   &Machine::equals));
-    this->functions.insert(make_pair(Code::FRE,  &Machine::free));
-    this->functions.insert(make_pair(Code::GT,   &Machine::greater));
-    this->functions.insert(make_pair(Code::GE,   &Machine::greater_equal));
-    this->functions.insert(make_pair(Code::JMP,  &Machine::jump));
-    this->functions.insert(make_pair(Code::JIF,  &Machine::jump_if_false));
-    this->functions.insert(make_pair(Code::JIT,  &Machine::jump_if_true));
-    this->functions.insert(make_pair(Code::LT,   &Machine::lower));
-    this->functions.insert(make_pair(Code::LE,   &Machine::lower_equal));
-    this->functions.insert(make_pair(Code::MUL,  &Machine::multiply));
-    this->functions.insert(make_pair(Code::NE,   &Machine::not_equal));
-    this->functions.insert(make_pair(Code::POP,  &Machine::pop));
-    this->functions.insert(make_pair(Code::PRN,  &Machine::print));
-    this->functions.insert(make_pair(Code::PUSH, &Machine::push));
-    this->functions.insert(make_pair(Code::RCE,  &Machine::rce));
-    this->functions.insert(make_pair(Code::RCL,  &Machine::recall));
-    this->functions.insert(make_pair(Code::RET,  &Machine::return_from_procedure));
-    this->functions.insert(make_pair(Code::STL,  &Machine::stl));
-    this->functions.insert(make_pair(Code::STO,  &Machine::store));
-    this->functions.insert(make_pair(Code::SUB,  &Machine::subtract));
+    this->functions.insert({Code::ADD,  &Machine::add});
+    this->functions.insert({Code::ALC,  &Machine::alloc});
+    this->functions.insert({Code::CALL, &Machine::call});
+    this->functions.insert({Code::DIV,  &Machine::divide});
+    this->functions.insert({Code::DUP,  &Machine::duplicate});
+    this->functions.insert({Code::EQ,   &Machine::equals});
+    this->functions.insert({Code::FRE,  &Machine::free});
+    this->functions.insert({Code::GT,   &Machine::greater});
+    this->functions.insert({Code::GE,   &Machine::greater_equal});
+    this->functions.insert({Code::JMP,  &Machine::jump});
+    this->functions.insert({Code::JIF,  &Machine::jump_if_false});
+    this->functions.insert({Code::JIT,  &Machine::jump_if_true});
+    this->functions.insert({Code::LT,   &Machine::lower});
+    this->functions.insert({Code::LE,   &Machine::lower_equal});
+    this->functions.insert({Code::MUL,  &Machine::multiply});
+    this->functions.insert({Code::NE,   &Machine::not_equal});
+    this->functions.insert({Code::POP,  &Machine::pop});
+    this->functions.insert({Code::PRN,  &Machine::print});
+    this->functions.insert({Code::PUSH, &Machine::push});
+    this->functions.insert({Code::RCE,  &Machine::rce});
+    this->functions.insert({Code::RCL,  &Machine::recall});
+    this->functions.insert({Code::RET,  &Machine::return_from_procedure});
+    this->functions.insert({Code::STL,  &Machine::stl});
+    this->functions.insert({Code::STO,  &Machine::store});
+    this->functions.insert({Code::SUB,  &Machine::subtract});
 }

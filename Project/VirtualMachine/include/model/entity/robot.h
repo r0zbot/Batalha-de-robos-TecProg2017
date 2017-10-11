@@ -5,7 +5,7 @@
 
 #include <model/interface/entity.h>
 
-class Robot : public Entity {
+class Robot: public Entity {
     private:
         Machine machine;
     public:
