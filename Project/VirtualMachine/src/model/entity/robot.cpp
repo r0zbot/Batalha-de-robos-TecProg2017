@@ -64,7 +64,7 @@ void Robot::update() {
 }
 
 bool Robot::use_fuel(const double amount) {
-    if(this->fuel > 0 && this->fuel > amount){
+    if(amount > 0 && this->fuel >= amount){
         this->fuel -= amount;
         return true;
     }

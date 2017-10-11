@@ -62,7 +62,6 @@ int main() {
     arena.update();
     arena.update();
     arena.update();
-    arena.update();arena.update();
     arena.update();
     arena.update();
     arena.update();
@@ -72,7 +71,6 @@ int main() {
     arena.update();
     arena.update();
     arena.update();
-    arena.update();arena.update();
     arena.update();
     arena.update();
     arena.update();
@@ -82,7 +80,6 @@ int main() {
     arena.update();
     arena.update();
     arena.update();
-    arena.update();arena.update();
     arena.update();
     arena.update();
     arena.update();
@@ -92,7 +89,6 @@ int main() {
     arena.update();
     arena.update();
     arena.update();
-    arena.update();arena.update();
     arena.update();
     arena.update();
     arena.update();
@@ -102,7 +98,16 @@ int main() {
     arena.update();
     arena.update();
     arena.update();
-    arena.update();arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
     arena.update();
     arena.update();
     arena.update();
