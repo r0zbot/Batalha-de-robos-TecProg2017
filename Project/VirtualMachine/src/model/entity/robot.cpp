@@ -11,6 +11,18 @@ void Robot::clear_crystals() {
     this->crystals = 0;
 }
 
+int Robot::get_crystals() {
+    return this->crystals;
+}
+
+double Robot::get_fuel() {
+    return this->fuel;
+}
+
+int Robot::get_hp() {
+    return this->hp;
+}
+
 void Robot::heal(const unsigned int amount) {
     if(amount > this->hpCapacity){
         this->hp = this->hpCapacity;
@@ -39,4 +51,14 @@ void Robot::replace_machine(const Program prog) {
 
 void Robot::update() {
     this->machine.run(MACHINE_RUN_CYCLES);
+}
+
+bool Robot::use_fuel(double amount) {
+    if(this->fuel > 0 && this->fuel > amount){
+        this->fuel -= amount;
+        return true;
+    }
+    else{
+        return false;
+    }
 }

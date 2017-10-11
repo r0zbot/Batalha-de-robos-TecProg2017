@@ -16,10 +16,14 @@ class Robot: public Entity {
     public:
         Robot(int id, int posX, int posY, Program prog);
         void clear_crystals();
+        int get_crystals();
+        int get_hp();
+        double get_fuel();
         void heal(unsigned int amount);
         void insert_crystals(unsigned int amount);
         void refuel(unsigned double amount);
         void replace_machine(Program prog);
         void update() override;
+        bool use_fuel(double amount);
 };
 #endif
