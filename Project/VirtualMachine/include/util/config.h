@@ -16,6 +16,7 @@
 #define ARENA_HEIGHT 300
 #define ARENA_SLEEP_TIME 300 //In milliseconds
 #define ARENA_WIDTH 300
+#define FUEL_PER_INSTRUCTION 0.01
 #define MACHINE_EXECUTION_STACK_SIZE 600
 #define MACHINE_MEMORY_SIZE 200
 #define MACHINE_RUN_CYCLES 10 // Número de ciclos que cada maquina pode executar de uma só vez

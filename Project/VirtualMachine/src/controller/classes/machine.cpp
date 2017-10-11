@@ -4,12 +4,13 @@
 
 #include <util/config.h>
 #include <util/log.h>
+#include <model/entity/robot.h>
+#include <util/globals.h>
 
-Machine::Machine(Program &prog, Robot *parent)
+Machine::Machine(Program &prog)
     : exec(MACHINE_EXECUTION_STACK_SIZE), memo(MACHINE_MEMORY_SIZE), prog(prog) {
     this->ip = 0;
     this->map_functions();
-    this->parent = parent;
 }
 
 Code Machine::fetch_code() const {
@@ -137,7 +138,7 @@ void Machine::pop() {
 }
 
 void Machine::print() {
-    printf("%d\n", this->data.top());
+    arena.print(this->data.top(), *this->parent);
     this->data.pop();
 }
 
@@ -158,13 +159,21 @@ void Machine::recall() {
 }
 
 bool Machine::run(int cycles) {
+    if(this->endReached){
+        return false;
+    }
     for(int i=0; i<cycles; i++){
         this->ip++;
         if (this->fetch_code() == Code::END) {
+            this->endReached = true;
             return false;
         }
         else {
             try {
+                if(!this->parent->use_fuel(FUEL_PER_INSTRUCTION)){
+                    arena.print("Not enough fuel!", *this->parent);
+                    return false;
+                }
                 Function f = this->functions[this->fetch_code()];
                 (this->*f)();
             }
@@ -174,6 +183,10 @@ bool Machine::run(int cycles) {
         }
     }
     return true;
+}
+
+void Machine::set_parent(Robot *robot) {
+    this->parent = robot;
 }
 
 void Machine::store() {

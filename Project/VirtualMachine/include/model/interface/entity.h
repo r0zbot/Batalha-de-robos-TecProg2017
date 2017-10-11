@@ -4,11 +4,13 @@
 class Entity {
     private:
         int id;
+        int parentId;
         int posX, posY;
     public:
         Entity(int id, int posX, int posY);
 
         int get_id() const;
+        int get_parent_id() const;
         int get_posX() const;
         int get_posY() const;
         int set_posX(int x);

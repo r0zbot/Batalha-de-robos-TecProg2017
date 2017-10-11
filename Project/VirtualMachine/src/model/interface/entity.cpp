@@ -10,6 +10,10 @@ int Entity::get_id() const {
     return this->id;
 }
 
+int Entity::get_parent_id() const {
+    return this->parentId;
+}
+
 int Entity::get_posX() const {
     return this->posX;
 }

@@ -123,6 +123,11 @@ class Machine {
         int ip;
 
         /**
+         * Indicates whether or not the code has reached its end
+         */
+        bool endReached = false;
+
+        /**
          * Holds a reference to the parent robot to be able
          * to access its properties.
          */
@@ -173,7 +178,7 @@ class Machine {
          *
          * @param [prog] A set of instructions representing a program.
          */
-        explicit Machine(Program &prog, Robot *parent);
+        explicit Machine(Program &prog);
 
         /**
          * @brief Sums both of the topmost values of the stack.
@@ -394,6 +399,18 @@ class Machine {
          *         and false if the machine reaches an {@link #end} instruction.
          */
         bool run(int cycles);
+
+        /**
+         * @brief Sets a Robot as this machine's parent.
+         *
+         * Sets this machine's parent so that it can access its properties.
+         * This needs to be done outside the constructor because the robot is copied
+         * (and not referenced) into the army, and otherwise its reference would become
+         * invalid.
+         *
+         * @param [robot] The Robot that should be the machine's parent.
+         */
+        void set_parent(Robot *robot);
 
         /**
          * @brief Stores a value as a global variable.

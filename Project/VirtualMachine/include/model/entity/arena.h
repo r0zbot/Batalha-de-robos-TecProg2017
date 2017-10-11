@@ -23,21 +23,23 @@ using namespace std;
 class Arena{
     //TODO better documentation
     private:
-        int machine_id_index = 0;
         longlong time = 0;
 
         int arena_space[ARENA_HEIGHT][ARENA_WIDTH];
         vector<Army> armies;
-        int armies_size = 0;
 
     public:
         explicit Arena();
 
 
-        Army & get_army(int id);
+        Army &get_army(int id);
+        Army &get_robots_army(Robot &robot);
         longlong get_elapsed_time();
         int insert_army(string name);
         int create_robot(Army &army, int posX, int posY, Program prog);
+        void print(const string &s);
+        void print(const string &s, Robot &robot);
+        void print(int n, Robot &robot);
         void remove_army(int id);
         void system(int op, int arg);
         void update();

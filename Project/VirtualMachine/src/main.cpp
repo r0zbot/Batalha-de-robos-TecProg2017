@@ -6,6 +6,9 @@
 #include <controller/classes/instruction.h>
 
 #include <model/entity/arena.h>
+#include <concat.hpp>
+#include <util/log.h>
+#include <util/globals.h>
 
 using namespace std;
 
@@ -37,19 +40,80 @@ int main() {
         ,Instruction(Code::END, 0)
     });
 
-    Machine m(prog, NULL);
+    //Machine m(prog);
     //m.execute();
-    Arena a;
-    int armyId1 = a.insert_army("Exercito loko");
-    a.create_robot(a.get_army(armyId1), 0, 0, prog);
-    a.create_robot(a.get_army(armyId1), 0, 1, prog);
-    a.create_robot(a.get_army(armyId1), 0, 2, prog);
+    int armyId1 = arena.insert_army("Exercito loko");
+    arena.create_robot(arena.get_army(armyId1), 0, 0, prog);
+    arena.create_robot(arena.get_army(armyId1), 0, 1, prog);
+    arena.create_robot(arena.get_army(armyId1), 0, 2, prog);
 
-    int armyId2 = a.insert_army("Exercito bosta");
-    a.create_robot(a.get_army(armyId2), 1, 0, prog);
-    a.create_robot(a.get_army(armyId2), 1, 1, prog);
-    a.create_robot(a.get_army(armyId2), 1, 2, prog);
+    int armyId2 = arena.insert_army("Exercito bosta");
+    arena.create_robot(arena.get_army(armyId2), 1, 0, prog);
+    arena.create_robot(arena.get_army(armyId2), 1, 1, prog);
+    arena.create_robot(arena.get_army(armyId2), 1, 2, prog);
 
-    a.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+    arena.update();
+
+    Log::debug(concat("Fuel left: ",arena.get_army(armyId1).get_robot(0).get_fuel()));
     return 0;
 }
