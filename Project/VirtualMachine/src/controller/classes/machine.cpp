@@ -5,10 +5,11 @@
 #include <util/config.h>
 #include <util/log.h>
 
-Machine::Machine(Program &prog)
+Machine::Machine(Program &prog, Robot *parent)
     : exec(MACHINE_EXECUTION_STACK_SIZE), memo(MACHINE_MEMORY_SIZE), prog(prog) {
     this->ip = 0;
     this->map_functions();
+    this->parent = parent;
 }
 
 Code Machine::fetch_code() const {
@@ -194,6 +195,7 @@ void Machine::subtract() {
 }
 
 void Machine::map_functions() {
+    //TODO: Fix parameters mismatches below
     this->functions.insert(make_pair(Code::ADD,  &Machine::add));
     this->functions.insert(make_pair(Code::ALC,  &Machine::alloc));
     this->functions.insert(make_pair(Code::CALL, &Machine::call));

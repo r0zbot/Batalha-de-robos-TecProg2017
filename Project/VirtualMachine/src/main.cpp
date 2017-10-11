@@ -37,7 +37,7 @@ int main() {
         ,Instruction(Code::END, 0)
     });
 
-    Machine m (prog);
+    Machine m(prog, NULL);
     //m.execute();
     Arena a;
     int armyId1 = a.insert_army("Exercito loko");

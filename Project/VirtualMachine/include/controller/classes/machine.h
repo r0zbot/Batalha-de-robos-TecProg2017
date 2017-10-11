@@ -9,6 +9,7 @@
 #include <controller/classes/stack_frame.h>
 
 using namespace std;
+class Robot;
 
 typedef const vector<Instruction> Program;
 
@@ -122,6 +123,12 @@ class Machine {
         int ip;
 
         /**
+         * Holds a reference to the parent robot to be able
+         * to access its properties.
+         */
+        Robot *parent;
+
+        /**
          * Represents a call-return stack in memory to organize
          * and store short-lived local variables and return links
          * for all currently active procedures or functions.
@@ -166,7 +173,7 @@ class Machine {
          *
          * @param [prog] A set of instructions representing a program.
          */
-        explicit Machine(Program &prog);
+        explicit Machine(Program &prog, Robot *parent);
 
         /**
          * @brief Sums both of the topmost values of the stack.

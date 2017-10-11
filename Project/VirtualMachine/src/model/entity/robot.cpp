@@ -3,11 +3,11 @@
 #include <util/config.h>
 
 Robot::Robot(int id, int posX, int posY, Program prog)
-    : Entity(id, posX, posY), machine(prog){
+    : Entity(id, posX, posY), machine(prog, this) {
 }
 
 void Robot::replace_machine(const Program prog) {
-    this->machine = Machine(prog);
+    this->machine = Machine(prog, this);
 }
 
 void Robot::update() {
