@@ -22,10 +22,13 @@ include_directories(${TEST_DIR})
 #
 # GENERAL DEPENDENCIES
 #
-file(GLOB_RECURSE HEADER_FILES ${INCLUDE_DIR}/*.h)
+add_subdirectory(${LIB_DIR}/gtest)
+include_directories(${LIB_DIR}/gtest/googletest/include)
+
+file(GLOB_RECURSE HEADER_FILES  ${INCLUDE_DIR}/*.h)
 file(GLOB_RECURSE LIBRARY_FILES ${LIB_DIR}/*.hpp)
-file(GLOB_RECURSE SOURCE_FILES ${SOURCE_DIR}/*.cpp)
-file(GLOB_RECURSE TEST_FILES   ${TEST_DIR}/*.cpp)
+file(GLOB_RECURSE SOURCE_FILES  ${SOURCE_DIR}/*.cpp)
+file(GLOB_RECURSE TEST_FILES    ${TEST_DIR}/*.cpp)
 
 #
 # OUTPUT PATHS
@@ -34,3 +37,6 @@ set(EXECUTABLE_OUTPUT_PATH ${BINARY_DIR})
 set(LIBRARY_OUTPUT_PATH    ${LIB_DIR})
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${LIBRARY_FILES})
+add_executable(Tests ${SOURCE_FILES} ${HEADER_FILES} ${LIBRARY_FILES} ${TEST_FILES})
+
+target_link_libraries(Tests gtest gtest_main)

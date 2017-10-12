@@ -388,10 +388,10 @@ class Machine {
          *        amount of cycles.
          *
          * @param [cycles] The determined amount of cycles the machine
-         * should run for.
+         *                 should run for.
          *
          * @return True if the machine still has instructions left,
-         *         and false if the machine reaches an {@link #end} instruction.
+         *         and false if the machine reaches an <b>END</b> instruction.
          */
         bool run(int cycles);
 
