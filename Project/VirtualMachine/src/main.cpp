@@ -40,17 +40,25 @@ int main() {
         ,Instruction(Code::END, 0)
     });
 
+    vector<Instruction> prog2 ({
+            Instruction(Code::PUSH, 1),
+            Instruction(Code::SYS, 2),
+            Instruction(Code::PUSH, 3),
+            Instruction(Code::SYS, 1),
+            Instruction(Code::END, 0)
+                               });
+
     //Machine m(prog);
     //m.execute();
     int armyId1 = arena.insert_army("Exercito loko");
     arena.create_robot(arena.get_army(armyId1), 0, 0, prog);
-    arena.create_robot(arena.get_army(armyId1), 0, 1, prog);
-    arena.create_robot(arena.get_army(armyId1), 0, 2, prog);
+    //arena.create_robot(arena.get_army(armyId1), 0, 1, prog);
+    //arena.create_robot(arena.get_army(armyId1), 0, 2, prog);
 
     int armyId2 = arena.insert_army("Exercito bosta");
-    arena.create_robot(arena.get_army(armyId2), 1, 0, prog);
-    arena.create_robot(arena.get_army(armyId2), 1, 1, prog);
-    arena.create_robot(arena.get_army(armyId2), 1, 2, prog);
+    arena.create_robot(arena.get_army(armyId2), 1, 0, prog2);
+    //arena.create_robot(arena.get_army(armyId2), 1, 1, prog);
+    //arena.create_robot(arena.get_army(armyId2), 1, 2, prog);
 
     arena.update();
     arena.update();

@@ -62,6 +62,8 @@ enum class Code {
     STO,  ///< Stores the topmost value of the stack as a global variable
 
     SUB,  ///< Pops both topmost elements from the stack and pushes its subtraction
+
+    SYS,  ///< Executes a system call, which pops the arguments for the selected call from the stack.
 };
 
 #endif

@@ -6,6 +6,7 @@
 #include <util/log.h>
 #include <model/entity/robot.h>
 #include <util/globals.h>
+#include <concat.hpp>
 
 Machine::Machine(Program &prog)
     : exec(MACHINE_EXECUTION_STACK_SIZE), memo(MACHINE_MEMORY_SIZE), prog(prog) {
@@ -33,9 +34,29 @@ void Machine::alloc() {
     this->exec.alloc(this->fetch_arg());
 }
 
+void Machine::attack_melee() {
+    arena.request_attack_melee(*this->parent, (Direction) this->data.top());
+    this->data.pop();
+}
+
+void Machine::attack_short() {
+    arena.request_attack_short(*this->parent, (Direction) this->data.top());
+    this->data.pop();
+}
+
+void Machine::attack_long() {
+    arena.request_attack_long(*this->parent, (Direction) this->data.top());
+    this->data.pop();
+}
+
 void Machine::call() {
     this->exec.push(this->ip);
     this->jump();
+}
+
+void Machine::collect_crystal() {
+    arena.request_collect(*this->parent, (Direction) this->data.top());
+    this->data.pop();
 }
 
 void Machine::divide() {
@@ -44,6 +65,11 @@ void Machine::divide() {
     int num = this->data.top();
     this->data.pop();
     this->data.push(num / den);
+}
+
+void Machine::drop_crystal() {
+    arena.request_drop(*this->parent, (Direction) this->data.top());
+    this->data.pop();
 }
 
 void Machine::duplicate() {
@@ -115,6 +141,11 @@ void Machine::lower_equal() {
     int n2 = this->data.top();
     this->data.pop();
     this->data.push(n1 >= n2);
+}
+
+void Machine::move() {
+    arena.request_movement(*this->parent, (Direction) this->data.top());
+    this->data.pop();
 }
 
 void Machine::multiply() {
@@ -207,6 +238,15 @@ void Machine::subtract() {
     this->data.push(n2 - n1);
 }
 
+void Machine::system() {
+    if(this->systemFunctions.count((SystemCode)this->fetch_arg()) != 1){
+        Log::warn(concat(this->fetch_arg(), " is not a valid system instruction."));
+        return;
+    }
+    Function f = this->systemFunctions[(SystemCode)this->fetch_arg()];
+    (this->*f)();
+}
+
 void Machine::map_functions() {
     this->functions.insert({Code::ADD,  &Machine::add});
     this->functions.insert({Code::ALC,  &Machine::alloc});
@@ -233,4 +273,12 @@ void Machine::map_functions() {
     this->functions.insert({Code::STL,  &Machine::stl});
     this->functions.insert({Code::STO,  &Machine::store});
     this->functions.insert({Code::SUB,  &Machine::subtract});
+    this->functions.insert({Code::SYS,  &Machine::system});
+
+    this->systemFunctions.insert({SystemCode::ATTACKMELEE,  &Machine::attack_melee});
+    this->systemFunctions.insert({SystemCode::ATTACKSHORT,  &Machine::attack_short});
+    this->systemFunctions.insert({SystemCode::ATTACKLONG,  &Machine::attack_long});
+    this->systemFunctions.insert({SystemCode::COLLECT, &Machine::collect_crystal});
+    this->systemFunctions.insert({SystemCode::DROP,  &Machine::drop_crystal});
+    this->systemFunctions.insert({SystemCode::MOVE,  &Machine::move});
 }

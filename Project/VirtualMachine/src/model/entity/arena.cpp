@@ -65,8 +65,34 @@ void Arena::remove_army(int id) {
     this->armies.erase(this->armies.begin()+id);
 }
 
-void Arena::system(int op, int arg) {
-    //TODO: implementar
+void Arena::request_attack_melee(Robot &robot, Direction direction){
+    this->print(concat("Attack Melee ",(int)direction), robot);
+    //TODO
+}
+
+void Arena::request_attack_short(Robot &robot, Direction direction) {
+    this->print(concat("Attack Short ",(int)direction), robot);
+    //TODO
+}
+
+void Arena::request_attack_long(Robot &robot, Direction direction) {
+    this->print(concat("Attack Long ",(int)direction), robot);
+    //TODO
+}
+
+void Arena::request_collect(Robot &robot, Direction direction) {
+    this->print(concat("Collect ",(int)direction), robot);
+    //TODO
+}
+
+void Arena::request_drop(Robot &robot, Direction direction) {
+    this->print(concat("Drop ",(int)direction), robot);
+    //TODO
+}
+
+void Arena::request_movement(Robot &robot, Direction direction) {
+    this->print(concat("Move ",(int)direction), robot);
+    //TODO
 }
 
 void Arena::update() {
