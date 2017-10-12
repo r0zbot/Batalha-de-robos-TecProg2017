@@ -42,12 +42,12 @@ class Arena{
         void print(const string &s, Robot &robot);
         void print(int n, Robot &robot);
         void remove_army(int id);
-        void request_attack_melee(Robot robot, Direction direction);
-        void request_attack_short(Robot robot, Direction direction);
-        void request_attack_long(Robot robot, Direction direction);
-        void request_collect(Robot robot, Direction direction);
-        void request_drop(Robot robot, Direction direction);
-        void request_movement(Robot robot, Direction direction);
+        void request_attack_melee(Robot &robot, Direction direction);
+        void request_attack_short(Robot &robot, Direction direction);
+        void request_attack_long(Robot &robot, Direction direction);
+        void request_collect(Robot &robot, Direction direction);
+        void request_drop(Robot &robot, Direction direction);
+        void request_movement(Robot &robot, Direction direction);
         void update();
 
 };
