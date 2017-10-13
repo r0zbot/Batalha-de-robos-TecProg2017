@@ -20,7 +20,7 @@ class Builder:
 
         TODO (str):     Represents an observation explaining where the
                         resulting source file should be placed so it can
-                        works correctly.
+                        work correctly.
 
     Example:
         The builder class read a direct input from 'stdin'::
