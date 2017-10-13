@@ -7,6 +7,7 @@
 
 #include <controller/classes/instruction.h>
 #include <controller/classes/stack_frame.h>
+#include <controller/classes/system.h>
 
 using namespace std;
 class Robot;
@@ -123,6 +124,11 @@ class Machine {
         int ip;
 
         /**
+         * Indicates whether or not the code has reached its end
+         */
+        bool endReached = false;
+
+        /**
          * Holds a reference to the parent robot to be able
          * to access its properties.
          */
@@ -162,6 +168,11 @@ class Machine {
         map<Code, Function> functions;
 
         /**
+         * Stores system functions pointers and its respective code.
+         */
+        map<SystemCode, Function> systemFunctions;
+
+        /**
          * Maps any function of this class that is directly related to an
          * instruction. It's a more elegant way to express a switch-case.
          */
@@ -173,7 +184,7 @@ class Machine {
          *
          * @param [prog] A set of instructions representing a program.
          */
-        explicit Machine(Program &prog, Robot *parent);
+        explicit Machine(Program &prog);
 
         /**
          * @brief Sums both of the topmost values of the stack.
@@ -200,12 +211,62 @@ class Machine {
         void call();
 
         /**
+         *  @brief Melee attacks another robot. Called through a system call.
+         *
+         *  Requests the arena to melee attack another robot in a given
+         *  direction.
+         *
+         *  The direction is given in the stack, which is popped after this is called.
+         */
+        void attack_melee();
+
+        /**
+         *  @brief Short range attack on another robot. Called through a system call.
+         *
+         *  Requests the arena to attack another robot in short range in a given
+         *  direction.
+         *
+         *  The direction is given in the stack, which is popped after this is called.
+         */
+        void attack_short();
+
+        /**
+         *  @brief Long range attack on another robot. Called through a system call.
+         *
+         *  Requests the arena to attack another robot in long range in a given
+         *  direction.
+         *
+         *  The direction is given in the stack, which is popped after this is called.
+         */
+        void attack_long();
+
+        /**
+         *  @brief Collects a crystal. Called through a system call.
+         *
+         *  Requests the arena to collect a crystal in a neighboring cell
+         *  in a given direction.
+         *
+         *  The direction is given in the stack, which is popped after this is called.
+         */
+        void collect_crystal();
+
+        /**
          * @brief Divides both of the topmost values of the stack.
          *
          * Pops both of the topmost (most recent) values of the stack,
          * then replaces those two values by their quotient.
          */
         void divide();
+
+        /**
+         *  @brief Drops a crystal. Called through a system call.
+         *
+         *  Requests the arena to drop a crystal in a neighboring cell
+         *  in a given direction.
+         *
+         *  The direction is given in the stack, which is popped after this is called.
+         */
+        void drop_crystal();
 
         /**
          * @brief Duplicates the topmost value of the stack.
@@ -321,6 +382,15 @@ class Machine {
         void lower_equal();
 
         /**
+         *  @brief Moves in a direction. Called through a system call.
+         *
+         *  Requests the arena to move to a neighboring cell in a direction.
+         *
+         *  The direction is given in the stack, which is popped after this is called.
+         */
+        void move();
+
+        /**
          * @brief Multiplies both of the topmost values of the stack.
          *
          * Pops both of the topmost (most recent) values of the stack,
@@ -396,6 +466,18 @@ class Machine {
         bool run(int cycles);
 
         /**
+         * @brief Sets a Robot as this machine's parent.
+         *
+         * Sets this machine's parent so that it can access its properties.
+         * This needs to be done outside the constructor because the robot is copied
+         * (and not referenced) into the army, and otherwise its reference would become
+         * invalid.
+         *
+         * @param [robot] The Robot that should be the machine's parent.
+         */
+        void set_parent(Robot *robot);
+
+        /**
          * @brief Stores a value as a global variable.
          *
          * Stores the topmost (most recent) value of the stack as
@@ -418,6 +500,14 @@ class Machine {
          * then replaces those two values by their subtraction.
          */
         void subtract();
+
+        /**
+         * @brief Calls another function given as a paramether.
+         *
+         * Calls another function given as a paramether, usually to perform an action
+         * in the arena, consisting of a system call.
+         */
+        void system();
 };
 
 #endif

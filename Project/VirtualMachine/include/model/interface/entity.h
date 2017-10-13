@@ -1,19 +1,26 @@
 #ifndef VIRTUALMACHINE_ENTITY_H
 #define VIRTUALMACHINE_ENTITY_H
 
+#include <application/component/hex.h>
+
 class Entity {
+
     private:
-        int id;
-        int posX, posY;
+        static int id_gen;
+
+        const int id;
+        Hex pos;
+
     public:
-        Entity(int id, int posX, int posY);
+        explicit Entity(const Hex &pos);
+
+        virtual void update(int cycles) = 0;
 
         int get_id() const;
-        int get_posX() const;
-        int get_posY() const;
-        int set_posX(int x);
-        int set_posY(int y);
-        virtual void update()=0;
+        int get_x() const;
+        int get_y() const;
+
+        void set_position(const Hex &pos);
 };
 
 #endif

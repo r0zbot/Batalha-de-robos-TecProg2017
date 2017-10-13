@@ -3,7 +3,7 @@
 ## [Changelog](changelog.md)
 
 ## [Documentação da Virtual Machine](https://r0zbot.github.io/Batalha-de-robos-TecProg2017/VirtualMachine/)
-
+Também pode ser vista em `docs/VirtualMachine`.
 ## Requisitos
 
 Para executar o projeto é necessário ter instaladas e no PATH do seu sistema as seguintes ferramentas:

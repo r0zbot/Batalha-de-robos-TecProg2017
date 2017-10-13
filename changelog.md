@@ -1,5 +1,19 @@
-## Changelog
-### Primeira fase (mudanças em relação ao código fornecido pelo professor):
+# Changelog
+## Segunda fase
+* Implementadas classes e suas devidas funcionalidades (para mais detalhes, ver [documentação](https://r0zbot.github.io/Batalha-de-robos-TecProg2017/VirtualMachine/)): 
+    * Entidade
+        * Robô
+    * Arena
+    * Exército
+* Implementado sistema de log com 4 níveis de verbosidade (Debug, Info, Warn, Error)
+* Refatorada pilha de execução usando nova implementação da [StackFrame](https://r0zbot.github.io/Batalha-de-robos-TecProg2017/VirtualMachine/class_stack_frame.html)
+* Adicionadas propriedades ao robô, incluindo número de cristais, HP, e combustível.
+* Execução de código agora gasta uma quantidade ~~muito~~ pequena de combustível a cada instrução, e quando ele acaba, a execução é interrompida.
+* Implementado escalonador que executa cada máquina virtual da arena por uma quantidade limitada de ciclos de cada vez.
+* Instrução PRN agora imprime ID do robô e nome do exército de origem.
+
+## Primeira fase (mudanças em relação ao código fornecido pelo professor):
+
 * Refatorado código para C++.
 * Implementado arquivo _CMakeLists_ para construção do projeto _cross-platform_.
 * Implementação completa do montador _builder.py_.

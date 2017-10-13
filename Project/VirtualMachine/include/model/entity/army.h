@@ -10,8 +10,9 @@
 #include <util/config.h>
 
 using namespace std;
-//TODO better documentation
-class Army{
+
+class Army {
+
     private:
         int id;
         map<int, Robot> robots;
@@ -19,12 +20,13 @@ class Army{
 
     public:
         explicit Army(int id, string name);
-        void insert_robot(Robot robot);
-        int get_id();
-        string get_name() const;
+        string get_name();
         Robot& get_robot(int id);
         longlong robot_count();
 
+        bool contains_robot(Robot &robot);
+        int get_id();
+        void insert_robot(Robot robot);
         void update();
 };
 

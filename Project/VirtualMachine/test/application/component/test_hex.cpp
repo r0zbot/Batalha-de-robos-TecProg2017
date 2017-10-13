@@ -35,45 +35,45 @@ TEST_F(TestHex, should_generate_correct_hash_code_for_different_hex_objects) {
 TEST_F(TestHex, should_return_correct_neighbor_at_specified_direction_from_origin) {
     Hex origin (0, 0);
 
-    EXPECT_EQ(1, origin.neighbor(Direction::N_EAST).get_col());
-    EXPECT_EQ(0, origin.neighbor(Direction::N_EAST).get_row());
+    EXPECT_EQ(1, origin.neighbor(Direction::NE).get_col());
+    EXPECT_EQ(0, origin.neighbor(Direction::NE).get_row());
 
-    EXPECT_EQ(0, origin.neighbor(Direction::NORTH).get_col());
-    EXPECT_EQ(-1, origin.neighbor(Direction::NORTH).get_row());
+    EXPECT_EQ(0, origin.neighbor(Direction::N).get_col());
+    EXPECT_EQ(-1, origin.neighbor(Direction::N).get_row());
 
-    EXPECT_EQ(-1, origin.neighbor(Direction::N_WEST).get_col());
-    EXPECT_EQ(0, origin.neighbor(Direction::N_WEST).get_row());
+    EXPECT_EQ(-1, origin.neighbor(Direction::NW).get_col());
+    EXPECT_EQ(0, origin.neighbor(Direction::NW).get_row());
 
-    EXPECT_EQ(1, origin.neighbor(Direction::S_EAST).get_col());
-    EXPECT_EQ(1, origin.neighbor(Direction::S_EAST).get_row());
+    EXPECT_EQ(1, origin.neighbor(Direction::SE).get_col());
+    EXPECT_EQ(1, origin.neighbor(Direction::SE).get_row());
 
-    EXPECT_EQ(0, origin.neighbor(Direction::SOUTH).get_col());
-    EXPECT_EQ(1, origin.neighbor(Direction::SOUTH).get_row());
+    EXPECT_EQ(0, origin.neighbor(Direction::S).get_col());
+    EXPECT_EQ(1, origin.neighbor(Direction::S).get_row());
 
-    EXPECT_EQ(-1, origin.neighbor(Direction::S_WEST).get_col());
-    EXPECT_EQ(1, origin.neighbor(Direction::S_WEST).get_row());
+    EXPECT_EQ(-1, origin.neighbor(Direction::SW).get_col());
+    EXPECT_EQ(1, origin.neighbor(Direction::SW).get_row());
 }
 
 TEST_F(TestHex, should_return_correct_neighbor_at_specified_direction_from_random_point) {
     Hex point (3, 2);
 
-    EXPECT_EQ(4, point.neighbor(Direction::N_EAST).get_col());
-    EXPECT_EQ(1, point.neighbor(Direction::N_EAST).get_row());
+    EXPECT_EQ(4, point.neighbor(Direction::NE).get_col());
+    EXPECT_EQ(1, point.neighbor(Direction::NE).get_row());
 
-    EXPECT_EQ(3, point.neighbor(Direction::NORTH).get_col());
-    EXPECT_EQ(1, point.neighbor(Direction::NORTH).get_row());
+    EXPECT_EQ(3, point.neighbor(Direction::N).get_col());
+    EXPECT_EQ(1, point.neighbor(Direction::N).get_row());
 
-    EXPECT_EQ(2, point.neighbor(Direction::N_WEST).get_col());
-    EXPECT_EQ(1, point.neighbor(Direction::N_WEST).get_row());
+    EXPECT_EQ(2, point.neighbor(Direction::NW).get_col());
+    EXPECT_EQ(1, point.neighbor(Direction::NW).get_row());
 
-    EXPECT_EQ(4, point.neighbor(Direction::S_EAST).get_col());
-    EXPECT_EQ(2, point.neighbor(Direction::S_EAST).get_row());
+    EXPECT_EQ(4, point.neighbor(Direction::SE).get_col());
+    EXPECT_EQ(2, point.neighbor(Direction::SE).get_row());
 
-    EXPECT_EQ(3, point.neighbor(Direction::SOUTH).get_col());
-    EXPECT_EQ(3, point.neighbor(Direction::SOUTH).get_row());
+    EXPECT_EQ(3, point.neighbor(Direction::S).get_col());
+    EXPECT_EQ(3, point.neighbor(Direction::S).get_row());
 
-    EXPECT_EQ(2, point.neighbor(Direction::S_WEST).get_col());
-    EXPECT_EQ(2, point.neighbor(Direction::S_WEST).get_row());
+    EXPECT_EQ(2, point.neighbor(Direction::SW).get_col());
+    EXPECT_EQ(2, point.neighbor(Direction::SW).get_row());
 }
 
 TEST_F(TestHex, should_execute_equals_operator_correctly) {
