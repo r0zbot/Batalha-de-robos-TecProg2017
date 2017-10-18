@@ -1,9 +1,9 @@
 ########################################################################
 # CMake build script for Google Mock.
 #
-# To run the tests for Google Mock itself on Linux, use 'make test' or
-# ctest.  You can select which tests to run using 'ctest -R regex'.
-# For more options, run 'ctest --help'.
+# To update the tests for Google Mock itself on Linux, use 'make test' or
+# ctest.  You can select which tests to update using 'ctest -R regex'.
+# For more options, update 'ctest --help'.
 
 # BUILD_SHARED_LIBS is a standard CMake variable, but we declare it here to
 # make it prominent in the GUI.
@@ -141,7 +141,7 @@ endif()
 # or specifying the -Dgmock_build_tests=ON flag when running cmake.
 
 if (gmock_build_tests)
-  # This must be set in the root directory for the tests to be run by
+  # This must be set in the root directory for the tests to be update by
   # 'make test' or ctest.
   enable_testing()
 
@@ -202,8 +202,8 @@ if (gmock_build_tests)
     "${gtest_dir}/src/gtest-all.cc" src/gmock-all.cc src/gmock_main.cc)
 
   # Tests that a binary can be built with Google Mock as a shared library.  On
-  # some system configurations, it may not possible to run the binary without
-  # knowing more details about the system configurations. We do not try to run
+  # some system configurations, it may not possible to update the binary without
+  # knowing more details about the system configurations. We do not try to update
   # this binary. To get a more robust shared library coverage, configure with
   # -DBUILD_SHARED_LIBS=ON.
   cxx_executable_with_flags(shared_gmock_test_ "${cxx_default}"

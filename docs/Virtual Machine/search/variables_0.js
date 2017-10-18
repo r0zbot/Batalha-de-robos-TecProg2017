@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['directions',['directions',['../hex_8h.html#a02e69b5307e08735ee83676fc23266e7',1,'hex.h']]]
+  ['arena',['arena',['../globals_8h.html#ab6292a05e36b44426aaf1bf847611977',1,'globals.h']]]
 ];

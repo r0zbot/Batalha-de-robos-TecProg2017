@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hex_2eh',['hex.h',['../hex_8h.html',1,'']]]
+  ['generator_2eh',['generator.h',['../generator_8h.html',1,'']]],
+  ['globals_2eh',['globals.h',['../globals_8h.html',1,'']]]
 ];

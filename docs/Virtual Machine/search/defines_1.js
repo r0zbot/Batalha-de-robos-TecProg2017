@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['logging_5flevel',['LOGGING_LEVEL',['../config_8h.html#aaff29f732338b733b8d1fee0e8df32ab',1,'config.h']]]
+  ['fuel_5fper_5finstruction',['FUEL_PER_INSTRUCTION',['../machine_8h.html#a40a2f598d290aa8b7a95d2a7c5aceff6',1,'machine.h']]]
 ];

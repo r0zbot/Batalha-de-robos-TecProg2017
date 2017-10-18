@@ -6,21 +6,23 @@
 
 #include <controller/classes/system.h>
 
+#include <model/entity/terrain.h>
+
 using namespace std;
 
 /**
  * @file  hex.h
  * @class Hex
  *
- * @brief The <b>Hex</b> class represents a flat-topped hexagonal position
- *        in a hexagonal grid of type "Even-Q".
+ * @brief The <b>Hex</b> class represents a flat-topped hexagonal position in a
+ *        hexagonal grid of type "Even-Q".
  *
  * The <b>Hex</b> object represents one position in a hexagonal grid constructed
  * using an Offset Coordinate System. This system is the easiest approach to
  * represent a hexagonal multi-dimensional array with columns and rows.
  *
- * For performance and memory usages, this class provides an <b>Hash Code</b>
- * so it can be stored in hash tables and generate more efficient and generic grids.
+ * For performance and memory usages, this class provides an <b>Hash Code</b> so
+ * it can be stored in hash tables and generate more efficient and generic grids.
  *
  * @see https://www.redblobgames.com/grids/hexagons/
  */
@@ -28,30 +30,77 @@ class Hex {
 
     private:
         /**
+         * Stores the id of a group of entities if
+         * this position is a base of that group.
+         *
+         * If this positions is not a base of any group,
+         * it stores -1.
+         */
+        int base;
+
+        /**
          * Represents the column number in a hexagonal
          * multi-dimensional array.
          */
-        const int col;
+        int col;
+
+        /**
+         * Represents the amount of crystals present
+         * in this position.
+         */
+        int crystals;
+
+        /**
+         * Represents the id of an entity present in
+         * this position.
+         *
+         * If this position is empty, it stores -1.
+         */
+        int occup;
 
         /**
          * Represents the row number in a hexagonal
          * multi-dimensional array.
          */
-        const int row;
+        int row;
+
+        /**
+         * Represents the type of {@link Terrain} in
+         * this position.
+         */
+        Terrain terrain;
 
     public:
         /**
-         * @brief Constructs a Hexagon that represents the position [col][row]
+         * @brief Constructs a Hexagon that represents the position [row][col]
          *        in a multi-dimensional array.
          *
-         * @param [col] The column number.
-         * @param [row] The row number.
+         * @param [col]      The column number.
+         * @param [row]      The row number.
+         * @param [base]     The group's id who owns this position as a base.
+         * @param [occup]    The entity's id present in this position.
+         * @param [crystals] The number of crystal in this position.
+         * @param [terrain]  The type of terrain in this position.
          */
-        Hex(int col, int row);
+        Hex(int col,
+            int row,
+            int base = -1,
+            int occup = -1,
+            int crystals = 0,
+            Terrain terrain = Terrain::NONE);
+
+        /**
+         * @brief Copies the argument's attributes to this <b>Hex</b> object.
+         *
+         * @param [hex] The object that will be assigned to the function caller.
+         *
+         * @return A pointer to the new value of the function caller.
+         */
+        Hex& operator=(const Hex &hex);
 
         /**
          * @brief Overload of "equals" operator so it can compare two
-         *        Hex objects.
+         *        <b>Hex</b> objects.
          *
          * This method executes inner comparisons in both of the
          * hexagons's column and row, and return true only if the
@@ -66,7 +115,7 @@ class Hex {
 
         /**
          * @brief Overload of "not equals" operator so it can compare two
-         *        Hex objects.
+         *        <b>Hex</b> objects.
          *
          * This method executes inner comparisons in both of the
          * hexagons's column and row, and return true if their
@@ -96,6 +145,13 @@ class Hex {
         int distance(const Hex &hex) const;
 
         /**
+         * @brief Gets the group's id who owns this <b>Hex</b> as a base.
+         *
+         * @return The group's id who owns this <b>Hex</b> as a base.
+         */
+        int get_base() const;
+
+        /**
          * @brief Gets the hexagon column position.
          *
          * @return The hexagon column position.
@@ -103,11 +159,25 @@ class Hex {
         int get_col() const;
 
         /**
+         * @brief Gets the entity's id present at this <b>Hex</b>.
+         *
+         * @return The entity's id present at this <b>Hex</b>.
+         */
+        int get_occup() const;
+
+        /**
          * @brief Gets the hexagon row position.
          *
          * @return The hexagon row position.
          */
         int get_row() const;
+
+        /**
+         * @brief Gets the type of the {@link Terrain} at this <b>Hex</b>.
+         *
+         * @return The {@link Terrain} type at this <b>Hex</b>.
+         */
+        Terrain get_terrain() const;
 
         /**
          * @brief Gets the hexagon's neighbor at the specified direction.
@@ -126,7 +196,7 @@ class Hex {
         Hex neighbor(Direction d) const;
 
         /**
-         * @brief Finds every hexagon that is within n steps from the caller.
+         * @brief Finds every hexagon that is within n steps from this one.
          *
          * Given an origin (the function caller) and a range, this method
          * finds every hexagon that is within this range (n steps from the
@@ -138,6 +208,34 @@ class Hex {
          *         steps from the caller.
          */
         unordered_set<Hex> range(int n) const;
+
+        /**
+         * @brief Sets a new base at this <b>Hex</b>.
+         *
+         * @param [base] The group's id that owns this <b>Hex</b> as a base.
+         */
+        void set_base(int base);
+
+        /**
+         * @brief Sets a number of crystals at this <b>Hex</b>.
+         *
+         * @param [crystals] The new number of crystals at this <b>Hex</b>.
+         */
+        void set_crystals(int crystals);
+
+        /**
+         * @brief Sets a new entity at this <b>Hex</b>.
+         *
+         * @param [occup] The entity's id present at this <b>Hex</b>.
+         */
+        void set_occup(int occup);
+
+        /**
+         * @brief Sets the {@link Terrain} type at this <b>Hex</b>.
+         *
+         * @param [terrain] The new {@link Terrain} type at this <b>Hex</b>.
+         */
+        void set_terrain(Terrain terrain);
 
         /**
          * @brief Converts the hexagon offset coordinates to cube coordinates.

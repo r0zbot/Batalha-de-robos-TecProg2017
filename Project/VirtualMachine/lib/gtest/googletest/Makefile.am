@@ -221,7 +221,7 @@ lib_libgtest_main_la_LIBADD = lib/libgtest.la
 # reference:
 #
 # TESTS -- Programs run automatically by "make check"
-# check_PROGRAMS -- Programs built by "make check" but not necessarily run
+# check_PROGRAMS -- Programs built by "make check" but not necessarily update
 
 noinst_LTLIBRARIES = samples/libsamples.la
 

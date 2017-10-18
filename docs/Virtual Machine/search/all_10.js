@@ -1,17 +1,27 @@
 var searchData=
 [
-  ['s_5feast',['S_EAST',['../operation_8h.html#a224b9163917ac32fc95a60d8c1eec3aaae9add41dec60514052d0db11a5799e4a',1,'operation.h']]],
-  ['s_5fwest',['S_WEST',['../operation_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa6d38c412ae0b57a3a239a6308f699872',1,'operation.h']]],
+  ['s',['S',['../system_8h.html#a224b9163917ac32fc95a60d8c1eec3aaaf1ce01387d2348f8b858721a7db81670',1,'system.h']]],
+  ['se',['SE',['../system_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa61c600c17d14bd4db73433ddbb8491e8',1,'system.h']]],
   ['set',['set',['../class_stack_frame.html#a0df9aaf8d1cc758ccf6732f4bd3f7ffe',1,'StackFrame']]],
-  ['set_5fposx',['set_posX',['../class_entity.html#acdea3f654ef76a6b6ef4e291fe1ba24f',1,'Entity']]],
-  ['set_5fposy',['set_posY',['../class_entity.html#a4c83abc245792e3878fffafeaaeb9463',1,'Entity']]],
-  ['south',['SOUTH',['../operation_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa8ef5c0bce69283a9986011a63eea8a6b',1,'operation.h']]],
+  ['set_5fbase',['set_base',['../class_hex.html#a0a86eec504eae5b86b211fb8c97e3a57',1,'Hex']]],
+  ['set_5fcrystals',['set_crystals',['../class_hex.html#aa72ae733da99801b40c9ef93bb4288f9',1,'Hex']]],
+  ['set_5fgroup_5fid',['set_group_id',['../class_entity_move.html#a0e932c48dceabbf521eeb0122b70a094',1,'EntityMove']]],
+  ['set_5foccup',['set_occup',['../class_hex.html#ac0f7ea2903ffc42ae9a7f9c8565792e7',1,'Hex']]],
+  ['set_5fposition',['set_position',['../class_entity.html#a22c987ad8493bc297711fbfe80b909b1',1,'Entity']]],
+  ['set_5fterrain',['set_terrain',['../class_hex.html#abaadd60ddb4b73771bdb36973aa29c49',1,'Hex']]],
+  ['size',['size',['../class_army.html#aba1a88814b9b568aacd32a6a16483beb',1,'Army']]],
+  ['sleep_5ftime',['SLEEP_TIME',['../arena_8h.html#abe0b7b2a0ec4b64b92585808a051e1fa',1,'arena.h']]],
   ['stack_5fframe_2eh',['stack_frame.h',['../stack__frame_8h.html',1,'']]],
   ['stackframe',['StackFrame',['../class_stack_frame.html',1,'StackFrame'],['../class_stack_frame.html#a4403f78e66c3177e849a95a02e3ddca9',1,'StackFrame::StackFrame()']]],
   ['stl',['stl',['../class_machine.html#a3dcf96898b74ea8dcdbeb7e9ddbc22c0',1,'Machine::stl()'],['../code_8h.html#af31477bc48f67856bedb0fa8e5b5281da2523e0c272cb676c4f59f97828966f78',1,'STL():&#160;code.h']]],
   ['sto',['STO',['../code_8h.html#af31477bc48f67856bedb0fa8e5b5281da1c79844d86bafd69a5119632d52321aa',1,'code.h']]],
   ['store',['store',['../class_machine.html#af6e501757d54f7d4bd7a0d4b6069ae30',1,'Machine']]],
+  ['street',['STREET',['../terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54ba78fce82336bbbdca7f6da7564b8f9325',1,'terrain.h']]],
   ['sub',['SUB',['../code_8h.html#af31477bc48f67856bedb0fa8e5b5281da241dd841abade20fcb27b8a9f494e1eb',1,'code.h']]],
   ['subtract',['subtract',['../class_machine.html#abea24d9ce5d941f811df52dcaae5ddef',1,'Machine']]],
-  ['system',['system',['../class_arena.html#a76b24d108f5781885a6bd250f7b27747',1,'Arena']]]
+  ['sw',['SW',['../system_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa247b880fc48dc1c74961ba58ae0f68a2',1,'system.h']]],
+  ['sys',['SYS',['../code_8h.html#af31477bc48f67856bedb0fa8e5b5281da834c3d60d84e11303f54a7dabaacb567',1,'code.h']]],
+  ['system',['system',['../class_machine.html#af59bcfc03abf54a0b2a6165f97c0427c',1,'Machine']]],
+  ['system_2eh',['system.h',['../system_8h.html',1,'']]],
+  ['systemcode',['SystemCode',['../system_8h.html#a355181b5a7b6128ebf4d3d3951652f7e',1,'system.h']]]
 ];

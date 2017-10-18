@@ -1,10 +1,15 @@
 var class_machine =
 [
-    [ "Machine", "class_machine.html#a5707c25fea1d9e7934185b5ba068186b", null ],
+    [ "Machine", "class_machine.html#ae1080681692554ff4ea46ee5cb0d1103", null ],
     [ "add", "class_machine.html#a182af94331503a6de66961f1eb677dfd", null ],
     [ "alloc", "class_machine.html#ae423e97b4ccd1519309bb59108204995", null ],
+    [ "attack_long", "class_machine.html#a685171a06a4f770c9f334d66ca27ab76", null ],
+    [ "attack_melee", "class_machine.html#a0bb1db2b921f434e11695f04c0557ce4", null ],
+    [ "attack_short", "class_machine.html#a7f9650cd71ada0fd34283ee10234a238", null ],
     [ "call", "class_machine.html#af9cb386e4b0214564a6b2f25d1e432aa", null ],
+    [ "collect_crystal", "class_machine.html#ade146e03b7e3367d20f219235d7e971c", null ],
     [ "divide", "class_machine.html#ac6f8d9edb75e4c563d07e85127060397", null ],
+    [ "drop_crystal", "class_machine.html#ad5d4d262ecc0539f4d5516bd3422edfb", null ],
     [ "duplicate", "class_machine.html#aa43c5a135ed59be05f0460e28073f6d7", null ],
     [ "equals", "class_machine.html#ab23e5b5e7d75393bb473e4a5ba54b125", null ],
     [ "execute", "class_machine.html#a75764e89cf3590178a30cc9a2021acc0", null ],
@@ -18,6 +23,7 @@ var class_machine =
     [ "jump_if_true", "class_machine.html#a53f6a564b19e9d8629ff07b1b9f8f79e", null ],
     [ "lower", "class_machine.html#ab8290077a5774aa14e6b1cbdf29d4385", null ],
     [ "lower_equal", "class_machine.html#a9ecdee109284c725372d8a0a043700cd", null ],
+    [ "move", "class_machine.html#ae7b97bb0beec3215503c2d88a4da10ee", null ],
     [ "multiply", "class_machine.html#a73c6359b599ed11924b0f868a23a5be2", null ],
     [ "not_equal", "class_machine.html#a6f8f335f0838afee14f55b7c7bbe3f3b", null ],
     [ "pop", "class_machine.html#ad039d7d80994ef08339e1c5e5a98b341", null ],
@@ -26,8 +32,9 @@ var class_machine =
     [ "rce", "class_machine.html#a6ee15d9124c54ff099ac799613d10cc7", null ],
     [ "recall", "class_machine.html#aab8e8318815f1800f15cacbc46d27686", null ],
     [ "return_from_procedure", "class_machine.html#aac0e1efdd1b047f1923669100a236323", null ],
-    [ "run", "class_machine.html#a02a919310db8322d0ba54a5417185dea", null ],
     [ "stl", "class_machine.html#a3dcf96898b74ea8dcdbeb7e9ddbc22c0", null ],
     [ "store", "class_machine.html#af6e501757d54f7d4bd7a0d4b6069ae30", null ],
-    [ "subtract", "class_machine.html#abea24d9ce5d941f811df52dcaae5ddef", null ]
+    [ "subtract", "class_machine.html#abea24d9ce5d941f811df52dcaae5ddef", null ],
+    [ "system", "class_machine.html#af59bcfc03abf54a0b2a6165f97c0427c", null ],
+    [ "update", "class_machine.html#ad8c4f949acd7558e1c15a76d7142581b", null ]
 ];

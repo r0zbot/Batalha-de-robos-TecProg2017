@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.1)
 set(CMAKE_CXX_STANDARD 11)
 
 project(VirtualMachine)
+set(TEST_TARGET Tests)
 
 #
 # MAIN DIRECTORIES
@@ -30,6 +31,9 @@ file(GLOB_RECURSE LIBRARY_FILES ${LIB_DIR}/*.hpp)
 file(GLOB_RECURSE SOURCE_FILES  ${SOURCE_DIR}/*.cpp)
 file(GLOB_RECURSE TEST_FILES    ${TEST_DIR}/*.cpp)
 
+set(SOURCE_TESTS ${SOURCE_FILES})
+list(REMOVE_ITEM SOURCE_TESTS ${SOURCE_DIR}/main.cpp)
+
 #
 # OUTPUT PATHS
 #
@@ -37,6 +41,6 @@ set(EXECUTABLE_OUTPUT_PATH ${BINARY_DIR})
 set(LIBRARY_OUTPUT_PATH    ${LIB_DIR})
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${LIBRARY_FILES})
-add_executable(Tests ${SOURCE_FILES} ${HEADER_FILES} ${LIBRARY_FILES} ${TEST_FILES})
+add_executable(${TEST_TARGET} EXCLUDE_FROM_ALL ${SOURCE_TESTS} ${HEADER_FILES} ${LIBRARY_FILES} ${TEST_FILES})
 
-target_link_libraries(Tests gtest gtest_main)
+target_link_libraries(${TEST_TARGET} gtest gtest_main)

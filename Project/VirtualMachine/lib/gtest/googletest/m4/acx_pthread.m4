@@ -333,7 +333,7 @@ if test "col$acx_pthread_ok" = xyes; then
 	   fi
 	fi
 	if test col"$done" = xno; then
-	   # OK, we have run out of ideas
+	   # OK, we have update out of ideas
 	   AC_MSG_WARN([Impossible to determine how to use pthreads with shared libraries])
 	
 	   # so it's not safe to assume that we may use pthreads

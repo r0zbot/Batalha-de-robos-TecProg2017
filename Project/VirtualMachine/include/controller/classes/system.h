@@ -8,6 +8,21 @@
 #define VIRTUALMACHINE_SYSTEM_H
 
 /**
+ * @enum  Direction
+ * @brief The <b>Direction</b> is a base enum that defines
+ *        the six possible directions of movement in a
+ *        flat-topped hexagonal grid.
+ */
+enum Direction {
+    NE = 0, ///< Represents the direction Northeast
+    N  = 1, ///< Represents the direction North
+    NW = 2, ///< Represents the direction Northwest
+    SE = 3, ///< Represents the direction Southeast
+    S  = 4, ///< Represents the direction South
+    SW = 5  ///< Represents the direction Southwest
+};
+
+/**
  * @enum  SystemCode
  * @brief The <b>SystemCode</b> is a strongly typed enum that
  *        defines operations codes for general actions.
@@ -19,21 +34,6 @@ enum class SystemCode {
     ATKMELEE = 4, ///< Represents the melee attack action
     ATKSHORT = 5, ///< Represents the short attack action
     ATKLONG  = 6  ///< Represents the long attack action
-};
-
-/**
- * @enum Direction
- * @brief The <b>Direction</b> is a strongly typed enum that
- *        defines the six possible directions of movement
- *        in a flat-topped hexagonal grid.
- */
-enum Direction {
-    NE = 0, ///< Represents the direction Northeast
-    N  = 1, ///< Represents the direction North
-    NW = 2, ///< Represents the direction Northwest
-    SE = 3, ///< Represents the direction Southeast
-    S  = 4, ///< Represents the direction South
-    SW = 5  ///< Represents the direction Southwest
 };
 
 #endif

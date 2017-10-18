@@ -2,7 +2,17 @@
 
 #include <application/component/hex.h>
 
-Hex::Hex(const int col, const int row) : col(col), row(row) {}
+Hex::Hex(const int col,
+         const int row,
+         const int base,
+         const int occup,
+         const int crystals,
+         const Terrain terrain) :
+        col(col), row(row),
+        base(base), occup(occup),
+        crystals(crystals), terrain(terrain) {}
+
+Hex& Hex::operator=(const Hex &hex) = default;
 
 bool Hex::operator==(const Hex &hex) const {
     return this->col == hex.col && this->row == hex.row;
@@ -12,18 +22,30 @@ bool Hex::operator!=(const Hex &hex) const {
     return !(*this == hex);
 }
 
-int Hex::distance(const Hex &hex) const {
-    const vector<int> a = this->to_cube();
-    const vector<int> b = hex.to_cube();
-    return (abs(a[0] - b[0]) + abs(a[1] - b[1])) + abs(a[2] - b[2]) / 2;
+int Hex::get_base() const {
+    return this->base;
 }
 
 int Hex::get_col() const {
     return this->col;
 }
 
+int Hex::get_occup() const {
+    return this->occup;
+}
+
 int Hex::get_row() const {
     return this->row;
+}
+
+Terrain Hex::get_terrain() const {
+    return this->terrain;
+}
+
+int Hex::distance(const Hex &hex) const {
+    const vector<int> a = this->to_cube();
+    const vector<int> b = hex.to_cube();
+    return (abs(a[0] - b[0]) + abs(a[1] - b[1])) + abs(a[2] - b[2]) / 2;
 }
 
 Hex Hex::neighbor(const Direction d) const {
@@ -42,6 +64,22 @@ unordered_set<Hex> Hex::range(const int n) const {
     }
     results.erase(*this);
     return results;
+}
+
+void Hex::set_base(const int base) {
+    this->base = base;
+}
+
+void Hex::set_crystals(const int crystals) {
+    this->crystals = crystals;
+}
+
+void Hex::set_occup(const int occup) {
+    this->occup = occup;
+}
+
+void Hex::set_terrain(const Terrain terrain) {
+    this->terrain = terrain;
 }
 
 vector<int> Hex::to_cube() const {

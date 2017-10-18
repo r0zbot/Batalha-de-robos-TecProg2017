@@ -1,6 +1,9 @@
 var searchData=
 [
   ['hash_3c_20hex_20_3e',['hash&lt; Hex &gt;',['../structstd_1_1hash_3_01_hex_01_4.html',1,'std']]],
-  ['hex',['Hex',['../class_hex.html',1,'Hex'],['../class_hex.html#a7d3731ce61af87f0ae51e0fe330a5be6',1,'Hex::Hex()']]],
-  ['hex_2eh',['hex.h',['../hex_8h.html',1,'']]]
+  ['heal',['heal',['../class_entity_move.html#a76912804555e077ccda12071380dd40e',1,'EntityMove']]],
+  ['hex',['Hex',['../class_hex.html',1,'Hex'],['../class_hex.html#a1958977584f33bee2007b8db858bb94c',1,'Hex::Hex()']]],
+  ['hex_2eh',['hex.h',['../hex_8h.html',1,'']]],
+  ['hp',['hp',['../class_entity_move.html#a66e33dcd556ac4f6ecfc655ed896df2d',1,'EntityMove']]],
+  ['hp_5fcapacity',['hp_capacity',['../class_entity_move.html#a144f222cc11e995a72a16a0b09ec813b',1,'EntityMove']]]
 ];

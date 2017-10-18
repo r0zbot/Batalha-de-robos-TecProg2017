@@ -1,46 +1,41 @@
-#include <concat.hpp>
-
 #include <model/entity/army.h>
 
-#include <util/log.h>
-
-Army::Army(const int id, const string name){
-    this->id = id;
-    this->name = name;
+Army::Army(const vector<EntityMove*> &soldiers) : id(id_gen++) {
+    for (auto const &e : soldiers) {
+        e->set_group_id(this->id);
+        this->soldiers.emplace(e->get_id(), e);
+    }
 }
 
-//TODO: quando/se robos tiverem IDs globais, substituir por id para ser mais rapido
-bool Army::contains_robot(Robot &robot) {
-    for (auto &currentRobot : this->robots)
-        if (&robot == &currentRobot.second)
-            return true;
-    return false;
+Army::~Army() {
+    for (auto const &e : this->soldiers) {
+        delete e.second;
+    }
+    this->soldiers.clear();
 }
 
-void Army::insert_robot(Robot robot) {
-    this->robots.insert({robot.get_id(), robot});
+bool Army::contains_soldier(const int id) const {
+    return this->soldiers.find(id) != this->soldiers.end();
 }
 
-int Army::get_id() {
+int Army::get_id() const {
     return this->id;
 }
 
-Robot &Army::get_robot(const int id) {
-    return this->robots.at(id);
+EntityMove* Army::get_soldier(const int id) {
+    return this->soldiers.at(id);
 }
 
-string Army::get_name() {
-    return this->name;
+void Army::remove_soldier(const int id) {
+    this->soldiers.erase(id);
 }
 
-longlong Army::robot_count() {
-    return this->robots.size();
+unsigned long Army::size() const {
+    return this->soldiers.size();
 }
 
 void Army::update() {
-    //Log::debug(concat("Updating army ",this->name));
-    for(auto &robot : this->robots){
-        //Log::debug(concat("Robot ",robot.first));
-        robot.second.update();
+    for (auto const &e : this->soldiers) {
+        e.second->update(50);
     }
 }

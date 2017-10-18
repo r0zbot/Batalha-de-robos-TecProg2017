@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['direction',['Direction',['../operation_8h.html#a224b9163917ac32fc95a60d8c1eec3aa',1,'operation.h']]]
+  ['level',['Level',['../class_log.html#afb5d4c945d835d194a295461d752531e',1,'Log']]]
 ];

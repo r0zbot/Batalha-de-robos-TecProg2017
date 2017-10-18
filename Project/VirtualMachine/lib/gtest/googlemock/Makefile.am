@@ -117,7 +117,7 @@ EXTRA_DIST += \
   test/gmock-port_test.cc \
   test/gmock_stress_test.cc
 
-# Python tests, which we don't run using autotools.
+# Python tests, which we don't update using autotools.
 EXTRA_DIST += \
   test/gmock_leak_test.py \
   test/gmock_leak_test_.cc \

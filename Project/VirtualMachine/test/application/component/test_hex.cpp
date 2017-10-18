@@ -8,7 +8,7 @@ using namespace std;
 
 class TestHex : public ::testing::Test {};
 
-TEST_F(TestHex, should_generate_correct_hash_code_for_different_hex_objects) {
+TEST_F(TestHex, hashFunction_validData_shouldGenerateDifferentHashCodesForDifferentHexObjects) {
     unordered_map<Hex, int> map;
 
     Hex hex  (0, 0);
@@ -32,7 +32,7 @@ TEST_F(TestHex, should_generate_correct_hash_code_for_different_hex_objects) {
     EXPECT_EQ(3, map[hex]);
 }
 
-TEST_F(TestHex, should_return_correct_neighbor_at_specified_direction_from_origin) {
+TEST_F(TestHex, neighbor_originHex_shouldReturnTheDirectionItself) {
     Hex origin (0, 0);
 
     EXPECT_EQ(1, origin.neighbor(Direction::NE).get_col());
@@ -54,7 +54,7 @@ TEST_F(TestHex, should_return_correct_neighbor_at_specified_direction_from_origi
     EXPECT_EQ(1, origin.neighbor(Direction::SW).get_row());
 }
 
-TEST_F(TestHex, should_return_correct_neighbor_at_specified_direction_from_random_point) {
+TEST_F(TestHex, neighbor_randomHex_shouldReturnCorrectNeighborAtSpecifiedDirectionFromInput) {
     Hex point (3, 2);
 
     EXPECT_EQ(4, point.neighbor(Direction::NE).get_col());
@@ -76,7 +76,7 @@ TEST_F(TestHex, should_return_correct_neighbor_at_specified_direction_from_rando
     EXPECT_EQ(2, point.neighbor(Direction::SW).get_row());
 }
 
-TEST_F(TestHex, should_execute_equals_operator_correctly) {
+TEST_F(TestHex, equalsOperator_equalAndNotEqualInput_shouldReturnTrueWhenEqualsAndFalseOtherwise) {
     Hex a (0, 0);
     Hex b (0, 0);
     Hex c (1, 0);
@@ -89,7 +89,7 @@ TEST_F(TestHex, should_execute_equals_operator_correctly) {
     EXPECT_FALSE(c == b);
 }
 
-TEST_F(TestHex, should_execute_not_equals_operator_correctly) {
+TEST_F(TestHex, notEqualsOperator_equalAndNotEqualInput_shouldReturnTrueWhenNotEqualsAndFalseOtherwise) {
     Hex a (0, 0);
     Hex b (0, 0);
     Hex c (1, 0);
@@ -102,7 +102,7 @@ TEST_F(TestHex, should_execute_not_equals_operator_correctly) {
     EXPECT_TRUE (c != b);
 }
 
-TEST_F(TestHex, should_convert_offset_coordinates_to_cube_coordinates) {
+TEST_F(TestHex, toCube_offsetInput_shouldConvertOffsetCoordinatesToCubeCoordinates) {
     const vector<int> cube = Hex(2, 1).to_cube();
     EXPECT_EQ(2, cube[0]);
     EXPECT_EQ(-2, cube[1]);
@@ -114,7 +114,7 @@ TEST_F(TestHex, should_convert_offset_coordinates_to_cube_coordinates) {
     EXPECT_EQ(0, origin[2]);
 }
 
-TEST_F(TestHex, should_convert_cube_coordinates_to_offset_coordinates) {
+TEST_F(TestHex, toOffset_cubeInput_shouldConvertCubeCoordinatesToOffsetCoordinates) {
     Hex origin = Hex::to_offset(0, 0);
     EXPECT_EQ(0, origin.get_col());
     EXPECT_EQ(0, origin.get_row());
@@ -124,7 +124,7 @@ TEST_F(TestHex, should_convert_cube_coordinates_to_offset_coordinates) {
     EXPECT_EQ(1, hex.get_row());
 }
 
-TEST_F(TestHex, should_return_all_hex_in_a_specified_range) {
+TEST_F(TestHex, range_randomPoint_shouldReturnAllHexWhitinSpecifiedRange) {
     Hex center (3, 3);
     const unordered_set<Hex> response = center.range(2);
     EXPECT_EQ(18, response.size());

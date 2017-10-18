@@ -2,6 +2,14 @@
 
 Entity::Entity(const Hex &pos) : id(id_gen++), pos(pos) {}
 
+bool Entity::operator!=(const Entity &e) const {
+    return !(*this == e);
+}
+
+bool Entity::operator==(const Entity &e) const {
+    return this->id == e.id;
+}
+
 int Entity::get_id() const {
     return this->id;
 }

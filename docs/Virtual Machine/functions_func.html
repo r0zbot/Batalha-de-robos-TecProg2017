@@ -85,6 +85,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>add()
 : <a class="el" href="class_machine.html#a182af94331503a6de66961f1eb677dfd">Machine</a>
 </li>
+<li>affect()
+: <a class="el" href="class_entity_static.html#af5f1e859c5ee70e207050803b54ea87a">EntityStatic</a>
+</li>
 <li>alloc()
 : <a class="el" href="class_machine.html#ae423e97b4ccd1519309bb59108204995">Machine</a>
 , <a class="el" href="class_stack_frame.html#ac6fd0915d90cd7622944e53643faac17">StackFrame</a>
@@ -93,7 +96,16 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="class_arena.html#a74f105bc709d4728fb07f1984abfd345">Arena</a>
 </li>
 <li>Army()
-: <a class="el" href="class_army.html#a52f9aa8907dd9d3a0c6c1df260c6881a">Army</a>
+: <a class="el" href="class_army.html#ab6e449d7d495494144b5839ce76e38e8">Army</a>
+</li>
+<li>attack_long()
+: <a class="el" href="class_machine.html#a685171a06a4f770c9f334d66ca27ab76">Machine</a>
+</li>
+<li>attack_melee()
+: <a class="el" href="class_machine.html#a0bb1db2b921f434e11695f04c0557ce4">Machine</a>
+</li>
+<li>attack_short()
+: <a class="el" href="class_machine.html#a7f9650cd71ada0fd34283ee10234a238">Machine</a>
 </li>
 </ul>
 
@@ -109,8 +121,14 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>call()
 : <a class="el" href="class_machine.html#af9cb386e4b0214564a6b2f25d1e432aa">Machine</a>
 </li>
-<li>create_robot()
-: <a class="el" href="class_arena.html#acf1816646b7f380135fdbc389d1a7bbc">Arena</a>
+<li>clear_crystals()
+: <a class="el" href="class_entity_move.html#ada60d0e8a409c20fab7193ff7b1696fd">EntityMove</a>
+</li>
+<li>collect_crystal()
+: <a class="el" href="class_machine.html#ade146e03b7e3367d20f219235d7e971c">Machine</a>
+</li>
+<li>contains_soldier()
+: <a class="el" href="class_army.html#aac44f23a0297baf86f45c77a00b41ead">Army</a>
 </li>
 </ul>
 
@@ -125,6 +143,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>divide()
 : <a class="el" href="class_machine.html#ac6f8d9edb75e4c563d07e85127060397">Machine</a>
 </li>
+<li>drop_crystal()
+: <a class="el" href="class_machine.html#ad5d4d262ecc0539f4d5516bd3422edfb">Machine</a>
+</li>
 <li>duplicate()
 : <a class="el" href="class_machine.html#aa43c5a135ed59be05f0460e28073f6d7">Machine</a>
 </li>
@@ -132,8 +153,17 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 
 <h3><a id="index_e"></a>- e -</h3><ul>
+<li>elapsed_time()
+: <a class="el" href="class_arena.html#a6aaa355ca07abb02d9bfc3bc063a87b7">Arena</a>
+</li>
 <li>Entity()
-: <a class="el" href="class_entity.html#a93d05c4e1dbd653c6517ad9dade5bafa">Entity</a>
+: <a class="el" href="class_entity.html#a9b81edc52442cc7e418d2c97a6a552e1">Entity</a>
+</li>
+<li>EntityMove()
+: <a class="el" href="class_entity_move.html#ab3bc0ccb47248ba72e4d0b847987cda9">EntityMove</a>
+</li>
+<li>EntityStatic()
+: <a class="el" href="class_entity_static.html#a031f375d9e09244ba18f33ca76e431ea">EntityStatic</a>
 </li>
 <li>equals()
 : <a class="el" href="class_machine.html#ab23e5b5e7d75393bb473e4a5ba54b125">Machine</a>
@@ -171,8 +201,8 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>get_arg()
 : <a class="el" href="class_instruction.html#a01a2623e07fa99119492d38e70f2682b">Instruction</a>
 </li>
-<li>get_army()
-: <a class="el" href="class_arena.html#af488add9865eae3fe775cee18aae3cd4">Arena</a>
+<li>get_base()
+: <a class="el" href="class_hex.html#aba57e96ad40a001bdee5a7f860f93496">Hex</a>
 </li>
 <li>get_code()
 : <a class="el" href="class_instruction.html#a850cd00ab2ad148046efae216abc2baf">Instruction</a>
@@ -180,27 +210,39 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>get_col()
 : <a class="el" href="class_hex.html#a12a94c7f577d949fbec3d3c8d6cf9da1">Hex</a>
 </li>
-<li>get_elapsed_time()
-: <a class="el" href="class_arena.html#ab73b583d039a434968272d021647762a">Arena</a>
+<li>get_crystals()
+: <a class="el" href="class_entity_move.html#a529cbb604d84a5553e5b4e0869068dfa">EntityMove</a>
+</li>
+<li>get_fuel()
+: <a class="el" href="class_entity_move.html#a23993c4d329d58938014497f472a4ea6">EntityMove</a>
+</li>
+<li>get_group_id()
+: <a class="el" href="class_entity_move.html#a6ab5a5caee12debcb4f306ddae35406b">EntityMove</a>
+</li>
+<li>get_hp()
+: <a class="el" href="class_entity_move.html#af05d1d38d0d6cf68dd90f79f6839851c">EntityMove</a>
 </li>
 <li>get_id()
-: <a class="el" href="class_army.html#a546c5a12a8d46c1b275a5cbc336a44d5">Army</a>
+: <a class="el" href="class_army.html#a2e500ab7d7dfc0e83abcc705970473ba">Army</a>
 , <a class="el" href="class_entity.html#ac9139375ff2f3f65b99ef71f30723a98">Entity</a>
 </li>
-<li>get_name()
-: <a class="el" href="class_army.html#a0c5d6f7a0594808435fd748e887b0e7c">Army</a>
-</li>
-<li>get_posX()
-: <a class="el" href="class_entity.html#a7b1ab41dd5f2821d72a3844b6bd4b8d8">Entity</a>
-</li>
-<li>get_posY()
-: <a class="el" href="class_entity.html#a027b79d3610e5b3938bf0e67a4b86c77">Entity</a>
-</li>
-<li>get_robot()
-: <a class="el" href="class_army.html#a8ca0f230ca88795f2095081ac0a86afb">Army</a>
+<li>get_occup()
+: <a class="el" href="class_hex.html#a3ac9a2067a507a66d8099741a96f5048">Hex</a>
 </li>
 <li>get_row()
 : <a class="el" href="class_hex.html#a47571c0935fca4925e8f504dd3b7f2b1">Hex</a>
+</li>
+<li>get_soldier()
+: <a class="el" href="class_army.html#a4117cfcacc0aec09154d97da81190538">Army</a>
+</li>
+<li>get_terrain()
+: <a class="el" href="class_hex.html#a661008835511df2168a3c3caa03432be">Hex</a>
+</li>
+<li>get_x()
+: <a class="el" href="class_entity.html#a8925561a339b32897583ce424463b4de">Entity</a>
+</li>
+<li>get_y()
+: <a class="el" href="class_entity.html#af009ab83eccd466f6628d93c8615b499">Entity</a>
 </li>
 <li>greater()
 : <a class="el" href="class_machine.html#a834d085db5b85f330b46f927906d4dd7">Machine</a>
@@ -212,8 +254,11 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 
 <h3><a id="index_h"></a>- h -</h3><ul>
+<li>heal()
+: <a class="el" href="class_entity_move.html#a76912804555e077ccda12071380dd40e">EntityMove</a>
+</li>
 <li>Hex()
-: <a class="el" href="class_hex.html#a7d3731ce61af87f0ae51e0fe330a5be6">Hex</a>
+: <a class="el" href="class_hex.html#a1958977584f33bee2007b8db858bb94c">Hex</a>
 </li>
 </ul>
 
@@ -223,10 +268,10 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="class_log.html#ac78f219c298baa7ecef4e3e067af732b">Log</a>
 </li>
 <li>insert_army()
-: <a class="el" href="class_arena.html#a448eabb544b37a50e12f7ef736c9e8b5">Arena</a>
+: <a class="el" href="class_arena.html#a22788a6b231636503663d7950f403248">Arena</a>
 </li>
-<li>insert_robot()
-: <a class="el" href="class_army.html#ac616e50922f50da4a2b95ef9d1fca350">Army</a>
+<li>insert_crystals()
+: <a class="el" href="class_entity_move.html#ada18b35e31ba924953c03ed4ab98540d">EntityMove</a>
 </li>
 <li>Instruction()
 : <a class="el" href="class_instruction.html#a6fc0ff5a2f631358a4a09c348212c764">Instruction</a>
@@ -259,7 +304,11 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 <h3><a id="index_m"></a>- m -</h3><ul>
 <li>Machine()
-: <a class="el" href="class_machine.html#a5707c25fea1d9e7934185b5ba068186b">Machine</a>
+: <a class="el" href="class_machine.html#ae1080681692554ff4ea46ee5cb0d1103">Machine</a>
+</li>
+<li>move()
+: <a class="el" href="class_entity_move.html#a291d249e3f4d5dda0c24fd8c8ad416ad">EntityMove</a>
+, <a class="el" href="class_machine.html#ae7b97bb0beec3215503c2d88a4da10ee">Machine</a>
 </li>
 <li>multiply()
 : <a class="el" href="class_machine.html#a73c6359b599ed11924b0f868a23a5be2">Machine</a>
@@ -279,13 +328,18 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 <h3><a id="index_o"></a>- o -</h3><ul>
 <li>operator!=()
-: <a class="el" href="class_hex.html#a4aa6b39940ba6bc85c2a28ab7c7c039b">Hex</a>
+: <a class="el" href="class_entity.html#af11f37abcbc49ac898a724765df3e0e9">Entity</a>
+, <a class="el" href="class_hex.html#a4aa6b39940ba6bc85c2a28ab7c7c039b">Hex</a>
 </li>
 <li>operator()()
 : <a class="el" href="structstd_1_1hash_3_01_hex_01_4.html#a9b96b8bc80e46ee2038f74d93bd0555c">std::hash&lt; Hex &gt;</a>
 </li>
+<li>operator=()
+: <a class="el" href="class_hex.html#a2d313206c16fb051012975dfda6b2a7e">Hex</a>
+</li>
 <li>operator==()
-: <a class="el" href="class_hex.html#abcabfcefeb3442a4091ea27c49234096">Hex</a>
+: <a class="el" href="class_entity.html#a5533c18123a338d04e4a0d85569fd764">Entity</a>
+, <a class="el" href="class_hex.html#abcabfcefeb3442a4091ea27c49234096">Hex</a>
 </li>
 </ul>
 
@@ -314,23 +368,35 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>recall()
 : <a class="el" href="class_machine.html#aab8e8318815f1800f15cacbc46d27686">Machine</a>
 </li>
+<li>refuel()
+: <a class="el" href="class_entity_move.html#aa57ec52e0597962a06a997e39689714b">EntityMove</a>
+</li>
 <li>remove_army()
 : <a class="el" href="class_arena.html#ae49cf822a06a809379aa97f19c408b64">Arena</a>
 </li>
-<li>replace_machine()
-: <a class="el" href="class_robot.html#a9f4c04c798870551b296ebd5e664b48c">Robot</a>
+<li>remove_soldier()
+: <a class="el" href="class_army.html#a4ca1d744f32becebacba0430de57aa64">Army</a>
+</li>
+<li>request_attack_long()
+: <a class="el" href="class_arena.html#ae2c464735d5add2423faf2d54abface1">Arena</a>
+</li>
+<li>request_attack_melee()
+: <a class="el" href="class_arena.html#a6047d0a4ccaeb4348bd86c91b1fbe9a1">Arena</a>
+</li>
+<li>request_attack_short()
+: <a class="el" href="class_arena.html#af2b1d9239c93323e0636b33bba879a38">Arena</a>
+</li>
+<li>request_collect()
+: <a class="el" href="class_arena.html#a04cb03fd60d43a02544ffb7d174abf0b">Arena</a>
+</li>
+<li>request_drop()
+: <a class="el" href="class_arena.html#a575ad6a156f6dbc2a1396b7c3757f6e4">Arena</a>
+</li>
+<li>request_movement()
+: <a class="el" href="class_arena.html#aa4d3fc913c141d562c52121653aab961">Arena</a>
 </li>
 <li>return_from_procedure()
 : <a class="el" href="class_machine.html#aac0e1efdd1b047f1923669100a236323">Machine</a>
-</li>
-<li>Robot()
-: <a class="el" href="class_robot.html#a8b4754cd18c5a7a8cb458bb25fa21d10">Robot</a>
-</li>
-<li>robot_count()
-: <a class="el" href="class_army.html#ac7a6e93aab20c56a5d4278f8e3dbcbaf">Army</a>
-</li>
-<li>run()
-: <a class="el" href="class_machine.html#a02a919310db8322d0ba54a5417185dea">Machine</a>
 </li>
 </ul>
 
@@ -339,11 +405,26 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>set()
 : <a class="el" href="class_stack_frame.html#a0df9aaf8d1cc758ccf6732f4bd3f7ffe">StackFrame</a>
 </li>
-<li>set_posX()
-: <a class="el" href="class_entity.html#acdea3f654ef76a6b6ef4e291fe1ba24f">Entity</a>
+<li>set_base()
+: <a class="el" href="class_hex.html#a0a86eec504eae5b86b211fb8c97e3a57">Hex</a>
 </li>
-<li>set_posY()
-: <a class="el" href="class_entity.html#a4c83abc245792e3878fffafeaaeb9463">Entity</a>
+<li>set_crystals()
+: <a class="el" href="class_hex.html#aa72ae733da99801b40c9ef93bb4288f9">Hex</a>
+</li>
+<li>set_group_id()
+: <a class="el" href="class_entity_move.html#a0e932c48dceabbf521eeb0122b70a094">EntityMove</a>
+</li>
+<li>set_occup()
+: <a class="el" href="class_hex.html#ac0f7ea2903ffc42ae9a7f9c8565792e7">Hex</a>
+</li>
+<li>set_position()
+: <a class="el" href="class_entity.html#a22c987ad8493bc297711fbfe80b909b1">Entity</a>
+</li>
+<li>set_terrain()
+: <a class="el" href="class_hex.html#abaadd60ddb4b73771bdb36973aa29c49">Hex</a>
+</li>
+<li>size()
+: <a class="el" href="class_army.html#aba1a88814b9b568aacd32a6a16483beb">Army</a>
 </li>
 <li>StackFrame()
 : <a class="el" href="class_stack_frame.html#a4403f78e66c3177e849a95a02e3ddca9">StackFrame</a>
@@ -358,7 +439,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="class_machine.html#abea24d9ce5d941f811df52dcaae5ddef">Machine</a>
 </li>
 <li>system()
-: <a class="el" href="class_arena.html#a76b24d108f5781885a6bd250f7b27747">Arena</a>
+: <a class="el" href="class_machine.html#af59bcfc03abf54a0b2a6165f97c0427c">Machine</a>
 </li>
 </ul>
 
@@ -377,8 +458,11 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>update()
 : <a class="el" href="class_arena.html#aedbfadca4c9b3d6e3d097b14fef079ba">Arena</a>
 , <a class="el" href="class_army.html#a48e57293e1ab8f9d31b6b5c0d8c33662">Army</a>
-, <a class="el" href="class_entity.html#a59a29d9b7474baf13c9c76859242287d">Entity</a>
-, <a class="el" href="class_robot.html#ad5d4e7451b913c2840ab0afe0dbf9540">Robot</a>
+, <a class="el" href="class_entity.html#a98bc84d904bd954b59701afe60f555c1">Entity</a>
+, <a class="el" href="class_machine.html#ad8c4f949acd7558e1c15a76d7142581b">Machine</a>
+</li>
+<li>use_fuel()
+: <a class="el" href="class_entity_move.html#a5c33de3bef3c3d2ee261433ac2b7e7c9">EntityMove</a>
 </li>
 </ul>
 
@@ -389,6 +473,13 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 </li>
 <li>what()
 : <a class="el" href="class_frame_operation_exception.html#a3d5c5b9ae9bd09ed6e8b7841d5f5d80d">FrameOperationException</a>
+</li>
+</ul>
+
+
+<h3><a id="index_0x7e"></a>- ~ -</h3><ul>
+<li>~Army()
+: <a class="el" href="class_army.html#a01db7886e46e79ece1726d46f918848d">Army</a>
 </li>
 </ul>
 </div><!-- contents -->

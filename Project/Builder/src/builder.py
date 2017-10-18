@@ -34,7 +34,7 @@ class Builder:
         '#include <vector>\n',
         '#include <controller/classes/code.h>',
         '#include <controller/classes/instruction.h>',
-        '#include <controller/classes/machine.h>'
+        '#include <model/entity/machine.h>'
     )
 
     __TODO = "// Move this file to /VirtualMachine/src so this can work on production"

@@ -3,30 +3,33 @@
 
 #include <map>
 
-#include <controller/classes/machine.h>
-
-#include <model/entity/robot.h>
-
-#include <util/config.h>
+#include <model/interface/entity_move.h>
 
 using namespace std;
 
 class Army {
 
     private:
-        int id;
-        map<int, Robot> robots;
-        string name;
+        static int id_gen;
+
+        const int id;
+        map<int, EntityMove*> soldiers;
 
     public:
-        explicit Army(int id, string name);
-        string get_name();
-        Robot& get_robot(int id);
-        longlong robot_count();
+        explicit Army(const vector<EntityMove*> &soldiers);
 
-        bool contains_robot(Robot &robot);
-        int get_id();
-        void insert_robot(Robot robot);
+        ~Army();
+
+        int get_id() const;
+
+        unsigned long size() const;
+
+        bool contains_soldier(int id) const;
+
+        EntityMove* get_soldier(int id);
+
+        void remove_soldier(int id);
+
         void update();
 };
 

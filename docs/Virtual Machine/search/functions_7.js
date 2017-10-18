@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hex',['Hex',['../class_hex.html#a7d3731ce61af87f0ae51e0fe330a5be6',1,'Hex']]]
+  ['heal',['heal',['../class_entity_move.html#a76912804555e077ccda12071380dd40e',1,'EntityMove']]],
+  ['hex',['Hex',['../class_hex.html#a1958977584f33bee2007b8db858bb94c',1,'Hex']]]
 ];
