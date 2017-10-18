@@ -5,7 +5,6 @@ Project/VirtualMachine/build/*
 Project/VirtualMachine/bin/*
 
 # Ignore any temporary files
-Project/VirtualMachine/temp/*
 **/.idea/*.iml
 
 # User-specific stuff:
