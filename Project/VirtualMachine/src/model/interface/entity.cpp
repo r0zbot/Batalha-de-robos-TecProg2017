@@ -1,31 +1,27 @@
 #include <model/interface/entity.h>
 
-Entity::Entity(int id, int posX, int posY) {
-    this->id = id;
-    this->posX = posX;
-    this->posY = posY;
+Entity::Entity(const Hex &pos) : id(id_gen++), pos(pos) {}
+
+bool Entity::operator!=(const Entity &e) const {
+    return !(*this == e);
+}
+
+bool Entity::operator==(const Entity &e) const {
+    return this->id == e.id;
 }
 
 int Entity::get_id() const {
     return this->id;
 }
 
-int Entity::get_parent_id() const {
-    return this->parentId;
+int Entity::get_x() const {
+    return this->pos.get_col();
 }
 
-int Entity::get_posX() const {
-    return this->posX;
+int Entity::get_y() const {
+    return this->pos.get_row();
 }
 
-int Entity::get_posY() const {
-    return this->posY;
-}
-
-int Entity::set_posX(const int x) {
-    this->posX = x;
-}
-
-int Entity::set_posY(const int y) {
-    this->posY = y;
+void Entity::set_position(const Hex &pos) {
+    this->pos = pos;
 }
