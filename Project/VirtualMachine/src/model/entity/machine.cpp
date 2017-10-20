@@ -1,13 +1,14 @@
 #include <model/entity/machine.h>
 
 #include <util/globals.h>
+#include <util/config.h>
 #include <util/log.h>
 
 Machine::Machine(Program &prog, const Hex &pos)
     : stop(false),
       ip(0),
-      exec(EXECUTION_STACK_SIZE),
-      memo(MEMORY_SIZE),
+      exec(MACHINE_EXECUTION_STACK_SIZE),
+      memo(MACHINE_MEMORY_SIZE),
       prog(prog),
       EntityMove(pos) {
     this->map_functions();

@@ -11,10 +11,6 @@
 
 #include <model/interface/entity_move.h>
 
-#define EXECUTION_STACK_SIZE 600
-#define FUEL_PER_INSTRUCTION 0.01
-#define MEMORY_SIZE 200
-
 using namespace std;
 
 typedef const vector<Instruction> Program;

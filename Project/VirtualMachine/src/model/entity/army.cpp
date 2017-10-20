@@ -1,10 +1,10 @@
 #include <model/entity/army.h>
+#include <util/config.h>
 
-Army::Army(const vector<EntityMove*> &soldiers) : id(id_gen++) {
-    for (auto const &e : soldiers) {
-        e->set_group_id(this->id);
-        this->soldiers.emplace(e->get_id(), e);
-    }
+Army::Army(const string &name) :
+        id(id_gen++),
+        name(name){
+
 }
 
 Army::~Army() {
@@ -26,6 +26,11 @@ EntityMove* Army::get_soldier(const int id) {
     return this->soldiers.at(id);
 }
 
+void Army::instert_soldier(EntityMove *entityMove) {
+    entityMove->set_group_id(this->get_id());
+    this->soldiers.emplace(entityMove->get_id(), entityMove);
+}
+
 void Army::remove_soldier(const int id) {
     this->soldiers.erase(id);
 }
@@ -36,6 +41,6 @@ unsigned long Army::size() const {
 
 void Army::update() {
     for (auto const &e : this->soldiers) {
-        e.second->update(50);
+        e.second->update(MACHINE_RUN_CYCLES);
     }
 }
