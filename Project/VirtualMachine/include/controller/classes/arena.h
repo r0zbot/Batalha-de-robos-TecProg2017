@@ -8,8 +8,7 @@
 #include <controller/classes/system.h>
 
 #include <model/entity/army.h>
-
-#define SLEEP_TIME 300
+#include <model/entity/machine.h>
 
 using namespace std;
 
@@ -26,7 +25,15 @@ class Arena {
 
         unsigned long long elapsed_time() const;
 
+        Army &get_army(int id);
+
+        int create_robot(Army &army, Hex pos, Program prog);
+
         void insert_army(const Army &army);
+
+        void print(const string &s);
+        void print(const string &s, EntityMove &robot);
+        void print(int n, EntityMove &robot);
 
         void remove_army(int id);
 

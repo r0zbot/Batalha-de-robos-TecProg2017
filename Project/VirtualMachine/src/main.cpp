@@ -5,6 +5,7 @@
 #include <controller/classes/code.h>
 #include <controller/classes/instruction.h>
 #include <model/entity/machine.h>
+#include <util/globals.h>
 
 using namespace std;
 
@@ -118,7 +119,15 @@ int main() {
         ,Instruction(Code::SYS, 2) // coleta de L
     })
 
-    Machine m (prog);
-    m.execute();
+    //Machine m (prog);
+    //m.execute();
+    Army army1("PORRA");
+    Army army2("CARAI");
+    arena.insert_army(army1);
+    arena.insert_army(army2);
+    arena.create_robot(arena.get_army(army1.get_id()), Hex(0,0), prog);
+    arena.create_robot(arena.get_army(army1.get_id()), Hex(0,1), prog);
+    arena.update();
+    arena.update();
     return 0;
 }
