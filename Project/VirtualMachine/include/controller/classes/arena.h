@@ -31,6 +31,10 @@ class Arena {
 
         void insert_army(const Army &army);
 
+        void print(const string &s);
+        void print(const string &s, EntityMove &robot);
+        void print(int n, EntityMove &robot);
+
         void remove_army(int id);
 
         void request_attack_melee(const EntityMove &e, const Hex &pos);

@@ -30,6 +30,8 @@ class Army {
 
         EntityMove* get_soldier(int id);
 
+        string get_name();
+
         void instert_soldier(EntityMove* entityMove);
 
         void remove_soldier(int id);

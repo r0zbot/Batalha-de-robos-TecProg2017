@@ -171,7 +171,7 @@ void Machine::pop() {
 }
 
 void Machine::print() {
-    printf("%d\n", this->data.top());
+    arena.print(this->data.top(), *this);
     this->data.pop();
 }
 
@@ -202,7 +202,7 @@ void Machine::update(int cycles) {
             return;
         }
         else if (!this->use_fuel(FUEL_PER_INSTRUCTION)) {
-            Log::debug("Not enough fuel: " + to_string(this->id));
+            arena.print("Not enough fuel!", *this);
             this->stop = true;
             return;
         }

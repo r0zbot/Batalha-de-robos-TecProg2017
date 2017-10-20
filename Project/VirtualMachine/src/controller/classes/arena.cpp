@@ -48,6 +48,18 @@ void Arena::insert_army(const Army &army) {
     this->armies.emplace(army.get_id(), army);
 }
 
+void Arena::print(const string &s) {
+    printf("Arena: %s",s.c_str());
+}
+
+void Arena::print(const string &s, EntityMove &robot) {
+    printf("Robot %i (Army %s): %s\n", robot.get_id(), this->get_army(robot.get_group_id()).get_name().c_str(), s.c_str());
+}
+
+void Arena::print(const int n, EntityMove &robot) {
+    this->print(to_string(n), robot);
+}
+
 void Arena::remove_army(const int id) {
     this->armies.erase(id);
 }

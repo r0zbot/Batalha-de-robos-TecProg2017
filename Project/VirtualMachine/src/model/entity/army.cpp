@@ -22,6 +22,10 @@ int Army::get_id() const {
     return this->id;
 }
 
+string Army::get_name() {
+    return this->name;
+}
+
 EntityMove* Army::get_soldier(const int id) {
     return this->soldiers.at(id);
 }
