@@ -20,6 +20,11 @@ class Arena {
         map<int, Army> armies;
         unordered_set<Hex> ambient;
 
+        bool validate_insertion(Hex pos, EntityMove &e);
+
+        //TODO improve/replace this MAINTANING FUNCTIONALITY
+        void replace_hex(Hex pos);
+
     public:
         explicit Arena();
 
@@ -32,17 +37,17 @@ class Arena {
         void insert_army(const Army &army);
 
         void print(const string &s);
-        void print(const string &s, EntityMove &robot);
-        void print(int n, EntityMove &robot);
+        void print(const string &s, EntityMove &e);
+        void print(int n, EntityMove &e);
 
         void remove_army(int id);
 
-        void request_attack_melee(const EntityMove &e, const Hex &pos);
-        void request_attack_short(const EntityMove &e, const Hex &pos);
-        void request_attack_long(const EntityMove &e, const Hex &pos);
-        void request_collect(const EntityMove &e, const Hex &pos);
-        void request_drop(const EntityMove &e, const Hex &pos);
-        void request_movement(const EntityMove &e, const Hex &pos);
+        void request_attack_melee(EntityMove &e, const Hex &pos);
+        void request_attack_short(EntityMove &e, const Hex &pos);
+        void request_attack_long(EntityMove &e, const Hex &pos);
+        void request_collect(EntityMove &e, const Hex &pos);
+        void request_drop(EntityMove &e, const Hex &pos);
+        void request_movement(EntityMove &e, const Hex &pos);
 
         void update();
 };

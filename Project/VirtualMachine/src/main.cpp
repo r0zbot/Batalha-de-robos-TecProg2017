@@ -33,6 +33,7 @@ int main() {
         ,Instruction(Code::MUL, 0)
         ,Instruction(Code::FRE, 1)
         ,Instruction(Code::RET, 0)
+        ,Instruction(Code::SYS, 0)
     });
 
     //Machine m (prog);

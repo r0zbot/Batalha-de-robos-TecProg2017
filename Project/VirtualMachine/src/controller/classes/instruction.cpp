@@ -1,6 +1,8 @@
 #include <controller/classes/instruction.h>
 
-Instruction::Instruction(const Code code, const int arg) {
+//template class Instruction<int>;
+
+Instruction::Instruction(const Code code, int arg) {
     this->code = code;
     this->arg = arg;
 }
