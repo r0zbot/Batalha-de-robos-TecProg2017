@@ -28,6 +28,8 @@ class Arena {
 
         unsigned long long elapsed_time() const;
 
+        Hex& get_cell(const Hex &pos) const;
+
         Army &get_army(int id);
 
         int create_robot(Army &army, Hex pos, Program prog);

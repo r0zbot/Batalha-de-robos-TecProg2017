@@ -3,6 +3,8 @@
 
 #include <vector>
 
+#include <controller/interface/operand.h>
+
 using namespace std;
 
 /**
@@ -48,7 +50,7 @@ class StackFrame {
          * Stores all functions local variables that are being used in
          * subprogram calls and all the callers returning addresses.
          */
-        vector<int> data;
+        vector<Operand*> data;
 
     public:
         /**
@@ -56,7 +58,7 @@ class StackFrame {
          *
          * @param [size] The <b>StackFrame</b> size.
          */
-        explicit StackFrame(int size);
+        explicit StackFrame(unsigned long size);
 
         /**
          * @brief  Allocates the specified amount of space
@@ -102,7 +104,7 @@ class StackFrame {
          * @throws  FrameOperationException if the position specified
          *          is out of the current <b>StackFrame</b> scope.
          */
-        int get(int i) const;
+        Operand* get(int i) const;
 
         /**
          * @brief  Stores the specified value at the top
@@ -114,7 +116,7 @@ class StackFrame {
          * @throws FrameOperationException if impossible to store
          *         more data in the <b>StackFrame</b>.
          */
-        void push(int val);
+        void push(Operand *val);
 
         /**
          * @brief  Stores the specified value at an certain offset
@@ -126,7 +128,7 @@ class StackFrame {
          * @throws FrameOperationException if the position specified
          *         is out of the current <b>StackFrame</b> scope.
          */
-        void set(int i, int val);
+        void set(int i, Operand *val);
 };
 
 #endif

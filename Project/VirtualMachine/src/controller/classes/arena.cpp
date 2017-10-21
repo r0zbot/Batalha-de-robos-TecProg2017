@@ -36,12 +36,17 @@ int Arena::create_robot(Army &army, Hex pos, Program prog) {
     return machine->get_id();
 }
 
-Army & Arena::get_army(int id) {
+unsigned long long Arena::elapsed_time() const {
+    return this->time * ARENA_SLEEP_TIME;
+}
+
+Army& Arena::get_army(int id) {
     return this->armies.at(id);
 }
 
-unsigned long long Arena::elapsed_time() const {
-    return this->time * ARENA_SLEEP_TIME;
+Hex& Arena::get_cell(const Hex &pos) const {
+    Hex cell = *this->ambient.find(pos);
+    return cell;
 }
 
 void Arena::insert_army(const Army &army) {

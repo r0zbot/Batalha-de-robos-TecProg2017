@@ -124,7 +124,7 @@ class Machine : public EntityMove {
          * Represents the main stack during the program execution.
          * It's used to hold temporary values.
          */
-        stack<int> data;
+        stack<Operand*> data;
 
         /**
          * Represents a call-return stack in memory to organize
@@ -149,7 +149,7 @@ class Machine : public EntityMove {
          * The memory vector is used to store and access global variables.
          * It's managed by the functions {@link #store()} and {@link #recall()}.
          */
-        vector<int> memo;
+        vector<Operand*> memo;
 
         /**
          * Represents the program, a set of instructions to be
@@ -174,6 +174,11 @@ class Machine : public EntityMove {
         void map_functions();
 
     public:
+        Operand* top() const;
+
+        void atr();
+
+        void see();
 
         /**
          * @brief Constructs a <b>Machine</b> with the specified set
@@ -298,7 +303,7 @@ class Machine : public EntityMove {
          *
          * @return The argument of the current instruction.
          */
-        int fetch_arg() const;
+        Operand* fetch_arg() const;
 
         /**
          * @brief Returns the code of the current instruction that is

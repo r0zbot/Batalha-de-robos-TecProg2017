@@ -126,9 +126,9 @@ int main() {
     Army army2("CARAI");
     arena.insert_army(army1);
     arena.insert_army(army2);
-    arena.create_robot(arena.get_army(army1.get_id()), Hex(0,0), prog);
-    arena.create_robot(arena.get_army(army1.get_id()), Hex(0,1), estWalker);
-    arena.create_robot(arena.get_army(army2.get_id()), Hex(1,0), walkAndCollect1);
+    arena.create_robot(army1.get_id(), Hex(0, 0), prog);
+    arena.create_robot(army1.get_id(), Hex(0, 1), estWalker);
+    arena.create_robot(army2.get_id(), Hex(1, 0), walkAndCollect1);
     arena.update();
     arena.update();
     arena.update();

@@ -6,6 +6,8 @@
 
 #include <controller/classes/system.h>
 
+#include <controller/interface/operand.h>
+
 #include <model/entity/terrain.h>
 
 using namespace std;
@@ -26,7 +28,7 @@ using namespace std;
  *
  * @see https://www.redblobgames.com/grids/hexagons/
  */
-class Hex {
+class Hex : public Operand {
 
     private:
         /**
@@ -71,6 +73,11 @@ class Hex {
         Terrain terrain;
 
     public:
+
+//        explicit operator string();
+
+        int get_atr(int i) const override;
+
         /**
          * @brief Constructs a Hexagon that represents the position [row][col]
          *        in a multi-dimensional array.

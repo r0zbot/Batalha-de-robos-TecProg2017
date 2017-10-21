@@ -1,7 +1,9 @@
 #include <algorithm>
 
 #include <application/component/hex.h>
+
 #include <util/config.h>
+#include <util/log.h>
 
 Hex::Hex(const int col,
          const int row,
@@ -21,6 +23,36 @@ bool Hex::operator==(const Hex &hex) const {
 
 bool Hex::operator!=(const Hex &hex) const {
     return !(*this == hex);
+}
+
+//string Hex::operator string() {
+//    return {"Type: Cell; Col = " + to_string(this->col)
+//            + "; Row = "         + to_string(this->row)
+//            + "; Base = "        + to_string(this->base)
+//            + "; Occup = "       + to_string(this->occup)
+//            + "; Crystals = "    + to_string(this->crystals)};
+//}
+
+int Hex::distance(const Hex &hex) const {
+    const vector<int> a = this->to_cube();
+    const vector<int> b = hex.to_cube();
+    return (abs(a[0] - b[0]) + abs(a[1] - b[1])) + abs(a[2] - b[2]) / 2;
+}
+
+int Hex::get_atr(const int i) const {
+    if (i == 0) {
+        return this->terrain;
+    }
+    if (i == 1) {
+        return this->crystals;
+    }
+    if (i == 2) {
+        return this->occup;
+    }
+    if (i == 3) {
+        return this->base;
+    }
+    Log::error("Invalid Operand (Hex) parameter access: ATR " + to_string(i));
 }
 
 int Hex::get_base() const {
@@ -43,20 +75,12 @@ Terrain Hex::get_terrain() const {
     return this->terrain;
 }
 
-int Hex::distance(const Hex &hex) const {
-    const vector<int> a = this->to_cube();
-    const vector<int> b = hex.to_cube();
-    return (abs(a[0] - b[0]) + abs(a[1] - b[1])) + abs(a[2] - b[2]) / 2;
-}
-
 bool Hex::insert_crystal() {
-    if(crystals < MAX_CRYSTALS_PER_CELL){
-        this->crystals++;
+    if (this->crystals < MAX_CRYSTALS_PER_CELL){
+        ++this->crystals;
         return true;
     }
-    else{
-        return false;
-    }
+    return false;
 }
 
 Hex Hex::neighbor(const Direction d) const {
@@ -79,12 +103,10 @@ unordered_set<Hex> Hex::range(const int n) const {
 
 bool Hex::remove_crystal() {
     if(this->crystals > 0){
-        crystals--;
+        --this->crystals;
         return true;
     }
-    else{
-        return false;
-    }
+    return false;
 }
 
 void Hex::set_base(const int base) {
