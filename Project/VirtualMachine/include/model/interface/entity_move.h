@@ -115,13 +115,12 @@ class EntityMove : public Entity {
         void heal(unsigned int amount);
 
         /**
-         * @brief Adds a specific amount of crystal to the
-         *        current amount this entity is carrying.
+         * @brief Adds a crystal to the current amount this entity is carrying.
          *
-         * @param [amount] The amount of crystal to be added
-         *                 to the current quantity.
+         * @return True if it was possible to add the crystal to this entity,
+         *         false otherwise.
          */
-        void insert_crystals(unsigned int amount);
+        bool insert_crystal();
 
         /**
          * @brief Executes the entity's movement logic behavior.
@@ -139,12 +138,18 @@ class EntityMove : public Entity {
          */
         void refuel(double amount);
 
+        //TODO make doc
+        bool remove_crystal();
+
         /**
          * @brief Sets the entity's group ID.
          *
          * @param [group_id] The entity's new group ID.
          */
         void set_group_id(int group_id);
+
+        //TODO make doc
+        void take_damage(int damage);
 
         /**
          * @brief Try to use a specific quantity of fuel to a

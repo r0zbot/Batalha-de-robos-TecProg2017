@@ -1,6 +1,7 @@
 #include <algorithm>
 
 #include <application/component/hex.h>
+#include <util/config.h>
 
 Hex::Hex(const int col,
          const int row,
@@ -48,6 +49,16 @@ int Hex::distance(const Hex &hex) const {
     return (abs(a[0] - b[0]) + abs(a[1] - b[1])) + abs(a[2] - b[2]) / 2;
 }
 
+bool Hex::insert_crystal() {
+    if(crystals < MAX_CRYSTALS_PER_CELL){
+        this->crystals++;
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 Hex Hex::neighbor(const Direction d) const {
     int parity = this->col & 1;
     Hex dir = directions[parity][d];
@@ -64,6 +75,16 @@ unordered_set<Hex> Hex::range(const int n) const {
     }
     results.erase(*this);
     return results;
+}
+
+bool Hex::remove_crystal() {
+    if(this->crystals > 0){
+        crystals--;
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 
 void Hex::set_base(const int base) {

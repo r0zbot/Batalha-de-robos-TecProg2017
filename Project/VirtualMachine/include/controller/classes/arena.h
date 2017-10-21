@@ -22,8 +22,6 @@ class Arena {
 
         bool validate_insertion(Hex pos, EntityMove &e);
 
-        //TODO improve/replace this MAINTANING FUNCTIONALITY
-        void replace_hex(Hex pos);
 
     public:
         explicit Arena();
@@ -33,6 +31,8 @@ class Arena {
         Army &get_army(int id);
 
         int create_robot(Army &army, Hex pos, Program prog);
+
+        EntityMove& find_entity_move(int id);
 
         void insert_army(const Army &army);
 

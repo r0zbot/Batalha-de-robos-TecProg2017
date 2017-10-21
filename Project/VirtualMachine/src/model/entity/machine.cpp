@@ -192,7 +192,7 @@ void Machine::recall() {
 }
 
 void Machine::update(int cycles) {
-    if (this->stop) {
+    if (this->stop || this->hp == 0) {
         return;
     }
     for (int i = 0; i < cycles; i++) {

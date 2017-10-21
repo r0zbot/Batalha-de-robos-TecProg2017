@@ -26,14 +26,13 @@ int Arena::create_robot(Army &army, Hex pos, Program prog) {
 
     auto *machine = new Machine(prog, pos);
     army.instert_soldier(machine);
-    //the iterator returns a const Hex, so we need a non-const copy
+    //the set stores a const Hex, so we need a non-const copy
     Hex newCell = *it;
     //Update the copy
     newCell.set_occup(machine->get_id());
-    //Remove it and add it back to the set
-    this->ambient.erase(it);
+    //Remove the old one and add the updated one back to the set
+    this->ambient.erase(newCell);
     this->ambient.insert(newCell);
-    //it->set_occup(machine->get_id());
     return machine->get_id();
 }
 
@@ -66,35 +65,64 @@ void Arena::remove_army(const int id) {
 }
 
 void Arena::request_attack_melee(EntityMove &e, const Hex &pos){
-
+    this->find_entity_move(this->ambient.find(pos)->get_occup()).take_damage(ATTACK_LONG_DAMAGE);
 }
 
 void Arena::request_attack_short(EntityMove &e, const Hex &pos) {
-
+    //TODO Implement Hex ranged-neighbors
 }
 
 void Arena::request_attack_long(EntityMove &e, const Hex &pos) {
-
+    //TODO Implement Hex ranged-neighbors
 }
 
 void Arena::request_collect(EntityMove &e, const Hex &pos) {
-
+    if(this->validate_insertion(pos, e)){
+        auto newPosIt = this->ambient.find(pos);
+        Hex newPosHex = *newPosIt;
+        if(newPosHex.remove_crystal()){
+            if(!e.insert_crystal()){
+                //Forgets about it and doesnt take the crystals from the arena. (which means: no update)
+                return;
+            }
+            else{
+                this->ambient.erase(newPosIt);
+                this->ambient.insert(newPosHex);
+            }
+        }
+    }
 }
 
 void Arena::request_drop(EntityMove &e, const Hex &pos) {
-
+    if(this->validate_insertion(pos, e)){
+        auto newPosIt = this->ambient.find(pos);
+        Hex newPosHex = *newPosIt;
+        if(e.remove_crystal()){
+            if(newPosHex.insert_crystal()){
+                this->ambient.erase(newPosIt);
+                this->ambient.insert(newPosHex);
+            }
+            else{
+                //Forgets about it and gives the crystals back to the Entity.
+                e.insert_crystal();
+            }
+        }
+    }
 }
 
 void Arena::request_movement(EntityMove &e, const Hex &pos) {
     if(this->validate_insertion(pos, e)){
-        //the iterator returns a const Hex, so we need a non-const copy
-        //Hex newCell = *it;
-        //Update the copy
-        //newCell.set_occup(machine->get_id());
-        //Remove it and add it back to the set
-        //this->ambient.erase(it);
-        //this->ambient.insert(newCell);
-        //TODO vou fazer isso em breve, mas sinta se a vontade
+        auto oldPosIt = this->ambient.find(Hex(e.get_x(), e.get_y()));
+        auto newPosIt = this->ambient.find(pos);
+        Hex oldPosHex = *oldPosIt;
+        Hex newPosHex = *newPosIt;
+        oldPosHex.set_occup(-1);
+        newPosHex.set_occup(e.get_id());
+        e.set_position(newPosHex);
+        this->ambient.erase(oldPosIt);
+        this->ambient.insert(oldPosHex);
+        this->ambient.erase(newPosIt);
+        this->ambient.insert(newPosHex);
     }
 }
 
@@ -118,7 +146,11 @@ bool Arena::validate_insertion(Hex pos, EntityMove &e) {
     return true;
 }
 
-void Arena::replace_hex(const Hex hex) {
-    this->ambient.erase(this->ambient.find(hex));
-    this->ambient.insert(hex);
+EntityMove& Arena::find_entity_move(int id) {
+    for(auto army : this->armies){
+        if(army.second.contains_soldier(id)){
+            return *army.second.get_soldier(id);
+        }
+    }
+    Log::error(concat("Robot ",id, " is not part of any army!"));
 }

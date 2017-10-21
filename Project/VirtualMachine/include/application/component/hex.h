@@ -210,6 +210,20 @@ class Hex {
         unordered_set<Hex> range(int n) const;
 
         /**
+         * @brief Inserts a crystal into this cell.
+         *
+         * @return A boolean that indicates whether it was successfull or not.
+         */
+        bool insert_crystal();
+
+        /**
+         * @brief Removes a crystal from this cell.
+         *
+         * @return A boolean that indicates whether it was successfull or not.
+         */
+        bool remove_crystal();
+
+        /**
          * @brief Sets a new base at this <b>Hex</b>.
          *
          * @param [base] The group's id that owns this <b>Hex</b> as a base.

@@ -1,6 +1,7 @@
 #include <algorithm>
 
 #include <model/interface/entity_move.h>
+#include <util/config.h>
 
 EntityMove::EntityMove(
         const Hex &pos,
@@ -38,8 +39,14 @@ void EntityMove::heal(const unsigned int amount) {
     this->hp = min(this->hp + amount, this->hp_capacity);
 }
 
-void EntityMove::insert_crystals(const unsigned int amount) {
-    this->crystals += amount;
+bool EntityMove::insert_crystal() {
+    if(this->crystals < MAX_CRYSTALS_PER_ROBOT){
+        this->crystals++;
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 
 void EntityMove::refuel(const double amount) {
@@ -48,8 +55,23 @@ void EntityMove::refuel(const double amount) {
     }
 }
 
+bool EntityMove::remove_crystal() {
+    if(this->crystals > 0){
+        this->crystals--;
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 void EntityMove::set_group_id(const int group_id) {
     this->group_id = group_id;
+}
+
+void EntityMove::take_damage(int damage) {
+    this->hp = (unsigned int) max(0, this->hp - damage);
+    //TODO die if 0?
 }
 
 bool EntityMove::use_fuel(const double amount) {
@@ -57,5 +79,7 @@ bool EntityMove::use_fuel(const double amount) {
         this->fuel -= amount;
         return true;
     }
-    return false;
+    else{
+        return false;
+    }
 }

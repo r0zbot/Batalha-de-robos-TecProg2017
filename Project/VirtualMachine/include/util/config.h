@@ -19,12 +19,16 @@
 #define ARENA_HEIGHT 2
 #define ARENA_WIDTH 2
 #define ARENA_SLEEP_TIME 300 //In milliseconds
+#define ATTACK_MELEE_DAMAGE 15
+#define ATTACK_SHORT_DAMAGE 10
+#define ATTACK_LONG_DAMAGE 20
 #define FUEL_PER_INSTRUCTION 0.01
+#define MACHINES_PER_ARMY 100
 #define MACHINE_EXECUTION_STACK_SIZE 600
 #define MACHINE_MEMORY_SIZE 200
 #define MACHINE_RUN_CYCLES 100 // Número de ciclos que cada maquina pode executar de uma só vez
 #define MAX_ARMY_AMOUNT 10
-#define MACHINES_PER_ARMY 100
+#define MAX_CRYSTALS_PER_CELL 20
+#define MAX_CRYSTALS_PER_ROBOT 100
 
-typedef unsigned long long int longlong;
 #endif
