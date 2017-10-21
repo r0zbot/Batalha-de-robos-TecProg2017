@@ -70,7 +70,7 @@ void EntityMove::set_group_id(const int group_id) {
 }
 
 void EntityMove::take_damage(int damage) {
-    this->hp = (unsigned int) max(0, this->hp - damage);
+    this->hp = max(0, this->hp - damage);
     //TODO die if 0?
 }
 

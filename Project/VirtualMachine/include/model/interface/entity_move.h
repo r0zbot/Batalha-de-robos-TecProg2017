@@ -44,7 +44,7 @@ class EntityMove : public Entity {
         /**
          * Stores the entity's healthy points.
          */
-        unsigned int hp;
+        int hp;
 
         /**
          * Represents the maximum amount of healthy points

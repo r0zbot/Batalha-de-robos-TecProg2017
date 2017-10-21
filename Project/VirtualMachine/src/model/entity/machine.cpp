@@ -192,7 +192,7 @@ void Machine::recall() {
 }
 
 void Machine::update(int cycles) {
-    if (this->stop || this->hp == 0) {
+    if (this->stop || this->hp <= 0) {
         return;
     }
     for (int i = 0; i < cycles; i++) {
@@ -209,6 +209,7 @@ void Machine::update(int cycles) {
         try {
             Function f = this->functions[this->fetch_code()];
             (this->*f)();
+            if(this->fetch_code() == Code::SYS) break; //Loses its turn
         }
         catch (const exception &e) {
             Log::error(e.what());
