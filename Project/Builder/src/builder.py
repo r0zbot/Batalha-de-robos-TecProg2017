@@ -33,7 +33,7 @@ class Builder:
     __INCLUDES = (
         '#include <vector>\n',
         '#include <controller/classes/code.h>',
-        '#include <controller/classes/instruction.h>',
+        '#include <controller/classes/instruction.h>\n',
         '#include <model/entity/machine.h>'
     )
 
@@ -80,9 +80,10 @@ class Builder:
                     labels[line.split()[0][:-1]] = ip
                 ip += 1
         ip = 0
+
         for line in instructions:
             op_code = ""
-            arg = 0
+            arg = "nullptr"
             keys = line.split()
             if len(keys) > 0 and keys[0].endswith(":"):
                 keys.pop(0)
@@ -92,6 +93,22 @@ class Builder:
                 arg = keys.pop(0)
                 if arg in labels:
                     arg = labels[arg]
+                elif "{" not in arg:
+                    arg = "new Number(" + arg + ")"
+                elif "ACTION" in arg:
+                    aux = keys.pop(0)
+                    aux2 = keys.pop(0)
+                    arg = "new Action(SystemCode::" + aux[aux.find("{") + 1: aux.find(",")] + "," \
+                          + "Direction::" + aux2[aux2.find(",") + 1: aux2.find("}")] + ")"
+                elif "CELL" in arg:
+                    arg = "new Hex("
+                    for s in keys:
+                        if "{" in s:
+                            arg += s[1:s.find(",")] + ", "
+                        elif "}" in s:
+                            arg += s[:s.find("}")] + ")"
+                        else:
+                            arg += s[:s.find(",")] + ", "
             aux = "," if (ip != 0) else ""
             print("        {}Instruction(Code::{}, {})".format(aux, op_code.upper(), arg))
             ip += 1
