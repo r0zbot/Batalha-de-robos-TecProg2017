@@ -73,8 +73,6 @@ class Hex : public Operand {
         Terrain terrain;
 
     public:
-        int get_atr(int i) const override;
-
         /**
          * @brief Constructs a Hexagon that represents the position [row][col]
          *        in a multi-dimensional array.
@@ -149,6 +147,15 @@ class Hex : public Operand {
         int distance(const Hex &hex) const;
 
         /**
+         * @brief Returns the specified attribute.
+         *
+         * @param [i] An integer indicating which attribute should be returned.
+         *
+         * @return The specified attribute.
+         */
+        int get_atr(int i) const override;
+
+        /**
          * @brief Gets the group's id who owns this <b>Hex</b> as a base.
          *
          * @return The group's id who owns this <b>Hex</b> as a base.
@@ -161,6 +168,8 @@ class Hex : public Operand {
          * @return The hexagon column position.
          */
         int get_col() const;
+
+        int get_crystals() const;
 
         /**
          * @brief Gets the entity's id present at this <b>Hex</b>.
@@ -223,7 +232,7 @@ class Hex : public Operand {
         /**
          * @brief Removes a crystal from this cell.
          *
-         * @return A boolean that indicates whether it was successfull or not.
+         * @return A boolean that indicates whether it was successful or not.
          */
         bool remove_crystal();
 

@@ -2,6 +2,7 @@
 #define VIRTUALMACHINE_INSTRUCTION_H
 
 #include <controller/classes/code.h>
+
 #include <controller/interface/operand.h>
 
 /**
@@ -33,6 +34,13 @@ class Instruction {
          */
         Instruction(Code code, Operand *arg);
 
+        /**
+         * @brief Copies the argument's attributes to this <b>Instruction</b> object.
+         *
+         * @param [i] The object that will be assigned to the function caller.
+         *
+         * @return A pointer to the new value of the function caller.
+         */
         Instruction& operator=(const Instruction &i);
 
         /**

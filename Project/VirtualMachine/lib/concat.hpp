@@ -37,7 +37,7 @@ namespace std { // rename this to something that fits your code
         constexpr char plus [] = " + ";
     };
 
-    namespace { // type helpers and traits
+    namespace { // code helpers and traits
         template<typename T, typename CharT>
         struct is_writable_stream : std::integral_constant<bool,
             std::is_same<T, std::basic_ostringstream<CharT>>::value ||
@@ -153,8 +153,8 @@ namespace std { // rename this to something that fits your code
         template <typename CharT, typename W, typename S, typename P1, typename P2>
         void concat_impl_write_element(W&, const S&, const std::pair<P1, P2>&);
 
-        // we have 6 base cases, depending of the parameter type:
-        // 1. base case any type compatible with << that doesn't require a special handling
+        // we have 6 base cases, depending of the parameter code:
+        // 1. base case any code compatible with << that doesn't require a special handling
         template <typename CharT, typename W, typename S, typename T>
             enable_if_t<!is_iterable<T>::value && !is_stringstream<T>::value,
         void> concat_impl_write_element(W& writer, const S&, const T& element) {
@@ -176,7 +176,7 @@ namespace std { // rename this to something that fits your code
             else writer.setstate(element.rdstate());
         }
 
-        // 4. base case for containers, arrays, and any iterable type EXCEPT the standard string types
+        // 4. base case for containers, arrays, and any iterable code EXCEPT the standard string types
         template <typename CharT, typename W, typename S, typename T>
             enable_if_t<is_iterable<T>::value,
         void> concat_impl_write_element(W& writer, const S& separator, const T& container) {

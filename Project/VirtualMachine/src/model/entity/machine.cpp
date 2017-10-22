@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include <controller/classes/action.h>
 #include <controller/classes/number.h>
 
@@ -261,8 +263,9 @@ void Machine::pop() {
 }
 
 void Machine::print() {
-    int n = this->data.top()->get_atr(0);
-    printf("%d\n", n);
+    //TODO: Will be implemented
+//    arena.print(this->data.top()->get_atr(0), *this);
+    printf("%d\n", this->data.top()->get_atr(0));
     this->data.pop();
 }
 

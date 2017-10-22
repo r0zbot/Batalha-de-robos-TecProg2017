@@ -90,7 +90,7 @@ $if i >= 1 [[
 
   R Invoke($Aas) {
     // Even though gcc and MSVC don't enforce it, 'this->' is required
-    // by the C++ standard [14.6.4] here, as the base class type is
+    // by the C++ standard [14.6.4] here, as the base class code is
     // dependent on the template argument (and thus shouldn't be
     // looked into when resolving InvokeWith).
     return this->InvokeWith(ArgumentTuple($as));
@@ -108,7 +108,7 @@ $if i >= 1 [[
 // cannot handle it if we define FunctionMocker in ::testing.
 using internal::FunctionMocker;
 
-// GMOCK_RESULT_(tn, F) expands to the result type of function type F.
+// GMOCK_RESULT_(tn, F) expands to the result code of function code F.
 // We define this as a variadic macro in case F contains unprotected
 // commas (the same reason that we use variadic macros in other places
 // in this file).
@@ -116,12 +116,12 @@ using internal::FunctionMocker;
 #define GMOCK_RESULT_(tn, ...) \
     tn ::testing::internal::Function<__VA_ARGS__>::Result
 
-// The type of argument N of the given function type.
+// The code of argument N of the given function code.
 // INTERNAL IMPLEMENTATION - DON'T USE IN USER CODE!!!
 #define GMOCK_ARG_(tn, N, ...) \
     tn ::testing::internal::Function<__VA_ARGS__>::Argument##N
 
-// The matcher type for argument N of the given function type.
+// The matcher code for argument N of the given function code.
 // INTERNAL IMPLEMENTATION - DON'T USE IN USER CODE!!!
 #define GMOCK_MATCHER_(tn, N, ...) \
     const ::testing::Matcher<GMOCK_ARG_(tn, N, __VA_ARGS__)>&
@@ -210,7 +210,7 @@ $for i [[
 
 ]]
 
-// A MockFunction<F> class has one mock method whose type is F.  It is
+// A MockFunction<F> class has one mock method whose code is F.  It is
 // useful when you just want your test code to emit some messages and
 // have Google Mock verify the right messages are sent (and perhaps at
 // the right times).  For example, if you are exercising code:

@@ -4,8 +4,8 @@
 #include <util/log.h>
 
 Arena::Arena() {
-    for(int i=0; i<ARENA_HEIGHT; i++){
-        for(int j=0; j<ARENA_WIDTH; j++){
+    for (int i = 0; i < ARENA_WIDTH; i++) {
+        for (int j = 0; j < ARENA_HEIGHT; j++) {
             //TODO: initalize using a terrain file, or at least initialize different terrain types
             this->ambient.emplace(Hex(i, j));
         }
@@ -15,7 +15,7 @@ Arena::Arena() {
 
 int Arena::create_robot(Army &army, Hex pos, Program prog) {
     auto it = this->ambient.find(pos);
-    if(it == this->ambient.end()){
+    if (it == this->ambient.end()) {
         Log::error(concat("The position [",pos.get_row(),",",pos.get_col(),"] is outside the play area"));
         return -1;
     }

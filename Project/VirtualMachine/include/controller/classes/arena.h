@@ -17,11 +17,11 @@ class Arena {
     private:
         unsigned long long time;
 
-        map<int, Army> armies;
         unordered_set<Hex> ambient;
 
-        bool validate_insertion(Hex pos, EntityMove &e);
+        map<int, Army> armies;
 
+        bool validate_insertion(Hex pos, EntityMove &e);
 
     public:
         explicit Arena();

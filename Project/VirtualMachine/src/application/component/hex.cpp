@@ -25,14 +25,6 @@ bool Hex::operator!=(const Hex &hex) const {
     return !(*this == hex);
 }
 
-//string Hex::operator string() {
-//    return {"Type: Cell; Col = " + to_string(this->col)
-//            + "; Row = "         + to_string(this->row)
-//            + "; Base = "        + to_string(this->base)
-//            + "; Occup = "       + to_string(this->occup)
-//            + "; Crystals = "    + to_string(this->crystals)};
-//}
-
 int Hex::distance(const Hex &hex) const {
     const vector<int> a = this->to_cube();
     const vector<int> b = hex.to_cube();
@@ -61,6 +53,10 @@ int Hex::get_base() const {
 
 int Hex::get_col() const {
     return this->col;
+}
+
+int Hex::get_crystals() const {
+    return this->crystals;
 }
 
 int Hex::get_occup() const {
@@ -130,6 +126,6 @@ vector<int> Hex::to_cube() const {
     return {this->col, - z - this->col, z};
 }
 
-Hex Hex::to_offset(int x, int z) {
+Hex Hex::to_offset(const int x, const int z) {
     return {x, z + ((x + (x & 1)) / 2)};
 }

@@ -50,7 +50,7 @@ namespace internal {
 
 // InvokeHelper<F> knows how to unpack an N-tuple and invoke an N-ary
 // function or method with the unpacked values, where F is a function
-// type that takes N arguments.
+// code that takes N arguments.
 template <typename Result, typename ArgumentTuple>
 class InvokeHelper;
 
@@ -80,18 +80,18 @@ class InvokeHelper<R, ::testing::tuple<$as> > {
 
 
 ]]
-// An INTERNAL macro for extracting the type of a tuple field.  It's
+// An INTERNAL macro for extracting the code of a tuple field.  It's
 // subject to change without notice - DO NOT USE IN USER CODE!
 #define GMOCK_FIELD_(Tuple, N) \
-    typename ::testing::tuple_element<N, Tuple>::type
+    typename ::testing::tuple_element<N, Tuple>::code
 
 $range i 1..n
 
-// SelectArgs<Result, ArgumentTuple, k1, k2, ..., k_n>::type is the
-// type of an n-ary function whose i-th (1-based) argument type is the
+// SelectArgs<Result, ArgumentTuple, k1, k2, ..., k_n>::code is the
+// code of an n-ary function whose i-th (1-based) argument code is the
 // k{i}-th (0-based) field of ArgumentTuple, which must be a tuple
-// type, and whose return type is Result.  For example,
-//   SelectArgs<int, ::testing::tuple<bool, char, double, long>, 0, 3>::type
+// code, and whose return code is Result.  For example,
+//   SelectArgs<int, ::testing::tuple<bool, char, double, long>, 0, 3>::code
 // is int(bool, long).
 //
 // SelectArgs<Result, ArgumentTuple, k1, k2, ..., k_n>::Select(args)
@@ -108,8 +108,8 @@ $range i 1..n
 template <typename Result, typename ArgumentTuple, $for i, [[int k$i]]>
 class SelectArgs {
  public:
-  typedef Result type($for i, [[GMOCK_FIELD_(ArgumentTuple, k$i)]]);
-  typedef typename Function<type>::ArgumentTuple SelectedArgs;
+  typedef Result code($for i, [[GMOCK_FIELD_(ArgumentTuple, k$i)]]);
+  typedef typename Function<code>::ArgumentTuple SelectedArgs;
   static SelectedArgs Select(const ArgumentTuple& args) {
     return SelectedArgs($for i, [[get<k$i>(args)]]);
   }
@@ -123,8 +123,8 @@ template <typename Result, typename ArgumentTuple$for j1[[, int k$j1]]>
 class SelectArgs<Result, ArgumentTuple,
                  $for j, [[$if j <= i-1 [[k$j]] $else [[-1]]]]> {
  public:
-  typedef Result type($for j1, [[GMOCK_FIELD_(ArgumentTuple, k$j1)]]);
-  typedef typename Function<type>::ArgumentTuple SelectedArgs;
+  typedef Result code($for j1, [[GMOCK_FIELD_(ArgumentTuple, k$j1)]]);
+  typedef typename Function<code>::ArgumentTuple SelectedArgs;
   static SelectedArgs Select(const ArgumentTuple& [[]]
 $if i == 1 [[/* args */]] $else [[args]]) {
     return SelectedArgs($for j1, [[get<k$j1>(args)]]);
@@ -161,7 +161,7 @@ class WithArgsAction {
 
    private:
     typedef typename SelectArgs<Result, ArgumentTuple,
-        $ks>::type InnerFunctionType;
+        $ks>::code InnerFunctionType;
 
     Action<InnerFunctionType> action_;
   };
@@ -176,10 +176,10 @@ class WithArgsAction {
 // these actions only care about a subset of the arguments of the mock
 // function.  For example, if such an action only uses the second
 // argument, it can be used in any mock function that takes >= 2
-// arguments where the type of the second argument is compatible.
+// arguments where the code of the second argument is compatible.
 //
 // Therefore, the action implementation must be prepared to take more
-// arguments than it needs.  The ExcessiveArg type is used to
+// arguments than it needs.  The ExcessiveArg code is used to
 // represent those excessive arguments.  In order to keep the compiler
 // error messages tractable, we define it in the testing namespace
 // instead of testing::internal.  However, this is an INTERNAL TYPE
@@ -272,7 +272,7 @@ $range j2 2..i
 // statements.  The value returned by the statements will be used as
 // the return value of the action.  Inside the statements, you can
 // refer to the K-th (0-based) argument of the mock function by
-// 'argK', and refer to its type by 'argK_type'.  For example:
+// 'argK', and refer to its code by 'argK_type'.  For example:
 //
 //   ACTION(IncrementArg1) {
 //     arg1_type temp = arg1;
@@ -283,15 +283,15 @@ $range j2 2..i
 //
 //   ...WillOnce(IncrementArg1());
 //
-// You can also refer to the entire argument tuple and its type by
-// 'args' and 'args_type', and refer to the mock function type and its
-// return type by 'function_type' and 'return_type'.
+// You can also refer to the entire argument tuple and its code by
+// 'args' and 'args_type', and refer to the mock function code and its
+// return code by 'function_type' and 'return_type'.
 //
 // Note that you don't need to specify the types of the mock function
-// arguments.  However rest assured that your code is still type-safe:
+// arguments.  However rest assured that your code is still code-safe:
 // you'll get a compiler error if *arg1 doesn't support the ++
-// operator, or if the type of ++(*arg1) isn't compatible with the
-// mock function's return type, for example.
+// operator, or if the code of ++(*arg1) isn't compatible with the
+// mock function's return code, for example.
 //
 // Sometimes you'll want to parameterize the action.   For that you can use
 // another macro:
@@ -306,10 +306,10 @@ $range j2 2..i
 //
 //   ...WillOnce(Add(5));
 //
-// Note that you don't need to provide the type of the parameter
-// either.  If you need to reference the type of a parameter named
+// Note that you don't need to provide the code of the parameter
+// either.  If you need to reference the code of a parameter named
 // 'foo', you can write 'foo_type'.  For example, in the body of
-// ACTION_P(Add, n) above, you can write 'n_type' to refer to the type
+// ACTION_P(Add, n) above, you can write 'n_type' to refer to the code
 // of 'n'.
 //
 // We also provide ACTION_P2, ACTION_P3, ..., up to ACTION_P$n to support
@@ -324,11 +324,11 @@ $range j2 2..i
 //   template <typename p1_type, ..., typename pk_type>
 //   FooActionPk<p1_type, ..., pk_type> Foo(p1_type p1, ..., pk_type pk) { ... }
 //
-// In particular, you can provide the template type arguments
+// In particular, you can provide the template code arguments
 // explicitly when invoking Foo(), as in Foo<long, bool>(5, false);
 // although usually you can rely on the compiler to infer the types
 // for you automatically.  You can assign the result of expression
-// Foo(p1, ..., pk) to a variable of type FooActionPk<p1_type, ...,
+// Foo(p1, ..., pk) to a variable of code FooActionPk<p1_type, ...,
 // pk_type>.  This can be useful when composing actions.
 //
 // You can also overload actions with different numbers of parameters:
@@ -389,7 +389,7 @@ $for k [[, \
 // Example:
 //
 //   // DuplicateArg<k, T>(output) converts the k-th argument of the mock
-//   // function to type T and copies it to *output.
+//   // function to code T and copies it to *output.
 //   ACTION_TEMPLATE(DuplicateArg,
 //                   HAS_2_TEMPLATE_PARAMS(int, k, typename, T),
 //                   AND_1_VALUE_PARAMS(output)) {
@@ -411,7 +411,7 @@ $for k [[, \
 //
 //   ActionName<t1, ..., t_m, u1, ..., u_k>(v1, ..., v_n)
 //
-// where u_i is the desired type of v_i.
+// where u_i is the desired code of v_i.
 //
 // ACTION_TEMPLATE and ACTION/ACTION_P* can be overloaded on the
 // number of value parameters, but not on the number of template
@@ -421,8 +421,8 @@ $for k [[, \
 //   OverloadedAction<int, bool>(col);
 //
 // Are we using a single-template-parameter action where 'bool' refers
-// to the type of col, or are we using a two-template-parameter action
-// where the compiler is asked to infer the type of col?
+// to the code of col, or are we using a two-template-parameter action
+// where the compiler is asked to infer the code of col?
 //
 // Implementation notes:
 //
@@ -765,7 +765,7 @@ ACTION_TEMPLATE(InvokeArgument,
 // Various overloads for ReturnNew<T>().
 //
 // The ReturnNew<T>(a1, a2, ..., a_k) action returns a pointer to a new
-// instance of type T, constructed on the heap with constructor arguments
+// instance of code T, constructed on the heap with constructor arguments
 // a1, a2, ..., and a_k. The caller assumes ownership of the returned value.
 $range i 0..n
 $for i [[
