@@ -15,6 +15,8 @@ enum class Code {
 
     ALC,  ///< Allocates a specific amount of space in the current frame scope
 
+    ATR,  ///< Pops the topmost element from the stack and pushes its specified attribute
+
     CALL, ///< Call a specific function
 
     DIV,  ///< Pops both topmost elements from the stack and pushes its quotient
@@ -56,6 +58,8 @@ enum class Code {
     RCL,  ///< Pushes the specified global variable to the main stack
 
     RET,  ///< Stops the current subprocess and return to the last function activated
+
+    SEE,  ///< Pushes the cell at the specified direction
 
     STL,  ///< Stores the topmost value of the stack as a local variable in the current subroutine active
 

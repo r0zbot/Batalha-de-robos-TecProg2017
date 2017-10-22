@@ -17,16 +17,18 @@ class Arena {
     private:
         unsigned long long time;
 
-        map<int, Army> armies;
         unordered_set<Hex> ambient;
 
-        bool validate_insertion(Hex pos, EntityMove &e);
+        map<int, Army> armies;
 
+        bool validate_insertion(Hex pos, EntityMove &e);
 
     public:
         explicit Arena();
 
         unsigned long long elapsed_time() const;
+
+        Hex& get_cell(const Hex &pos) const;
 
         Army &get_army(int id);
 

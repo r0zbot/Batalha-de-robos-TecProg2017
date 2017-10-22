@@ -1,14 +1,11 @@
 #include <controller/classes/instruction.h>
 
-//template class Instruction<int>;
+Instruction::Instruction(const Code code, Operand *arg) : code(code), arg(arg) {}
 
-Instruction::Instruction(const Code code, int arg) {
-    this->code = code;
-    this->arg = arg;
-}
+Instruction& Instruction::operator=(const Instruction &i) = default;
 
-int Instruction::get_arg() const {
-    return this->arg;
+Operand& Instruction::get_arg() const {
+    return *this->arg;
 }
 
 Code Instruction::get_code() const {
