@@ -12,7 +12,7 @@ Para passar um tipo composto em Assembly basta utilizar a seguinte sintaxe: `INT
 
 Existem três tipos de dados compostos que podem ser passados como parametro para as instruções:
 * Number: pode ser passado diretamente como parametro, por exemplo: `PUSH 3`
-* Action: deve ser passado como `INTR {ACTION, {SYS_CODE, DIRECTION}}`. Por Exemplo: `PUSH {ACTION, {MOVE, NW}}`
+* Action: deve ser passado como `INTR {ACTION, {SYS_CODE, DIRECTION}}`. Exemplo: `PUSH {ACTION, {MOVE, NW}}`
 * Cell: deve ser passado como `INTR {CELL, {COLUNA, LINHA, BASE, OCUPAÇÃO, CRISTAIS, TERRENO}}`. Por Exemplo: `PUSH {CELL, {0, 0, 3, 2, 1, 8}}`
 
 Obs: no caso de Cell os únicos argumentos obrigatórios para sua construção são _coluna_ e _linha_.
@@ -22,20 +22,20 @@ Obs: no caso de Cell os únicos argumentos obrigatórios para sua construção s
 Chamadas ao sistema dependem de um _SystemCode_ e uma _Direction_. Seus valores estão declarados em seus respectivos enums e são os seguintes:
 
 1. SystemCode
-* MOVE = Representa ação de movimento em um determinada direção
-* COLLECT = Representa ação de coleta em um determinada direção
-* DROP = Representa ação de deposito em um determinada direção
-* ATKMELLE = Representa ação de ataque corpo a corpo em um determinada direção
-* ATKSHORT = Representa ação de ataque de pequeno alcance em um determinada direção
-* ATKLONG = Representa ação de ataque de longo alcance em um determinada direção
+* `MOVE` = Representa ação de movimento em um determinada direção
+* `COLLECT` = Representa ação de coleta em um determinada direção
+* `DROP` = Representa ação de deposito em um determinada direção
+* `ATKMELLE` = Representa ação de ataque corpo a corpo em um determinada direção
+* `ATKSHORT` = Representa ação de ataque de pequeno alcance em um determinada direção
+* `ATKLONG` = Representa ação de ataque de longo alcance em um determinada direção
   
 2. Direction
-* NE = Representa direção nordeste
-* N = Representa direção norte
-* NW = Representa direção noroeste
-* SE = Representa direção sudeste
-* S = Representa direção sul
-* SW = Representa direção sudoeste
+* `NE` = Representa direção nordeste
+* `N`  = Representa direção norte
+* `NW` = Representa direção noroeste
+* `SE` = Representa direção sudeste
+* `S`  = Representa direção sul
+* `SW` = Representa direção sudoeste
 
 As chamadas ao sistema são realizadas por meio da instrução `SYS` que recebe como parametro um objeto do tipo _Action_.
 Dessa forma, sua utilização deve ser feita da seguinte maneira: `SYS {ACTION, {SYS_CODE, DIRECTION}}`.
