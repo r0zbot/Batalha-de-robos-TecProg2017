@@ -2,6 +2,7 @@
 #include <util/config.h>
 #include <concat.hpp>
 #include <util/log.h>
+#include <iostream>
 
 Arena::Arena() {
     for (int i = 0; i < ARENA_WIDTH; i++) {
@@ -54,15 +55,27 @@ void Arena::insert_army(const Army &army) {
 }
 
 void Arena::print(const string &s) {
-    printf("Arena: %s",s.c_str());
+    cout << "Arena: " << s;
 }
 
-void Arena::print(const string &s, EntityMove &e) {
-    printf("Robot %i (Army %s): %s\n", e.get_id(), this->get_army(e.get_group_id()).get_name().c_str(), s.c_str());
+void Arena::print(const EntityMove &e) {
+    cout << "Robot: " << e.get_id() << '\n';
+    if (e.get_group_id() != -1) {
+        cout << "Army: " << this->armies.at(e.get_group_id()).get_name() << '\n';
+    }
+    else {
+        cout << "Army: None" << '\n';
+    }
 }
 
-void Arena::print(const int n, EntityMove &e) {
-    this->print(to_string(n), e);
+void Arena::print(const string &s, const EntityMove &e) {
+    this->print(e);
+    cout << "Message: " << s;
+}
+
+void Arena::print(const Operand &op, const EntityMove &e) {
+    this->print(e);
+    cout << "Operand " << op.prn();
 }
 
 void Arena::remove_army(const int id) {

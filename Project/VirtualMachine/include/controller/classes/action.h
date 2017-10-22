@@ -19,6 +19,13 @@ class Action : public Operand {
         SystemCode get_code() const;
 
         Direction get_direction() const;
+
+        /**
+         * @brief Returns a string representation of the object.
+         *
+         * @return A string representation of the object.
+         */
+        string prn() const override;
 };
 
 #endif

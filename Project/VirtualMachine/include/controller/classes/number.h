@@ -12,6 +12,13 @@ class Number : public Operand {
         explicit Number(int v);
 
         int get_atr(int i) const override;
+
+        /**
+         * @brief Returns a string representation of the object.
+         *
+         * @return A string representation of the object.
+         */
+        string prn() const override;
 };
 
 #endif

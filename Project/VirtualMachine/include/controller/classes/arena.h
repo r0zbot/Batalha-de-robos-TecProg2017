@@ -39,8 +39,9 @@ class Arena {
         void insert_army(const Army &army);
 
         void print(const string &s);
-        void print(const string &s, EntityMove &e);
-        void print(int n, EntityMove &e);
+        void print(const EntityMove &e);
+        void print(const string &s, const EntityMove &e);
+        void print(const Operand &op, const EntityMove &e);
 
         void remove_army(int id);
 

@@ -174,12 +174,6 @@ class Machine : public EntityMove {
         void map_functions();
 
     public:
-        Operand* top() const;
-
-        void atr();
-
-        void see();
-
         /**
          * @brief Constructs a <b>Machine</b> with the specified set
          *        set of instructions and a position in the hexagonal grid.
@@ -204,6 +198,14 @@ class Machine : public EntityMove {
          * of the current instruction in the <b>StackFrame</b>.
          */
         void alloc();
+
+        /**
+         * @brief Pushes the specified attribute of the topmost element of the stack.
+         *
+         * Pops the topmost element of the stack and pushes its attribute specified
+         * by the instruction's argument.
+         */
+        void atr();
 
         /**
          * @brief Starts the execution of a subroutine.
@@ -487,12 +489,27 @@ class Machine : public EntityMove {
         void subtract();
 
         /**
+         * @brief Pushes a cell to the top of the stack.
+         *
+         * Request the {@link Arena} to store a reference for a specific grid cell
+         * int the top of the stack, so its attributes can be analyzed.
+         */
+        void see();
+
+        /**
          * @brief Calls a system function given as a parameter.
          *
          * Calls another function given as a parameter, usually to perform an action
          * in the arena, consisting of a system call.
          */
         void system();
+
+        /**
+         * @brief Returns a reference to the topmost element in the stack.
+         *
+         * @return A reference to the topmost element in the stack.
+         */
+        Operand* top() const;
 };
 
 #endif

@@ -4,16 +4,20 @@
 
 #include <util/config.h>
 #include <util/log.h>
+#include <concat.hpp>
 
 Hex::Hex(const int col,
          const int row,
          const int base,
          const int occup,
          const int crystals,
-         const Terrain terrain) :
-        col(col), row(row),
-        base(base), occup(occup),
-        crystals(crystals), terrain(terrain) {}
+         const Terrain terrain)
+        : col(col),
+          row(row),
+          base(base),
+          occup(occup),
+          crystals(crystals),
+          terrain(terrain) {}
 
 Hex& Hex::operator=(const Hex &hex) = default;
 
@@ -55,10 +59,6 @@ int Hex::get_col() const {
     return this->col;
 }
 
-int Hex::get_crystals() const {
-    return this->crystals;
-}
-
 int Hex::get_occup() const {
     return this->occup;
 }
@@ -83,6 +83,16 @@ Hex Hex::neighbor(const Direction d) const {
     int parity = this->col & 1;
     Hex dir = directions[parity][d];
     return {this->col + dir.col, this->row + dir.row};
+}
+
+string Hex::prn() const {
+    return concat("Type = Cell;",
+                  "\nCell Col = ",      this->col,
+                  "\nCell Row = ",      this->row,
+                  "\ncell Base = ",     this->base,
+                  "\nCell Occup = ",    this->occup,
+                  "\nCell Crystals = ", this->crystals,
+                  "\nCell Terrain = ",  this->terrain);
 }
 
 unordered_set<Hex> Hex::range(const int n) const {

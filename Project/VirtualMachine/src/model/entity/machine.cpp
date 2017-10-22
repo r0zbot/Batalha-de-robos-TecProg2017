@@ -19,12 +19,12 @@ Machine::Machine(Program &prog, const Hex &pos)
     this->map_functions();
 }
 
-Code Machine::fetch_code() const {
-    return this->prog[this->ip - 1].get_code();
-}
-
 Operand* Machine::fetch_arg() const {
     return &this->prog[this->ip - 1].get_arg();
+}
+
+Code Machine::fetch_code() const {
+    return this->prog[this->ip - 1].get_code();
 }
 
 Operand* Machine::top() const {
@@ -263,9 +263,7 @@ void Machine::pop() {
 }
 
 void Machine::print() {
-    //TODO: Will be implemented
-//    arena.print(this->data.top()->get_atr(0), *this);
-    printf("%d\n", this->data.top()->get_atr(0));
+    arena.print(*this->data.top(), *this);
     this->data.pop();
 }
 
@@ -311,8 +309,7 @@ void Machine::store() {
 }
 
 void Machine::stl() {
-    auto aux = this->data.top();
-    this->exec.set(this->fetch_arg()->get_atr(0), aux);
+    this->exec.set(this->fetch_arg()->get_atr(0), this->data.top());
     this->data.pop();
 }
 

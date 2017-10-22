@@ -1,6 +1,7 @@
 #include <controller/classes/action.h>
 
 #include <util/log.h>
+#include <concat.hpp>
 
 Action::Action(const SystemCode code, const Direction direction)
         : code(code),
@@ -22,4 +23,8 @@ SystemCode Action::get_code() const {
 
 Direction Action::get_direction() const {
     return this->direction;
+}
+
+string Action::prn() const {
+    return concat("Type: Action; Code = ", this->code, "; Direction = ", this->direction);
 }
