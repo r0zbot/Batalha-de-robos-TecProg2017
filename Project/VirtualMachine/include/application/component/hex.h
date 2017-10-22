@@ -73,9 +73,6 @@ class Hex : public Operand {
         Terrain terrain;
 
     public:
-
-//        explicit operator string();
-
         int get_atr(int i) const override;
 
         /**

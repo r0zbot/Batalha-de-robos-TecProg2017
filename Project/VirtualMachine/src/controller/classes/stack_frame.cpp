@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include <controller/classes/number.h>
 #include <controller/classes/stack_frame.h>
 
@@ -15,7 +17,7 @@ int StackFrame::back() {
         Log::warn("Must free memory before return frame");
         this->esp = this->ebp;
     }
-    this->ebp += this->data[this->esp - 1]->get_atr(0) - 2;
+    this->ebp += this->data[max(this->esp - 1, 0)]->get_atr(0) - 2;
     return this->data[this->esp]->get_atr(0);
 }
 

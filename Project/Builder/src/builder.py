@@ -33,6 +33,8 @@ class Builder:
     __INCLUDES = (
         '#include <vector>\n',
         '#include <controller/classes/code.h>',
+	'#include <controller/classes/action>',
+	'#include <controller/classes/number.h',
         '#include <controller/classes/instruction.h>\n',
         '#include <model/entity/machine.h>'
     )

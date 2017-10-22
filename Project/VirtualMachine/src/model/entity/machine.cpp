@@ -1,3 +1,4 @@
+#include <controller/classes/action.h>
 #include <controller/classes/number.h>
 
 #include <model/entity/machine.h>
@@ -5,7 +6,6 @@
 #include <util/config.h>
 #include <util/globals.h>
 #include <util/log.h>
-#include <controller/classes/action.h>
 
 Machine::Machine(Program &prog, const Hex &pos)
     : stop(false),
@@ -188,9 +188,6 @@ void Machine::jump_if_false() {
         this->jump();
         this->data.pop();
     }
-    else {
-        Log::error("Operand in Code::JIF is not Number");
-    }
 }
 
 void Machine::jump_if_true() {
@@ -198,9 +195,6 @@ void Machine::jump_if_true() {
     if (n && n->get_atr(0)) {
         this->jump();
         this->data.pop();
-    }
-    else {
-        Log::error("Operand in Code::JIT is not Number");
     }
 }
 
@@ -267,7 +261,8 @@ void Machine::pop() {
 }
 
 void Machine::print() {
-//    printf(this-data.top())
+    int n = this->data.top()->get_atr(0);
+    printf("%d\n", n);
     this->data.pop();
 }
 
@@ -280,6 +275,9 @@ void Machine::rce() {
     if (n) {
         this->data.push(this->exec.get(n->get_atr(0)));
     }
+    else {
+        Log::error("Operand in Code::RCE is not Number");
+    }
 }
 
 void Machine::return_from_procedure() {
@@ -290,6 +288,9 @@ void Machine::recall() {
     auto n = dynamic_cast<Number*>(this->fetch_arg());
     if (n) {
         this->data.push(this->memo[n->get_atr(0)]);
+    }
+    else {
+        Log::error("Operand in Code::RCL is not Number");
     }
 }
 
@@ -307,7 +308,8 @@ void Machine::store() {
 }
 
 void Machine::stl() {
-    this->exec.set(dynamic_cast<Number*>(this->fetch_arg())->get_atr(0), this->data.top());
+    auto aux = this->data.top();
+    this->exec.set(this->fetch_arg()->get_atr(0), aux);
     this->data.pop();
 }
 
@@ -320,7 +322,7 @@ void Machine::subtract() {
         this->data.push(new Number(n2->get_atr(0) - n1->get_atr(0)));
     }
     else {
-        Log::error("Operands in Code::NE are not Numbers");
+        Log::error("Operands in Code::SUB are not Numbers");
     }
 }
 
