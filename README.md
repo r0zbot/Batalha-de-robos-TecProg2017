@@ -23,10 +23,12 @@ Inicialmente, é necessário criar um arquivo assembly (.gubi) de teste de acord
 ### Script automático
 
 #### Windows 
-No Windows, basta arrastar um arquivo _.gubi_ para o batch script _run.bat_, ou passá-lo seu endereço como argumento da linha de comando. Isso montará e compilará os arquivos necessários, e executará o binário automaticamente.
+~~No Windows, basta arrastar um arquivo _.gubi_ para o batch script _run.bat_, ou passá-lo seu endereço como argumento da linha de comando. Isso montará e compilará os arquivos necessários, e executará o binário automaticamente.~~
 
 #### Linux
-Executar o _run.sh_ com o endereço do arquivo _.gubi_ como argumento da linha de comando. Isso montará e compilará os arquivos necessários, e executará o binário automaticamente.
+~~Executar o _run.sh_ com o endereço do arquivo _.gubi_ como argumento da linha de comando. Isso montará e compilará os arquivos necessários, e executará o binário automaticamente.~~
+
+OBS: Como nessa fase há outros componentes além da máquina virtual, tal script não é tão util, pois seria necessária uma configuração adicional. Logo, sua execução não foi testada e não é recomendada.
 
 ### Compilando manualmente 
 
