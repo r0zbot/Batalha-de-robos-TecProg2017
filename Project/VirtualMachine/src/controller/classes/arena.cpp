@@ -116,6 +116,7 @@ void Arena::request_drop(EntityMove &e, const Hex &pos) {
 }
 
 void Arena::request_movement(EntityMove &e, const Hex &pos) {
+    if(Log::LOGGING_LEVEL == Log::DEBUG) this->print(concat("Robot ", e.get_id(), " moving to (", pos.get_row(), ", ", pos.get_col()));
     if(this->validate_insertion(pos, e)){
         auto oldPosIt = this->ambient.find(Hex(e.get_x(), e.get_y()));
         auto newPosIt = this->ambient.find(pos);
