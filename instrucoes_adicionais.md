@@ -8,8 +8,7 @@ Obs: Em todos os casos abaixo, _X_ é um inteiro.
 * `RCE X`: Empilha o elemento da posição _X_ do espaço de variáveis locais na pilha de execução .
 
 ## Instruções com tipos de dados compostos
-Para passar um tipo composto para um instrução em Assembly basta utilizar a seguinte sintaxe: `INTR {TYPE, {ARGUMENTS}}`,
-onde _INTR_ é o código da instrução a ser executa,_TYPE_ é o tipo do objeto que esta sendo passado, e _ARGUMENTS_ são os parametros necessários para a construção do objeto.
+Para passar um tipo composto em Assembly basta utilizar a seguinte sintaxe: `INTR {TYPE, {ARGUMENTS}}`,onde _INTR_ é o código da instrução a ser executa, _TYPE_ é o tipo do objeto que esta sendo passado, e _ARGUMENTS_ são os parametros necessários para a construção do objeto.
 
 Existem três tipos de dados compostos que podem ser passados como parametro para as instruções:
 * Number: pode ser passador diretamente como parametro, por exemplo: `PUSH 3`
@@ -43,4 +42,4 @@ Dessa forma, sua utilização deve ser feita da seguinte maneira: `SYS {ACTION, 
 
 Exemplo:
 * `SYS {ACTION, {MOVE, NE}}` = Faz uma requisição ao sistema para realizar uma ação de movimento na direção nordeste.
-* `SYS {ACTION, {DROP, S}}` = Faz uma requisição ao sistema para realizar uma ação de deposíto na direção sul.
+* `SYS {ACTION, {DROP, S}}` = Faz uma requisição ao sistema para realizar uma ação de depósito na direção sul.
