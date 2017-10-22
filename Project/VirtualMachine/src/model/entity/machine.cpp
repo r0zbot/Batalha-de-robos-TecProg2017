@@ -277,12 +277,22 @@ void Machine::pop() {
 }
 
 void Machine::print() {
-    arena.print(this->data.top()->get_atr(0), *this);
+    if(this->get_group_id() == -1){
+        printf("%i", this->data.top()->get_atr(0));
+    }
+    else {
+        arena.print(this->data.top()->get_atr(0), *this);
+    }
     this->data.pop();
 }
 
 void Machine::print(string s) {
-    arena.print(s, *this);
+    if(this->get_group_id() == -1){
+        printf("%s", s);
+    }
+    else {
+        arena.print(s, *this);
+    }
 }
 
 void Machine::push() {
