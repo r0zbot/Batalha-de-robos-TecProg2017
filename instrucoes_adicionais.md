@@ -22,7 +22,7 @@ Obs: no caso de Cell os únicos argumentos obrigatórios para sua construção s
 
 Chamadas ao sistema dependem de um _SystemCode_ e uma _Direction_. Seus valores estão declarados em seus respectivos enums e são os seguintes:
 
-* SystemCode:
+* SystemCode
   * MOVE = Representa ação de movimento em um determinada direção
   * COLLECT = Representa ação de coleta em um determinada direção
   * DROP = Representa ação de deposito em um determinada direção
@@ -30,7 +30,7 @@ Chamadas ao sistema dependem de um _SystemCode_ e uma _Direction_. Seus valores 
   * ATKSHORT = Representa ação de ataque de pequeno alcance em um determinada direção
   * ATKLONG = Representa ação de ataque de longo alcance em um determinada direção
   
-* Direction:
+* Direction
   * NE = Representa direção nordeste
   * N = Representa direção norte
   * NW = Representa direção noroeste
