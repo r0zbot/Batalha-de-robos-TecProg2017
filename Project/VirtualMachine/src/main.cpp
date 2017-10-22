@@ -169,9 +169,7 @@ int main() {
         ,Instruction(Code::SYS, 1) // anda para L
         ,Instruction(Code::SYS, 2) // coleta de L
     });
-
-    //Machine m (prog);
-    //m.execute();
+    
     Army army1("USA");
     Army army2("North Korea");
     arena.insert_army(army1);

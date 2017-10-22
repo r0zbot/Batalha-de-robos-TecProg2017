@@ -277,9 +277,7 @@ void Machine::pop() {
 }
 
 void Machine::print() {
-    //TODO: Will be implemented
     arena.print(this->data.top()->get_atr(0), *this);
-//    printf("%d\n", this->data.top()->get_atr(0));
     this->data.pop();
 }
 
