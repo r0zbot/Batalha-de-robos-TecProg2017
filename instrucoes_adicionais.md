@@ -11,7 +11,7 @@ Obs: Em todos os casos abaixo, _X_ é um inteiro.
 Para passar um tipo composto em Assembly basta utilizar a seguinte sintaxe: `INTR {TYPE, {ARGUMENTS}}`,onde _INTR_ é o código da instrução a ser executa, _TYPE_ é o tipo do objeto que esta sendo passado, e _ARGUMENTS_ são os parametros necessários para a construção do objeto.
 
 Existem três tipos de dados compostos que podem ser passados como parametro para as instruções:
-* Number: pode ser passador diretamente como parametro, por exemplo: `PUSH 3`
+* Number: pode ser passado diretamente como parametro, por exemplo: `PUSH 3`
 * Action: deve ser passado como `INTR {ACTION, {SYS_CODE, DIRECTION}}`. Por Exemplo: `PUSH {ACTION, {MOVE, NW}}`
 * Cell: deve ser passado como `INTR {CELL, {COLUNA, LINHA, BASE, OCUPAÇÃO, CRISTAIS, TERRENO}}`. Por Exemplo: `PUSH {CELL, {0, 0, 3, 2, 1, 8}}`
 
