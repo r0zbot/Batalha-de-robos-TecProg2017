@@ -15,8 +15,10 @@ class Army {
         const int id;
         map<int, EntityMove*> soldiers;
 
+        string name;
+
     public:
-        explicit Army(const vector<EntityMove*> &soldiers);
+        explicit Army(const string &name);
 
         ~Army();
 
@@ -27,6 +29,10 @@ class Army {
         bool contains_soldier(int id) const;
 
         EntityMove* get_soldier(int id);
+
+        string get_name();
+
+        void instert_soldier(EntityMove* entityMove);
 
         void remove_soldier(int id);
 

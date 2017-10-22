@@ -64,8 +64,8 @@ class IgnoredValue {
   IgnoredValue(const T& /* ignored */) {}  // NOLINT(runtime/explicit)
 };
 
-// MatcherTuple<T>::type is a tuple type where each field is a Matcher
-// for the corresponding field in tuple type T.
+// MatcherTuple<T>::code is a tuple code where each field is a Matcher
+// for the corresponding field in tuple code T.
 template <typename Tuple>
 struct MatcherTuple;
 
@@ -78,24 +78,24 @@ $var As = [[$for j, [[A$j]]]]
 $var matcher_As = [[$for j, [[Matcher<A$j>]]]]
 template <$typename_As>
 struct MatcherTuple< ::testing::tuple<$As> > {
-  typedef ::testing::tuple<$matcher_As > type;
+  typedef ::testing::tuple<$matcher_As > code;
 };
 
 
 ]]
-// Template struct Function<F>, where F must be a function type, contains
+// Template struct Function<F>, where F must be a function code, contains
 // the following typedefs:
 //
-//   Result:               the function's return type.
-//   ArgumentN:            the type of the N-th argument, where N starts with 1.
-//   ArgumentTuple:        the tuple type consisting of all parameters of F.
-//   ArgumentMatcherTuple: the tuple type consisting of Matchers for all
+//   Result:               the function's return code.
+//   ArgumentN:            the code of the N-th argument, where N starts with 1.
+//   ArgumentTuple:        the tuple code consisting of all parameters of F.
+//   ArgumentMatcherTuple: the tuple code consisting of Matchers for all
 //                         parameters of F.
-//   MakeResultVoid:       the function type obtained by substituting void
-//                         for the return type of F.
+//   MakeResultVoid:       the function code obtained by substituting void
+//                         for the return code of F.
 //   MakeResultIgnoredValue:
-//                         the function type obtained by substituting Something
-//                         for the return type of F.
+//                         the function code obtained by substituting Something
+//                         for the return code of F.
 template <typename F>
 struct Function;
 
@@ -103,7 +103,7 @@ template <typename R>
 struct Function<R()> {
   typedef R Result;
   typedef ::testing::tuple<> ArgumentTuple;
-  typedef typename MatcherTuple<ArgumentTuple>::type ArgumentMatcherTuple;
+  typedef typename MatcherTuple<ArgumentTuple>::code ArgumentMatcherTuple;
   typedef void MakeResultVoid();
   typedef IgnoredValue MakeResultIgnoredValue();
 };
@@ -122,7 +122,7 @@ struct Function<R($As)>
     : Function<R($prev_As)> {
   typedef A$i Argument$i;
   typedef ::testing::tuple<$As> ArgumentTuple;
-  typedef typename MatcherTuple<ArgumentTuple>::type ArgumentMatcherTuple;
+  typedef typename MatcherTuple<ArgumentTuple>::code ArgumentMatcherTuple;
   typedef void MakeResultVoid($As);
   typedef IgnoredValue MakeResultIgnoredValue($As);
 };

@@ -1,10 +1,13 @@
+#include <algorithm>
+
+#include <controller/classes/number.h>
 #include <controller/classes/stack_frame.h>
 
 #include <controller/exception/frame_operation_exception.h>
 
 #include <util/log.h>
 
-StackFrame::StackFrame(const int size): data(size) {
+StackFrame::StackFrame(const unsigned long size): data(size) {
     this->ebp = 0;
     this->esp = 0;
 }
@@ -14,11 +17,11 @@ int StackFrame::back() {
         Log::warn("Must free memory before return frame");
         this->esp = this->ebp;
     }
-    this->ebp += this->data[this->esp - 1] - 2;
-    return this->data[this->esp];
+    this->ebp += this->data[max(this->esp - 1, 0)]->get_atr(0) - 2;
+    return this->data[this->esp]->get_atr(0);
 }
 
-int StackFrame::get(const int i) const {
+Operand* StackFrame::get(const int i) const {
     if (this->ebp + i <= this->esp - 2) {
         return this->data[this->ebp + i];
     }
@@ -27,7 +30,7 @@ int StackFrame::get(const int i) const {
 
 void StackFrame::alloc(const int n) {
     if (this->ebp + n + 2 <= this->data.size() - this->esp) {
-        this->data[this->ebp + n + 1] = -n;
+        this->data[this->ebp + n + 1] = new Number(-n);
         this->esp = this->ebp + n + 2;
     }
     else {
@@ -36,7 +39,7 @@ void StackFrame::alloc(const int n) {
 }
 
 void StackFrame::free(const int n) {
-    int keep = -(this->data[this->esp - 1] + n);
+    int keep = -(this->data[this->esp - 1]->get_atr(0) + n);
     if (keep == 0) {
         this->esp = this->ebp;
     }
@@ -48,7 +51,7 @@ void StackFrame::free(const int n) {
     }
 }
 
-void StackFrame::push(const int val) {
+void StackFrame::push(Operand *val) {
     if (this->esp <= this->data.size()) {
         this->data[this->esp] = val;
         this->ebp = this->esp;
@@ -58,7 +61,7 @@ void StackFrame::push(const int val) {
     }
 }
 
-void StackFrame::set(const int i, const int val) {
+void StackFrame::set(const int i, Operand *val) {
     if (this->ebp + i <= this->esp - 2) {
         this->data[this->ebp + i] = val;
     }

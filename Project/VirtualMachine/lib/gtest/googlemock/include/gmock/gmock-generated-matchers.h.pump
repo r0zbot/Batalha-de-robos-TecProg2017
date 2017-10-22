@@ -51,19 +51,19 @@ namespace internal {
 
 $range i 0..n-1
 
-// The type of the i-th (0-based) field of Tuple.
+// The code of the i-th (0-based) field of Tuple.
 #define GMOCK_FIELD_TYPE_(Tuple, i) \
-    typename ::testing::tuple_element<i, Tuple>::type
+    typename ::testing::tuple_element<i, Tuple>::code
 
 // TupleFields<Tuple, k0, ..., kn> is for selecting fields from a
-// tuple of type Tuple.  It has two members:
+// tuple of code Tuple.  It has two members:
 //
-//   type: a tuple type whose i-th field is the ki-th field of Tuple.
+//   code: a tuple code whose i-th field is the ki-th field of Tuple.
 //   GetSelectedFields(t): returns fields k0, ..., and kn of t as a tuple.
 //
 // For example, in class TupleFields<tuple<bool, char, int>, 2, 0>, we have:
 //
-//   type is tuple<int, bool>, and
+//   code is tuple<int, bool>, and
 //   GetSelectedFields(make_tuple(true, 'a', 42)) is (42, true).
 
 template <class Tuple$for i [[, int k$i = -1]]>
@@ -73,9 +73,9 @@ class TupleFields;
 template <class Tuple$for i [[, int k$i]]>
 class TupleFields {
  public:
-  typedef ::testing::tuple<$for i, [[GMOCK_FIELD_TYPE_(Tuple, k$i)]]> type;
-  static type GetSelectedFields(const Tuple& t) {
-    return type($for i, [[get<k$i>(t)]]);
+  typedef ::testing::tuple<$for i, [[GMOCK_FIELD_TYPE_(Tuple, k$i)]]> code;
+  static code GetSelectedFields(const Tuple& t) {
+    return code($for i, [[get<k$i>(t)]]);
   }
 };
 
@@ -89,9 +89,9 @@ $range k 0..n-1
 template <class Tuple$for j [[, int k$j]]>
 class TupleFields<Tuple, $for k, [[$if k < i [[k$k]] $else [[-1]]]]> {
  public:
-  typedef ::testing::tuple<$for j, [[GMOCK_FIELD_TYPE_(Tuple, k$j)]]> type;
-  static type GetSelectedFields(const Tuple& $if i==0 [[/* t */]] $else [[t]]) {
-    return type($for j, [[get<k$j>(t)]]);
+  typedef ::testing::tuple<$for j, [[GMOCK_FIELD_TYPE_(Tuple, k$j)]]> code;
+  static code GetSelectedFields(const Tuple& $if i==0 [[/* t */]] $else [[t]]) {
+    return code($for j, [[get<k$j>(t)]]);
   }
 };
 
@@ -107,7 +107,7 @@ class ArgsMatcherImpl : public MatcherInterface<ArgsTuple> {
  public:
   // ArgsTuple may have top-level const or reference modifiers.
   typedef GTEST_REMOVE_REFERENCE_AND_CONST_(ArgsTuple) RawArgsTuple;
-  typedef typename internal::TupleFields<RawArgsTuple, $ks>::type SelectedArgs;
+  typedef typename internal::TupleFields<RawArgsTuple, $ks>::code SelectedArgs;
   typedef Matcher<const SelectedArgs&> MonomorphicInnerMatcher;
 
   template <typename InnerMatcher>
@@ -185,15 +185,15 @@ class ArgsMatcher {
   GTEST_DISALLOW_ASSIGN_(ArgsMatcher);
 };
 
-// A set of metafunctions for computing the result type of AllOf.
+// A set of metafunctions for computing the result code of AllOf.
 // AllOf(m1, ..., mN) returns
-// AllOfResultN<decltype(m1), ..., decltype(mN)>::type.
+// AllOfResultN<decltype(m1), ..., decltype(mN)>::code.
 
 // Although AllOf isn't defined for one argument, AllOfResult1 is defined
 // to simplify the implementation.
 template <typename M1>
 struct AllOfResult1 {
-  typedef M1 type;
+  typedef M1 code;
 };
 
 $range i 1..n
@@ -208,22 +208,22 @@ $range t m+1..i
 template <typename M1$for j [[, typename M$j]]>
 struct AllOfResult$i {
   typedef BothOfMatcher<
-      typename AllOfResult$m<$for k, [[M$k]]>::type,
-      typename AllOfResult$(i-m)<$for t, [[M$t]]>::type
-  > type;
+      typename AllOfResult$m<$for k, [[M$k]]>::code,
+      typename AllOfResult$(i-m)<$for t, [[M$t]]>::code
+  > code;
 };
 
 ]]
 
-// A set of metafunctions for computing the result type of AnyOf.
+// A set of metafunctions for computing the result code of AnyOf.
 // AnyOf(m1, ..., mN) returns
-// AnyOfResultN<decltype(m1), ..., decltype(mN)>::type.
+// AnyOfResultN<decltype(m1), ..., decltype(mN)>::code.
 
 // Although AnyOf isn't defined for one argument, AnyOfResult1 is defined
 // to simplify the implementation.
 template <typename M1>
 struct AnyOfResult1 {
-  typedef M1 type;
+  typedef M1 code;
 };
 
 $range i 1..n
@@ -238,9 +238,9 @@ $range t m+1..i
 template <typename M1$for j [[, typename M$j]]>
 struct AnyOfResult$i {
   typedef EitherOfMatcher<
-      typename AnyOfResult$m<$for k, [[M$k]]>::type,
-      typename AnyOfResult$(i-m)<$for t, [[M$t]]>::type
-  > type;
+      typename AnyOfResult$m<$for k, [[M$k]]>::code,
+      typename AnyOfResult$(i-m)<$for t, [[M$t]]>::code
+  > code;
 };
 
 ]]
@@ -269,7 +269,7 @@ Args(const InnerMatcher& matcher) {
 // $n arguments.
 //
 // The use of DecayArray in the implementation allows ElementsAre()
-// to accept string literals, whose type is const char[N], but we
+// to accept string literals, whose code is const char[N], but we
 // want to treat them as const char*.
 //
 // NOTE: Since ElementsAre() cares about the order of the elements, it
@@ -290,12 +290,12 @@ inline internal::ElementsAreMatcher<
     ::testing::tuple<
 $for j, [[
 
-        typename internal::DecayArray<T$j[[]]>::type]]> >
+        typename internal::DecayArray<T$j[[]]>::code]]> >
 ElementsAre($for j, [[const T$j& e$j]]) {
   typedef ::testing::tuple<
 $for j, [[
 
-      typename internal::DecayArray<T$j[[]]>::type]]> Args;
+      typename internal::DecayArray<T$j[[]]>::code]]> Args;
   return internal::ElementsAreMatcher<Args>(Args($for j, [[e$j]]));
 }
 
@@ -318,12 +318,12 @@ inline internal::UnorderedElementsAreMatcher<
     ::testing::tuple<
 $for j, [[
 
-        typename internal::DecayArray<T$j[[]]>::type]]> >
+        typename internal::DecayArray<T$j[[]]>::code]]> >
 UnorderedElementsAre($for j, [[const T$j& e$j]]) {
   typedef ::testing::tuple<
 $for j, [[
 
-      typename internal::DecayArray<T$j[[]]>::type]]> Args;
+      typename internal::DecayArray<T$j[[]]>::code]]> Args;
   return internal::UnorderedElementsAreMatcher<Args>(Args($for j, [[e$j]]));
 }
 
@@ -340,9 +340,9 @@ $range k 1..m
 $range t m+1..i
 
 template <$for j, [[typename M$j]]>
-inline typename internal::AllOfResult$i<$for j, [[M$j]]>::type
+inline typename internal::AllOfResult$i<$for j, [[M$j]]>::code
 AllOf($for j, [[M$j m$j]]) {
-  return typename internal::AllOfResult$i<$for j, [[M$j]]>::type(
+  return typename internal::AllOfResult$i<$for j, [[M$j]]>::code(
       $if m == 1 [[m1]] $else [[::testing::AllOf($for k, [[m$k]])]],
       $if m+1 == i [[m$i]] $else [[::testing::AllOf($for t, [[m$t]])]]);
 }
@@ -360,9 +360,9 @@ $range k 1..m
 $range t m+1..i
 
 template <$for j, [[typename M$j]]>
-inline typename internal::AnyOfResult$i<$for j, [[M$j]]>::type
+inline typename internal::AnyOfResult$i<$for j, [[M$j]]>::code
 AnyOf($for j, [[M$j m$j]]) {
-  return typename internal::AnyOfResult$i<$for j, [[M$j]]>::type(
+  return typename internal::AnyOfResult$i<$for j, [[M$j]]>::code(
       $if m == 1 [[m1]] $else [[::testing::AnyOf($for k, [[m$k]])]],
       $if m+1 == i [[m$i]] $else [[::testing::AnyOf($for t, [[m$t]])]]);
 }
@@ -387,7 +387,7 @@ $$   // show up in the generated code.
 // defines a matcher with the given name that executes the statements,
 // which must return a bool to indicate if the match succeeds.  Inside
 // the statements, you can refer to the value being matched by 'arg',
-// and refer to its type by 'arg_type'.
+// and refer to its code by 'arg_type'.
 //
 // The description string documents what the matcher does, and is used
 // to generate the failure message when the match fails.  Since a
@@ -423,11 +423,11 @@ $$   // show up in the generated code.
 // Argument Type
 // =============
 //
-// Note that the type of the value being matched (arg_type) is
+// Note that the code of the value being matched (arg_type) is
 // determined by the context in which you use the matcher and is
 // supplied to you by the compiler, so you don't need to worry about
 // declaring it (nor can you).  This allows the matcher to be
-// polymorphic.  For example, IsEven() can be used to match any type
+// polymorphic.  For example, IsEven() can be used to match any code
 // where the value of "(arg % 2) == 0" can be implicitly converted to
 // a bool.  In the "Bar(IsEven())" example above, if method Bar()
 // takes an int, 'arg_type' will be int; if it takes an unsigned long,
@@ -459,9 +459,9 @@ $$   // show up in the generated code.
 // printed, making the message human-friendly.
 //
 // In the matcher definition body, you can write 'foo_type' to
-// reference the type of a parameter named 'foo'.  For example, in the
+// reference the code of a parameter named 'foo'.  For example, in the
 // body of MATCHER_P(HasAbsoluteValue, value) above, you can write
-// 'value_type' to refer to the type of 'value'.
+// 'value_type' to refer to the code of 'value'.
 //
 // We also provide MATCHER_P2, MATCHER_P3, ..., up to MATCHER_P$n to
 // support multi-parameter matchers.
@@ -523,12 +523,12 @@ $$   // show up in the generated code.
 //
 // When you write Foo(v1, ..., vk), the compiler infers the types of
 // the parameters v1, ..., and vk for you.  If you are not happy with
-// the result of the type inference, you can specify the types by
+// the result of the code inference, you can specify the types by
 // explicitly instantiating the template, as in Foo<long, bool>(5,
 // false).  As said earlier, you don't get to (or need to) specify
 // 'arg_type' as that's determined by the context in which the matcher
 // is used.  You can assign the result of expression Foo(p1, ..., pk)
-// to a variable of type FooMatcherPk<p1_type, ..., pk_type>.  This
+// to a variable of code FooMatcherPk<p1_type, ..., pk_type>.  This
 // can be useful when composing matchers.
 //
 // While you can instantiate a matcher template with reference types,
@@ -546,7 +546,7 @@ $$   // show up in the generated code.
 // long string, it can be very helpful to also print the diff between
 // the expected string and the actual one.  To achieve that, you can
 // optionally stream additional information to a special variable
-// named result_listener, whose type is a pointer to class
+// named result_listener, whose code is a pointer to class
 // MatchResultListener:
 //
 //   MATCHER_P(EqualsLongString, str, "") {

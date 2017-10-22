@@ -6,6 +6,8 @@
 
 #include <controller/classes/system.h>
 
+#include <controller/interface/operand.h>
+
 #include <model/entity/terrain.h>
 
 using namespace std;
@@ -26,7 +28,7 @@ using namespace std;
  *
  * @see https://www.redblobgames.com/grids/hexagons/
  */
-class Hex {
+class Hex : public Operand {
 
     private:
         /**
@@ -145,6 +147,15 @@ class Hex {
         int distance(const Hex &hex) const;
 
         /**
+         * @brief Returns the specified attribute.
+         *
+         * @param [i] An integer indicating which attribute should be returned.
+         *
+         * @return The specified attribute.
+         */
+        int get_atr(int i) const override;
+
+        /**
          * @brief Gets the group's id who owns this <b>Hex</b> as a base.
          *
          * @return The group's id who owns this <b>Hex</b> as a base.
@@ -157,6 +168,8 @@ class Hex {
          * @return The hexagon column position.
          */
         int get_col() const;
+
+        int get_crystals() const;
 
         /**
          * @brief Gets the entity's id present at this <b>Hex</b>.
@@ -208,6 +221,20 @@ class Hex {
          *         steps from the caller.
          */
         unordered_set<Hex> range(int n) const;
+
+        /**
+         * @brief Inserts a crystal into this cell.
+         *
+         * @return A boolean that indicates whether it was successfull or not.
+         */
+        bool insert_crystal();
+
+        /**
+         * @brief Removes a crystal from this cell.
+         *
+         * @return A boolean that indicates whether it was successful or not.
+         */
+        bool remove_crystal();
 
         /**
          * @brief Sets a new base at this <b>Hex</b>.
