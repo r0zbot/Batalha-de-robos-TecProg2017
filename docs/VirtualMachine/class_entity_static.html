@@ -86,6 +86,9 @@ $(document).ready(function(){initNavTree('class_entity_static.html','');});
 <div class="title">EntityStatic Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class represents a general interface for game entities that are static.  
+ <a href="class_entity_static.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for EntityStatic:</div>
 <div class="dyncontent">
@@ -99,8 +102,10 @@ Inheritance diagram for EntityStatic:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a031f375d9e09244ba18f33ca76e431ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_static.html#a031f375d9e09244ba18f33ca76e431ea">EntityStatic</a> (const <a class="el" href="class_hex.html">Hex</a> &amp;<a class="el" href="class_entity.html#ae87d8e666320416f2cee14948b41b666">pos</a>)</td></tr>
+<tr class="memdesc:a031f375d9e09244ba18f33ca76e431ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="class_entity.html">Entity</a> that is part of the <a class="el" href="class_arena.html">Arena</a> system at the specified position of the grid.  <a href="#a031f375d9e09244ba18f33ca76e431ea">More...</a><br /></td></tr>
 <tr class="separator:a031f375d9e09244ba18f33ca76e431ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5f1e859c5ee70e207050803b54ea87a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_static.html#af5f1e859c5ee70e207050803b54ea87a">affect</a> (const <a class="el" href="class_entity_move.html">EntityMove</a> &amp;e)=0</td></tr>
+<tr class="memdesc:af5f1e859c5ee70e207050803b54ea87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the entity's environment logic behavior.  <a href="#af5f1e859c5ee70e207050803b54ea87a">More...</a><br /></td></tr>
 <tr class="separator:af5f1e859c5ee70e207050803b54ea87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_entity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
 <tr class="memitem:a9b81edc52442cc7e418d2c97a6a552e1 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a9b81edc52442cc7e418d2c97a6a552e1">Entity</a> (const <a class="el" href="class_hex.html">Hex</a> &amp;<a class="el" href="class_entity.html#ae87d8e666320416f2cee14948b41b666">pos</a>)</td></tr>
@@ -136,7 +141,10 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:ae87d8e666320416f2cee14948b41b666 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_hex.html">Hex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ae87d8e666320416f2cee14948b41b666">pos</a></td></tr>
 <tr class="separator:ae87d8e666320416f2cee14948b41b666 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class represents a general interface for game entities that are static. </p>
+<p>The <b>EntityStatic</b> class is the most general interface for any model object that represents an <a class="el" href="class_entity.html">Entity</a> that is part of the <a class="el" href="class_arena.html">Arena</a> environment. It provides general functions and attributes for this kind of <a class="el" href="class_entity.html">Entity</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a031f375d9e09244ba18f33ca76e431ea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a031f375d9e09244ba18f33ca76e431ea">&#9670;&nbsp;</a></span>EntityStatic()</h2>
 
@@ -160,6 +168,14 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs an <a class="el" href="class_entity.html">Entity</a> that is part of the <a class="el" href="class_arena.html">Arena</a> system at the specified position of the grid. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[pos]</td><td>The position of the <a class="el" href="class_entity.html">Entity</a> at the <a class="el" href="class_arena.html">Arena</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -187,6 +203,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Executes the entity's environment logic behavior. </p>
+<p>This method is an abstract method that any derived class must implement with their environment logic behavior. </p>
 
 </div>
 </div>

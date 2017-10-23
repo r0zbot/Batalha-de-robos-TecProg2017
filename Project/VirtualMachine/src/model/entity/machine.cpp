@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include <concat.hpp>
+
 #include <controller/classes/action.h>
 #include <controller/classes/number.h>
 
@@ -40,7 +42,8 @@ void Machine::add() {
         this->data.push(new Number(n1->get_atr(0) + n2->get_atr(0)));
     }
     else {
-        Log::error("Operands in Code::ADD are not Numbers");
+        this->print("<ERROR> Operands in Code::ADD are not Numbers");
+        this->stop = true;
     }
 }
 
@@ -50,7 +53,8 @@ void Machine::alloc() {
         this->exec.alloc(n->get_atr(0));
     }
     else {
-        Log::error("Operand in Code::ALC is not Number");
+        this->print("<ERROR> Operand in Code::ALC is not Number");
+        this->stop = true;
     }
 }
 
@@ -62,7 +66,8 @@ void Machine::atr() {
         this->data.push(new Number(aux->get_atr(arg->get_atr(0))));
     }
     else {
-        Log::error("Operand in Code::ATR is not Number");
+        this->print("<ERROR> Operand in Code::ATR is not Number");
+        this->stop = true;
     }
 }
 
@@ -104,7 +109,8 @@ void Machine::divide() {
         this->data.push(new Number(n2->get_atr(0) / n1->get_atr(0)));
     }
     else {
-        Log::error("Operands in Code::DIV are not Numbers");
+        this->print("<ERROR> Operands in Code::DIV are not Numbers");
+        this->stop = true;
     }
 }
 
@@ -128,7 +134,8 @@ void Machine::equals() {
         this->data.push(new Number(n1->get_atr(0) == n2->get_atr(0)));
     }
     else {
-        Log::error("Operands in Code::EQ are not Numbers");
+        this->print("<ERROR> Operands in Code::EQ are not Numbers");
+        this->stop = true;
     }
 }
 
@@ -144,7 +151,8 @@ void Machine::free() {
         this->exec.free(n->get_atr(0));
     }
     else {
-        Log::error("Operand in Code::FRE is not Number");
+        this->print("<ERROR> Operand in Code::FRE is not Number");
+        this->stop = true;
     }
 }
 
@@ -157,7 +165,8 @@ void Machine::greater() {
         this->data.push(new Number(n1->get_atr(0) < n2->get_atr(0)));
     }
     else {
-        Log::error("Operands in Code::GT are not Numbers");
+        this->print("<ERROR> Operands in Code::GT are not Numbers");
+        this->stop = true;
     }
 }
 
@@ -170,7 +179,8 @@ void Machine::greater_equal() {
         this->data.push(new Number(n1->get_atr(0) <= n2->get_atr(0)));
     }
     else {
-        Log::error("Operands in Code::GE are not Numbers");
+        this->print("<ERROR> Operands in Code::GE are not Numbers");
+        this->stop = true;
     }
 }
 
@@ -180,7 +190,8 @@ void Machine::jump() {
         this->ip = n->get_atr(0);
     }
     else {
-        Log::error("Operand in Code::JMP is not Number");
+        this->print("<ERROR> Operand in Code::JMP is not Number");
+        this->stop = true;
     }
 }
 
@@ -209,7 +220,8 @@ void Machine::lower() {
         this->data.push(new Number(n1->get_atr(0) > n2->get_atr(0)));
     }
     else {
-        Log::error("Operands in Code::LT are not Numbers");
+        this->print("<ERROR> Operands in Code::LT are not Numbers");
+        this->stop = true;
     }
 }
 
@@ -222,7 +234,8 @@ void Machine::lower_equal() {
         this->data.push(new Number(n1->get_atr(0) >= n2->get_atr(0)));
     }
     else {
-        Log::error("Operands in Code::LT are not Numbers");
+        this->print("<ERROR> Operands in Code::LT are not Numbers");
+        this->stop = true;
     }
 }
 
@@ -241,7 +254,8 @@ void Machine::multiply() {
         this->data.push(new Number(n1->get_atr(0) * n2->get_atr(0)));
     }
     else {
-        Log::error("Operands in Code::MUL are not Numbers");
+        this->print("<ERROR> Operands in Code::MUL are not Numbers");
+        this->stop = true;
     }
 }
 
@@ -254,7 +268,8 @@ void Machine::not_equal() {
         this->data.push(new Number(n1->get_atr(0) != n2->get_atr(0)));
     }
     else {
-        Log::error("Operands in Code::NE are not Numbers");
+        this->print("<ERROR> Operands in Code::NE are not Numbers");
+        this->stop = true;
     }
 }
 
@@ -267,6 +282,10 @@ void Machine::print() {
     this->data.pop();
 }
 
+void Machine::print(string s) {
+    arena.print(s, *this);
+}
+
 void Machine::push() {
     this->data.push(this->fetch_arg());
 }
@@ -277,7 +296,8 @@ void Machine::rce() {
         this->data.push(this->exec.get(n->get_atr(0)));
     }
     else {
-        Log::error("Operand in Code::RCE is not Number");
+        this->print("<ERROR> Operand in Code::RCE is not Number");
+        this->stop = true;
     }
 }
 
@@ -291,7 +311,8 @@ void Machine::recall() {
         this->data.push(this->memo[n->get_atr(0)]);
     }
     else {
-        Log::error("Operand in Code::RCL is not Number");
+        this->print("<ERROR> Operand in Code::RCL is not Number");
+        this->stop = true;
     }
 }
 
@@ -322,13 +343,14 @@ void Machine::subtract() {
         this->data.push(new Number(n2->get_atr(0) - n1->get_atr(0)));
     }
     else {
-        Log::error("Operands in Code::SUB are not Numbers");
+        this->print("<ERROR> Operands in Code::SUB are not Numbers");
+        this->stop = true;
     }
 }
 
 void Machine::system() {
     if (this->systemFunctions.count((SystemCode) this->fetch_arg()->get_atr(0)) != 1) {
-        Log::warn(to_string(this->fetch_arg()->get_atr(0)) + " is not a valid system instruction.");
+        this->print(concat(this->fetch_arg()->get_atr(0), " is not a valid system instruction."));
         return;
     }
     Function f = this->systemFunctions[(SystemCode) this->fetch_arg()->get_atr(0)];

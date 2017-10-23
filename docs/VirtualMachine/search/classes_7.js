@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stackframe',['StackFrame',['../class_stack_frame.html',1,'']]]
+  ['number',['Number',['../class_number.html',1,'']]]
 ];

@@ -8,12 +8,16 @@ var hierarchy =
       ] ],
       [ "EntityStatic", "class_entity_static.html", null ]
     ] ],
-    [ "std::exception", null, [
+    [ "exception", null, [
       [ "FrameOperationException", "class_frame_operation_exception.html", null ]
     ] ],
     [ "std::hash< Hex >", "structstd_1_1hash_3_01_hex_01_4.html", null ],
-    [ "Hex", "class_hex.html", null ],
     [ "Instruction", "class_instruction.html", null ],
     [ "Log", "class_log.html", null ],
+    [ "Operand", "class_operand.html", [
+      [ "Action", "class_action.html", null ],
+      [ "Hex", "class_hex.html", null ],
+      [ "Number", "class_number.html", null ]
+    ] ],
     [ "StackFrame", "class_stack_frame.html", null ]
 ];

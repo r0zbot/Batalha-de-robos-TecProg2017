@@ -173,6 +173,13 @@ class Machine : public EntityMove {
          */
         void map_functions();
 
+        /**
+         * Prints an string with extra information about it.
+         *
+         * @param s String to be printed.
+         */
+        void print(string s);
+
     public:
         /**
          * @brief Constructs a <b>Machine</b> with the specified set

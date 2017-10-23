@@ -81,7 +81,7 @@ class Hex : public Operand {
          * @param [row]      The row number.
          * @param [base]     The group's id who owns this position as a base.
          * @param [occup]    The entity's id present in this position.
-         * @param [crystals] The number of crystal in this position.
+         * @param [crystals] The number of crystals in this position.
          * @param [terrain]  The type of terrain in this position.
          */
         Hex(int col,

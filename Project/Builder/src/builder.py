@@ -33,10 +33,11 @@ class Builder:
     __INCLUDES = (
         '#include <vector>\n',
         '#include <controller/classes/code.h>',
-	'#include <controller/classes/action>',
-	'#include <controller/classes/number.h',
+	'#include <controller/classes/action.h>',
+	'#include <controller/classes/number.h>',
         '#include <controller/classes/instruction.h>\n',
-        '#include <model/entity/machine.h>'
+        '#include <model/entity/machine.h>',
+	'#include <util/globals.h>'
     )
 
     __TODO = "// Move this file to /VirtualMachine/src so this can work on production"

@@ -1,11 +1,10 @@
 #include <model/entity/army.h>
+
 #include <util/config.h>
 
-Army::Army(const string &name) :
-        id(id_gen++),
-        name(name){
-
-}
+Army::Army(const string &name)
+        : id(id_gen++),
+          name(name){}
 
 Army::~Army() {
     for (auto const &e : this->soldiers) {
@@ -22,7 +21,7 @@ int Army::get_id() const {
     return this->id;
 }
 
-string Army::get_name() {
+string Army::get_name() const {
     return this->name;
 }
 
@@ -30,7 +29,7 @@ EntityMove* Army::get_soldier(const int id) {
     return this->soldiers.at(id);
 }
 
-void Army::instert_soldier(EntityMove *entityMove) {
+void Army::insert_soldier(EntityMove *entityMove) {
     entityMove->set_group_id(this->get_id());
     this->soldiers.emplace(entityMove->get_id(), entityMove);
 }

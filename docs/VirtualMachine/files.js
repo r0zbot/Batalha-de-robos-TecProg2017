@@ -1,6 +1,11 @@
 var files =
 [
-    [ "arena.h", "arena_8h.html", "arena_8h" ],
+    [ "action.h", "action_8h.html", [
+      [ "Action", "class_action.html", "class_action" ]
+    ] ],
+    [ "arena.h", "arena_8h.html", [
+      [ "Arena", "class_arena.html", "class_arena" ]
+    ] ],
     [ "army.h", "army_8h.html", [
       [ "Army", "class_army.html", "class_army" ]
     ] ],
@@ -28,6 +33,12 @@ var files =
       [ "Log", "class_log.html", "class_log" ]
     ] ],
     [ "machine.h", "machine_8h.html", "machine_8h" ],
+    [ "number.h", "number_8h.html", [
+      [ "Number", "class_number.html", "class_number" ]
+    ] ],
+    [ "operand.h", "operand_8h.html", [
+      [ "Operand", "class_operand.html", "class_operand" ]
+    ] ],
     [ "stack_frame.h", "stack__frame_8h.html", [
       [ "StackFrame", "class_stack_frame.html", "class_stack_frame" ]
     ] ],

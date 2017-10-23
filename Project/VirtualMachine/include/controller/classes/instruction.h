@@ -35,6 +35,15 @@ class Instruction {
         Instruction(Code code, Operand *arg);
 
         /**
+         * @brief Constructs a <b>Instruction</b> with the specified
+         *        option code and an integer instruction argument.
+         *
+         * @param [code] The instruction option code.
+         * @param [number]  The instruction argument.
+         */
+        Instruction(Code code, int number);
+
+        /**
          * @brief Copies the argument's attributes to this <b>Instruction</b> object.
          *
          * @param [i] The object that will be assigned to the function caller.

@@ -138,7 +138,12 @@ class EntityMove : public Entity {
          */
         void refuel(double amount);
 
-        //TODO make doc
+        /**
+         * @brief Removes a crystal of from the current amount this entity is carrying.
+         *
+         * @return True if it was possible to remove the crystal,
+         *         false otherwise.
+         */
         bool remove_crystal();
 
         /**
@@ -148,7 +153,12 @@ class EntityMove : public Entity {
          */
         void set_group_id(int group_id);
 
-        //TODO make doc
+        /**
+         * @brief Removes from the {@link #Entity} healthy points
+         *        the amount of damaged suffered.
+         *
+         * @param [damage] The damaged suffered by some action.
+         */
         void take_damage(int damage);
 
         /**

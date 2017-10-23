@@ -86,29 +86,47 @@ $(document).ready(function(){initNavTree('class_army.html','');});
 <div class="title">Army Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class represents a group of <a class="el" href="class_entity_move.html">EntityMove</a> that can work together.  
+ <a href="class_army.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab6e449d7d495494144b5839ce76e38e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_army.html#ab6e449d7d495494144b5839ce76e38e8">Army</a> (const vector&lt; <a class="el" href="class_entity_move.html">EntityMove</a> *&gt; &amp;soldiers)</td></tr>
-<tr class="separator:ab6e449d7d495494144b5839ce76e38e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09bade25e677dc85a9d856a6fd8f442d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_army.html#a09bade25e677dc85a9d856a6fd8f442d">Army</a> (const string &amp;name)</td></tr>
+<tr class="memdesc:a09bade25e677dc85a9d856a6fd8f442d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <b>Army</b> with the specified name.  <a href="#a09bade25e677dc85a9d856a6fd8f442d">More...</a><br /></td></tr>
+<tr class="separator:a09bade25e677dc85a9d856a6fd8f442d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01db7886e46e79ece1726d46f918848d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_army.html#a01db7886e46e79ece1726d46f918848d">~Army</a> ()</td></tr>
+<tr class="memdesc:a01db7886e46e79ece1726d46f918848d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erases every memory content related with this object.  <a href="#a01db7886e46e79ece1726d46f918848d">More...</a><br /></td></tr>
 <tr class="separator:a01db7886e46e79ece1726d46f918848d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e500ab7d7dfc0e83abcc705970473ba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_army.html#a2e500ab7d7dfc0e83abcc705970473ba">get_id</a> () const</td></tr>
-<tr class="separator:a2e500ab7d7dfc0e83abcc705970473ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba1a88814b9b568aacd32a6a16483beb"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_army.html#aba1a88814b9b568aacd32a6a16483beb">size</a> () const</td></tr>
-<tr class="separator:aba1a88814b9b568aacd32a6a16483beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac44f23a0297baf86f45c77a00b41ead"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_army.html#aac44f23a0297baf86f45c77a00b41ead">contains_soldier</a> (int id) const</td></tr>
 <tr class="separator:aac44f23a0297baf86f45c77a00b41ead"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e500ab7d7dfc0e83abcc705970473ba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_army.html#a2e500ab7d7dfc0e83abcc705970473ba">get_id</a> () const</td></tr>
+<tr class="memdesc:a2e500ab7d7dfc0e83abcc705970473ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the army's id.  <a href="#a2e500ab7d7dfc0e83abcc705970473ba">More...</a><br /></td></tr>
+<tr class="separator:a2e500ab7d7dfc0e83abcc705970473ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c5d6f7a0594808435fd748e887b0e7c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_army.html#a0c5d6f7a0594808435fd748e887b0e7c">get_name</a> () const</td></tr>
+<tr class="memdesc:a0c5d6f7a0594808435fd748e887b0e7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the army's name.  <a href="#a0c5d6f7a0594808435fd748e887b0e7c">More...</a><br /></td></tr>
+<tr class="separator:a0c5d6f7a0594808435fd748e887b0e7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4117cfcacc0aec09154d97da81190538"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_entity_move.html">EntityMove</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_army.html#a4117cfcacc0aec09154d97da81190538">get_soldier</a> (int id)</td></tr>
+<tr class="memdesc:a4117cfcacc0aec09154d97da81190538"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a pointer to an <a class="el" href="class_entity.html">Entity</a> that belongs to this <b>Army</b> an has the specified ID.  <a href="#a4117cfcacc0aec09154d97da81190538">More...</a><br /></td></tr>
 <tr class="separator:a4117cfcacc0aec09154d97da81190538"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a367d1f048f0961809552e8b85d181b17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_army.html#a367d1f048f0961809552e8b85d181b17">insert_soldier</a> (<a class="el" href="class_entity_move.html">EntityMove</a> *entityMove)</td></tr>
+<tr class="memdesc:a367d1f048f0961809552e8b85d181b17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts a soldier in this <b>Army</b>.  <a href="#a367d1f048f0961809552e8b85d181b17">More...</a><br /></td></tr>
+<tr class="separator:a367d1f048f0961809552e8b85d181b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ca1d744f32becebacba0430de57aa64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_army.html#a4ca1d744f32becebacba0430de57aa64">remove_soldier</a> (int id)</td></tr>
+<tr class="memdesc:a4ca1d744f32becebacba0430de57aa64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes, if exists, from this <b>Army</b> a soldier with the specified ID.  <a href="#a4ca1d744f32becebacba0430de57aa64">More...</a><br /></td></tr>
 <tr class="separator:a4ca1d744f32becebacba0430de57aa64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba1a88814b9b568aacd32a6a16483beb"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_army.html#aba1a88814b9b568aacd32a6a16483beb">size</a> () const</td></tr>
+<tr class="memdesc:aba1a88814b9b568aacd32a6a16483beb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the amount of soldiers present <b>Army</b>.  <a href="#aba1a88814b9b568aacd32a6a16483beb">More...</a><br /></td></tr>
+<tr class="separator:aba1a88814b9b568aacd32a6a16483beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48e57293e1ab8f9d31b6b5c0d8c33662"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_army.html#a48e57293e1ab8f9d31b6b5c0d8c33662">update</a> ()</td></tr>
+<tr class="memdesc:a48e57293e1ab8f9d31b6b5c0d8c33662"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the <b>Army</b> logical behavior.  <a href="#a48e57293e1ab8f9d31b6b5c0d8c33662">More...</a><br /></td></tr>
 <tr class="separator:a48e57293e1ab8f9d31b6b5c0d8c33662"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ab6e449d7d495494144b5839ce76e38e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6e449d7d495494144b5839ce76e38e8">&#9670;&nbsp;</a></span>Army()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class represents a group of <a class="el" href="class_entity_move.html">EntityMove</a> that can work together. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a09bade25e677dc85a9d856a6fd8f442d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09bade25e677dc85a9d856a6fd8f442d">&#9670;&nbsp;</a></span>Army()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -119,8 +137,8 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">Army::Army </td>
           <td>(</td>
-          <td class="paramtype">const vector&lt; <a class="el" href="class_entity_move.html">EntityMove</a> *&gt; &amp;&#160;</td>
-          <td class="paramname"><em>soldiers</em></td><td>)</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -130,6 +148,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs an <b>Army</b> with the specified name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[name]</td><td>The <b>Army's</b> name. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -147,6 +173,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Erases every memory content related with this object. </p>
 
 </div>
 </div>
@@ -184,6 +212,29 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Gets the army's id. </p>
+<dl class="section return"><dt>Returns</dt><dd>The army's id. </dd></dl>
+
+</div>
+</div>
+<a id="a0c5d6f7a0594808435fd748e887b0e7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c5d6f7a0594808435fd748e887b0e7c">&#9670;&nbsp;</a></span>get_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Army::get_name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the army's name. </p>
+<dl class="section return"><dt>Returns</dt><dd>The army's name. </dd></dl>
+
 </div>
 </div>
 <a id="a4117cfcacc0aec09154d97da81190538"></a>
@@ -201,6 +252,41 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Gets a pointer to an <a class="el" href="class_entity.html">Entity</a> that belongs to this <b>Army</b> an has the specified ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[id]</td><td>The <a class="el" href="class_entity.html">Entity</a> ID.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the searched <a class="el" href="class_entity.html">Entity</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a367d1f048f0961809552e8b85d181b17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a367d1f048f0961809552e8b85d181b17">&#9670;&nbsp;</a></span>insert_soldier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Army::insert_soldier </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_entity_move.html">EntityMove</a> *&#160;</td>
+          <td class="paramname"><em>entityMove</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts a soldier in this <b>Army</b>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[entityMove]</td><td>The soldier to be inserted in this <b>Army</b>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -220,6 +306,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Removes, if exists, from this <b>Army</b> a soldier with the specified ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[id]</td><td>The soldier's ID that must be removed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aba1a88814b9b568aacd32a6a16483beb"></a>
@@ -237,6 +331,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Gets the amount of soldiers present <b>Army</b>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The amount of soldiers present <b>Army</b>. </dd></dl>
+
 </div>
 </div>
 <a id="a48e57293e1ab8f9d31b6b5c0d8c33662"></a>
@@ -253,6 +350,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Executes the <b>Army</b> logical behavior. </p>
+<p>This method executes the <b>Army</b> logical behavior and also executes all its soldiers logical behavior. </p>
 
 </div>
 </div>

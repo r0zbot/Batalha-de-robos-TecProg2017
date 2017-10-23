@@ -25,7 +25,7 @@ class Operand {
          *
          * @param [i] The attribute position.
          *
-         * @return THe attribute at the speficied position.
+         * @return The attribute at the specified position.
          */
         virtual int get_atr(int i) const = 0;
 

@@ -40,11 +40,11 @@ void EntityMove::heal(const unsigned int amount) {
 }
 
 bool EntityMove::insert_crystal() {
-    if(this->crystals < MAX_CRYSTALS_PER_ROBOT){
-        this->crystals++;
+    if (this->crystals < MAX_CRYSTALS_PER_ROBOT) {
+        ++this->crystals;
         return true;
     }
-    else{
+    else {
         return false;
     }
 }
@@ -56,11 +56,11 @@ void EntityMove::refuel(const double amount) {
 }
 
 bool EntityMove::remove_crystal() {
-    if(this->crystals > 0){
-        this->crystals--;
+    if (this->crystals > 0) {
+        --this->crystals;
         return true;
     }
-    else{
+    else {
         return false;
     }
 }

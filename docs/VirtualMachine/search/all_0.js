@@ -1,17 +1,26 @@
 var searchData=
 [
+  ['action',['Action',['../class_action.html',1,'Action'],['../class_action.html#aca51fe5c577eab1d12eda8341e810275',1,'Action::Action()']]],
+  ['action_2eh',['action.h',['../action_8h.html',1,'']]],
   ['add',['add',['../class_machine.html#a182af94331503a6de66961f1eb677dfd',1,'Machine::add()'],['../code_8h.html#af31477bc48f67856bedb0fa8e5b5281da9eeb52badb613229884838847294b90d',1,'ADD():&#160;code.h']]],
   ['affect',['affect',['../class_entity_static.html#af5f1e859c5ee70e207050803b54ea87a',1,'EntityStatic']]],
   ['alc',['ALC',['../code_8h.html#af31477bc48f67856bedb0fa8e5b5281da56c0bc0e475820687969fbc9797b4361',1,'code.h']]],
   ['alloc',['alloc',['../class_stack_frame.html#ac6fd0915d90cd7622944e53643faac17',1,'StackFrame::alloc()'],['../class_machine.html#ae423e97b4ccd1519309bb59108204995',1,'Machine::alloc()']]],
   ['arena',['Arena',['../class_arena.html',1,'Arena'],['../class_arena.html#a74f105bc709d4728fb07f1984abfd345',1,'Arena::Arena()'],['../globals_8h.html#ab6292a05e36b44426aaf1bf847611977',1,'arena():&#160;globals.h']]],
   ['arena_2eh',['arena.h',['../arena_8h.html',1,'']]],
-  ['army',['Army',['../class_army.html',1,'Army'],['../class_army.html#ab6e449d7d495494144b5839ce76e38e8',1,'Army::Army()']]],
+  ['arena_5fheight',['ARENA_HEIGHT',['../config_8h.html#a74c65f2cf6e5f55b98e9884867db6d2e',1,'config.h']]],
+  ['arena_5fsleep_5ftime',['ARENA_SLEEP_TIME',['../config_8h.html#a172ac3076473bc1bc3aa5de167752c88',1,'config.h']]],
+  ['arena_5fwidth',['ARENA_WIDTH',['../config_8h.html#a0264098c1e94fd9923fc75558e16baf9',1,'config.h']]],
+  ['army',['Army',['../class_army.html',1,'Army'],['../class_army.html#a09bade25e677dc85a9d856a6fd8f442d',1,'Army::Army()']]],
   ['army_2eh',['army.h',['../army_8h.html',1,'']]],
-  ['atklong',['ATKLONG',['../system_8h.html#a355181b5a7b6128ebf4d3d3951652f7ea02dde7b1d6b589eed40bf559f7fe6563',1,'system.h']]],
-  ['atkmelee',['ATKMELEE',['../system_8h.html#a355181b5a7b6128ebf4d3d3951652f7ea3c4692f142651f509525f40a4ef3f1c6',1,'system.h']]],
-  ['atkshort',['ATKSHORT',['../system_8h.html#a355181b5a7b6128ebf4d3d3951652f7ea3c614fed7832a62d02b7cbd27f550fe8',1,'system.h']]],
+  ['atklong',['ATKLONG',['../system_8h.html#a355181b5a7b6128ebf4d3d3951652f7ea19a1d0b4f08610aa5a1aed80f24581cf',1,'system.h']]],
+  ['atkmelee',['ATKMELEE',['../system_8h.html#a355181b5a7b6128ebf4d3d3951652f7eaec97674e4cbe291234e262bcfac31c2f',1,'system.h']]],
+  ['atkshort',['ATKSHORT',['../system_8h.html#a355181b5a7b6128ebf4d3d3951652f7ead3c05b270178701db9fd1304b7ead5e2',1,'system.h']]],
+  ['atr',['atr',['../class_machine.html#a333fc367869d87b838d0fa38e6b1dc90',1,'Machine::atr()'],['../code_8h.html#af31477bc48f67856bedb0fa8e5b5281da281a782aff4827c48009e454993bc514',1,'ATR():&#160;code.h']]],
   ['attack_5flong',['attack_long',['../class_machine.html#a685171a06a4f770c9f334d66ca27ab76',1,'Machine']]],
+  ['attack_5flong_5fdamage',['ATTACK_LONG_DAMAGE',['../config_8h.html#ade1e43508e71dbb1b1a71b023fd33d36',1,'config.h']]],
   ['attack_5fmelee',['attack_melee',['../class_machine.html#a0bb1db2b921f434e11695f04c0557ce4',1,'Machine']]],
-  ['attack_5fshort',['attack_short',['../class_machine.html#a7f9650cd71ada0fd34283ee10234a238',1,'Machine']]]
+  ['attack_5fmelee_5fdamage',['ATTACK_MELEE_DAMAGE',['../config_8h.html#a3a8f54f19824fb5fdaaa5b6c40d5470a',1,'config.h']]],
+  ['attack_5fshort',['attack_short',['../class_machine.html#a7f9650cd71ada0fd34283ee10234a238',1,'Machine']]],
+  ['attack_5fshort_5fdamage',['ATTACK_SHORT_DAMAGE',['../config_8h.html#ac65dad7d61b0a87464b74dd1d4e3e5c8',1,'config.h']]]
 ];
