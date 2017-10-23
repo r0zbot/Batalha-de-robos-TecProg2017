@@ -283,7 +283,12 @@ void Machine::print() {
 }
 
 void Machine::print(string s) {
-    arena.print(s, *this);
+    if(this->get_group_id() == -1){
+        printf("%s", s);
+    }
+    else {
+        arena.print(s, *this);
+    }
 }
 
 void Machine::push() {
