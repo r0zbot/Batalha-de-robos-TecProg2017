@@ -55,7 +55,7 @@ class Arena {
          * @return True if possible to insert the {@link #Entity} at the
          *         given position, and false otherwise.
          */
-        bool validate_insertion(Hex pos, EntityMove &e);
+        bool validate_insertion(const Hex &pos, EntityMove &e);
 
     public:
         /**
@@ -78,7 +78,7 @@ class Arena {
          * @return The robot's ID if it's created with success, or -1 if it's
          *         impossible to create the robot.
          */
-        int create_robot(int id, const Hex &pos, Program &prog);
+        int create_robot(int id, const Hex &pos, const Program &prog);
 
         /**
          * @brief Gets the amount of time passed in the current game.
@@ -115,7 +115,7 @@ class Arena {
          *
          * @return A reference to the specified Grid Cell.
          */
-        Hex& get_cell(const Hex &pos) const;
+        const Hex& get_cell(const Hex &pos) const;
 
         /**
          * @brief Inserts an {@link #Army} in the current game.

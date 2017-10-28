@@ -69,7 +69,7 @@ void EntityMove::set_group_id(const int group_id) {
     this->group_id = group_id;
 }
 
-void EntityMove::take_damage(int damage) {
+void EntityMove::take_damage(const int damage) {
     this->hp = max(0, this->hp - damage);
     //TODO die if 0?
 }
@@ -79,7 +79,7 @@ bool EntityMove::use_fuel(const double amount) {
         this->fuel -= amount;
         return true;
     }
-    else{
+    else {
         return false;
     }
 }

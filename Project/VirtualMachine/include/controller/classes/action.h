@@ -18,12 +18,12 @@ class Action : public Operand {
         /**
          * Represents the type of the action.
          */
-        SystemCode code;
+        const SystemCode code;
 
         /**
          * Represents the direction where the action will be performed.
          */
-        Direction direction;
+        const Direction direction;
 
     public:
         /**
@@ -64,7 +64,7 @@ class Action : public Operand {
          *
          * @return A string representation of the object.
          */
-        string prn() const override;
+        string info() const override;
 };
 
 #endif

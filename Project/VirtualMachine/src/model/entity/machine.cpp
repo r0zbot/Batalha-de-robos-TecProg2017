@@ -11,7 +11,7 @@
 #include <util/globals.h>
 #include <util/log.h>
 
-Machine::Machine(Program &prog, const Hex &pos)
+Machine::Machine(const Program &prog, const Hex &pos)
     : stop(false),
       ip(0),
       exec(MACHINE_EXECUTION_STACK_SIZE),
@@ -121,8 +121,8 @@ void Machine::drop_crystal() {
 }
 
 void Machine::duplicate() {
-    auto n = dynamic_cast<Number*>(this->data.top());
-    this->data.push(new Number(n->get_atr(0)));
+    auto top = this->data.top();
+    this->data.push(top);
 }
 
 void Machine::equals() {
@@ -282,13 +282,8 @@ void Machine::print() {
     this->data.pop();
 }
 
-void Machine::print(string s) {
-    if(this->get_group_id() == -1){
-        printf("%s", s);
-    }
-    else {
-        arena.print(s, *this);
-    }
+void Machine::print(const string &s) {
+    arena.print(s, *this);
 }
 
 void Machine::push() {
@@ -322,8 +317,9 @@ void Machine::recall() {
 }
 
 void Machine::see() {
-    auto d = (Direction) dynamic_cast<Action*>(this->fetch_arg())->get_atr(1);
-    this->data.push(&arena.get_cell(this->pos.neighbor(d)));
+    auto d = (Direction) this->fetch_arg()->get_atr(1);
+    auto cell = arena.get_cell(this->pos.neighbor(d));
+    this->data.push(&cell);
 }
 
 void Machine::store() {
@@ -421,11 +417,11 @@ void Machine::map_functions() {
     this->functions.insert({Code::SUB,  &Machine::subtract});
     this->functions.insert({Code::SYS,  &Machine::system});
 
-    this->systemFunctions.insert({SystemCode::ATKMELEE,  &Machine::attack_melee});
-    this->systemFunctions.insert({SystemCode::ATKSHORT,  &Machine::attack_short});
+    this->systemFunctions.insert({SystemCode::ATKMELEE, &Machine::attack_melee});
+    this->systemFunctions.insert({SystemCode::ATKSHORT, &Machine::attack_short});
     this->systemFunctions.insert({SystemCode::ATKLONG,  &Machine::attack_long});
-    this->systemFunctions.insert({SystemCode::COLLECT, &Machine::collect_crystal});
-    this->systemFunctions.insert({SystemCode::DROP,  &Machine::drop_crystal});
-    this->systemFunctions.insert({SystemCode::MOVE,  &Machine::move});
-    this->systemFunctions.insert({SystemCode::SEE,  &Machine::see});
+    this->systemFunctions.insert({SystemCode::COLLECT,  &Machine::collect_crystal});
+    this->systemFunctions.insert({SystemCode::DROP,     &Machine::drop_crystal});
+    this->systemFunctions.insert({SystemCode::MOVE,     &Machine::move});
+    this->systemFunctions.insert({SystemCode::SEE,      &Machine::see});
 }

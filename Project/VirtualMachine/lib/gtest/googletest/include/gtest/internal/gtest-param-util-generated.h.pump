@@ -79,11 +79,11 @@ $range j 1..i
 template <$for j, [[typename T$j]]>
 class ValueArray$i {
  public:
-  $if i==1 [[explicit ]]ValueArray$i($for j, [[T$j v$j]]) : $for j, [[v$(j)_(v$j)]] {}
+  $if i==1 [[explicit ]]ValueArray$i($for j, [[T$j value$j]]) : $for j, [[value$(j)_(value$j)]] {}
 
   template <typename T>
   operator ParamGenerator<T>() const {
-    const T array[] = {$for j, [[static_cast<T>(v$(j)_)]]};
+    const T array[] = {$for j, [[static_cast<T>(value$(j)_)]]};
     return ValuesIn(array);
   }
 
@@ -93,7 +93,7 @@ class ValueArray$i {
 
 $for j [[
 
-  const T$j v$(j)_;
+  const T$j value$(j)_;
 ]]
 
 };

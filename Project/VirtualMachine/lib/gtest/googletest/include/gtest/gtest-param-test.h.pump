@@ -278,10 +278,10 @@ internal::ParamGenerator<T> Range(T start, T end) {
 // each with STL strings with values "a" and "b":
 //
 // ::std::vector< ::std::string> GetParameterStrings() {
-//   ::std::vector< ::std::string> v;
-//   v.push_back("a");
-//   v.push_back("b");
-//   return v;
+//   ::std::vector< ::std::string> value;
+//   value.push_back("a");
+//   value.push_back("b");
+//   return value;
 // }
 //
 // INSTANTIATE_TEST_CASE_P(CharSequence,
@@ -348,8 +348,8 @@ $for i [[
 $range j 1..i
 
 template <$for j, [[typename T$j]]>
-internal::ValueArray$i<$for j, [[T$j]]> Values($for j, [[T$j v$j]]) {
-  return internal::ValueArray$i<$for j, [[T$j]]>($for j, [[v$j]]);
+internal::ValueArray$i<$for j, [[T$j]]> Values($for j, [[T$j value$j]]) {
+  return internal::ValueArray$i<$for j, [[T$j]]>($for j, [[value$j]]);
 }
 
 ]]

@@ -25,6 +25,6 @@ Direction Action::get_direction() const {
     return this->direction;
 }
 
-string Action::prn() const {
+string Action::info() const {
     return concat("Type: Action; Code = ", this->code, "; Direction = ", this->direction);
 }

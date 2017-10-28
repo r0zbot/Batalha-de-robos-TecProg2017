@@ -3,9 +3,13 @@
 
 #include <map>
 
+#include <memory>
+
 #include <model/interface/entity_move.h>
 
 using namespace std;
+
+typedef shared_ptr<EntityMove> EntityMovePtr;
 
 /**
  * @file  army.h
@@ -36,7 +40,7 @@ class Army {
         /**
          * Stores the entities that belongs to this group.
          */
-        map<int, EntityMove*> soldiers;
+        map<int, EntityMovePtr> soldiers;
 
     public:
         /**
@@ -47,10 +51,14 @@ class Army {
         explicit Army(const string &name);
 
         /**
-         * @brief Erases every memory content related with this object.
+         * @brief Checks if this <b>Army</b> contains a soldier
+         *        with the specified ID.
+         *
+         * @param [id] The searched soldier's ID.
+         *
+         * @return True if the searched soldier belongs to this
+         *         <b>Army</b> and false otherwise.
          */
-        ~Army();
-
         bool contains_soldier(int id) const;
 
         /**
@@ -75,14 +83,14 @@ class Army {
          *
          * @return A pointer to the searched {@link #Entity}.
          */
-        EntityMove* get_soldier(int id);
+        EntityMovePtr get_soldier(int id);
 
         /**
          * @brief Inserts a soldier in this <b>Army</b>.
          *
          * @param [entityMove] The soldier to be inserted in this <b>Army</b>.
          */
-        void insert_soldier(EntityMove *entityMove);
+        void insert_soldier(EntityMovePtr &soldier);
 
         /**
          * @brief Removes, if exists, from this <b>Army</b> a soldier

@@ -34,7 +34,7 @@ class Operand {
          *
          * @return A string representation of the object.
          */
-        virtual string prn() const = 0;
+        virtual string info() const = 0;
 };
 
 #endif

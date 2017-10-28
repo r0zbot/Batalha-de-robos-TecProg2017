@@ -85,7 +85,7 @@ Hex Hex::neighbor(const Direction d) const {
     return {this->col + dir.col, this->row + dir.row};
 }
 
-string Hex::prn() const {
+string Hex::info() const {
     return concat("Type = Cell;",
                   "\nCell Col = ",      this->col,
                   "\nCell Row = ",      this->row,

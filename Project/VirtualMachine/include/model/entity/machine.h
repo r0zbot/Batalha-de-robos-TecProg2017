@@ -158,7 +158,7 @@ class Machine : public EntityMove {
         vector<Instruction> prog;
 
         /**
-         * Indicates whether or not the code has reached its end
+         * Indicates whether or not the code has reached its end.
          */
         bool stop;
 
@@ -174,11 +174,11 @@ class Machine : public EntityMove {
         void map_functions();
 
         /**
-         * Prints an string with extra information about it.
+         * @brief Prints a string with extra information about it.
          *
-         * @param s String to be printed.
+         * @param [s] The string to be printed.
          */
-        void print(string s);
+        void print(const string &s);
 
     public:
         /**
@@ -188,7 +188,7 @@ class Machine : public EntityMove {
          * @param [prog] A set of instructions representing a program.
          * @param [pos]  The initial position in the grid.
          */
-        explicit Machine(Program &prog, const Hex &pos = Hex(0, 0));
+        explicit Machine(const Program &prog, const Hex &pos = Hex(0, 0));
 
         /**
          * @brief Sums both of the topmost values of the stack.

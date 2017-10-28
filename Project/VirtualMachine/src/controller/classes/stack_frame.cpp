@@ -7,10 +7,10 @@
 
 #include <util/log.h>
 
-StackFrame::StackFrame(const unsigned long size): data(size) {
-    this->ebp = 0;
-    this->esp = 0;
-}
+StackFrame::StackFrame(const unsigned long size)
+        : ebp(0),
+          esp(0),
+          data(size) {}
 
 int StackFrame::back() {
     if (this->ebp != this->esp) {

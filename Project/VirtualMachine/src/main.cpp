@@ -13,7 +13,7 @@ using namespace std;
 int main() {
 
     /// Change the prog value so you can test other programs
-    int prog = 2;
+    int prog = 4;
 
     vector<Instruction> v;
 
@@ -77,8 +77,8 @@ int main() {
     arena.insert_army(a1);
     arena.insert_army(a2);
 
-    arena.create_robot(a1.get_id(), Hex(50, 50), v);
-    arena.create_robot(a2.get_id(), Hex(40, 50), v);
+    arena.create_robot(a1.get_id(), Hex(50, 90), v);
+    arena.create_robot(a2.get_id(), Hex(10, 90), v);
 
     /// Main system loop, eventually will be infinite
     for (int i = 0; i < 10; i++) {

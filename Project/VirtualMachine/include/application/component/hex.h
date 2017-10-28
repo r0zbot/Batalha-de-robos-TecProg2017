@@ -232,7 +232,7 @@ class Hex : public Operand {
          *
          * @return A string representation of the object.
          */
-        string prn() const override;
+        string info() const override;
 
         /**
          * @brief Removes a crystal from this cell.
