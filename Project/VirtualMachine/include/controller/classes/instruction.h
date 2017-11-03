@@ -22,7 +22,7 @@ class Instruction {
         Code code;
 
         /** The instruction argument.*/
-        Operand *arg;
+        OperandPtr arg;
 
     public:
         /**
@@ -32,32 +32,14 @@ class Instruction {
          * @param [code] The instruction option code.
          * @param [arg]  The instruction argument.
          */
-        Instruction(Code code, Operand *arg);
-
-        /**
-         * @brief Constructs a <b>Instruction</b> with the specified
-         *        option code and an integer instruction argument.
-         *
-         * @param [code] The instruction option code.
-         * @param [number]  The instruction argument.
-         */
-        Instruction(Code code, int number);
-
-        /**
-         * @brief Copies the argument's attributes to this <b>Instruction</b> object.
-         *
-         * @param [i] The object that will be assigned to the function caller.
-         *
-         * @return A pointer to the new value of the function caller.
-         */
-        Instruction& operator=(const Instruction &i);
+        Instruction(Code code, const OperandPtr &arg);
 
         /**
          * @brief Gets the instruction argument.
          *
          * @return The instruction argument.
          */
-        Operand& get_arg() const;
+        OperandPtr get_arg() const;
 
         /**
          * @brief Gets the instruction option code.

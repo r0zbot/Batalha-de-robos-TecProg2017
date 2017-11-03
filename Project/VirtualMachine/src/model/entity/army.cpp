@@ -32,7 +32,9 @@ void Army::insert_soldier(EntityMovePtr &soldier) {
 }
 
 void Army::remove_soldier(const int id) {
-    this->soldiers.erase(id);
+    if (this->contains_soldier(id)) {
+        this->soldiers.erase(id);
+    }
 }
 
 unsigned long Army::size() const {

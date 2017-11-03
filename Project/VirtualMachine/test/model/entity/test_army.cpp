@@ -18,10 +18,10 @@ class TestArmy : public testing::Test {
         TestArmy() {
             for (int i = 0; i < 10; i++) {
                 this->soldiersA.push_back(
-                        make_shared<Machine>(Program({Instruction(Code::PUSH, new Number(1))}), Hex(0, i)));
+                        make_shared<Machine>(Program({Instruction(Code::PUSH, make_shared<Number>(1))}), Hex(0, i)));
 
                 this->soldiersB.push_back(
-                        make_shared<Machine>(Program({Instruction(Code::PUSH, new Number(1))}), Hex(8, i)));
+                        make_shared<Machine>(Program({Instruction(Code::PUSH, make_shared<Number>(1))}), Hex(8, i)));
             }
         }
 };
@@ -116,4 +116,16 @@ TEST_F(TestArmy, removeSoldier_validSoldierId_shouldRemoveSoldierFromArmy) {
     a.remove_soldier(this->soldiersA[2]->get_id());
     ASSERT_EQ(this->soldiersA.size() - 1, a.size());
     ASSERT_FALSE(a.contains_soldier(this->soldiersA[2]->get_id()));
+}
+
+TEST_F(TestArmy, removeSoldier_invalidSoldierId_shouldRemoveNothingFromArmy) {
+    Army a ("Army a");
+
+    for (auto &e : this->soldiersA) {
+        a.insert_soldier(e);
+    }
+    ASSERT_EQ(this->soldiersA.size(), a.size());
+
+    a.remove_soldier(this->soldiersB[2]->get_id());
+    ASSERT_EQ(this->soldiersA.size(), a.size());
 }

@@ -50,7 +50,15 @@ class StackFrame {
          * Stores all functions local variables that are being used in
          * subprogram calls and all the callers returning addresses.
          */
-        vector<Operand*> data;
+        vector<OperandPtr> data;
+
+        /**
+         * @brief Removes any unused data in tha stack from a specific point.
+         *
+         * @param [start] The index from where the data will start to be
+         *                erased.
+         */
+        void clear(int start = 0);
 
     public:
         /**
@@ -104,7 +112,7 @@ class StackFrame {
          * @throws  FrameOperationException if the position specified
          *          is out of the current <b>StackFrame</b> scope.
          */
-        Operand* get(int i) const;
+        OperandPtr get(int i) const;
 
         /**
          * @brief  Stores the specified value at the top
@@ -116,7 +124,15 @@ class StackFrame {
          * @throws FrameOperationException if impossible to store
          *         more data in the <b>StackFrame</b>.
          */
-        void push(Operand *val);
+        void push(const OperandPtr &val);
+
+        /**
+         * @brief Resets the <b>StackFrame</b> data.
+         *
+         * This function cleans all data stored in the <b>StackFrame</b>
+         * and resets its pointers.
+         */
+        void reset();
 
         /**
          * @brief  Stores the specified value at an certain offset
@@ -128,7 +144,7 @@ class StackFrame {
          * @throws FrameOperationException if the position specified
          *         is out of the current <b>StackFrame</b> scope.
          */
-        void set(int i, Operand *val);
+        void set(int i, const OperandPtr &val);
 };
 
 #endif

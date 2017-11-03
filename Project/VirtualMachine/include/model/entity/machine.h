@@ -3,17 +3,13 @@
 
 #include <map>
 #include <stack>
-#include <vector>
 
-#include <controller/classes/instruction.h>
 #include <controller/classes/stack_frame.h>
 #include <controller/classes/system.h>
 
 #include <model/interface/entity_move.h>
 
 using namespace std;
-
-typedef const vector<Instruction> Program;
 
 /**
  * @file  machine.h
@@ -124,7 +120,7 @@ class Machine : public EntityMove {
          * Represents the main stack during the program execution.
          * It's used to hold temporary values.
          */
-        stack<Operand*> data;
+        stack<OperandPtr> data;
 
         /**
          * Represents a call-return stack in memory to organize
@@ -149,13 +145,13 @@ class Machine : public EntityMove {
          * The memory vector is used to store and access global variables.
          * It's managed by the functions {@link #store()} and {@link #recall()}.
          */
-        vector<Operand*> memo;
+        vector<OperandPtr> memo;
 
         /**
          * Represents the program, a set of instructions to be
          * executed during running time.
          */
-        vector<Instruction> prog;
+        vector<Instruction> program;
 
         /**
          * Indicates whether or not the code has reached its end.
@@ -168,8 +164,8 @@ class Machine : public EntityMove {
         map<SystemCode, Function> systemFunctions;
 
         /**
-         * Maps any function of this class that is directly related to an
-         * instruction. It's a more elegant way to express a switch-case.
+         * @brief Maps any function of this class that is directly related to an
+         *        instruction. It's a more elegant way to express a switch-case.
          */
         void map_functions();
 
@@ -180,6 +176,14 @@ class Machine : public EntityMove {
          */
         void print(const string &s);
 
+        /**
+         * @brief Resets the <b>Machine</b> to its original state.
+         *
+         * Removes all the data from the <b>Machine</b> so it can
+         * be fully used again.
+         */
+        void reset();
+
     public:
         /**
          * @brief Constructs a <b>Machine</b> with the specified set
@@ -188,7 +192,7 @@ class Machine : public EntityMove {
          * @param [prog] A set of instructions representing a program.
          * @param [pos]  The initial position in the grid.
          */
-        explicit Machine(const Program &prog, const Hex &pos = Hex(0, 0));
+        explicit Machine(const Program &program, const Hex &pos = Hex(0, 0));
 
         /**
          * @brief Sums both of the topmost values of the stack.
@@ -215,12 +219,13 @@ class Machine : public EntityMove {
         void atr();
 
         /**
-         * @brief Starts the execution of a subroutine.
+         * @brief Long range attack on another robot. Called through a system call.
          *
-         * Jumps to a subroutine specified by the argument of the
-         * current instruction pointed by the Instruction Pointer.
+         * Requests the arena to attack another robot in long range in a given
+         * direction. The direction is given in the stack, which is popped after
+         * this is called.
          */
-        void call();
+        void attack_long();
 
         /**
          * @brief Melee attacks another robot. Called through a system call.
@@ -241,13 +246,12 @@ class Machine : public EntityMove {
         void attack_short();
 
         /**
-         * @brief Long range attack on another robot. Called through a system call.
+         * @brief Starts the execution of a subroutine.
          *
-         * Requests the arena to attack another robot in long range in a given
-         * direction. The direction is given in the stack, which is popped after
-         * this is called.
+         * Jumps to a subroutine specified by the argument of the
+         * current instruction pointed by the Instruction Pointer.
          */
-        void attack_long();
+        void call();
 
         /**
          * @brief Collects a crystal. Called through a system call.
@@ -312,7 +316,7 @@ class Machine : public EntityMove {
          *
          * @return The argument of the current instruction.
          */
-        Operand* fetch_arg() const;
+        OperandPtr fetch_arg() const;
 
         /**
          * @brief Returns the code of the current instruction that is
@@ -460,16 +464,19 @@ class Machine : public EntityMove {
         void recall();
 
         /**
-         * @brief Runs the current virtual machine for a determined
-         *        amount of cycles.
+         * @brief Pushes a cell to the top of the stack.
          *
-         * @param [cycles] The determined amount of cycles the machine
-         *                 should run for.
-         *
-         * @return True if the machine still has instructions left,
-         *         and false if the machine reaches an <b>END</b> instruction.
+         * Request the {@link Arena} to store a reference for a specific grid cell
+         * int the top of the stack, so its attributes can be analyzed.
          */
-        void update(int cycles) override;
+        void see();
+
+        /**
+         * @brief Initialize a new set of instructions to this <b>Machine</b>.
+         *
+         * @param [program] The new set of instructions to be executed.
+         */
+        void set_program(const Program &program) override;
 
         /**
          * @brief Stores a value as a global variable.
@@ -496,14 +503,6 @@ class Machine : public EntityMove {
         void subtract();
 
         /**
-         * @brief Pushes a cell to the top of the stack.
-         *
-         * Request the {@link Arena} to store a reference for a specific grid cell
-         * int the top of the stack, so its attributes can be analyzed.
-         */
-        void see();
-
-        /**
          * @brief Calls a system function given as a parameter.
          *
          * Calls another function given as a parameter, usually to perform an action
@@ -512,11 +511,23 @@ class Machine : public EntityMove {
         void system();
 
         /**
-         * @brief Returns a reference to the topmost element in the stack.
+         * @brief Returns a pointer to the topmost element in the stack.
          *
-         * @return A reference to the topmost element in the stack.
+         * @return A pointer to the topmost element in the stack.
          */
-        Operand* top() const;
+        OperandPtr top() const;
+
+        /**
+         * @brief Runs the current virtual machine for a determined
+         *        amount of cycles.
+         *
+         * @param [cycles] The determined amount of cycles the machine
+         *                 should run for.
+         *
+         * @return True if the machine still has instructions left,
+         *         and false if the machine reaches an <b>END</b> instruction.
+         */
+        void update(int cycles) override;
 };
 
 #endif

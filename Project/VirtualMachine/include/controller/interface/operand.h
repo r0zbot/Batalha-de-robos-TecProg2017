@@ -1,6 +1,7 @@
 #ifndef VIRTUALMACHINE_OPERAND_H
 #define VIRTUALMACHINE_OPERAND_H
 
+#include <memory>
 #include <string>
 
 using namespace std;
@@ -36,5 +37,7 @@ class Operand {
          */
         virtual string info() const = 0;
 };
+
+typedef shared_ptr<Operand> OperandPtr;
 
 #endif

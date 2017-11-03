@@ -9,8 +9,6 @@
 
 using namespace std;
 
-typedef shared_ptr<EntityMove> EntityMovePtr;
-
 /**
  * @file  army.h
  * @class Army

@@ -60,9 +60,9 @@ class Action : public Operand {
         Direction get_direction() const;
 
         /**
-         * @brief Returns a string representation of the object.
+         * @brief Returns a string representation of this <b>Action</b> object.
          *
-         * @return A string representation of the object.
+         * @return A string representation of this object.
          */
         string info() const override;
 };
