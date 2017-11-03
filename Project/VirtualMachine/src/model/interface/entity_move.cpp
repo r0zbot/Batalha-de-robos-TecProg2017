@@ -40,11 +40,11 @@ void EntityMove::heal(const unsigned int amount) {
 }
 
 bool EntityMove::insert_crystal() {
-    if(this->crystals < MAX_CRYSTALS_PER_ROBOT){
-        this->crystals++;
+    if (this->crystals < MAX_CRYSTALS_PER_ROBOT) {
+        ++this->crystals;
         return true;
     }
-    else{
+    else {
         return false;
     }
 }
@@ -56,11 +56,11 @@ void EntityMove::refuel(const double amount) {
 }
 
 bool EntityMove::remove_crystal() {
-    if(this->crystals > 0){
-        this->crystals--;
+    if (this->crystals > 0) {
+        --this->crystals;
         return true;
     }
-    else{
+    else {
         return false;
     }
 }
@@ -69,7 +69,7 @@ void EntityMove::set_group_id(const int group_id) {
     this->group_id = group_id;
 }
 
-void EntityMove::take_damage(int damage) {
+void EntityMove::take_damage(const int damage) {
     this->hp = max(0, this->hp - damage);
     //TODO die if 0?
 }
@@ -79,7 +79,7 @@ bool EntityMove::use_fuel(const double amount) {
         this->fuel -= amount;
         return true;
     }
-    else{
+    else {
         return false;
     }
 }

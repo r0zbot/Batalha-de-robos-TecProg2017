@@ -1,52 +1,60 @@
-#include <controller/classes/arena.h>
-#include <util/config.h>
+#include <iostream>
+
 #include <concat.hpp>
+
+#include <controller/classes/arena.h>
+
+#include <util/config.h>
 #include <util/log.h>
 
 Arena::Arena() {
+    // Initialize the Arena Grid with random contents
     for (int i = 0; i < ARENA_WIDTH; i++) {
         for (int j = 0; j < ARENA_HEIGHT; j++) {
-            //TODO: initalize using a terrain file, or at least initialize different terrain types
-            this->ambient.emplace(Hex(i, j));
+            this->ambient.emplace(
+                    Hex(i, j, -1, -1,
+                        rand() % MAX_CRYSTALS_PER_CELL,
+                        static_cast<Terrain>(rand() % 3)));
         }
     }
 }
 
-
-int Arena::create_robot(Army &army, Hex pos, Program prog) {
+int Arena::create_robot(const int id, const Hex &pos, const Program &prog) {
     auto it = this->ambient.find(pos);
     if (it == this->ambient.end()) {
-        Log::error(concat("The position [",pos.get_row(),",",pos.get_col(),"] is outside the play area"));
+        Log::error(concat("The position [", pos.get_row(), ",", pos.get_col(), "] is outside the play area"));
         return -1;
     }
-    else if(it->get_occup() != -1){
-        Log::error(concat("There's already a robot in position [",pos.get_row(),",",pos.get_col(),"]."));
+    else if (it->get_occup() != -1) {
+        Log::error(concat("There's already a robot in position [", pos.get_row(), ",", pos.get_col(), "]."));
         return -1;
     }
 
-    auto *machine = new Machine(prog, pos);
-    army.instert_soldier(machine);
-    //the set stores a const Hex, so we need a non-const copy
+    EntityMovePtr soldier = make_shared<Machine>(prog, pos);
+    this->armies.at(id).insert_soldier(soldier);
+
+    // The set stores a const Hex, so we need a non-const copy
     Hex newCell = *it;
-    //Update the copy
-    newCell.set_occup(machine->get_id());
-    //Remove the old one and add the updated one back to the set
+    // Update the copy
+    newCell.set_occup(soldier->get_id());
+
+    // Remove the old one and add the updated one back to the set
     this->ambient.erase(newCell);
     this->ambient.insert(newCell);
-    return machine->get_id();
+
+    return soldier->get_id();
 }
 
 unsigned long long Arena::elapsed_time() const {
     return this->time * ARENA_SLEEP_TIME;
 }
 
-Army& Arena::get_army(int id) {
+Army& Arena::get_army(const int id) {
     return this->armies.at(id);
 }
 
-Hex& Arena::get_cell(const Hex &pos) const {
-    Hex cell = *this->ambient.find(pos);
-    return cell;
+const Hex& Arena::get_cell(const Hex &pos) const {
+    return *this->ambient.find(pos);
 }
 
 void Arena::insert_army(const Army &army) {
@@ -54,15 +62,27 @@ void Arena::insert_army(const Army &army) {
 }
 
 void Arena::print(const string &s) {
-    printf("Arena: %s",s.c_str());
+    cout << "\nArena: " << s << '\n';
 }
 
-void Arena::print(const string &s, EntityMove &e) {
-    printf("Robot %i (Army %s): %s\n", e.get_id(), this->get_army(e.get_group_id()).get_name().c_str(), s.c_str());
+void Arena::print(const EntityMove &e) {
+    cout << "\nRobot: " << e.get_id() << '\n';
+    if (e.get_group_id() != -1) {
+        cout << "Army: " << this->armies.at(e.get_group_id()).get_name() << '\n';
+    }
+    else {
+        cout << "Army: None" << '\n';
+    }
 }
 
-void Arena::print(const int n, EntityMove &e) {
-    this->print(to_string(n), e);
+void Arena::print(const string &s, const EntityMove &e) {
+    this->print(e);
+    cout << "Message: " << s << '\n';
+}
+
+void Arena::print(const Operand &op, const EntityMove &e) {
+    this->print(e);
+    cout << "Operand " << op.info() << '\n';
 }
 
 void Arena::remove_army(const int id) {
@@ -82,15 +102,15 @@ void Arena::request_attack_long(EntityMove &e, const Hex &pos) {
 }
 
 void Arena::request_collect(EntityMove &e, const Hex &pos) {
-    if(this->validate_insertion(pos, e)){
+    if (Log::LOGGING_LEVEL == Log::DEBUG) {
+        this->print(concat("Robot ", e.get_id(), " collecting from [", pos.get_row(), ", ", pos.get_col(), "]"));
+    }
+    if (this->validate_insertion(pos, e)) {
         auto newPosIt = this->ambient.find(pos);
         Hex newPosHex = *newPosIt;
-        if(newPosHex.remove_crystal()){
-            if(!e.insert_crystal()){
-                //Forgets about it and doesnt take the crystals from the arena. (which means: no update)
-                return;
-            }
-            else{
+        if (newPosHex.remove_crystal()) {
+            if (e.insert_crystal()) {
+                this->print(concat("Robot ", e.get_id(), " now has ", e.get_crystals(), " crystals."));
                 this->ambient.erase(newPosIt);
                 this->ambient.insert(newPosHex);
             }
@@ -99,15 +119,19 @@ void Arena::request_collect(EntityMove &e, const Hex &pos) {
 }
 
 void Arena::request_drop(EntityMove &e, const Hex &pos) {
-    if(this->validate_insertion(pos, e)){
+    if (Log::LOGGING_LEVEL == Log::DEBUG) {
+        this->print(concat("Robot ", e.get_id(), " dropping in [", pos.get_row(), ", ", pos.get_col(), "]"));
+    }
+    if (this->validate_insertion(pos, e)) {
         auto newPosIt = this->ambient.find(pos);
         Hex newPosHex = *newPosIt;
-        if(e.remove_crystal()){
-            if(newPosHex.insert_crystal()){
+        if (e.remove_crystal()) {
+            if (newPosHex.insert_crystal()) {
+                this->print(concat("Robot ", e.get_id(), " now has ", e.get_crystals(), " crystals."));
                 this->ambient.erase(newPosIt);
                 this->ambient.insert(newPosHex);
             }
-            else{
+            else {
                 //Forgets about it and gives the crystals back to the Entity.
                 e.insert_crystal();
             }
@@ -116,8 +140,10 @@ void Arena::request_drop(EntityMove &e, const Hex &pos) {
 }
 
 void Arena::request_movement(EntityMove &e, const Hex &pos) {
-    if(Log::LOGGING_LEVEL == Log::DEBUG) this->print(concat("Robot ", e.get_id(), " moving to (", pos.get_row(), ", ", pos.get_col()));
-    if(this->validate_insertion(pos, e)){
+    if (Log::LOGGING_LEVEL == Log::DEBUG) {
+        this->print(concat("Robot ", e.get_id(), " moving to [", pos.get_row(), ", ", pos.get_col(), "]"));
+    }
+    if (this->validate_insertion(pos, e)) {
         auto oldPosIt = this->ambient.find(Hex(e.get_x(), e.get_y()));
         auto newPosIt = this->ambient.find(pos);
         Hex oldPosHex = *oldPosIt;
@@ -139,24 +165,24 @@ void Arena::update() {
     ++this->time;
 }
 
-bool Arena::validate_insertion(Hex pos, EntityMove &e) {
+bool Arena::validate_insertion(const Hex &pos, EntityMove &e) {
     auto it = this->ambient.find(pos);
-    if(it == this->ambient.end()){
-        this->print(concat("The position [",pos.get_row(),",",pos.get_col(),"] is outside the play area"), e);
+    if (it == this->ambient.end()) {
+        this->print(concat("The position [", pos.get_row(), ",", pos.get_col(), "] is outside the play area"), e);
         return false;
     }
-    else if(it->get_occup() != -1){
-        this->print(concat("There's already a robot in position [",pos.get_row(),",",pos.get_col(),"]."), e);
+    else if (it->get_occup() != -1) {
+        this->print(concat("There's already a robot in position [", pos.get_row(), ",", pos.get_col(), "]."), e);
         return false;
     }
     return true;
 }
 
-EntityMove& Arena::find_entity_move(int id) {
-    for(auto army : this->armies){
-        if(army.second.contains_soldier(id)){
+EntityMove& Arena::find_entity_move(const int id) {
+    for (auto &army : this->armies) {
+        if (army.second.contains_soldier(id)) {
             return *army.second.get_soldier(id);
         }
     }
-    Log::error(concat("Robot ",id, " is not part of any army!"));
+    Log::error(concat("Robot: ",id, " is not part of any army!"));
 }

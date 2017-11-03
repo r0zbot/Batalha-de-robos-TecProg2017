@@ -4,6 +4,6 @@ var searchData=
   ['heal',['heal',['../class_entity_move.html#a76912804555e077ccda12071380dd40e',1,'EntityMove']]],
   ['hex',['Hex',['../class_hex.html',1,'Hex'],['../class_hex.html#a1958977584f33bee2007b8db858bb94c',1,'Hex::Hex()']]],
   ['hex_2eh',['hex.h',['../hex_8h.html',1,'']]],
-  ['hp',['hp',['../class_entity_move.html#a66e33dcd556ac4f6ecfc655ed896df2d',1,'EntityMove']]],
+  ['hp',['hp',['../class_entity_move.html#a3482824cb6bfc23ae57cef7f389fa9ba',1,'EntityMove']]],
   ['hp_5fcapacity',['hp_capacity',['../class_entity_move.html#a144f222cc11e995a72a16a0b09ec813b',1,'EntityMove']]]
 ];

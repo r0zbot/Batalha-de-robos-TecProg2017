@@ -86,33 +86,74 @@ $(document).ready(function(){initNavTree('class_arena.html','');});
 <div class="title">Arena Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class represents the Hexagonal Grid and the Game System Manager.  
+ <a href="class_arena.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a74f105bc709d4728fb07f1984abfd345"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a74f105bc709d4728fb07f1984abfd345">Arena</a> ()</td></tr>
+<tr class="memdesc:a74f105bc709d4728fb07f1984abfd345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the <b>Arena</b> and all the Hexagonal Grid Environment.  <a href="#a74f105bc709d4728fb07f1984abfd345">More...</a><br /></td></tr>
 <tr class="separator:a74f105bc709d4728fb07f1984abfd345"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9192da9aad23d196eaef2ef560196e9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#af9192da9aad23d196eaef2ef560196e9">create_robot</a> (int id, const <a class="el" href="class_hex.html">Hex</a> &amp;pos, <a class="el" href="machine_8h.html#af3ac1f36136753591c5239f30be94f77">Program</a> &amp;prog)</td></tr>
+<tr class="memdesc:af9192da9aad23d196eaef2ef560196e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a robot in the given <a class="el" href="class_army.html">Army</a>, at the specified cell, and with the given instructions.  <a href="#af9192da9aad23d196eaef2ef560196e9">More...</a><br /></td></tr>
+<tr class="separator:af9192da9aad23d196eaef2ef560196e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6aaa355ca07abb02d9bfc3bc063a87b7"><td class="memItemLeft" align="right" valign="top">unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a6aaa355ca07abb02d9bfc3bc063a87b7">elapsed_time</a> () const</td></tr>
+<tr class="memdesc:a6aaa355ca07abb02d9bfc3bc063a87b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the amount of time passed in the current game.  <a href="#a6aaa355ca07abb02d9bfc3bc063a87b7">More...</a><br /></td></tr>
 <tr class="separator:a6aaa355ca07abb02d9bfc3bc063a87b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdf9c28e0e22ccbf4dab5eb3ae6a2cd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#afdf9c28e0e22ccbf4dab5eb3ae6a2cd2">find_entity_move</a> (int id)</td></tr>
+<tr class="memdesc:afdf9c28e0e22ccbf4dab5eb3ae6a2cd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds and returns an <a class="el" href="class_entity_move.html">EntityMove</a> with the given ID, if it's currently active in the game.  <a href="#afdf9c28e0e22ccbf4dab5eb3ae6a2cd2">More...</a><br /></td></tr>
+<tr class="separator:afdf9c28e0e22ccbf4dab5eb3ae6a2cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af488add9865eae3fe775cee18aae3cd4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_army.html">Army</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#af488add9865eae3fe775cee18aae3cd4">get_army</a> (int id)</td></tr>
+<tr class="memdesc:af488add9865eae3fe775cee18aae3cd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds and returns an <a class="el" href="class_army.html">Army</a> with the given ID, if it's currently active in the game.  <a href="#af488add9865eae3fe775cee18aae3cd4">More...</a><br /></td></tr>
+<tr class="separator:af488add9865eae3fe775cee18aae3cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af665d64f53babf5196bb965fe56a5bfc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_hex.html">Hex</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#af665d64f53babf5196bb965fe56a5bfc">get_cell</a> (const <a class="el" href="class_hex.html">Hex</a> &amp;pos) const</td></tr>
+<tr class="memdesc:af665d64f53babf5196bb965fe56a5bfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to a specific Grid Cell, if it's within the <b>Arena</b> limits.  <a href="#af665d64f53babf5196bb965fe56a5bfc">More...</a><br /></td></tr>
+<tr class="separator:af665d64f53babf5196bb965fe56a5bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22788a6b231636503663d7950f403248"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a22788a6b231636503663d7950f403248">insert_army</a> (const <a class="el" href="class_army.html">Army</a> &amp;army)</td></tr>
+<tr class="memdesc:a22788a6b231636503663d7950f403248"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts an <a class="el" href="class_army.html">Army</a> in the current game.  <a href="#a22788a6b231636503663d7950f403248">More...</a><br /></td></tr>
 <tr class="separator:a22788a6b231636503663d7950f403248"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09e415713a1dc48eb104ead95bd99c4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a09e415713a1dc48eb104ead95bd99c4b">print</a> (const string &amp;s)</td></tr>
+<tr class="memdesc:a09e415713a1dc48eb104ead95bd99c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a message in the <b>Arena</b>.  <a href="#a09e415713a1dc48eb104ead95bd99c4b">More...</a><br /></td></tr>
+<tr class="separator:a09e415713a1dc48eb104ead95bd99c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab20d418a8b7c0f47282647d3971d1f64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#ab20d418a8b7c0f47282647d3971d1f64">print</a> (const <a class="el" href="class_entity_move.html">EntityMove</a> &amp;e)</td></tr>
+<tr class="memdesc:ab20d418a8b7c0f47282647d3971d1f64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the information of the given <a class="el" href="class_entity_move.html">EntityMove</a>.  <a href="#ab20d418a8b7c0f47282647d3971d1f64">More...</a><br /></td></tr>
+<tr class="separator:ab20d418a8b7c0f47282647d3971d1f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a147e81f72d6b661e694eb0b9dbc68eba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a147e81f72d6b661e694eb0b9dbc68eba">print</a> (const string &amp;s, const <a class="el" href="class_entity_move.html">EntityMove</a> &amp;e)</td></tr>
+<tr class="memdesc:a147e81f72d6b661e694eb0b9dbc68eba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a message associated with a given <a class="el" href="class_entity_move.html">EntityMove</a>.  <a href="#a147e81f72d6b661e694eb0b9dbc68eba">More...</a><br /></td></tr>
+<tr class="separator:a147e81f72d6b661e694eb0b9dbc68eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaac1f7af233e3a0ce23146cbed801e16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#aaac1f7af233e3a0ce23146cbed801e16">print</a> (const <a class="el" href="class_operand.html">Operand</a> &amp;op, const <a class="el" href="class_entity_move.html">EntityMove</a> &amp;e)</td></tr>
+<tr class="memdesc:aaac1f7af233e3a0ce23146cbed801e16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints an <a class="el" href="class_operand.html">Operand</a> associated with a given <a class="el" href="class_entity_move.html">EntityMove</a>.  <a href="#aaac1f7af233e3a0ce23146cbed801e16">More...</a><br /></td></tr>
+<tr class="separator:aaac1f7af233e3a0ce23146cbed801e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae49cf822a06a809379aa97f19c408b64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#ae49cf822a06a809379aa97f19c408b64">remove_army</a> (int id)</td></tr>
+<tr class="memdesc:ae49cf822a06a809379aa97f19c408b64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an <a class="el" href="class_army.html">Army</a> and all the entities associated with it from the current game.  <a href="#ae49cf822a06a809379aa97f19c408b64">More...</a><br /></td></tr>
 <tr class="separator:ae49cf822a06a809379aa97f19c408b64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6047d0a4ccaeb4348bd86c91b1fbe9a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a6047d0a4ccaeb4348bd86c91b1fbe9a1">request_attack_melee</a> (const <a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
-<tr class="separator:a6047d0a4ccaeb4348bd86c91b1fbe9a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2b1d9239c93323e0636b33bba879a38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#af2b1d9239c93323e0636b33bba879a38">request_attack_short</a> (const <a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
-<tr class="separator:af2b1d9239c93323e0636b33bba879a38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2c464735d5add2423faf2d54abface1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#ae2c464735d5add2423faf2d54abface1">request_attack_long</a> (const <a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
-<tr class="separator:ae2c464735d5add2423faf2d54abface1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04cb03fd60d43a02544ffb7d174abf0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a04cb03fd60d43a02544ffb7d174abf0b">request_collect</a> (const <a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
-<tr class="separator:a04cb03fd60d43a02544ffb7d174abf0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a575ad6a156f6dbc2a1396b7c3757f6e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a575ad6a156f6dbc2a1396b7c3757f6e4">request_drop</a> (const <a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
-<tr class="separator:a575ad6a156f6dbc2a1396b7c3757f6e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4d3fc913c141d562c52121653aab961"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#aa4d3fc913c141d562c52121653aab961">request_movement</a> (const <a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
-<tr class="separator:aa4d3fc913c141d562c52121653aab961"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a262c9c0a5b9bc1130c23fd7da59ee7f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a262c9c0a5b9bc1130c23fd7da59ee7f3">request_attack_melee</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
+<tr class="memdesc:a262c9c0a5b9bc1130c23fd7da59ee7f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an requisition for a melee attack in a specified position from the <b>Arena</b>.  <a href="#a262c9c0a5b9bc1130c23fd7da59ee7f3">More...</a><br /></td></tr>
+<tr class="separator:a262c9c0a5b9bc1130c23fd7da59ee7f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0b06053b96a3dda2cfcf77613d66bd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#ac0b06053b96a3dda2cfcf77613d66bd2">request_attack_short</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
+<tr class="memdesc:ac0b06053b96a3dda2cfcf77613d66bd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an requisition for a short range attack in a specified position from the <b>Arena</b>.  <a href="#ac0b06053b96a3dda2cfcf77613d66bd2">More...</a><br /></td></tr>
+<tr class="separator:ac0b06053b96a3dda2cfcf77613d66bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a579ffd485cff89cf75a58009f190c7b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a579ffd485cff89cf75a58009f190c7b3">request_attack_long</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
+<tr class="memdesc:a579ffd485cff89cf75a58009f190c7b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an requisition for a long range attack in a specified position from the <b>Arena</b>.  <a href="#a579ffd485cff89cf75a58009f190c7b3">More...</a><br /></td></tr>
+<tr class="separator:a579ffd485cff89cf75a58009f190c7b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa15674e1bdca7f19351f616359e7e063"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#aa15674e1bdca7f19351f616359e7e063">request_collect</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
+<tr class="memdesc:aa15674e1bdca7f19351f616359e7e063"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an requisition for a collect action in a specified position from the <b>Arena</b>.  <a href="#aa15674e1bdca7f19351f616359e7e063">More...</a><br /></td></tr>
+<tr class="separator:aa15674e1bdca7f19351f616359e7e063"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeccd65f8d18dc9611bda6d9f24f55892"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#aeccd65f8d18dc9611bda6d9f24f55892">request_drop</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
+<tr class="memdesc:aeccd65f8d18dc9611bda6d9f24f55892"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an requisition for a deposit action in a specified position from the <b>Arena</b>.  <a href="#aeccd65f8d18dc9611bda6d9f24f55892">More...</a><br /></td></tr>
+<tr class="separator:aeccd65f8d18dc9611bda6d9f24f55892"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecfd89c238d57df0d4814275fddec340"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#aecfd89c238d57df0d4814275fddec340">request_movement</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
+<tr class="memdesc:aecfd89c238d57df0d4814275fddec340"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an requisition for a movement action in a specified position from the <b>Arena</b>.  <a href="#aecfd89c238d57df0d4814275fddec340">More...</a><br /></td></tr>
+<tr class="separator:aecfd89c238d57df0d4814275fddec340"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedbfadca4c9b3d6e3d097b14fef079ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#aedbfadca4c9b3d6e3d097b14fef079ba">update</a> ()</td></tr>
+<tr class="memdesc:aedbfadca4c9b3d6e3d097b14fef079ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the logic behavior of all the game entities currently active in the <b>Arena</b>.  <a href="#aedbfadca4c9b3d6e3d097b14fef079ba">More...</a><br /></td></tr>
 <tr class="separator:aedbfadca4c9b3d6e3d097b14fef079ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class represents the Hexagonal Grid and the Game System Manager. </p>
+<p>The <b>Arena</b> class represents the environment where the game will be executed. It's responsible for the entire game system requests and for update all the game entities. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a74f105bc709d4728fb07f1984abfd345"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a74f105bc709d4728fb07f1984abfd345">&#9670;&nbsp;</a></span>Arena()</h2>
 
@@ -136,9 +177,56 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Initialize the <b>Arena</b> and all the Hexagonal Grid Environment. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="af9192da9aad23d196eaef2ef560196e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9192da9aad23d196eaef2ef560196e9">&#9670;&nbsp;</a></span>create_robot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Arena::create_robot </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_hex.html">Hex</a> &amp;&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="machine_8h.html#af3ac1f36136753591c5239f30be94f77">Program</a> &amp;&#160;</td>
+          <td class="paramname"><em>prog</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize a robot in the given <a class="el" href="class_army.html">Army</a>, at the specified cell, and with the given instructions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[id]</td><td>The <a class="el" href="class_army.html">Army</a> ID the robot will belong to.</td></tr>
+    <tr><td class="paramname">[pos]</td><td>The initial position of the robot.</td></tr>
+    <tr><td class="paramname">[prog]</td><td>The initial set of instructions present in the robot.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The robot's ID if it's created with success, or -1 if it's impossible to create the robot. </dd></dl>
+
+</div>
+</div>
 <a id="a6aaa355ca07abb02d9bfc3bc063a87b7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6aaa355ca07abb02d9bfc3bc063a87b7">&#9670;&nbsp;</a></span>elapsed_time()</h2>
 
@@ -153,6 +241,90 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Gets the amount of time passed in the current game. </p>
+<dl class="section return"><dt>Returns</dt><dd>The amount of time passed in the current game. </dd></dl>
+
+</div>
+</div>
+<a id="afdf9c28e0e22ccbf4dab5eb3ae6a2cd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdf9c28e0e22ccbf4dab5eb3ae6a2cd2">&#9670;&nbsp;</a></span>find_entity_move()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_entity_move.html">EntityMove</a>&amp; Arena::find_entity_move </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds and returns an <a class="el" href="class_entity_move.html">EntityMove</a> with the given ID, if it's currently active in the game. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[id]</td><td>The ID of the <a class="el" href="class_entity_move.html">EntityMove</a> that will be searched.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the searched <a class="el" href="class_entity_move.html">EntityMove</a>. </dd></dl>
+
+</div>
+</div>
+<a id="af488add9865eae3fe775cee18aae3cd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af488add9865eae3fe775cee18aae3cd4">&#9670;&nbsp;</a></span>get_army()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_army.html">Army</a>&amp; Arena::get_army </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds and returns an <a class="el" href="class_army.html">Army</a> with the given ID, if it's currently active in the game. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[id]</td><td>The ID of the <a class="el" href="class_army.html">Army</a> that will be searched.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the searched <a class="el" href="class_army.html">Army</a>. </dd></dl>
+
+</div>
+</div>
+<a id="af665d64f53babf5196bb965fe56a5bfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af665d64f53babf5196bb965fe56a5bfc">&#9670;&nbsp;</a></span>get_cell()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_hex.html">Hex</a>&amp; Arena::get_cell </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_hex.html">Hex</a> &amp;&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a reference to a specific Grid Cell, if it's within the <b>Arena</b> limits. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[pos]</td><td>The position to searched for.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the specified Grid Cell. </dd></dl>
 
 </div>
 </div>
@@ -172,6 +344,140 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Inserts an <a class="el" href="class_army.html">Army</a> in the current game. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[army]</td><td>The <a class="el" href="class_army.html">Army</a> to be inserted in the current game. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a09e415713a1dc48eb104ead95bd99c4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09e415713a1dc48eb104ead95bd99c4b">&#9670;&nbsp;</a></span>print() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Arena::print </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints a message in the <b>Arena</b>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[s]</td><td>A message to be printed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab20d418a8b7c0f47282647d3971d1f64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab20d418a8b7c0f47282647d3971d1f64">&#9670;&nbsp;</a></span>print() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Arena::print </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints the information of the given <a class="el" href="class_entity_move.html">EntityMove</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[e]</td><td>An <a class="el" href="class_entity_move.html">EntityMove</a> whose attributes will be printed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a147e81f72d6b661e694eb0b9dbc68eba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a147e81f72d6b661e694eb0b9dbc68eba">&#9670;&nbsp;</a></span>print() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Arena::print </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints a message associated with a given <a class="el" href="class_entity_move.html">EntityMove</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[s]</td><td>A message to be printed.</td></tr>
+    <tr><td class="paramname">[e]</td><td>An <a class="el" href="class_entity_move.html">EntityMove</a> associated to the message. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aaac1f7af233e3a0ce23146cbed801e16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaac1f7af233e3a0ce23146cbed801e16">&#9670;&nbsp;</a></span>print() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Arena::print </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_operand.html">Operand</a> &amp;&#160;</td>
+          <td class="paramname"><em>op</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints an <a class="el" href="class_operand.html">Operand</a> associated with a given <a class="el" href="class_entity_move.html">EntityMove</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[op]</td><td>A <a class="el" href="class_operand.html">Operand</a> whose values will be printed.</td></tr>
+    <tr><td class="paramname">[e]</td><td>An <a class="el" href="class_entity_move.html">EntityMove</a> associated to the <a class="el" href="class_operand.html">Operand</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ae49cf822a06a809379aa97f19c408b64"></a>
@@ -190,10 +496,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Removes an <a class="el" href="class_army.html">Army</a> and all the entities associated with it from the current game. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[id]</td><td>The ID of the <a class="el" href="class_army.html">Army</a> that will be removed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="ae2c464735d5add2423faf2d54abface1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2c464735d5add2423faf2d54abface1">&#9670;&nbsp;</a></span>request_attack_long()</h2>
+<a id="a579ffd485cff89cf75a58009f190c7b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a579ffd485cff89cf75a58009f190c7b3">&#9670;&nbsp;</a></span>request_attack_long()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -201,7 +515,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Arena::request_attack_long </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
           <td class="paramname"><em>e</em>, </td>
         </tr>
         <tr>
@@ -218,10 +532,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Executes an requisition for a long range attack in a specified position from the <b>Arena</b>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[e]</td><td>The <a class="el" href="class_entity_move.html">EntityMove</a> that requested the action.</td></tr>
+    <tr><td class="paramname">[pos]</td><td>The position where the action will be performed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a6047d0a4ccaeb4348bd86c91b1fbe9a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6047d0a4ccaeb4348bd86c91b1fbe9a1">&#9670;&nbsp;</a></span>request_attack_melee()</h2>
+<a id="a262c9c0a5b9bc1130c23fd7da59ee7f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a262c9c0a5b9bc1130c23fd7da59ee7f3">&#9670;&nbsp;</a></span>request_attack_melee()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -229,7 +552,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Arena::request_attack_melee </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
           <td class="paramname"><em>e</em>, </td>
         </tr>
         <tr>
@@ -246,10 +569,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Executes an requisition for a melee attack in a specified position from the <b>Arena</b>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[e]</td><td>The <a class="el" href="class_entity_move.html">EntityMove</a> that requested the action.</td></tr>
+    <tr><td class="paramname">[pos]</td><td>The position where the action will be performed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="af2b1d9239c93323e0636b33bba879a38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2b1d9239c93323e0636b33bba879a38">&#9670;&nbsp;</a></span>request_attack_short()</h2>
+<a id="ac0b06053b96a3dda2cfcf77613d66bd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0b06053b96a3dda2cfcf77613d66bd2">&#9670;&nbsp;</a></span>request_attack_short()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -257,7 +589,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Arena::request_attack_short </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
           <td class="paramname"><em>e</em>, </td>
         </tr>
         <tr>
@@ -274,10 +606,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Executes an requisition for a short range attack in a specified position from the <b>Arena</b>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[e]</td><td>The <a class="el" href="class_entity_move.html">EntityMove</a> that requested the action.</td></tr>
+    <tr><td class="paramname">[pos]</td><td>The position where the action will be performed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a04cb03fd60d43a02544ffb7d174abf0b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04cb03fd60d43a02544ffb7d174abf0b">&#9670;&nbsp;</a></span>request_collect()</h2>
+<a id="aa15674e1bdca7f19351f616359e7e063"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa15674e1bdca7f19351f616359e7e063">&#9670;&nbsp;</a></span>request_collect()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -285,7 +626,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Arena::request_collect </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
           <td class="paramname"><em>e</em>, </td>
         </tr>
         <tr>
@@ -302,10 +643,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Executes an requisition for a collect action in a specified position from the <b>Arena</b>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[e]</td><td>The <a class="el" href="class_entity_move.html">EntityMove</a> that requested the action.</td></tr>
+    <tr><td class="paramname">[pos]</td><td>The position where the action will be performed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a575ad6a156f6dbc2a1396b7c3757f6e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a575ad6a156f6dbc2a1396b7c3757f6e4">&#9670;&nbsp;</a></span>request_drop()</h2>
+<a id="aeccd65f8d18dc9611bda6d9f24f55892"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeccd65f8d18dc9611bda6d9f24f55892">&#9670;&nbsp;</a></span>request_drop()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,7 +663,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Arena::request_drop </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
           <td class="paramname"><em>e</em>, </td>
         </tr>
         <tr>
@@ -330,10 +680,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Executes an requisition for a deposit action in a specified position from the <b>Arena</b>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[e]</td><td>The <a class="el" href="class_entity_move.html">EntityMove</a> that requested the action.</td></tr>
+    <tr><td class="paramname">[pos]</td><td>The position where the action will be performed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="aa4d3fc913c141d562c52121653aab961"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4d3fc913c141d562c52121653aab961">&#9670;&nbsp;</a></span>request_movement()</h2>
+<a id="aecfd89c238d57df0d4814275fddec340"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecfd89c238d57df0d4814275fddec340">&#9670;&nbsp;</a></span>request_movement()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -341,7 +700,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Arena::request_movement </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
           <td class="paramname"><em>e</em>, </td>
         </tr>
         <tr>
@@ -357,6 +716,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Executes an requisition for a movement action in a specified position from the <b>Arena</b>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[e]</td><td>The <a class="el" href="class_entity_move.html">EntityMove</a> that requested the action.</td></tr>
+    <tr><td class="paramname">[pos]</td><td>The position where the action will be performed. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -374,6 +742,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Executes the logic behavior of all the game entities currently active in the <b>Arena</b>. </p>
 
 </div>
 </div>

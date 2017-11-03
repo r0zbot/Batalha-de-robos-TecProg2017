@@ -33,10 +33,11 @@ class Builder:
     __INCLUDES = (
         '#include <vector>\n',
         '#include <controller/classes/code.h>',
-	'#include <controller/classes/action>',
-	'#include <controller/classes/number.h',
+        '#include <controller/classes/action.h>',
+        '#include <controller/classes/number.h>',
         '#include <controller/classes/instruction.h>\n',
-        '#include <model/entity/machine.h>'
+        '#include <model/entity/machine.h>',
+        '#include <util/globals.h>'
     )
 
     __TODO = "// Move this file to /VirtualMachine/src so this can work on production"
@@ -58,9 +59,9 @@ class Builder:
         """
         print("int main() {\n")
         cls.decode_input()
-        print("    Machine m (prog);")
-        print("    m.execute();")
-        print("    return 0;\n}")
+        print("\tMachine m (prog);")
+        print("\tm.execute();")
+        print("\treturn 0;\n}")
 
     @classmethod
     def decode_input(cls):
@@ -70,18 +71,12 @@ class Builder:
         Any line in the input that corresponds to a comment or any blank
         line is ignored in the decode process.
         """
+        print("\tvector<Instruction> prog ({")
+
         ip = 0
         labels = {}
         instructions = []
-        print("    vector<Instruction> prog ({")
-        for line in fileinput.input():
-            line = cls.remove_comments(line)
-            if line.strip():
-                instructions.append(line)
-                if ":" in line:
-                    labels[line.split()[0][:-1]] = ip
-                ip += 1
-        ip = 0
+        cls.map_labels(instructions, labels)
 
         for line in instructions:
             op_code = ""
@@ -94,16 +89,17 @@ class Builder:
             if len(keys) > 0:
                 arg = keys.pop(0)
                 if arg in labels:
-                    arg = labels[arg]
+                    arg = "make_shared<Number>({})".format(labels[arg])
                 elif "{" not in arg:
-                    arg = "new Number(" + arg + ")"
+                    arg = "make_shared<Number>({})".format(arg)
                 elif "ACTION" in arg:
-                    aux = keys.pop(0)
-                    aux2 = keys.pop(0)
-                    arg = "new Action(SystemCode::" + aux[aux.find("{") + 1: aux.find(",")] + "," \
-                          + "Direction::" + aux2[aux2.find(",") + 1: aux2.find("}")] + ")"
+                    code = keys.pop(0)
+                    direction = keys.pop(0)
+                    arg = "make_shared<Action>(SystemCode::{}, Direction::{})".format(
+                        code[code.find("{") + 1: code.find(",")],
+                        direction[direction.find(",") + 1: direction.find("}")])
                 elif "CELL" in arg:
-                    arg = "new Hex("
+                    arg = "make_shared<Hex>("
                     for s in keys:
                         if "{" in s:
                             arg += s[1:s.find(",")] + ", "
@@ -111,10 +107,29 @@ class Builder:
                             arg += s[:s.find("}")] + ")"
                         else:
                             arg += s[:s.find(",")] + ", "
-            aux = "," if (ip != 0) else ""
-            print("        {}Instruction(Code::{}, {})".format(aux, op_code.upper(), arg))
+            comma = "," if (ip != 0) else ""
+            print("\t\t{}Instruction(Code::{},{})".format(comma, op_code.upper(), arg))
             ip += 1
-        print("    });\n")
+        print("\t});\n")
+
+    @classmethod
+    def map_labels(cls, instructions, labels):
+        """Maps any functions labels present in the Assembly input.
+
+        Args:
+            instructions (list): The list of instructions from the input.
+
+            labels (dictionary): An dictionary to store the labels present
+                                 in the input.
+        """
+        ip = 0
+        for line in fileinput.input():
+            line = cls.remove_comments(line)
+            if line.strip():
+                instructions.append(line)
+                if ":" in line:
+                    labels[line.split()[0][:-1]] = ip
+                ip += 1
 
     @classmethod
     def remove_comments(cls, line):

@@ -90,10 +90,19 @@ $(document).ready(function(){initNavTree('class_hex.html','');});
 
 <p>The <b>Hex</b> class represents a flat-topped hexagonal position in a hexagonal grid of type "Even-Q".  
  <a href="class_hex.html#details">More...</a></p>
+<div class="dynheader">
+Inheritance diagram for Hex:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_hex.png" usemap="#Hex_map" alt=""/>
+  <map id="Hex_map" name="Hex_map">
+<area href="class_operand.html" title="This class is the topmost Abstract Base Class for operand objects. " alt="Operand" shape="rect" coords="0,0,62,24"/>
+</map>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1958977584f33bee2007b8db858bb94c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hex.html#a1958977584f33bee2007b8db858bb94c">Hex</a> (int col, int row, int base=-1, int occup=-1, int crystals=0, <a class="el" href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54b">Terrain</a> terrain=<a class="el" href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54bab50339a10e1de285ac99d4c3990b8693">Terrain::NONE</a>)</td></tr>
+<tr class="memitem:a1958977584f33bee2007b8db858bb94c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hex.html#a1958977584f33bee2007b8db858bb94c">Hex</a> (int col, int row, int base=-1, int occup=-1, int crystals=0, <a class="el" href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54b">Terrain</a> terrain=<a class="el" href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54bac157bdf0b85a40d2619cbc8bc1ae5fe2">Terrain::NONE</a>)</td></tr>
 <tr class="memdesc:a1958977584f33bee2007b8db858bb94c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a Hexagon that represents the position [row][col] in a multi-dimensional array.  <a href="#a1958977584f33bee2007b8db858bb94c">More...</a><br /></td></tr>
 <tr class="separator:a1958977584f33bee2007b8db858bb94c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d313206c16fb051012975dfda6b2a7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_hex.html">Hex</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hex.html#a2d313206c16fb051012975dfda6b2a7e">operator=</a> (const <a class="el" href="class_hex.html">Hex</a> &amp;hex)</td></tr>
@@ -108,6 +117,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a540b909ebbccdea8f62d4bbb881eb145"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hex.html#a540b909ebbccdea8f62d4bbb881eb145">distance</a> (const <a class="el" href="class_hex.html">Hex</a> &amp;hex) const</td></tr>
 <tr class="memdesc:a540b909ebbccdea8f62d4bbb881eb145"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the cube distance between two hexagons in a Offset Coordinate System.  <a href="#a540b909ebbccdea8f62d4bbb881eb145">More...</a><br /></td></tr>
 <tr class="separator:a540b909ebbccdea8f62d4bbb881eb145"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa26547401a04ce1ccb1d868cf1ab897a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hex.html#aa26547401a04ce1ccb1d868cf1ab897a">get_atr</a> (int i) const override</td></tr>
+<tr class="memdesc:aa26547401a04ce1ccb1d868cf1ab897a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the specified attribute.  <a href="#aa26547401a04ce1ccb1d868cf1ab897a">More...</a><br /></td></tr>
+<tr class="separator:aa26547401a04ce1ccb1d868cf1ab897a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba57e96ad40a001bdee5a7f860f93496"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hex.html#aba57e96ad40a001bdee5a7f860f93496">get_base</a> () const</td></tr>
 <tr class="memdesc:aba57e96ad40a001bdee5a7f860f93496"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the group's id who owns this <b>Hex</b> as a base.  <a href="#aba57e96ad40a001bdee5a7f860f93496">More...</a><br /></td></tr>
 <tr class="separator:aba57e96ad40a001bdee5a7f860f93496"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,6 +141,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae308eae4e3f9a4cca31728977dd71840"><td class="memItemLeft" align="right" valign="top">unordered_set&lt; <a class="el" href="class_hex.html">Hex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hex.html#ae308eae4e3f9a4cca31728977dd71840">range</a> (int n) const</td></tr>
 <tr class="memdesc:ae308eae4e3f9a4cca31728977dd71840"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds every hexagon that is within n steps from this one.  <a href="#ae308eae4e3f9a4cca31728977dd71840">More...</a><br /></td></tr>
 <tr class="separator:ae308eae4e3f9a4cca31728977dd71840"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8f9526124c7451ee6e8c087d3e6ba8c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hex.html#ad8f9526124c7451ee6e8c087d3e6ba8c">insert_crystal</a> ()</td></tr>
+<tr class="memdesc:ad8f9526124c7451ee6e8c087d3e6ba8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts a crystal into this cell.  <a href="#ad8f9526124c7451ee6e8c087d3e6ba8c">More...</a><br /></td></tr>
+<tr class="separator:ad8f9526124c7451ee6e8c087d3e6ba8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fc0afdf667f97ede00297bfc30fc1e1"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hex.html#a6fc0afdf667f97ede00297bfc30fc1e1">prn</a> () const override</td></tr>
+<tr class="memdesc:a6fc0afdf667f97ede00297bfc30fc1e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string representation of the object.  <a href="#a6fc0afdf667f97ede00297bfc30fc1e1">More...</a><br /></td></tr>
+<tr class="separator:a6fc0afdf667f97ede00297bfc30fc1e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cf359f5d89c4168a76b3d50c5e30e6e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hex.html#a1cf359f5d89c4168a76b3d50c5e30e6e">remove_crystal</a> ()</td></tr>
+<tr class="memdesc:a1cf359f5d89c4168a76b3d50c5e30e6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a crystal from this cell.  <a href="#a1cf359f5d89c4168a76b3d50c5e30e6e">More...</a><br /></td></tr>
+<tr class="separator:a1cf359f5d89c4168a76b3d50c5e30e6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a86eec504eae5b86b211fb8c97e3a57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hex.html#a0a86eec504eae5b86b211fb8c97e3a57">set_base</a> (int base)</td></tr>
 <tr class="memdesc:a0a86eec504eae5b86b211fb8c97e3a57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a new base at this <b>Hex</b>.  <a href="#a0a86eec504eae5b86b211fb8c97e3a57">More...</a><br /></td></tr>
 <tr class="separator:a0a86eec504eae5b86b211fb8c97e3a57"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -197,7 +218,7 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54b">Terrain</a>&#160;</td>
-          <td class="paramname"><em>terrain</em> = <code><a class="el" href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54bab50339a10e1de285ac99d4c3990b8693">Terrain::NONE</a></code>&#160;</td>
+          <td class="paramname"><em>terrain</em> = <code><a class="el" href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54bac157bdf0b85a40d2619cbc8bc1ae5fe2">Terrain::NONE</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -214,7 +235,7 @@ Static Public Member Functions</h2></td></tr>
     <tr><td class="paramname">[row]</td><td>The row number. </td></tr>
     <tr><td class="paramname">[base]</td><td>The group's id who owns this position as a base. </td></tr>
     <tr><td class="paramname">[occup]</td><td>The entity's id present in this position. </td></tr>
-    <tr><td class="paramname">[crystals]</td><td>The number of crystal in this position. </td></tr>
+    <tr><td class="paramname">[crystals]</td><td>The number of crystals in this position. </td></tr>
     <tr><td class="paramname">[terrain]</td><td>The type of terrain in this position. </td></tr>
   </table>
   </dd>
@@ -248,6 +269,43 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The distance between the center of the hexagons. </dd></dl>
+
+</div>
+</div>
+<a id="aa26547401a04ce1ccb1d868cf1ab897a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa26547401a04ce1ccb1d868cf1ab897a">&#9670;&nbsp;</a></span>get_atr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Hex::get_atr </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the specified attribute. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[i]</td><td>An integer indicating which attribute should be returned.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The specified attribute. </dd></dl>
+
+<p>Implements <a class="el" href="class_operand.html#a78a4fe6ed119555626650c0d247008c0">Operand</a>.</p>
 
 </div>
 </div>
@@ -348,6 +406,26 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Gets the type of the <a class="el" href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54b">Terrain</a> at this <b>Hex</b>. </p>
 <dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54b">Terrain</a> type at this <b>Hex</b>. </dd></dl>
+
+</div>
+</div>
+<a id="ad8f9526124c7451ee6e8c087d3e6ba8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8f9526124c7451ee6e8c087d3e6ba8c">&#9670;&nbsp;</a></span>insert_crystal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Hex::insert_crystal </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts a crystal into this cell. </p>
+<dl class="section return"><dt>Returns</dt><dd>A boolean that indicates whether it was successfull or not. </dd></dl>
 
 </div>
 </div>
@@ -463,6 +541,36 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a6fc0afdf667f97ede00297bfc30fc1e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fc0afdf667f97ede00297bfc30fc1e1">&#9670;&nbsp;</a></span>prn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Hex::prn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a string representation of the object. </p>
+<dl class="section return"><dt>Returns</dt><dd>A string representation of the object. </dd></dl>
+
+<p>Implements <a class="el" href="class_operand.html#a478215010c71786c159cd9cc9f4495ea">Operand</a>.</p>
+
+</div>
+</div>
 <a id="ae308eae4e3f9a4cca31728977dd71840"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae308eae4e3f9a4cca31728977dd71840">&#9670;&nbsp;</a></span>range()</h2>
 
@@ -488,6 +596,26 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>An unordered set containing every hexagon that is n steps from the caller. </dd></dl>
+
+</div>
+</div>
+<a id="a1cf359f5d89c4168a76b3d50c5e30e6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cf359f5d89c4168a76b3d50c5e30e6e">&#9670;&nbsp;</a></span>remove_crystal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Hex::remove_crystal </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes a crystal from this cell. </p>
+<dl class="section return"><dt>Returns</dt><dd>A boolean that indicates whether it was successful or not. </dd></dl>
 
 </div>
 </div>

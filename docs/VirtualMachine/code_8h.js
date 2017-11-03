@@ -3,6 +3,7 @@ var code_8h =
     [ "Code", "code_8h.html#af31477bc48f67856bedb0fa8e5b5281d", [
       [ "ADD", "code_8h.html#af31477bc48f67856bedb0fa8e5b5281da9eeb52badb613229884838847294b90d", null ],
       [ "ALC", "code_8h.html#af31477bc48f67856bedb0fa8e5b5281da56c0bc0e475820687969fbc9797b4361", null ],
+      [ "ATR", "code_8h.html#af31477bc48f67856bedb0fa8e5b5281da281a782aff4827c48009e454993bc514", null ],
       [ "CALL", "code_8h.html#af31477bc48f67856bedb0fa8e5b5281daca3547acb9162b49fb4a6594ed9b3030", null ],
       [ "DIV", "code_8h.html#af31477bc48f67856bedb0fa8e5b5281da29bbf66f7f8529ec47e394fb5a36c646", null ],
       [ "DUP", "code_8h.html#af31477bc48f67856bedb0fa8e5b5281da89aa2bca1f427b3bba6335129f479f77", null ],
@@ -24,6 +25,7 @@ var code_8h =
       [ "RCE", "code_8h.html#af31477bc48f67856bedb0fa8e5b5281da680c947983ead659c95dc178b85b2e7f", null ],
       [ "RCL", "code_8h.html#af31477bc48f67856bedb0fa8e5b5281daf06da2c92269acbca87262623dea5936", null ],
       [ "RET", "code_8h.html#af31477bc48f67856bedb0fa8e5b5281dafb902bc4807c307b9309f2b528b96f2b", null ],
+      [ "SEE", "code_8h.html#af31477bc48f67856bedb0fa8e5b5281da5b751775000e94b8f8f2ed2240265d50", null ],
       [ "STL", "code_8h.html#af31477bc48f67856bedb0fa8e5b5281da2523e0c272cb676c4f59f97828966f78", null ],
       [ "STO", "code_8h.html#af31477bc48f67856bedb0fa8e5b5281da1c79844d86bafd69a5119632d52321aa", null ],
       [ "SUB", "code_8h.html#af31477bc48f67856bedb0fa8e5b5281da241dd841abade20fcb27b8a9f494e1eb", null ],

@@ -33,8 +33,8 @@ enum SystemCode {
     DROP     = 3, ///< Represents the deposit action
     ATKMELEE = 4, ///< Represents the melee attack action
     ATKSHORT = 5, ///< Represents the short attack action
-    ATKLONG  = 6,  ///< Represents the long attack action
-    SEE      = 7
+    ATKLONG  = 6, ///< Represents the long attack action
+    SEE      = 7  ///< Represents the see action
 };
 
 #endif

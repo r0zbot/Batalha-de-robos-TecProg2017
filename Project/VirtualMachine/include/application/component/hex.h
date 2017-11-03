@@ -169,8 +169,6 @@ class Hex : public Operand {
          */
         int get_col() const;
 
-        int get_crystals() const;
-
         /**
          * @brief Gets the entity's id present at this <b>Hex</b>.
          *
@@ -228,6 +226,13 @@ class Hex : public Operand {
          * @return A boolean that indicates whether it was successfull or not.
          */
         bool insert_crystal();
+
+        /**
+         * @brief Returns a string representation of the object.
+         *
+         * @return A string representation of the object.
+         */
+        string info() const override;
 
         /**
          * @brief Removes a crystal from this cell.

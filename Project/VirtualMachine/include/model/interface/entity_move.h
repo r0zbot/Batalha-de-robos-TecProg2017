@@ -1,7 +1,11 @@
 #ifndef VIRTUALMACHINE_ENTITY_MOVE_H
 #define VIRTUALMACHINE_ENTITY_MOVE_H
 
+#include <controller/classes/instruction.h>
+
 #include <model/interface/entity.h>
+
+typedef const vector<Instruction> Program;
 
 /**
  * @file  entity_move.h
@@ -138,7 +142,12 @@ class EntityMove : public Entity {
          */
         void refuel(double amount);
 
-        //TODO make doc
+        /**
+         * @brief Removes a crystal of from the current amount this entity is carrying.
+         *
+         * @return True if it was possible to remove the crystal,
+         *         false otherwise.
+         */
         bool remove_crystal();
 
         /**
@@ -148,7 +157,20 @@ class EntityMove : public Entity {
          */
         void set_group_id(int group_id);
 
-        //TODO make doc
+        /**
+         * @brief Modifies the entity's set of instructions.
+         *
+         * This method is an abstract method that any derived class must
+         * implement.
+         */
+        virtual void set_program(const Program &program) = 0;
+
+        /**
+         * @brief Removes from the {@link #Entity} healthy points
+         *        the amount of damaged suffered.
+         *
+         * @param [damage] The damaged suffered by some action.
+         */
         void take_damage(int damage);
 
         /**
@@ -162,5 +184,7 @@ class EntityMove : public Entity {
          */
         bool use_fuel(double amount);
 };
+
+typedef shared_ptr<EntityMove> EntityMovePtr;
 
 #endif
