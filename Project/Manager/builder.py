@@ -1,5 +1,3 @@
-import fileinput
-import sys
 
 
 class Builder:
@@ -37,46 +35,60 @@ class Builder:
         '#include <controller/classes/number.h>',
         '#include <controller/classes/instruction.h>\n',
         '#include <model/entity/machine.h>',
-        '#include <util/globals.h>'
+        '#include <util/globals.h>',
+        '#include <thread>'
     )
 
     __TODO = "// Move this file to /VirtualMachine/src so this can work on production"
 
     @classmethod
-    def create_header(cls):
+    def create_army(cls, outputFile, name, id):
+        outputFile.write("\n\tArmy army"+str(id)+"(\""+name+"\");\n")
+        outputFile.write("\tarena.insert_army(army"+str(id)+");\n")
+
+    @classmethod
+    def create_robots(cls, outputFile, filename, amount, army_id, id):
+        cls.decode_file(outputFile, open(filename, "r"), id)
+        outputFile.write("\tfor(int i=0; i<"+amount+"; i++)\n")
+        outputFile.write("\t\tarena.create_robot(army"+str(army_id)+".get_id(), prog"+str(id)+");\n")
+
+    @classmethod
+    def create_header(cls, outputFile):
         """Creates the resulting source file header, including all its dependencies
         and observations to explain how it works.
         """
-        print(cls.__TODO + "\n")
+        outputFile.write(cls.__TODO + "\n\n")
         for i in cls.__INCLUDES:
-            print(i)
-        print("\nusing namespace std;\n")
+            outputFile.write(i+"\n")
+        outputFile.write("\nusing namespace std;\n\n")
 
     @classmethod
-    def create_main(cls):
-        """Creates the main method containing a vector of instructions to be
-        executed by a Virtual Machine
-        """
-        print("int main() {\n")
-        cls.decode_input()
-        print("\tMachine m (prog);")
-        print("\tm.execute();")
-        print("\treturn 0;\n}")
+    def create_main_beggining(cls, outputFile, arena_terrain_filename):
+        outputFile.write("int main() {\n")
+        outputFile.write("\t//arena.setDataFile(\""+arena_terrain_filename+"\");\n")
 
     @classmethod
-    def decode_input(cls):
+    def create_main_end(cls, outputFile, sleep_time):
+        outputFile.write("\twhile(true){\n")
+        outputFile.write("\t\tarena.update();\n")
+        outputFile.write("\t\tthis_thread::sleep_for(std::chrono::milliseconds("+str(sleep_time)+"));\n")
+        outputFile.write("\t}\n")
+        outputFile.write("}\n\n")
+
+    @classmethod
+    def decode_file(cls, outputFile, file, id):
         """Decodes the assembly code passed as input text to a vector of
         instructions to be passed to a Virtual Machine.
 
         Any line in the input that corresponds to a comment or any blank
         line is ignored in the decode process.
         """
-        print("\tvector<Instruction> prog ({")
+        outputFile.write("\tvector<Instruction> prog"+str(id)+" ({\n")
 
         ip = 0
         labels = {}
         instructions = []
-        cls.map_labels(instructions, labels)
+        cls.map_labels(file, instructions, labels)
 
         for line in instructions:
             op_code = ""
@@ -108,22 +120,24 @@ class Builder:
                         else:
                             arg += s[:s.find(",")] + ", "
             comma = "," if (ip != 0) else ""
-            print("\t\t{}Instruction(Code::{},{})".format(comma, op_code.upper(), arg))
+            outputFile.write("        {}Instruction(Code::{},{})".format(comma, op_code.upper(), arg)+"\n")
             ip += 1
-        print("\t});\n")
+        outputFile.write("    });\n\n")
 
     @classmethod
-    def map_labels(cls, instructions, labels):
+    def map_labels(cls, file, instructions, labels):
         """Maps any functions labels present in the Assembly input.
 
         Args:
+            file: a file handle to read from.
+
             instructions (list): The list of instructions from the input.
 
             labels (dictionary): An dictionary to store the labels present
                                  in the input.
         """
         ip = 0
-        for line in fileinput.input():
+        for line in file:
             line = cls.remove_comments(line)
             if line.strip():
                 instructions.append(line)
@@ -145,8 +159,3 @@ class Builder:
             line = line[:line.find("#")]
         return line.strip()
 
-
-if __name__ == "__main__":
-    Builder.create_header()
-    Builder.create_main()
-    sys.exit(0)

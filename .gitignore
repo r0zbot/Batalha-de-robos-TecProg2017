@@ -3,6 +3,7 @@ Project/VirtualMachine/build/*
 
 # Ignore any executables
 Project/VirtualMachine/bin/*
+*.pyc
 
 # Ignore any temporary files
 **/.idea/*.iml
@@ -69,7 +70,6 @@ Doxyfile
 *.lo
 
 # Shared objects (inc. Windows DLLs)
-*.dll
 *.so
 *.so.*
 *.dylib

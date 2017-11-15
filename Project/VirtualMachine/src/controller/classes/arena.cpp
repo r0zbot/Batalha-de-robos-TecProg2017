@@ -6,8 +6,10 @@
 
 #include <util/config.h>
 #include <util/log.h>
+#include <util/globals.h>
 
 Arena::Arena() {
+    //this->display = display;
     // Initialize the Arena Grid with random contents
     for (int i = 0; i < ARENA_WIDTH; i++) {
         for (int j = 0; j < ARENA_HEIGHT; j++) {
@@ -17,6 +19,11 @@ Arena::Arena() {
                         static_cast<Terrain>(rand() % 3)));
         }
     }
+}
+
+int Arena::create_robot(const int id, const Program &prog){
+    //TODO: put this robot in the army's base
+    return this->create_robot(id, Hex(0, lastRobotPos++), prog);
 }
 
 int Arena::create_robot(const int id, const Hex &pos, const Program &prog) {

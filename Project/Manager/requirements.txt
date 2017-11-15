@@ -1,2 +1,1 @@
-Manager
 pygame>=1.9
