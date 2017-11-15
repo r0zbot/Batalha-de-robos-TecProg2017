@@ -1,0 +1,3 @@
+Z:/Daniel/USP/EPs/MAC0216/Projeto/Project/VirtualMachine/CMakeFiles/VirtualMachine.dir
+Z:/Daniel/USP/EPs/MAC0216/Projeto/Project/VirtualMachine/CMakeFiles/edit_cache.dir
+Z:/Daniel/USP/EPs/MAC0216/Projeto/Project/VirtualMachine/CMakeFiles/rebuild_cache.dir
