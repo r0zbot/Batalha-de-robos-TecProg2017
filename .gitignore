@@ -3,6 +3,7 @@ Project/VirtualMachine/build/*
 
 # Ignore any executables
 Project/VirtualMachine/bin/*
+*.pyc
 
 # Ignore any temporary files
 **/.idea/*.iml
@@ -29,6 +30,7 @@ Project/VirtualMachine/bin/*
 
 # CMake
 **/cmake-build-debug/
+**/CMakeFiles/
 
 # Mongo Explorer plugin:
 **/.idea/**/mongoSettings.xml
@@ -69,7 +71,6 @@ Doxyfile
 *.lo
 
 # Shared objects (inc. Windows DLLs)
-*.dll
 *.so
 *.so.*
 *.dylib

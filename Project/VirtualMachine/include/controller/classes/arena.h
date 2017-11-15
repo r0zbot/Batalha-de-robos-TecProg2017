@@ -59,11 +59,14 @@ class Arena {
          */
         bool validate_insertion(const Hex &pos, EntityMove &e);
 
+        FILE *display;
+
     public:
         /**
          * @brief Initialize the <b>Arena</b> and all the Hexagonal
          *        Grid Environment.
          */
+        //explicit Arena(FILE *display);
         explicit Arena();
 
         /**
@@ -81,6 +84,8 @@ class Arena {
          *         impossible to create the robot.
          */
         int create_robot(int id, const Hex &pos, const Program &prog);
+
+        int create_robot(int id, const Program &prog);
 
         /**
          * @brief Gets the amount of time passed in the current game.

@@ -4,5 +4,6 @@
 #include <controller/classes/arena.h>
 
 extern Arena arena;
+extern int lastRobotPos;
 
 #endif

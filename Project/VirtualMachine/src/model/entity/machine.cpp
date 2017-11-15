@@ -392,6 +392,7 @@ void Machine::update(int cycles) {
         try {
             if (this->fetch_code() == Code::SYS) {
                 this->system();
+                break;
             }
             else {
                 Function f = this->functions[this->fetch_code()];
