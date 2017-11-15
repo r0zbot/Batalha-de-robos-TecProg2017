@@ -63,6 +63,8 @@ class EntityMove : public Entity {
          *
          * @param [pos] The position of the {@link Entity} at the {@link Arena}.
          *
+         * @param [image_path] The path to this {@link #Entity} sprite.
+         *
          * @param [fuel_capacity] The maximum amount of fuel this {@link Entity}
          *                        can carry. It's 100.0 by default.
          *
@@ -70,6 +72,7 @@ class EntityMove : public Entity {
          *                      {@link Entity} can have. It's 100 by default.
          */
         explicit EntityMove(const Hex &pos,
+                            const string &image_path,
                             double fuel_capacity = 100.0,
                             unsigned int hp_capacity = 100);
 

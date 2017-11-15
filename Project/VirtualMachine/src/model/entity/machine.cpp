@@ -1,5 +1,4 @@
 #include <iostream>
-#include <stdio.h>
 
 #include <concat.hpp>
 
@@ -12,13 +11,13 @@
 #include <util/globals.h>
 #include <util/log.h>
 
-Machine::Machine(const Program &program, const Hex &pos)
+Machine::Machine(const Program &program, const Hex &pos, const string &image_path)
     : stop(false),
       ip(0),
       exec(MACHINE_EXECUTION_STACK_SIZE),
       memo(MACHINE_MEMORY_SIZE),
       program(program),
-      EntityMove(pos) {
+      EntityMove(pos, image_path) {
     this->map_functions();
 }
 
@@ -183,10 +182,6 @@ void Machine::greater_equal() {
         this->print("<ERROR> Operands in Code::GE are not Numbers");
         this->stop = true;
     }
-}
-
-void Machine::init(const FILE &view, const string &image_path) {
-    fputs(("rob " + image_path).c_str(), view);
 }
 
 void Machine::jump() {

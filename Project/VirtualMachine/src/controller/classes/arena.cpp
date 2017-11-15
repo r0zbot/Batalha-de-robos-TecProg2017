@@ -61,6 +61,12 @@ void Arena::insert_army(const Army &army) {
     this->armies.emplace(army.get_id(), army);
 }
 
+void Arena::load(const View &view) {
+    for (auto &army : this->armies) {
+        army.second.load(view);
+    }
+}
+
 void Arena::print(const string &s) {
     cout << "\nArena: " << s << '\n';
 }
@@ -87,6 +93,12 @@ void Arena::print(const Operand &op, const EntityMove &e) {
 
 void Arena::remove_army(const int id) {
     this->armies.erase(id);
+}
+
+void Arena::render(const View &view) {
+    for (auto &army : this->armies) {
+        army.second.render(view);
+    }
 }
 
 void Arena::request_attack_melee(EntityMove &e, const Hex &pos){

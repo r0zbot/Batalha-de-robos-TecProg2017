@@ -190,9 +190,14 @@ class Machine : public EntityMove {
          *        set of instructions and a position in the hexagonal grid.
          *
          * @param [prog] A set of instructions representing a program.
+         *
          * @param [pos]  The initial position in the grid.
+         *
+         * @param [image_path] The path to this <b>Machine</b> sprite.
          */
-        explicit Machine(const Program &program, const Hex &pos = Hex(0, 0));
+        Machine(const Program &program,
+                const Hex &pos = Hex(0, 0),
+                const string &image_path = "");
 
         /**
          * @brief Sums both of the topmost values of the stack.
@@ -345,8 +350,6 @@ class Machine : public EntityMove {
          * "greater equal" comparison (n1 <= n2).
          */
         void greater_equal();
-
-        void init(const FILE &view, const string &image_path) override;
 
         /**
          * @brief Executes an unconditional jump.

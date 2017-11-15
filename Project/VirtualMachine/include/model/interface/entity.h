@@ -32,6 +32,11 @@ class Entity {
         const int id;
 
         /**
+         * Represents the entity's image path to its sprite;
+         */
+        const string image_path;
+
+        /**
          * Represents the entity's position in the {@link Arena}.
          */
         Hex pos;
@@ -41,8 +46,10 @@ class Entity {
          * @brief Constructs an <b>Entity</b> at the specified position.
          *
          * @param [pos] The position of the entity at the {@link Arena}.
+         *
+         * @param [image_path] The path to this entity's image.
          */
-        explicit Entity(const Hex &pos);
+        explicit Entity(const Hex &pos, const string &image_path);
 
         /**
          * @brief Overload of "equals" operator so it can compare two
@@ -80,6 +87,13 @@ class Entity {
         int get_id() const;
 
         /**
+         * @brief Gets the path to this entity image representation.
+         *
+         * @return The path to this entity image representation.
+         */
+        string get_image_path() const;
+
+        /**
          * @brief Gets the entity's x coordinate, or column position.
          *
          * @return The entity's x coordinate.
@@ -92,10 +106,6 @@ class Entity {
          * @return The entity's y coordinate.
          */
         int get_y() const;
-
-        virtual void init(const FILE &view, const string &image_path) = 0;
-
-        virtual void render(const FILE &view) = 0;
 
         /**
          * @brief Sets a new position to this entity.

@@ -1,6 +1,9 @@
 #include <model/interface/entity.h>
 
-Entity::Entity(const Hex &pos) : id(id_gen++), pos(pos) {}
+Entity::Entity(const Hex &pos, const string &image_path)
+        : id(id_gen++),
+          image_path(image_path),
+          pos(pos) {}
 
 bool Entity::operator!=(const Entity &e) const {
     return !(*this == e);
@@ -12,6 +15,10 @@ bool Entity::operator==(const Entity &e) const {
 
 int Entity::get_id() const {
     return this->id;
+}
+
+string Entity::get_image_path() const {
+    return this->image_path;
 }
 
 int Entity::get_x() const {

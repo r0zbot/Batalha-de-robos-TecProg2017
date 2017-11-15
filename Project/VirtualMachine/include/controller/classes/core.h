@@ -5,6 +5,8 @@
 
 #include <controller/classes/arena.h>
 
+#include <view/view.h>
+
 using namespace std;
 
 class Core {
@@ -12,7 +14,7 @@ class Core {
     private:
         Arena arena;
 
-        shared_ptr<FILE> view;
+        View view;
 
     public:
         Core();
@@ -21,7 +23,11 @@ class Core {
 
         void onRender();
 
+        void onUnload();
+
         void onUpdate();
+
+        void start();
 };
 
 #endif

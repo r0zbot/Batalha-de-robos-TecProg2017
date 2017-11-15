@@ -5,6 +5,7 @@
 
 EntityMove::EntityMove(
         const Hex &pos,
+        const string &image_path,
         const double fuel_capacity,
         const unsigned int hp_capacity)
     : crystals(0),
@@ -13,7 +14,7 @@ EntityMove::EntityMove(
       group_id(-1),
       hp(hp_capacity),
       hp_capacity(hp_capacity),
-      Entity(pos) {}
+      Entity(pos, image_path) {}
 
 void EntityMove::clear_crystals() {
     this->crystals = 0;

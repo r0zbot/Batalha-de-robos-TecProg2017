@@ -31,9 +31,21 @@ void Army::insert_soldier(EntityMovePtr &soldier) {
     this->soldiers.emplace(soldier.get()->get_id(), soldier);
 }
 
+void Army::load(const View &view) {
+    for (auto const &e : this->soldiers) {
+        view.load(*e.second);
+    }
+}
+
 void Army::remove_soldier(const int id) {
     if (this->contains_soldier(id)) {
         this->soldiers.erase(id);
+    }
+}
+
+void Army::render(const View &view) {
+    for (auto const &e : this->soldiers) {
+        view.render(*e.second);
     }
 }
 

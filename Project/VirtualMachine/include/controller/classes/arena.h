@@ -10,6 +10,8 @@
 #include <model/entity/army.h>
 #include <model/entity/machine.h>
 
+#include <view/view.h>
+
 using namespace std;
 
 /**
@@ -125,6 +127,16 @@ class Arena {
         void insert_army(const Army &army);
 
         /**
+         * @brief Loads the <b>Arena</b> system in a @{link #View}.
+         *
+         * This methods initializes and loads this <b>Arena</b> system and all
+         * current activated {@link #Entity} in the game into a {@link #View}.
+         *
+         * @param [view] The {@link #View} where this <b>Arena</b> will be loaded.
+         */
+        void load(const View &view);
+
+        /**
          * @brief Prints a message in the <b>Arena</b>.
          *
          * @param [s] A message to be printed.
@@ -163,6 +175,16 @@ class Arena {
          * @param [id] The ID of the {@link #Army} that will be removed.
          */
         void remove_army(int id);
+
+        /**
+         * @brief Renders the <b>Arena</b> system in a @{link #View}.
+         *
+         * This methods renders this <b>Arena</b> system and all current
+         * activated {@link #Entity} in the game into a {@link #View}.
+         *
+         * @param [view] The {@link #View} that will show this <b>Arena</b>.
+         */
+        void render(const View &view);
 
         /**
          * @brief Executes an requisition for a melee attack in a

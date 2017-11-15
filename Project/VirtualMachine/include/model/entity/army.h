@@ -7,6 +7,8 @@
 
 #include <model/interface/entity_move.h>
 
+#include <view/view.h>
+
 using namespace std;
 
 /**
@@ -91,12 +93,32 @@ class Army {
         void insert_soldier(EntityMovePtr &soldier);
 
         /**
+         * @brief Loads this <b>Army</b> in a @{link #View}.
+         *
+         * This methods initializes and loads all entities associated with
+         * this <b>Army</b> into a {@link #View}.
+         *
+         * @param [view] The {@link #View} object that will show the army.
+         */
+        void load(const View &view);
+
+        /**
          * @brief Removes, if exists, from this <b>Army</b> a soldier
          *        with the specified ID.
          *
          * @param [id] The soldier's ID that must be removed.
          */
         void remove_soldier(int id);
+
+        /**
+         * @brief Renders this <b>Army</b> in a @{link #View}.
+         *
+         * This methods irenders all entities associated with
+         * this <b>Army</b> into a {@link #View}.
+         *
+         * @param [view] The {@link #View} that will show this <b>Army</b>.
+         */
+        void render(const View &view);
 
         /**
          * @brief Gets the amount of soldiers present <b>Army</b>.
