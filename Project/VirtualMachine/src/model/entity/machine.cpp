@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdio.h>
 
 #include <concat.hpp>
 
@@ -63,7 +64,7 @@ void Machine::atr() {
     this->data.pop();
     auto arg = dynamic_pointer_cast<Number>(this->fetch_arg());
     if (arg) {
-        this->data.push(make_shared<Number>(aux->get()->get_atr(arg->get_atr(0))));
+        this->data.push(make_shared<Number>(aux->get()->get_atr(arg->get_value())));
     }
     else {
         this->print("<ERROR> Operand in Code::ATR is not Number");
@@ -182,6 +183,10 @@ void Machine::greater_equal() {
         this->print("<ERROR> Operands in Code::GE are not Numbers");
         this->stop = true;
     }
+}
+
+void Machine::init(const FILE &view, const string &image_path) {
+    fputs(("rob " + image_path).c_str(), view);
 }
 
 void Machine::jump() {

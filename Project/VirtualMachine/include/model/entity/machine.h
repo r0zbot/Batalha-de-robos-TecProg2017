@@ -346,6 +346,8 @@ class Machine : public EntityMove {
          */
         void greater_equal();
 
+        void init(const FILE &view, const string &image_path) override;
+
         /**
          * @brief Executes an unconditional jump.
          *

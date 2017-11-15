@@ -93,6 +93,10 @@ class Entity {
          */
         int get_y() const;
 
+        virtual void init(const FILE &view, const string &image_path) = 0;
+
+        virtual void render(const FILE &view) = 0;
+
         /**
          * @brief Sets a new position to this entity.
          *
