@@ -11,6 +11,8 @@
 
 using namespace std;
 
+class Arena;
+
 /**
  * @file  machine.h
  * @class Machine
@@ -113,6 +115,7 @@ using namespace std;
 class Machine : public EntityMove {
 
     private:
+        shared_ptr<Arena> arena;
         /** Any function that belongs to this class will be of this type.*/
         typedef void (Machine::*Function)();
 
@@ -185,6 +188,8 @@ class Machine : public EntityMove {
         void reset();
 
     public:
+
+        void set_arena(const Arena &a);
         /**
          * @brief Constructs a <b>Machine</b> with the specified set
          *        set of instructions and a position in the hexagonal grid.
@@ -195,9 +200,9 @@ class Machine : public EntityMove {
          *
          * @param [image_path] The path to this <b>Machine</b> sprite.
          */
-        Machine(const Program &program,
-                const Hex &pos = Hex(0, 0),
-                const string &image_path = "");
+        explicit Machine(const Program &program,
+                         const Hex &pos = Hex(0, 0),
+                         const string &image_path = "");
 
         /**
          * @brief Sums both of the topmost values of the stack.

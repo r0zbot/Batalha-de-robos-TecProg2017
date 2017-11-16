@@ -15,10 +15,10 @@ TEST_F(TestInstruction, createInstruction_withNumberOperand_shouldCreateInstruct
 }
 
 TEST_F(TestInstruction, createInstruction_withActionOperand_shouldCreateInstructionWithActionOperand) {
-    Instruction i (Code::PUSH, make_shared<Action>(SystemCode::COLLECT, Direction::N));
+    Instruction i (Code::PUSH, make_shared<Action>(SystemCode::COLLECT, Direction::NW));
     ASSERT_EQ(Code::PUSH, i.get_code());
     ASSERT_EQ(SystemCode::COLLECT, i.get_arg()->get_atr(0));
-    ASSERT_EQ(Direction::N, i.get_arg()->get_atr(1));
+    ASSERT_EQ(Direction::NW, i.get_arg()->get_atr(1));
 
     i = Instruction(Code::RCE, make_shared<Action>(SystemCode::ATKLONG, Direction::NW));
     ASSERT_EQ(Code::RCE, i.get_code());

@@ -80,8 +80,7 @@ bool Hex::insert_crystal() {
 }
 
 Hex Hex::neighbor(const Direction d) const {
-    int parity = this->col & 1;
-    Hex dir = directions[parity][d];
+    Hex dir = directions[this->row & 1][d];
     return {this->col + dir.col, this->row + dir.row};
 }
 
@@ -104,6 +103,9 @@ unordered_set<Hex> Hex::range(const int n) const {
         }
     }
     results.erase(*this);
+    for (auto const &e : results) {
+        printf("%d %d \n", e.get_col(), e.get_row());
+    }
     return results;
 }
 
@@ -132,10 +134,10 @@ void Hex::set_terrain(const Terrain terrain) {
 }
 
 vector<int> Hex::to_cube() const {
-    int z = this->row - ((this->col + (this->col & 1)) / 2);
-    return {this->col, - z - this->col, z};
+    int x = this->col - ((this->row - (this->row & 1)) / 2);
+    return {x, - x - this->row, this->row};
 }
 
 Hex Hex::to_offset(const int x, const int z) {
-    return {x, z + ((x + (x & 1)) / 2)};
+    return {x + ((z - (z & 1)) / 2), z};
 }

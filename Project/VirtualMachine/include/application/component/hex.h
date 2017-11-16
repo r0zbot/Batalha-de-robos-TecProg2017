@@ -16,8 +16,8 @@ using namespace std;
  * @file  hex.h
  * @class Hex
  *
- * @brief The <b>Hex</b> class represents a flat-topped hexagonal position in a
- *        hexagonal grid of type "Even-Q".
+ * @brief The <b>Hex</b> class represents a pointy-topped hexagonal position in a
+ *        hexagonal grid of type "Odd-R".
  *
  * The <b>Hex</b> object represents one position in a hexagonal grid constructed
  * using an Offset Coordinate System. This system is the easiest approach to
@@ -320,11 +320,11 @@ namespace std {
 
 /**
  * Stores <b>Hex</b> objects representing one of the six possible directions
- * in a flat-topped "Even-Q" hexagonal grid.
+ * in a pointy-topped "Odd-R" hexagonal grid.
  */
 const Hex directions[2][6] = {
-        {Hex(1, 0), Hex(0, -1), Hex(-1, 0), Hex(1, 1), Hex(0, 1), Hex(-1, 1)},
-        {Hex(1, -1), Hex(0, -1), Hex(-1, -1), Hex(1, 0), Hex(0, 1), Hex(-1, 0)}
+        {Hex(0, -1), Hex(-1, -1), Hex(1, 0), Hex(-1, 0), Hex(0, 1), Hex(-1, 1)},
+        {Hex(1, -1), Hex(0, -1), Hex(1, 0), Hex(-1, 0), Hex(1, 1), Hex(0, 1)}
 };
 
 #endif

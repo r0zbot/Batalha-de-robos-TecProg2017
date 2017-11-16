@@ -1,7 +1,5 @@
 #include <model/entity/army.h>
 
-#include <util/config.h>
-
 Army::Army(const string &name)
         : id(id_gen++),
           name(name){}
@@ -55,6 +53,7 @@ unsigned long Army::size() const {
 
 void Army::update() {
     for (auto const &e : this->soldiers) {
-        e.second->update(MACHINE_RUN_CYCLES);
+//        e.second->update(MACHINE_RUN_CYCLES);
+        e.second->set_position(Hex(e.second->get_x(), e.second->get_y() + 1));
     }
 }

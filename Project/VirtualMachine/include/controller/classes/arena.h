@@ -59,14 +59,11 @@ class Arena {
          */
         bool validate_insertion(const Hex &pos, EntityMove &e);
 
-        FILE *display;
-
     public:
         /**
          * @brief Initialize the <b>Arena</b> and all the Hexagonal
          *        Grid Environment.
          */
-        //explicit Arena(FILE *display);
         explicit Arena();
 
         /**

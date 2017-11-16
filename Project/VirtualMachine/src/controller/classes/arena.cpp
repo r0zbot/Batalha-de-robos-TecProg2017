@@ -11,8 +11,8 @@
 Arena::Arena() {
     //this->display = display;
     // Initialize the Arena Grid with random contents
-    for (int i = 0; i < ARENA_WIDTH; i++) {
-        for (int j = 0; j < ARENA_HEIGHT; j++) {
+    for (int i = 0; i < 14; i++) {
+        for (int j = 0; j < 14; j++) {
             this->ambient.emplace(
                     Hex(i, j, -1, -1,
                         rand() % MAX_CRYSTALS_PER_CELL,
@@ -37,7 +37,7 @@ int Arena::create_robot(const int id, const Hex &pos, const Program &prog) {
         return -1;
     }
 
-    EntityMovePtr soldier = make_shared<Machine>(prog, pos);
+    EntityMovePtr soldier = make_shared<Machine>(prog, pos, "a_" + to_string(id) + ".png");
     this->armies.at(id).insert_soldier(soldier);
 
     // The set stores a const Hex, so we need a non-const copy
@@ -203,5 +203,5 @@ EntityMove& Arena::find_entity_move(const int id) {
             return *army.second.get_soldier(id);
         }
     }
-    Log::error(concat("Robot: ",id, " is not part of any army!"));
+    Log::warn(concat("Robot: ",id, " is not part of any army!"));
 }

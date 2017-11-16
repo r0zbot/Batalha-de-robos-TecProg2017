@@ -21,7 +21,7 @@ class View {
 
         void render(const Entity &e) const;
 
-        void unload() const;
+        void unload();
 
         void update();
 };
