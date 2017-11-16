@@ -43,6 +43,6 @@ unsigned long Army::size() const {
 
 void Army::update() {
     for (auto const &e : this->soldiers) {
-        e.second->update(MACHINE_RUN_CYCLES);
+        e.second->update(machineInstructionsPerCycle);
     }
 }

@@ -9,8 +9,8 @@
  *        types of terrains that can exists in a grid cell.
  */
 enum Terrain {
-    MOUNTAIN = 0, ///< Represents mountain terrains
-    NONE     = 1, ///< Represents normal terrains
+    NONE     = 0, ///< Represents normal terrains
+    MOUNTAIN = 1, ///< Represents mountain terrains
     STREET   = 2  ///< Represents street terrains
 };
 

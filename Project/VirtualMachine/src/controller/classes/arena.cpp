@@ -6,7 +6,6 @@
 
 #include <util/config.h>
 #include <util/log.h>
-#include <util/globals.h>
 
 Arena::Arena() {
     //this->display = display;
@@ -15,7 +14,7 @@ Arena::Arena() {
         for (int j = 0; j < ARENA_HEIGHT; j++) {
             this->ambient.emplace(
                     Hex(i, j, -1, -1,
-                        rand() % MAX_CRYSTALS_PER_CELL,
+                        rand() % maxCrystalsPerCell,
                         static_cast<Terrain>(rand() % 3)));
         }
     }
@@ -53,7 +52,7 @@ int Arena::create_robot(const int id, const Hex &pos, const Program &prog) {
 }
 
 unsigned long long Arena::elapsed_time() const {
-    return this->time * ARENA_SLEEP_TIME;
+    return this->time * arenaSleepTime;
 }
 
 Army& Arena::get_army(const int id) {
@@ -69,27 +68,27 @@ void Arena::insert_army(const Army &army) {
 }
 
 void Arena::print(const string &s) {
-    cout << "\nArena: " << s << '\n';
+    cout << "Arena: " << s << '\n';
 }
 
 void Arena::print(const EntityMove &e) {
-    cout << "\nRobot: " << e.get_id() << '\n';
+    cout << "Robot " << e.get_id() << ' ';
     if (e.get_group_id() != -1) {
-        cout << "Army: " << this->armies.at(e.get_group_id()).get_name() << '\n';
+        cout << "[" << this->armies.at(e.get_group_id()).get_name() << "]:\n";
     }
     else {
-        cout << "Army: None" << '\n';
+        cout << "[Orphan]:\n";
     }
 }
 
 void Arena::print(const string &s, const EntityMove &e) {
     this->print(e);
-    cout << "Message: " << s << '\n';
+    cout << "\t" << s << '\n';
 }
 
 void Arena::print(const Operand &op, const EntityMove &e) {
     this->print(e);
-    cout << "Operand " << op.info() << '\n';
+    cout << "\tOperand " << op.info() << '\n';
 }
 
 void Arena::remove_army(const int id) {
@@ -97,7 +96,7 @@ void Arena::remove_army(const int id) {
 }
 
 void Arena::request_attack_melee(EntityMove &e, const Hex &pos){
-    this->find_entity_move(this->ambient.find(pos)->get_occup()).take_damage(ATTACK_LONG_DAMAGE);
+    this->find_entity_move(this->ambient.find(pos)->get_occup()).take_damage(robotMeleeAttack);
 }
 
 void Arena::request_attack_short(EntityMove &e, const Hex &pos) {
@@ -151,17 +150,22 @@ void Arena::request_movement(EntityMove &e, const Hex &pos) {
         this->print(concat("Robot ", e.get_id(), " moving to [", pos.get_row(), ", ", pos.get_col(), "]"));
     }
     if (this->validate_insertion(pos, e)) {
-        auto oldPosIt = this->ambient.find(Hex(e.get_x(), e.get_y()));
-        auto newPosIt = this->ambient.find(pos);
-        Hex oldPosHex = *oldPosIt;
-        Hex newPosHex = *newPosIt;
-        oldPosHex.set_occup(-1);
-        newPosHex.set_occup(e.get_id());
-        e.set_position(newPosHex);
-        this->ambient.erase(oldPosIt);
-        this->ambient.insert(oldPosHex);
-        this->ambient.erase(newPosIt);
-        this->ambient.insert(newPosHex);
+        if(e.use_fuel(robotMovFuelUsage)){
+            auto oldPosIt = this->ambient.find(Hex(e.get_x(), e.get_y()));
+            auto newPosIt = this->ambient.find(pos);
+            Hex oldPosHex = *oldPosIt;
+            Hex newPosHex = *newPosIt;
+            oldPosHex.set_occup(-1);
+            newPosHex.set_occup(e.get_id());
+            e.set_position(newPosHex);
+            this->ambient.erase(oldPosIt);
+            this->ambient.insert(oldPosHex);
+            this->ambient.erase(newPosIt);
+            this->ambient.insert(newPosHex);
+        }
+        else{
+            this->print(concat("Stuck at [", e.get_x(), ", ", e.get_y(), "]. Out of fuel!"), e);
+        }
     }
 }
 

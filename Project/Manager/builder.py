@@ -63,6 +63,15 @@ class Builder:
         outputFile.write("\nusing namespace std;\n\n")
 
     @classmethod
+    def create_globals(cls, outputFile, settings):
+        outputFile.write("//Global variables and settings\n")
+        outputFile.write("Arena arena;\n")
+        outputFile.write("int lastRobotPos = 0;\n")
+        for setting in settings:
+            outputFile.write(setting+" = "+settings[setting]+";\n")
+        outputFile.write("\n")
+
+    @classmethod
     def create_main_beggining(cls, outputFile, arena_terrain_filename):
         outputFile.write("int main() {\n")
         outputFile.write("\t//arena.setDataFile(\""+arena_terrain_filename+"\");\n")

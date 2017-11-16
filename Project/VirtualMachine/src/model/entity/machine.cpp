@@ -384,8 +384,8 @@ void Machine::update(int cycles) {
             this->stop = true;
             return;
         }
-        else if (!this->use_fuel(FUEL_PER_INSTRUCTION)) {
-            arena.print("Not enough fuel!", *this);
+        else if (!this->use_fuel(robotInstFuelUsage)) {
+            arena.print("Not enough fuel to process!", *this);
             this->stop = true;
             return;
         }
