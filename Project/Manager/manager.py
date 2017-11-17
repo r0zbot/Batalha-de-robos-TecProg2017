@@ -6,6 +6,7 @@ import tkFileDialog
 import tkMessageBox
 import platform
 import os
+import random
 
 configWindow = None
 
@@ -164,20 +165,24 @@ class VerticalScrolledFrame(ttk.Frame):
 
 
 class ConfigScreen(ttk.Frame):
-    terrainFile = None
 
     def __init__(self, parent):
         ttk.Frame.__init__(self, parent)
         self.armies = []
+        self.outputFilename = ""
+        self.terrain = ""
 
-        self.outputFilename = tkFileDialog.askopenfilename(title="Select main file",
-                                                           filetypes=[("Main file", "main.cpp"), ("All files", "*")])
-        if not self.outputFilename:
-            configWindow.after(0, parent.destroy)
+        # Running assincronously to avoid locking the text Entries
+        configWindow.after(100, self.selectMainFile)
 
         ttk.Label(self, text="Arena Settings", anchor="n", font=("Helvetica", 16)).pack(side="top", fill="x", pady=30)
-        self.terrainButton = ttk.Button(self, text="Select arena terrain file...", command=self.selectTerrainFile)
-        self.terrainButton.pack()
+        self.terrainFrame = ttk.Frame(self)
+        self.terrainButton = ttk.Button(self.terrainFrame, text="Open arena terrain file...", command=self.selectTerrainFile)
+        self.terrainButton.pack(side="right")
+        self.terrainGenerateButton = ttk.Button(self.terrainFrame, text="Generate random terrain ", command=self.showTerrainGenerationOptions)
+        self.terrainGenerateButton.pack(side="right")
+        self.terrainButton.pack(side="right")
+        self.terrainFrame.pack()
 
         ttk.Label(self).pack(pady=3)  # spacing
 
@@ -207,12 +212,42 @@ class ConfigScreen(ttk.Frame):
 
         ttk.Button(self, text="Save and Run!", command=self.run).pack(side="bottom", pady=30, ipadx=40, ipady=10)
 
+    def generateTerrain(self):
+        height = self.heightEntry.entry.get()
+        width = self.widthEntry.entry.get()
+        self.terrain = "\tint terrain["+height+"]["+width+"] = {\n"
+        for i in range(0, int(height)):
+            self.terrain += "\t\t{"
+            for j in range(0, int(width)):
+                self.terrain += str(random.randint(0, 4))+", "
+            self.terrain += "}, \n"
+        self.terrain += "\t};"
+        self.terrain = self.terrain.replace(", }", "}")
+        self.terrainGenerateButton.configure(text="Done!", command=self.generateTerrain)
+        print(self.terrain)
+
+    def showTerrainGenerationOptions(self, ):
+        ttk.Label(self.terrainFrame, text="Generate random terrain:").pack()
+        self.widthEntry = NumberSetting(self.terrainFrame, "Width", 20)
+        self.widthEntry.pack()
+        self.heightEntry = NumberSetting(self.terrainFrame, "Height", 10)
+        self.heightEntry.pack()
+        self.terrainButton.pack_forget()
+        self.terrainGenerateButton.configure(text="Generate", command=self.generateTerrain)
+
+    def selectMainFile(self):
+        self.outputFilename = tkFileDialog.askopenfilename(title="Select main file",
+                                                          filetypes=[("Main file", "main.cpp"), ("All files", "*")])
+        if not self.outputFilename:
+            os._exit(1)
+
     def selectTerrainFile(self):
         filename = tkFileDialog.askopenfilename(title="Select a terrain file",
                                                 filetypes=[(".terrain", "*.terrain"), ("All files", "*")])
         if filename:
-            self.terrainFile = filename
+            self.terrain = open(filename, "r").read()
             self.terrainButton.configure(text="Selected!")
+            self.terrainGenerateButton.pack_forget()
 
     def addArmy(self, removable=True):
         armySelection = ArmySelector(self.armyFrame, self, len(self.armies) + 1, removable)
@@ -221,8 +256,8 @@ class ConfigScreen(ttk.Frame):
 
     def run(self):
 
-        if not self.terrainFile:
-            tkMessageBox.showerror("Missing terrain file", "Please select a terrain file!")
+        if not self.terrain:
+            tkMessageBox.showerror("Missing terrain", "Please select or generate a terrain!")
             return
 
         outputFile = open(self.outputFilename, "w")
@@ -240,7 +275,7 @@ class ConfigScreen(ttk.Frame):
 
         Builder.create_globals(outputFile, settings)
 
-        Builder.create_main_beggining(outputFile, self.terrainFile)
+        Builder.create_main_beggining(outputFile, self.terrain)
         currentArmy = 0
         currentRobot = 0
         for army in self.armies:
