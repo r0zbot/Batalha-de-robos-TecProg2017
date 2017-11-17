@@ -68,7 +68,7 @@ void Arena::import_terrain(vector<vector<int>> terrainInput) {
     auto width = terrainInput[0].size();
     for(auto i=0; i<height; i++){
         for(auto j=0; j<width; j++){
-            this->ambient.emplace(Hex(i, j, -1, -1, static_cast<Terrain>(terrainInput[i][j])));
+            this->ambient.emplace(Hex(i, j, -1, -1, -1, static_cast<Terrain>(terrainInput[i][j])));
         }
     }
 }
@@ -194,6 +194,10 @@ bool Arena::validate_insertion(const Hex &pos, EntityMove &e) {
     }
     else if (it->get_occup() != -1) {
         this->print(concat("There's already a robot in position [", pos.get_row(), ",", pos.get_col(), "]."), e);
+        return false;
+    }
+    else if (it->get_terrain() == Terrain::ROCK){
+        this->print(concat("Can't go to [", pos.get_row(), ",", pos.get_col(), "]. There is a rock there!"), e);
         return false;
     }
     return true;
