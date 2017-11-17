@@ -10,6 +10,7 @@
 #include <model/entity/machine.h>
 #include <util/globals.h>
 #include <thread>
+#include <util/sleep.h>
 
 using namespace std;
 
@@ -88,7 +89,7 @@ int main() {
 	arena.insert_army(army2);
 	while(true){
 		arena.update();
-		this_thread::sleep_for(std::chrono::milliseconds(1000));
+		arena_sleep(arenaSleepTime);
 	}
 }
 

@@ -36,7 +36,7 @@ class Builder:
         '#include <controller/classes/instruction.h>\n',
         '#include <model/entity/machine.h>',
         '#include <util/globals.h>',
-        '#include <thread>'
+        '#include <util/sleep.h>'
     )
 
     __TODO = "// Move this file to /VirtualMachine/src so this can work on production"
@@ -81,7 +81,7 @@ class Builder:
     def create_main_end(cls, outputFile, sleep_time):
         outputFile.write("\twhile(true){\n")
         outputFile.write("\t\tarena.update();\n")
-        outputFile.write("\t\tthis_thread::sleep_for(std::chrono::milliseconds("+str(sleep_time)+"));\n")
+        outputFile.write("\t\tarena_sleep(arenaSleepTime);\n")
         outputFile.write("\t}\n")
         outputFile.write("}\n\n")
 
