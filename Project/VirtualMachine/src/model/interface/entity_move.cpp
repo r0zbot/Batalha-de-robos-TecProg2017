@@ -45,9 +45,7 @@ bool EntityMove::insert_crystal() {
         ++this->crystals;
         return true;
     }
-    else {
-        return false;
-    }
+    return false;
 }
 
 void EntityMove::refuel(const double amount) {
@@ -61,9 +59,7 @@ bool EntityMove::remove_crystal() {
         --this->crystals;
         return true;
     }
-    else {
-        return false;
-    }
+    return false;
 }
 
 void EntityMove::set_group_id(const int group_id) {
@@ -80,7 +76,5 @@ bool EntityMove::use_fuel(const double amount) {
         this->fuel -= amount;
         return true;
     }
-    else {
-        return false;
-    }
+    return false;
 }

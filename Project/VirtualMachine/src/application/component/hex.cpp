@@ -37,7 +37,7 @@ int Hex::distance(const Hex &hex) const {
 
 int Hex::get_atr(const int i) const {
     if (i == 0) {
-        return this->terrain;
+        return static_cast<int>(this->terrain);
     }
     if (i == 1) {
         return this->crystals;
@@ -72,7 +72,7 @@ Terrain Hex::get_terrain() const {
 }
 
 bool Hex::insert_crystal() {
-    if (this->crystals < MAX_CRYSTALS_PER_CELL){
+    if (this->crystals < maxCrystalsPerCell){
         ++this->crystals;
         return true;
     }
@@ -91,7 +91,7 @@ string Hex::info() const {
                   "\ncell Base = ",     this->base,
                   "\nCell Occup = ",    this->occup,
                   "\nCell Crystals = ", this->crystals,
-                  "\nCell Terrain = ",  this->terrain);
+                  "\nCell Terrain = ",  static_cast<int>(this->terrain));
 }
 
 unordered_set<Hex> Hex::range(const int n) const {

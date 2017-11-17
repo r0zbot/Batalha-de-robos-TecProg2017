@@ -21,10 +21,6 @@ Machine::Machine(const Program &program, const Hex &pos, const string &image_pat
     this->map_functions();
 }
 
-void Machine::set_arena(const Arena &a) {
-    this->arena = make_shared<Arena>(a);
-}
-
 OperandPtr Machine::fetch_arg() const {
     return this->program[this->ip - 1].get_arg();
 }
@@ -76,19 +72,19 @@ void Machine::atr() {
 }
 
 void Machine::attack_melee() {
-    this->arena->request_attack_melee(
+    arena.request_attack_melee(
             *this,
             this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)));
 }
 
 void Machine::attack_short() {
-    this->arena->request_attack_short(
+    arena.request_attack_short(
             *this,
             this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)));
 }
 
 void Machine::attack_long() {
-    this->arena->request_attack_long(
+    arena.request_attack_long(
             *this,
             this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)));
 }
@@ -99,7 +95,7 @@ void Machine::call() {
 }
 
 void Machine::collect_crystal() {
-    this->arena->request_collect(
+    arena.request_collect(
             *this,
             this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)));
 }
@@ -119,7 +115,7 @@ void Machine::divide() {
 }
 
 void Machine::drop_crystal() {
-    this->arena->request_drop(
+    arena.request_drop(
             *this,
             this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)));
 }
@@ -244,7 +240,7 @@ void Machine::lower_equal() {
 }
 
 void Machine::move() {
-    this->arena->request_movement(
+    arena.request_movement(
             *this,
             this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)));
 }
@@ -282,12 +278,12 @@ void Machine::pop() {
 }
 
 void Machine::print() {
-    this->arena->print(*this->data.top(), *this);
+    arena.print(*this->data.top(), *this);
     this->data.pop();
 }
 
 void Machine::print(const string &s) {
-    this->arena->print(s, *this);
+    arena.print(s, *this);
 }
 
 void Machine::push() {
@@ -333,7 +329,7 @@ void Machine::return_from_procedure() {
 
 void Machine::see() {
     auto d = (Direction) this->fetch_arg()->get_atr(1);
-    auto cell = make_shared<Hex>(this->arena->get_cell(this->pos.neighbor(d)));
+    auto cell = make_shared<Hex>(arena.get_cell(this->pos.neighbor(d)));
     this->data.push(cell);
 }
 
@@ -388,8 +384,8 @@ void Machine::update(int cycles) {
             this->stop = true;
             return;
         }
-        else if (!this->use_fuel(FUEL_PER_INSTRUCTION)) {
-            this->arena->print("Not enough fuel!", *this);
+        else if (!this->use_fuel(robotInstFuelUsage)) {
+            arena.print("Not enough fuel to process!", *this);
             this->stop = true;
             return;
         }

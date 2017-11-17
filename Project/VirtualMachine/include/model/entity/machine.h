@@ -11,8 +11,6 @@
 
 using namespace std;
 
-class Arena;
-
 /**
  * @file  machine.h
  * @class Machine
@@ -115,7 +113,6 @@ class Arena;
 class Machine : public EntityMove {
 
     private:
-        shared_ptr<Arena> arena;
         /** Any function that belongs to this class will be of this type.*/
         typedef void (Machine::*Function)();
 
@@ -188,8 +185,6 @@ class Machine : public EntityMove {
         void reset();
 
     public:
-
-        void set_arena(const Arena &a);
         /**
          * @brief Constructs a <b>Machine</b> with the specified set
          *        set of instructions and a position in the hexagonal grid.

@@ -4,6 +4,7 @@
 #include <controller/classes/instruction.h>
 
 #include <model/interface/entity.h>
+#include <util/config.h>
 
 typedef const vector<Instruction> Program;
 
@@ -73,8 +74,8 @@ class EntityMove : public Entity {
          */
         explicit EntityMove(const Hex &pos,
                             const string &image_path,
-                            double fuel_capacity = 100.0,
-                            unsigned int hp_capacity = 100);
+                            double fuel_capacity = robotFuel,
+                            unsigned int hp_capacity = robotHealth);
 
         /**
          * @brief Sets the amount of crystal this {@link Entity}

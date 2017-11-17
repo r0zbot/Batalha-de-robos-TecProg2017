@@ -55,5 +55,6 @@ void Army::update() {
     for (auto const &e : this->soldiers) {
 //        e.second->update(MACHINE_RUN_CYCLES);
         e.second->set_position(Hex(e.second->get_x(), e.second->get_y() + 1));
+//        e.second->update(machineInstructionsPerCycle);
     }
 }
