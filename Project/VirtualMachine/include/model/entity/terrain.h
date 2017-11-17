@@ -12,7 +12,7 @@ enum Terrain {
     NONE     = 0, ///< Represents normal terrains
     MOUNTAIN = 1, ///< Represents mountain terrains
     STREET   = 2, ///< Represents street terrains
-    ROCK     = 3  ///< Represents a rock, so robots can't occupy this space
+    ROCK     = 3  ///< Represents a rock, so robots can't occupy this space //OBS TODO
 };
 
 #endif

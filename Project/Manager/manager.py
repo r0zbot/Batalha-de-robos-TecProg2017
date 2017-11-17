@@ -215,7 +215,7 @@ class ConfigScreen(ttk.Frame):
     def generateTerrain(self):
         height = self.heightEntry.entry.get()
         width = self.widthEntry.entry.get()
-        self.terrain = "\tint terrain["+height+"]["+width+"] = {\n"
+        self.terrain = "\tvector<vector<int>> terrain {\n"
         for i in range(0, int(height)):
             self.terrain += "\t\t{"
             for j in range(0, int(width)):

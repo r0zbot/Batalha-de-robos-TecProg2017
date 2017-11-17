@@ -123,6 +123,14 @@ class Arena {
         const Hex& get_cell(const Hex &pos) const;
 
         /**
+         * @brief Imports terrain from a 2D vector
+         *
+         * @param [terrain] A 2D vector containing integers which represent
+         *        each type of terrain available.
+         */
+        void import_terrain(vector<vector<int>> terrain);
+
+        /**
          * @brief Inserts an {@link #Army} in the current game.
          *
          * @param [army] The {@link #Army} to be inserted in the current game.

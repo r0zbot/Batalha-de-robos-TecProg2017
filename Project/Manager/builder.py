@@ -75,7 +75,7 @@ class Builder:
     def create_main_beggining(cls, outputFile, arena_terrain):
         outputFile.write("int main() {\n")
         outputFile.write(arena_terrain+"\n")
-        outputFile.write("\t//arena.setTerrain(terrain);\n")
+        outputFile.write("\tarena.import_terrain(terrain);\n")
 
     @classmethod
     def create_main_end(cls, outputFile, sleep_time):

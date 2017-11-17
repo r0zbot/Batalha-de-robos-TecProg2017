@@ -10,14 +10,14 @@
 Arena::Arena() {
     //this->display = display;
     // Initialize the Arena Grid with random contents
-    for (int i = 0; i < ARENA_WIDTH; i++) {
-        for (int j = 0; j < ARENA_HEIGHT; j++) {
-            this->ambient.emplace(
-                    Hex(i, j, -1, -1,
-                        rand() % maxCrystalsPerCell,
-                        static_cast<Terrain>(rand() % 3)));
-        }
-    }
+//    for (int i = 0; i < ARENA_WIDTH; i++) {
+//        for (int j = 0; j < ARENA_HEIGHT; j++) {
+//            this->ambient.emplace(
+//                    Hex(i, j, -1, -1,
+//                        rand() % maxCrystalsPerCell,
+//                        static_cast<Terrain>(rand() % 3)));
+//        }
+//    }
 }
 
 int Arena::create_robot(const int id, const Program &prog){
@@ -61,6 +61,16 @@ Army& Arena::get_army(const int id) {
 
 const Hex& Arena::get_cell(const Hex &pos) const {
     return *this->ambient.find(pos);
+}
+
+void Arena::import_terrain(vector<vector<int>> terrainInput) {
+    auto height = terrainInput.size();
+    auto width = terrainInput[0].size();
+    for(auto i=0; i<height; i++){
+        for(auto j=0; j<width; j++){
+            this->ambient.emplace(Hex(i, j, -1, -1, static_cast<Terrain>(terrainInput[i][j])));
+        }
+    }
 }
 
 void Arena::insert_army(const Army &army) {
