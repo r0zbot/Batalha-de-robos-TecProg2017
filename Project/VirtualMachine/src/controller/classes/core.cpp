@@ -14,7 +14,7 @@ Core::Core() {
         Instruction(Code::PUSH, make_shared<Number>(9)),
         Instruction(Code::END,  nullptr)});
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 2; i++) {
         this->arena.create_robot(a1.get_id(), prog);
         this->arena.create_robot(a2.get_id(), prog);
     }
