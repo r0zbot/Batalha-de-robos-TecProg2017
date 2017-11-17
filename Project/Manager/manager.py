@@ -171,6 +171,7 @@ class ConfigScreen(ttk.Frame):
         self.armies = []
         self.outputFilename = ""
         self.terrain = ""
+        self.shouldGenerateTerrain = False
 
         # Running assincronously to avoid locking the text Entries
         configWindow.after(100, self.selectMainFile)
@@ -227,13 +228,14 @@ class ConfigScreen(ttk.Frame):
         print(self.terrain)
 
     def showTerrainGenerationOptions(self, ):
+        self.shouldGenerateTerrain = True
         ttk.Label(self.terrainFrame, text="Generate random terrain:").pack()
         self.widthEntry = NumberSetting(self.terrainFrame, "Width", 20)
         self.widthEntry.pack()
         self.heightEntry = NumberSetting(self.terrainFrame, "Height", 10)
         self.heightEntry.pack()
         self.terrainButton.pack_forget()
-        self.terrainGenerateButton.configure(text="Generate", command=self.generateTerrain)
+        self.terrainGenerateButton.pack_forget()
 
     def selectMainFile(self):
         self.outputFilename = tkFileDialog.askopenfilename(title="Select main file",
@@ -255,6 +257,9 @@ class ConfigScreen(ttk.Frame):
         armySelection.pack(side="top", fill="x", padx=30)
 
     def run(self):
+
+        if self.shouldGenerateTerrain:
+            self.generateTerrain()
 
         if not self.terrain:
             tkMessageBox.showerror("Missing terrain", "Please select or generate a terrain!")
