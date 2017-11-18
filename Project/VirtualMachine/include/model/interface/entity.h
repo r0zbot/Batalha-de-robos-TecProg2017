@@ -32,6 +32,11 @@ class Entity {
         const int id;
 
         /**
+         * Represents the entity's image path to its sprite;
+         */
+        const string image_path;
+
+        /**
          * Represents the entity's position in the {@link Arena}.
          */
         Hex pos;
@@ -41,8 +46,10 @@ class Entity {
          * @brief Constructs an <b>Entity</b> at the specified position.
          *
          * @param [pos] The position of the entity at the {@link Arena}.
+         *
+         * @param [image_path] The path to this entity's image.
          */
-        explicit Entity(const Hex &pos);
+        explicit Entity(const Hex &pos, const string &image_path);
 
         /**
          * @brief Overload of "equals" operator so it can compare two
@@ -80,18 +87,25 @@ class Entity {
         int get_id() const;
 
         /**
-         * @brief Gets the entity's x coordinate, or column position.
+         * @brief Gets the path to this entity image representation.
          *
-         * @return The entity's x coordinate.
+         * @return The path to this entity image representation.
          */
-        int get_x() const;
+        string get_image_path() const;
 
         /**
-         * @brief Gets the entity's y coordinate, or row position.
+         * @brief Gets the entity's column position.
          *
-         * @return The entity's y coordinate.
+         * @return The entity's column position.
          */
-        int get_y() const;
+        int get_col() const;
+
+        /**
+         * @brief Gets the entity's row position.
+         *
+         * @return The entity's row position.
+         */
+        int get_row() const;
 
         /**
          * @brief Sets a new position to this entity.
@@ -107,10 +121,8 @@ class Entity {
          *
          * This method is an abstract method that any derived class must
          * implement with their logic behavior.
-         *
-         * @param [cycles] The amount of cycles the logic will execute.
          */
-        virtual void update(int cycles) = 0;
+        virtual void update() = 0;
 };
 
 #endif

@@ -6,14 +6,14 @@
 #include <util/log.h>
 #include <concat.hpp>
 
-Hex::Hex(const int col,
-         const int row,
+Hex::Hex(const int row,
+         const int col,
          const int base,
          const int occup,
          const int crystals,
          const Terrain terrain)
-        : col(col),
-          row(row),
+        : row(row),
+          col(col),
           base(base),
           occup(occup),
           crystals(crystals),
@@ -48,7 +48,7 @@ int Hex::get_atr(const int i) const {
     if (i == 3) {
         return this->base;
     }
-    Log::error("Invalid Operand (Hex) parameter access: ATR " + to_string(i));
+    Log::warn("Invalid Operand (Hex) parameter access: ATR " + to_string(i));
 }
 
 int Hex::get_base() const {
@@ -57,6 +57,10 @@ int Hex::get_base() const {
 
 int Hex::get_col() const {
     return this->col;
+}
+
+int Hex::get_crystals() const {
+    return this->crystals;
 }
 
 int Hex::get_occup() const {
@@ -72,7 +76,7 @@ Terrain Hex::get_terrain() const {
 }
 
 bool Hex::insert_crystal() {
-    if (this->crystals < maxCrystalsPerCell){
+    if (this->crystals < Config::max_crystals_per_cell){
         ++this->crystals;
         return true;
     }
@@ -80,9 +84,8 @@ bool Hex::insert_crystal() {
 }
 
 Hex Hex::neighbor(const Direction d) const {
-    int parity = this->col & 1;
-    Hex dir = directions[parity][d];
-    return {this->col + dir.col, this->row + dir.row};
+    Hex dir = directions[this->row & 1][d];
+    return {this->row + dir.row, this->col + dir.col};
 }
 
 string Hex::info() const {
@@ -132,10 +135,10 @@ void Hex::set_terrain(const Terrain terrain) {
 }
 
 vector<int> Hex::to_cube() const {
-    int z = this->row - ((this->col + (this->col & 1)) / 2);
-    return {this->col, - z - this->col, z};
+    int x = this->col - ((this->row - (this->row & 1)) / 2);
+    return {x, - x - this->row, this->row};
 }
 
 Hex Hex::to_offset(const int x, const int z) {
-    return {x, z + ((x + (x & 1)) / 2)};
+    return {z, x + ((z - (z & 1)) / 2)};
 }

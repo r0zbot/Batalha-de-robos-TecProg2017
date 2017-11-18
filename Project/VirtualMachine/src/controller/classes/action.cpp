@@ -1,7 +1,8 @@
+#include <concat.hpp>
+
 #include <controller/classes/action.h>
 
 #include <util/log.h>
-#include <concat.hpp>
 
 Action::Action(const SystemCode code, const Direction direction)
         : code(code),

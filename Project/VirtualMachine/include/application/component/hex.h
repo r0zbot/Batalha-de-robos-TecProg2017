@@ -16,8 +16,8 @@ using namespace std;
  * @file  hex.h
  * @class Hex
  *
- * @brief The <b>Hex</b> class represents a flat-topped hexagonal position in a
- *        hexagonal grid of type "Even-Q".
+ * @brief The <b>Hex</b> class represents a pointy-topped hexagonal position in a
+ *        hexagonal grid of type "Odd-R".
  *
  * The <b>Hex</b> object represents one position in a hexagonal grid constructed
  * using an Offset Coordinate System. This system is the easiest approach to
@@ -77,15 +77,15 @@ class Hex : public Operand {
          * @brief Constructs a Hexagon that represents the position [row][col]
          *        in a multi-dimensional array.
          *
-         * @param [col]      The column number.
          * @param [row]      The row number.
+         * @param [col]      The column number.
          * @param [base]     The group's id who owns this position as a base.
          * @param [occup]    The entity's id present in this position.
          * @param [crystals] The number of crystals in this position.
          * @param [terrain]  The type of terrain in this position.
          */
-        Hex(int col,
-            int row,
+        Hex(int row,
+            int col,
             int base = -1,
             int occup = -1,
             int crystals = 0,
@@ -168,6 +168,13 @@ class Hex : public Operand {
          * @return The hexagon column position.
          */
         int get_col() const;
+
+        /**
+         * @brief Gets the amount of crystals in this <b>Hex</b>.
+         *
+         * @return The amount of crystals in this <b>Hex</b>.
+         */
+        int get_crystals() const;
 
         /**
          * @brief Gets the entity's id present at this <b>Hex</b>.
@@ -311,8 +318,8 @@ namespace std {
          */
         size_t operator()(const Hex &h) const {
             hash<int> int_hash;
-            size_t hq = int_hash(h.get_col());
-            size_t hr = int_hash(h.get_row());
+            size_t hq = int_hash(h.get_row());
+            size_t hr = int_hash(h.get_col());
             return hq ^ (hr + 0x9e3779b9 + (hq << 6) + (hq >> 2));
         }
     };
@@ -320,11 +327,11 @@ namespace std {
 
 /**
  * Stores <b>Hex</b> objects representing one of the six possible directions
- * in a flat-topped "Even-Q" hexagonal grid.
+ * in a pointy-topped "Odd-R" hexagonal grid.
  */
 const Hex directions[2][6] = {
-        {Hex(1, 0), Hex(0, -1), Hex(-1, 0), Hex(1, 1), Hex(0, 1), Hex(-1, 1)},
-        {Hex(1, -1), Hex(0, -1), Hex(-1, -1), Hex(1, 0), Hex(0, 1), Hex(-1, 0)}
+        {Hex(-1, 0), Hex(-1, -1), Hex(0, 1), Hex(0, -1), Hex(1, 0), Hex(1, -1)},
+        {Hex(-1, 1), Hex(-1, 0), Hex(0, 1), Hex(0, -1), Hex(1, 1), Hex(1, 0)}
 };
 
 #endif

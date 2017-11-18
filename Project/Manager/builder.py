@@ -30,13 +30,13 @@ class Builder:
 
     __INCLUDES = (
         '#include <vector>\n',
-        '#include <controller/classes/code.h>',
         '#include <controller/classes/action.h>',
+        '#include <controller/classes/code.h>',
         '#include <controller/classes/number.h>',
         '#include <controller/classes/instruction.h>\n',
-        '#include <model/entity/machine.h>',
-        '#include <util/globals.h>',
-        '#include <util/sleep.h>'
+        '#include <controller/classes/core.h>\n',
+        '#include <util/config.h>',
+        '#include <util/globals.h>'
     )
 
     __TODO = "// Move this file to /VirtualMachine/src so this can work on production"
@@ -64,25 +64,22 @@ class Builder:
 
     @classmethod
     def create_globals(cls, outputFile, settings):
-        outputFile.write("//Global variables and settings\n")
-        outputFile.write("Arena arena;\n")
-        outputFile.write("int lastRobotPos = 0;\n")
+        outputFile.write("\t//Settings\n")
         for setting in settings:
-            outputFile.write(setting+" = "+settings[setting]+";\n")
+            outputFile.write("\t" + setting + " = " + settings[setting] + ";\n")
         outputFile.write("\n")
 
     @classmethod
-    def create_main_beggining(cls, outputFile, arena_terrain):
+    def create_main_beggining(cls, outputFile, arena_terrain, settings):
         outputFile.write("int main() {\n")
+        cls.create_globals(outputFile, settings)
         outputFile.write(arena_terrain+"\n")
-        outputFile.write("\tarena.import_terrain(terrain);\n")
+        outputFile.write("\n\tarena.import_terrain(terrain);\n")
 
     @classmethod
     def create_main_end(cls, outputFile, sleep_time):
-        outputFile.write("\twhile(true){\n")
-        outputFile.write("\t\tarena.update();\n")
-        outputFile.write("\t\tarena_sleep(arenaSleepTime);\n")
-        outputFile.write("\t}\n")
+        outputFile.write("\n\tCore core(arena, {});\n".format(sleep_time))
+        outputFile.write("\tcore.start();\n")
         outputFile.write("}\n\n")
 
     @classmethod
@@ -93,7 +90,7 @@ class Builder:
         Any line in the input that corresponds to a comment or any blank
         line is ignored in the decode process.
         """
-        outputFile.write("\tvector<Instruction> prog"+str(id)+" ({\n")
+        outputFile.write("\tconst vector<Instruction> prog"+str(id)+" ({\n")
 
         ip = 0
         labels = {}

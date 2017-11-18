@@ -11,15 +11,15 @@
  * @enum  Direction
  * @brief The <b>Direction</b> is a base enum that defines
  *        the six possible directions of movement in a
- *        flat-topped hexagonal grid.
+ *        pointy-topped hexagonal grid.
  */
 enum Direction {
-    NE = 0, ///< Represents the direction Northeast
-    N  = 1, ///< Represents the direction North
-    NW = 2, ///< Represents the direction Northwest
-    SE = 3, ///< Represents the direction Southeast
-    S  = 4, ///< Represents the direction South
-    SW = 5  ///< Represents the direction Southwest
+    NE  = 0, ///< Represents the direction Northeast
+    NW  = 1, ///< Represents the direction Northwest
+    EA  = 2, ///< Represents the direction East
+    WE  = 3, ///< Represents the direction West
+    SE  = 4, ///< Represents the direction Southeast
+    SW  = 5  ///< Represents the direction Southwest
 };
 
 /**

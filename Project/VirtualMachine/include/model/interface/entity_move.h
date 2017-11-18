@@ -30,6 +30,21 @@ class EntityMove : public Entity {
         int crystals;
 
         /**
+         * Represents the damage inflicted by melee attacks.
+         */
+        const unsigned int dmg_melee_atk;
+
+        /**
+         * Represents the damage inflicted by short range attacks.
+         */
+        const unsigned int dmg_short_atk;
+
+        /**
+         * Represents the damage inflicted by long range attacks.
+         */
+        const unsigned int dmg_long_atk;
+
+        /**
          * Stores the amount of fuel the {@link Entity} carries.
          */
         double fuel;
@@ -57,22 +72,47 @@ class EntityMove : public Entity {
          */
         const unsigned int hp_capacity;
 
+        /**
+         * Represents the maximum amount of collectables
+         * the {@link Entity} can carry.
+         */
+        const unsigned int inventory_size;
+
     public:
         /**
          * @brief Constructs an {@link Entity} that moves at the specified position
          *        of the {@link Arena}.
          *
-         * @param [pos] The position of the {@link Entity} at the {@link Arena}.
+         * @param [pos]            The position of the {@link Entity} at the {@link Arena}.
          *
-         * @param [fuel_capacity] The maximum amount of fuel this {@link Entity}
-         *                        can carry. It's 100.0 by default.
+         * @param [image_path]     The path to this {@link #Entity} sprite.
          *
-         * @param [hp_capacity] The maximum amount of healthy points this
-         *                      {@link Entity} can have. It's 100 by default.
+         * @param [fuel_capacity]  The maximum amount of fuel this {@link Entity}
+         *                         can carry. It's 100 by default.
+         *
+         * @param [inventory_size] The maximum amount of collectables
+         *                         this {@link Entity} can carry.
+         *
+         * @param [hp_capacity]    The maximum amount of healthy points this
+         *                         {@link Entity} can have. It's 100 by default.
+         *
+         * @param [dmg_melee_atk]  The damage inflicted by this {@link Entity}
+         *                         during a melee attack.
+         *
+         * @param [dmg_short_atk]  The damage inflicted by this {@link Entity}
+         *                         during a short range attack.
+         *
+         * @param [dmg_long_atk]   The damage inflicted by this {@link Entity}
+         *                         during a long range attack.
          */
         explicit EntityMove(const Hex &pos,
-                            double fuel_capacity = robotFuel,
-                            unsigned int hp_capacity = robotHealth);
+                            const string &image_path,
+                            double fuel_capacity        = 100,
+                            unsigned int inventory_size = 100,
+                            unsigned int hp_capacity    = 100,
+                            unsigned int dmg_melee_atk  = 20,
+                            unsigned int dmg_short_atk  = 10,
+                            unsigned int dmg_long_atk   = 10);
 
         /**
          * @brief Sets the amount of crystal this {@link Entity}
@@ -87,6 +127,33 @@ class EntityMove : public Entity {
          * @return The amount of crystals this {@link Entity} holds.
          */
         int get_crystals() const;
+
+        /**
+         * @brief Gets the damage this {@link Entity} inflicts
+         *        during melee attacks.
+         *
+         * @return The damage this {@link Entity} inflicts
+         *         during melee attacks.
+         */
+        unsigned int get_dmg_melee() const;
+
+        /**
+         * @brief Gets the damage this {@link Entity} inflicts
+         *        during melee attacks.
+         *
+         * @return The damage this {@link Entity} inflicts
+         *         during melee attacks.
+         */
+        unsigned int get_dmg_short() const;
+
+        /**
+         * @brief Gets the damage this {@link Entity} inflicts
+         *        during short range attacks.
+         *
+         * @return The damage this {@link Entity} inflicts
+         *         during long range attacks.
+         */
+        unsigned int get_dmg_long() const;
 
         /**
          * @brief Gets the quantity of fuel this {@link Entity} has.
@@ -178,12 +245,12 @@ class EntityMove : public Entity {
          * @brief Try to use a specific quantity of fuel to a
          *        general action.
          *
-         * @param [amount] The quantity of fuel that will be used.
+         * @param [quantity] The quantity of fuel to be used.
          *
          * @return True if possible to realize some action with
-         *         the fuel provided, false otherwise.
+         *         the current quantity of fuel, false otherwise.
          */
-        bool use_fuel(double amount);
+        bool use_fuel(double quantity);
 };
 
 typedef shared_ptr<EntityMove> EntityMovePtr;
