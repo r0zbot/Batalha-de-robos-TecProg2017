@@ -94,18 +94,18 @@ class Entity {
         string get_image_path() const;
 
         /**
-         * @brief Gets the entity's x coordinate, or column position.
+         * @brief Gets the entity's column position.
          *
-         * @return The entity's x coordinate.
+         * @return The entity's column position.
          */
-        int get_x() const;
+        int get_col() const;
 
         /**
-         * @brief Gets the entity's y coordinate, or row position.
+         * @brief Gets the entity's row position.
          *
-         * @return The entity's y coordinate.
+         * @return The entity's row position.
          */
-        int get_y() const;
+        int get_row() const;
 
         /**
          * @brief Sets a new position to this entity.

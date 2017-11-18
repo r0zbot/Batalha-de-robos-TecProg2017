@@ -2,7 +2,7 @@
 
 Army::Army(const string &name)
         : id(id_gen++),
-          name(name){}
+          name(name) {}
 
 bool Army::contains_soldier(const int id) const {
     return this->soldiers.count(id) != 0;
@@ -29,7 +29,7 @@ void Army::insert_soldier(EntityMovePtr &soldier) {
     this->soldiers.emplace(soldier.get()->get_id(), soldier);
 }
 
-void Army::load(const View &view) {
+void Army::load(const View &view) const {
     for (auto const &e : this->soldiers) {
         view.load(*e.second);
     }
@@ -53,8 +53,6 @@ unsigned long Army::size() const {
 
 void Army::update() {
     for (auto const &e : this->soldiers) {
-//        e.second->update(MACHINE_RUN_CYCLES);
-        e.second->set_position(Hex(e.second->get_x(), e.second->get_y() + 1));
-//        e.second->update(machineInstructionsPerCycle);
+        e.second->update(machineInstructionsPerCycle);
     }
 }

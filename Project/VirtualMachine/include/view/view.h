@@ -17,6 +17,10 @@ class View {
     public:
         View();
 
+        void load(int height, int width) const;
+
+        void load(const Hex &hex) const;
+
         void load(const Entity &e) const;
 
         void render(const Entity &e) const;

@@ -269,7 +269,7 @@ class ConfigScreen(ttk.Frame):
         Builder.create_header(outputFile)
 
         settings = {"int machineInstructionsPerCycle": self.machineInstructions.entry.get(),
-                    "int arenaSleepTime": self.sleepTime.entry.get(),
+                    "int game_sleep_time": self.sleepTime.entry.get(),
                     "int availableCrystals": self.availableCrystals.entry.get(),
                     "int maxCrystalsPerCell": self.maxCrystals.entry.get(),
                     "unsigned int robotHealth": self.robotHealth.entry.get(),

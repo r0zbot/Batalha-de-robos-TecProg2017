@@ -1,6 +1,14 @@
 #ifndef VIRTUALMACHINE_CORE_H
 #define VIRTUALMACHINE_CORE_H
 
+#ifdef LINUX
+#include <unistd.h>
+#endif
+
+#ifdef WINDOWS
+#include <windows.h>
+#endif
+
 #include <memory>
 
 #include <controller/classes/arena.h>
@@ -17,7 +25,7 @@ class Core {
         View view;
 
     public:
-        Core();
+        explicit Core(const Arena &arena);
 
         void onLoad();
 
@@ -26,6 +34,8 @@ class Core {
         void onUnload();
 
         void onUpdate();
+
+        void sleep() const;
 
         void start();
 };

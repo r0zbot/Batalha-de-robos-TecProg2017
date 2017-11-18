@@ -22,9 +22,9 @@
 
 extern int lastRobotPos; //TODO: remove this after implementing army bases
 
-extern int arenaSleepTime;        ///< The system sleep time in milliseconds
 extern int availableCrystals;     ///< The amount of crystals available to be spread through all the cells
 extern int maxCrystalsPerCell;    ///< The maximum amount of crystals a single cell can hold
+extern int game_sleep_time;             ///< The system sleep time in milliseconds
 
 extern int machineInstructionsPerCycle;    ///< Number of cycles that a {@link #Machine} can execute in a single operation.
 

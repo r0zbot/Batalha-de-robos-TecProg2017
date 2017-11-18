@@ -100,7 +100,7 @@ class Army {
          *
          * @param [view] The {@link #View} object that will show the army.
          */
-        void load(const View &view);
+        void load(const View &view) const;
 
         /**
          * @brief Removes, if exists, from this <b>Army</b> a soldier

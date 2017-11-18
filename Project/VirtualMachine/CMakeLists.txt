@@ -40,7 +40,7 @@ list(REMOVE_ITEM SOURCE_TESTS ${SOURCE_DIR}/main.cpp)
 set(EXECUTABLE_OUTPUT_PATH ${BINARY_DIR})
 set(LIBRARY_OUTPUT_PATH    ${LIB_DIR})
 
-if(WIN32)
+if (WIN32)
     set(GCC_CXX_FLAGS ${GCC_CXX_FLAGS} "-static-libgcc -static-libstdc++ -static")
 endif()
 

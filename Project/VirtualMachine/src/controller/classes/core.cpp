@@ -1,24 +1,7 @@
 #include <controller/classes/core.h>
-#include <controller/classes/number.h>
 
-Core::Core() {
-    //TODO: Creates arena and its entities.
-
-    Army a1 ("Army 1");
-    Army a2 ("Army 1");
-
-    this->arena.insert_army(a1);
-    this->arena.insert_army(a2);
-
-    const vector<Instruction> prog ({
-        Instruction(Code::PUSH, make_shared<Number>(9)),
-        Instruction(Code::END,  nullptr)});
-
-    for (int i = 0; i < 2; i++) {
-        this->arena.create_robot(a1.get_id(), prog);
-        this->arena.create_robot(a2.get_id(), prog);
-    }
-}
+Core::Core(const Arena &arena)
+        : arena(arena) {}
 
 void Core::onLoad() {
     this->arena.load(this->view);
@@ -34,14 +17,25 @@ void Core::onUnload() {
 }
 
 void Core::onUpdate() {
-    this->arena.update();
+    this->arena.update(this->view);
+}
+
+void Core::sleep() const {
+#ifdef LINUX
+    usleep(game_sleep_time * 1000);   // usleep takes sleep time in us (1 millionth of a second)
+#endif
+
+#ifdef WINDOWS
+    Sleep(game_sleep_time);
+#endif
 }
 
 void Core::start() {
     this->onLoad();
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 20; i++) {
         this->onUpdate();
         this->onRender();
+        this->sleep();
     }
     this->onUnload();
 }

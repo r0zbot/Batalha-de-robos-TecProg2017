@@ -21,11 +21,11 @@ string Entity::get_image_path() const {
     return this->image_path;
 }
 
-int Entity::get_x() const {
+int Entity::get_col() const {
     return this->pos.get_col();
 }
 
-int Entity::get_y() const {
+int Entity::get_row() const {
     return this->pos.get_row();
 }
 

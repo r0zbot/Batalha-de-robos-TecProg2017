@@ -34,6 +34,7 @@ class Builder:
         '#include <controller/classes/action.h>',
         '#include <controller/classes/number.h>',
         '#include <controller/classes/instruction.h>\n',
+	'#include <controller/classes/core.h>\n'
         '#include <model/entity/machine.h>',
         '#include <util/globals.h>',
         '#include <util/sleep.h>'
@@ -79,10 +80,8 @@ class Builder:
 
     @classmethod
     def create_main_end(cls, outputFile, sleep_time):
-        outputFile.write("\twhile(true){\n")
-        outputFile.write("\t\tarena.update();\n")
-        outputFile.write("\t\tarena_sleep(arenaSleepTime);\n")
-        outputFile.write("\t}\n")
+        outputFile.write("\tCore core(arena);\n")
+        outputFile.write("\tcore.start();\n")
         outputFile.write("}\n\n")
 
     @classmethod

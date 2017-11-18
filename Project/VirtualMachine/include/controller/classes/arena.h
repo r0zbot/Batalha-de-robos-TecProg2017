@@ -38,6 +38,16 @@ class Arena {
         map<int, Army> armies;
 
         /**
+         * Represents this <b>Arena</b> height, or number of rows in the grid.
+         */
+        int height;
+
+        /**
+         * Represents this <b>Arena</b> width, or number of columns in the grid.
+         */
+        int width;
+
+        /**
          * Represents the amount of rounds executed so far in the game.
          */
         unsigned long long time;
@@ -60,12 +70,6 @@ class Arena {
         bool validate_insertion(const Hex &pos, EntityMove &e);
 
     public:
-        /**
-         * @brief Initialize the <b>Arena</b> and all the Hexagonal
-         *        Grid Environment.
-         */
-        explicit Arena();
-
         /**
          * @brief Initialize a robot in the given {@link #Army},
          *        at the specified cell, and with the given
@@ -122,12 +126,26 @@ class Arena {
         const Hex& get_cell(const Hex &pos) const;
 
         /**
+         * @brief Gets this <b>Arena</b> height, or number of rows in the grid.
+         *
+         * @return This <b>Arena</b> height, or number of rows in the grid.
+         */
+        int get_height() const;
+
+        /**
+        * @brief Gets this <b>Arena</b> width, or number of columns in the grid.
+        *
+        * @return Tthis <b>Arena</b> width, or number of columns in the grid..
+        */
+        int get_width() const;
+
+        /**
          * @brief Imports terrain from a 2D vector
          *
          * @param [terrain] A 2D vector containing integers which represent
          *        each type of terrain available.
          */
-        void import_terrain(vector<vector<int>> terrain);
+        void import_terrain(const vector<vector<int>> &terrain);
 
         /**
          * @brief Inserts an {@link #Army} in the current game.
@@ -144,7 +162,7 @@ class Arena {
          *
          * @param [view] The {@link #View} where this <b>Arena</b> will be loaded.
          */
-        void load(const View &view);
+        void load(const View &view) const;
 
         /**
          * @brief Prints a message in the <b>Arena</b>.
@@ -260,7 +278,7 @@ class Arena {
          * @brief Executes the logic behavior of all the game entities
          *        currently active in the <b>Arena</b>.
          */
-        void update();
+        void update(const View &view);
 };
 
 #endif

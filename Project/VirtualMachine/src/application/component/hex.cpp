@@ -6,14 +6,14 @@
 #include <util/log.h>
 #include <concat.hpp>
 
-Hex::Hex(const int col,
-         const int row,
+Hex::Hex(const int row,
+         const int col,
          const int base,
          const int occup,
          const int crystals,
          const Terrain terrain)
-        : col(col),
-          row(row),
+        : row(row),
+          col(col),
           base(base),
           occup(occup),
           crystals(crystals),
@@ -48,7 +48,7 @@ int Hex::get_atr(const int i) const {
     if (i == 3) {
         return this->base;
     }
-    Log::error("Invalid Operand (Hex) parameter access: ATR " + to_string(i));
+    Log::warn("Invalid Operand (Hex) parameter access: ATR " + to_string(i));
 }
 
 int Hex::get_base() const {
@@ -57,6 +57,10 @@ int Hex::get_base() const {
 
 int Hex::get_col() const {
     return this->col;
+}
+
+int Hex::get_crystals() const {
+    return this->crystals;
 }
 
 int Hex::get_occup() const {
@@ -81,7 +85,7 @@ bool Hex::insert_crystal() {
 
 Hex Hex::neighbor(const Direction d) const {
     Hex dir = directions[this->row & 1][d];
-    return {this->col + dir.col, this->row + dir.row};
+    return {this->row + dir.row, this->col + dir.col};
 }
 
 string Hex::info() const {
@@ -103,9 +107,6 @@ unordered_set<Hex> Hex::range(const int n) const {
         }
     }
     results.erase(*this);
-    for (auto const &e : results) {
-        printf("%d %d \n", e.get_col(), e.get_row());
-    }
     return results;
 }
 
@@ -139,5 +140,5 @@ vector<int> Hex::to_cube() const {
 }
 
 Hex Hex::to_offset(const int x, const int z) {
-    return {x + ((z - (z & 1)) / 2), z};
+    return {z, x + ((z - (z & 1)) / 2)};
 }
