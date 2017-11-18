@@ -16,25 +16,24 @@ Para executar o projeto é necessário ter instaladas e no PATH do seu sistema a
 * `g++ >= 6.0` (são usadas features do C++11)
 * `Python 2`
 * `TKinter`
+* Linux: `xterm`
 * Windows: `MinGW >= 2013072200`
 
-## Compilando
-Inicialmente, é necessário criar um arquivo assembly (.gubi) de teste de acordo com as especificações do projeto e salvá-lo em qualquer local (Há alguns exemplos em `Project/data`). 
+## Execução
 
-### Script automático
+Inicialmente, é necessário criar um arquivo assembly ( _.gubi_ ) de teste de acordo com as especificações do projeto e salvá-lo em qualquer local (Há alguns exemplos em `Project/data`). 
 
-#### Windows 
-~~No Windows, basta arrastar um arquivo _.gubi_ para o batch script _run.bat_, ou passá-lo seu endereço como argumento da linha de comando. Isso montará e compilará os arquivos necessários, e executará o binário automaticamente.~~
+Para executar o projeto, deve ser executado, usando Python2, o arquivo `Project/Manager/manager.py`. Esse script gerará um novo `main.cpp` e o executará.
 
-#### Linux
-~~Executar o _run.sh_ com o endereço do arquivo _.gubi_ como argumento da linha de comando. Isso montará e compilará os arquivos necessários, e executará o binário automaticamente.~~
+As configurações da arena podem ser alteradas nas na seção _Arena settings_. A seguir, o terreno da arena deve ser especificado. Ele pode ser importado de um arquivo ou gerado aleatóriamente.
 
-OBS: Como nessa fase há outros componentes além da máquina virtual, tal script não é tão util, pois seria necessária uma configuração adicional. Logo, sua execução não foi testada e não é recomendada.
+Para adicionar um robô à um dos exércitos, clicar em _Add Robots_ e selecionar um arquivo _.gubi_. É possível selecionar quantos robôs devem estar em cada exército com cada um dos programas. Além disso, é possível adicionar novos exércitos e renomeá-los.
 
-### Compilando manualmente 
+Ao clicar em _Save and Run_, o arquivo `Project/VirtualMachine/src/main.cpp` será substituido por um novo contendo as alterações feitas, ele será compilado usando o CMake e executado em uma nova janela.
 
-1. Criar um arquivo _main.cpp_ (substituindo o existente se necessário), usando para isso o builder.py encontrado em `Project/Builder/src/`, e movê-lo para a pasta `Project/VirtualMachine/src/`. 
-Ex: `Project/Builder/src/builder.py < Project/data/fibo.gubi > Project/VirtualMachine/src/main.cpp`
+## Compilando manualmente 
+
+1. Criar um arquivo _main.cpp_, usando para isso o manager.py encontrado em `Project/Manager/`, e salvá-lo sobre o existente em `Project/VirtualMachine/src/main.cpp`.
 
 1. `cd Project/VirtualMachine`
 

@@ -1,12 +1,21 @@
 # -*- coding: utf-8 -*-
+import sys
+import os
+if sys.version_info > (3 , 0):
+    print("Please use python2")
+    os._exit(3)
 from builder import Builder
+import platform
 import Tkinter as tkinter
-import ttk as ttk
 import tkFileDialog
 import tkMessageBox
-import platform
-import os
 import random
+if platform.system() == "Windows":
+    import ttk as ttk
+else:
+    # ttk looks really bad on linux =(
+    import Tkinter as ttk
+
 
 configWindow = None
 
@@ -169,12 +178,9 @@ class ConfigScreen(ttk.Frame):
     def __init__(self, parent):
         ttk.Frame.__init__(self, parent)
         self.armies = []
-        self.outputFilename = ""
+        self.outputFilename = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../VirtualMachine/src/main.cpp')
         self.terrain = ""
         self.shouldGenerateTerrain = False
-
-        # Running assincronously to avoid locking the text Entries
-        configWindow.after(100, self.selectMainFile)
 
         ttk.Label(self, text="Arena Settings", anchor="n", font=("Helvetica", 16)).pack(side="top", fill="x", pady=30)
         self.terrainFrame = ttk.Frame(self)
@@ -237,12 +243,6 @@ class ConfigScreen(ttk.Frame):
         self.terrainButton.pack_forget()
         self.terrainGenerateButton.pack_forget()
 
-    def selectMainFile(self):
-        self.outputFilename = tkFileDialog.askopenfilename(title="Select main file",
-                                                          filetypes=[("Main file", "main.cpp"), ("All files", "*")])
-        if not self.outputFilename:
-            os._exit(1)
-
     def selectTerrainFile(self):
         filename = tkFileDialog.askopenfilename(title="Select a terrain file",
                                                 filetypes=[(".terrain", "*.terrain"), ("All files", "*")])
@@ -296,8 +296,7 @@ class ConfigScreen(ttk.Frame):
         if platform.system() == "Windows":
             os.startfile(os.path.join(os.path.dirname(self.outputFilename), '..\\build.bat'))
         else:
-            # OBS: untested!
-            os.system(os.path.join(os.path.dirname(self.outputFilename), '../build.sh'))
+            os.system("xterm -e \'"+os.path.join(os.path.dirname(self.outputFilename), '../build.sh')+"\'")
 
     def calculate(self):
         # get the value from the input widget, convert
