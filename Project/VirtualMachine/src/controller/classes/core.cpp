@@ -1,7 +1,8 @@
 #include <controller/classes/core.h>
 
-Core::Core(const Arena &arena)
-        : arena(arena) {}
+Core::Core(const Arena &arena, const unsigned int sleep_time)
+        : arena(arena),
+          sleep_time(sleep_time) {}
 
 void Core::onLoad() {
     this->arena.load(this->view);
@@ -21,12 +22,12 @@ void Core::onUpdate() {
 }
 
 void Core::sleep() const {
-#ifdef LINUX
-    usleep(game_sleep_time * 1000);   // usleep takes sleep time in us (1 millionth of a second)
+#ifdef linux
+    usleep(this->sleep_time * 1000);
 #endif
 
-#ifdef WINDOWS
-    Sleep(game_sleep_time);
+#ifdef _WIN32
+    Sleep(this->sleep_time);
 #endif
 }
 

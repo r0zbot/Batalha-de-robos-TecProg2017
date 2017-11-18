@@ -1,4 +1,13 @@
 # Changelog
+
+## Terceira fase
+* Implementado manager.py
+    * É possível alterar mais facilmente a configuração de diversos elementos da arena.
+    * Maior facilidade para adicionar robôs e exércitos.
+    * Geração de arenas aleatórias.
+    * Importação de arenas salvas.
+* Arena agora pode ser inicializada com um terreno definido.
+
 ## Segunda fase
 * Implementadas classes e suas devidas funcionalidades (para mais detalhes, ver [documentação](https://r0zbot.github.io/Batalha-de-robos-TecProg2017/VirtualMachine/)): 
     * Entidade

@@ -1,12 +1,22 @@
 # -*- coding: utf-8 -*-
+import sys
+import os
+if sys.version_info > (3 , 0):
+    print("Please use python2")
+    os._exit(3)
 from builder import Builder
+import platform
+import random
 import Tkinter as tkinter
-import ttk as ttk
 import tkFileDialog
 import tkMessageBox
-import platform
-import os
-import random
+if platform.system() == "Windows":
+    # ttk looks better on windows =)
+    import ttk as ttk
+else:
+    # ttk looks really bad on linux =(
+    import Tkinter as ttk
+
 
 configWindow = None
 
@@ -115,14 +125,7 @@ class ArmySelector(ttk.Frame):
 
 
 # https://stackoverflow.com/questions/16188420/python-tkinter-scrollbar-for-frame
-
 class VerticalScrolledFrame(ttk.Frame):
-    """A pure Tkinter scrollable frame that actually works!
-    * Use the 'interior' attribute to place widgets inside the scrollable frame
-    * Construct and pack/place/grid normally
-    * This frame only allows vertical scrolling
-
-    """
 
     def __init__(self, parent, *args, **kw):
         ttk.Frame.__init__(self, parent, *args, **kw)
@@ -169,12 +172,9 @@ class ConfigScreen(ttk.Frame):
     def __init__(self, parent):
         ttk.Frame.__init__(self, parent)
         self.armies = []
-        self.outputFilename = ""
+        self.outputFilename = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../VirtualMachine/src/main.cpp')
         self.terrain = ""
         self.shouldGenerateTerrain = False
-
-        # Running assincronously to avoid locking the text Entries
-        configWindow.after(100, self.selectMainFile)
 
         ttk.Label(self, text="Arena Settings", anchor="n", font=("Helvetica", 16)).pack(side="top", fill="x", pady=30)
         self.terrainFrame = ttk.Frame(self)
@@ -225,9 +225,10 @@ class ConfigScreen(ttk.Frame):
         self.terrain += "\t};"
         self.terrain = self.terrain.replace(", }", "}")
         self.terrainGenerateButton.configure(text="Done!", command=self.generateTerrain)
+        print("Generated terrain:")
         print(self.terrain)
 
-    def showTerrainGenerationOptions(self, ):
+    def showTerrainGenerationOptions(self):
         self.shouldGenerateTerrain = True
         ttk.Label(self.terrainFrame, text="Generate random terrain:").pack()
         self.widthEntry = NumberSetting(self.terrainFrame, "Width", 20)
@@ -236,12 +237,6 @@ class ConfigScreen(ttk.Frame):
         self.heightEntry.pack()
         self.terrainButton.pack_forget()
         self.terrainGenerateButton.pack_forget()
-
-    def selectMainFile(self):
-        self.outputFilename = tkFileDialog.askopenfilename(title="Select main file",
-                                                          filetypes=[("Main file", "main.cpp"), ("All files", "*")])
-        if not self.outputFilename:
-            os._exit(1)
 
     def selectTerrainFile(self):
         filename = tkFileDialog.askopenfilename(title="Select a terrain file",
@@ -296,20 +291,7 @@ class ConfigScreen(ttk.Frame):
         if platform.system() == "Windows":
             os.startfile(os.path.join(os.path.dirname(self.outputFilename), '..\\build.bat'))
         else:
-            # OBS: untested!
-            os.system(os.path.join(os.path.dirname(self.outputFilename), '../build.sh'))
-
-    def calculate(self):
-        # get the value from the input widget, convert
-        # it to an int, and do a calculation
-        try:
-            i = int(self.entry.get())
-            result = "%s*2=%s" % (i, i * 2)
-        except ValueError:
-            result = "Please enter digits only"
-
-        # set the output widget to have our result
-        self.output.configure(text=result)
+            os.system("xterm -e \'"+os.path.join(os.path.dirname(self.outputFilename), '../build.sh')+"\'")
 
 
 if __name__ == "__main__":
