@@ -4,3 +4,4 @@ cd "$DIR"
 cmake -H. -Bbuild
 cmake --build build -- -j3
 bin/VirtualMachine
+sleep 10s
