@@ -59,7 +59,7 @@ string Core::getBinPath() {
 
 string Core::getViewPath(){
 #ifdef linux
-    return concat(Core::getBinPath(), "/../../View/game_view.py");
+    return concat("\'", Core::getBinPath(), "/../../View/game_view.py", "\'");
 #endif
 
 #ifdef _WIN32

@@ -20,7 +20,7 @@ class GameView:
         self.entities[int(entity[0])] = EntityView(entity[0], entity[1], entity[2], entity[3])
 
     def init_screen(self):
-        token = raw_input().split()
+        token = input().split()
         if token[0] == 'arena':
             self.arena_view = ArenaView(token[1], token[2])
             screen_width    = 2 * self.arena_view.width * CellView.WIDTH + CellView.WIDTH
