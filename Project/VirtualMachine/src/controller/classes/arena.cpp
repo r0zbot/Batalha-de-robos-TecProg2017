@@ -6,6 +6,7 @@
 
 #include <util/config.h>
 #include <util/log.h>
+#include <controller/classes/core.h>
 
 int Arena::create_robot(const int id, const Program &prog){
     //TODO: put this robot in the army's base
@@ -23,7 +24,7 @@ int Arena::create_robot(const int id, const Hex &pos, const Program &prog) {
         return -1;
     }
 
-    EntityMovePtr soldier = make_shared<Machine>(prog, pos, "../../View/properties/soldier/soldier_" + to_string(id) + ".png");
+    EntityMovePtr soldier = make_shared<Machine>(prog, pos, Core::getSoldierImagePath(id));
     this->armies.at(id).insert_soldier(soldier);
 
     // The set stores a const Hex, so we need a non-const copy

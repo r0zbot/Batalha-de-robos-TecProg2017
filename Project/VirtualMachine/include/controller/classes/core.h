@@ -34,6 +34,8 @@ class Core {
 
         static string getViewPath();
 
+        static string getSoldierImagePath(int armyId);
+
         void onLoad();
 
         void onRender();

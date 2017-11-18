@@ -5,6 +5,11 @@ from arena_view  import ArenaView
 from cell_view   import CellView
 from entity_view import EntityView
 
+try:
+   input = raw_input
+except NameError:
+   pass
+
 
 class GameView:
 
@@ -39,8 +44,9 @@ class GameView:
         self.arena_view.render(self.screen)
         for entity in self.entities.values():
             entity.render(self.screen)
-        pygame.time.wait(100)
+        pygame.time.wait(1)
         pygame.display.update()
+        pygame.event.pump()
 
     def update_entity(self, e_id, row, col):
         self.entities[e_id].update(row, col)
