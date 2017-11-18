@@ -15,7 +15,7 @@
 using namespace std;
 
 /**
- * @file arena.h
+ * @file  arena.h
  * @class Arena
  *
  * @brief This class represents the Hexagonal Grid and the Game System Manager.
