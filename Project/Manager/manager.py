@@ -225,6 +225,7 @@ class ConfigScreen(ttk.Frame):
         self.terrain += "\t};"
         self.terrain = self.terrain.replace(", }", "}")
         self.terrainGenerateButton.configure(text="Done!", command=self.generateTerrain)
+        print("Generated terrain:")
         print(self.terrain)
 
     def showTerrainGenerationOptions(self):
@@ -291,18 +292,6 @@ class ConfigScreen(ttk.Frame):
             os.startfile(os.path.join(os.path.dirname(self.outputFilename), '..\\build.bat'))
         else:
             os.system("xterm -e \'"+os.path.join(os.path.dirname(self.outputFilename), '../build.sh')+"\'")
-
-    def calculate(self):
-        # get the value from the input widget, convert
-        # it to an int, and do a calculation
-        try:
-            i = int(self.entry.get())
-            result = "%s*2=%s" % (i, i * 2)
-        except ValueError:
-            result = "Please enter digits only"
-
-        # set the output widget to have our result
-        self.output.configure(text=result)
 
 
 if __name__ == "__main__":

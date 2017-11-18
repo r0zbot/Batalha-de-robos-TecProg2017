@@ -5,18 +5,18 @@
 #ifndef VIRTUALMACHINE_SLEEP_H
 #define VIRTUALMACHINE_SLEEP_H
 
-#ifdef LINUX
+#ifdef linux
 #include <unistd.h>
 #endif
-#ifdef WINDOWS
+#ifdef _WIN32
 #include <windows.h>
 #endif
 
-void arena_sleep(int sleepMs) {
-#ifdef LINUX
-    usleep(sleepMs * 1000);   // usleep takes sleep time in us (1 millionth of a second)
+void arena_sleep(unsigned int sleepMs) {
+#ifdef linux
+    usleep(sleepMs * 1000);
 #endif
-#ifdef WINDOWS
+#ifdef _WIN32
     Sleep(sleepMs);
 #endif
 }
