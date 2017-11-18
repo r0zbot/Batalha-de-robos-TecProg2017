@@ -9,6 +9,9 @@
 
 #include <model/interface/entity_move.h>
 
+#define MACHINE_EXECUTION_STACK_SIZE 600  ///< The execution stack size in a {@link #Machine}.
+#define MACHINE_MEMORY_SIZE          200  ///< The memory size in a {@link #Machine}.
+
 using namespace std;
 
 /**
@@ -190,9 +193,14 @@ class Machine : public EntityMove {
          *        set of instructions and a position in the hexagonal grid.
          *
          * @param [prog] A set of instructions representing a program.
+         *
          * @param [pos]  The initial position in the grid.
+         *
+         * @param [image_path] The path to this <b>Machine</b> sprite.
          */
-        explicit Machine(const Program &program, const Hex &pos = Hex(0, 0));
+        explicit Machine(const Program &program,
+                         const Hex &pos = Hex(0, 0),
+                         const string &image_path = "");
 
         /**
          * @brief Sums both of the topmost values of the stack.
@@ -520,14 +528,8 @@ class Machine : public EntityMove {
         /**
          * @brief Runs the current virtual machine for a determined
          *        amount of cycles.
-         *
-         * @param [cycles] The determined amount of cycles the machine
-         *                 should run for.
-         *
-         * @return True if the machine still has instructions left,
-         *         and false if the machine reaches an <b>END</b> instruction.
          */
-        void update(int cycles) override;
+        void update() override;
 };
 
 #endif

@@ -11,13 +11,20 @@
 #include <util/globals.h>
 #include <util/log.h>
 
-Machine::Machine(const Program &program, const Hex &pos)
+Machine::Machine(const Program &program, const Hex &pos, const string &image_path)
     : stop(false),
       ip(0),
       exec(MACHINE_EXECUTION_STACK_SIZE),
       memo(MACHINE_MEMORY_SIZE),
       program(program),
-      EntityMove(pos) {
+      EntityMove(pos,
+                 image_path,
+                 Config::machine_fuel,
+                 Config::machine_inventory_size,
+                 Config::machine_health,
+                 Config::machine_melee_attack,
+                 Config::machine_short_attack,
+                 Config::machine_long_attack) {
     this->map_functions();
 }
 
@@ -63,7 +70,7 @@ void Machine::atr() {
     this->data.pop();
     auto arg = dynamic_pointer_cast<Number>(this->fetch_arg());
     if (arg) {
-        this->data.push(make_shared<Number>(aux->get()->get_atr(arg->get_atr(0))));
+        this->data.push(make_shared<Number>(aux->get()->get_atr(arg->get_value())));
     }
     else {
         this->print("<ERROR> Operand in Code::ATR is not Number");
@@ -141,7 +148,7 @@ void Machine::equals() {
 
 void Machine::execute() {
     while (!this->stop) {
-        this->update(1);
+        this->update();
     }
 }
 
@@ -240,9 +247,14 @@ void Machine::lower_equal() {
 }
 
 void Machine::move() {
-    arena.request_movement(
-            *this,
-            this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)));
+    if (this->use_fuel(Config::machine_mov_fuel_usage)) {
+        arena.request_movement(*this, this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)));
+    }
+    else {
+        arena.print(concat("Stuck at [",
+                           this->get_row(), ", ",
+                           this->get_col(), "]. Out of fuel!"), *this);
+    }
 }
 
 void Machine::multiply() {
@@ -374,17 +386,17 @@ void Machine::system() {
     (this->*f)();
 }
 
-void Machine::update(int cycles) {
+void Machine::update() {
     if (this->stop || this->hp <= 0) {
         return;
     }
-    for (int i = 0; i < cycles; i++) {
+    for (int i = 0; i < Config::machine_instructions_cycle; i++) {
         ++this->ip;
         if (this->fetch_code() == Code::END) {
             this->stop = true;
             return;
         }
-        else if (!this->use_fuel(robotInstFuelUsage)) {
+        else if (!this->use_fuel(Config::machine_inst_fuel_usage)) {
             arena.print("Not enough fuel to process!", *this);
             this->stop = true;
             return;

@@ -5,15 +5,24 @@
 
 EntityMove::EntityMove(
         const Hex &pos,
+        const string &image_path,
         const double fuel_capacity,
-        const unsigned int hp_capacity)
+        const unsigned int inventory_size,
+        const unsigned int hp_capacity,
+        const unsigned int dmg_melee_atk,
+        const unsigned int dmg_short_atk,
+        const unsigned int dmg_long_atk)
     : crystals(0),
+      dmg_melee_atk(dmg_melee_atk),
+      dmg_short_atk(dmg_short_atk),
+      dmg_long_atk(dmg_long_atk),
       fuel(fuel_capacity),
       fuel_capacity(fuel_capacity),
       group_id(-1),
       hp(hp_capacity),
       hp_capacity(hp_capacity),
-      Entity(pos) {}
+      inventory_size(inventory_size),
+      Entity(pos, image_path) {}
 
 void EntityMove::clear_crystals() {
     this->crystals = 0;
@@ -21,6 +30,18 @@ void EntityMove::clear_crystals() {
 
 int EntityMove::get_crystals() const {
     return this->crystals;
+}
+
+unsigned int EntityMove::get_dmg_melee() const {
+    return this->dmg_melee_atk;
+}
+
+unsigned int EntityMove::get_dmg_short() const {
+    return this->dmg_short_atk;
+}
+
+unsigned int EntityMove::get_dmg_long() const {
+    return this->dmg_long_atk;
 }
 
 double EntityMove::get_fuel() const {
@@ -40,13 +61,11 @@ void EntityMove::heal(const unsigned int amount) {
 }
 
 bool EntityMove::insert_crystal() {
-    if (this->crystals < MAX_CRYSTALS_PER_ROBOT) {
+    if (this->crystals < this->inventory_size) {
         ++this->crystals;
         return true;
     }
-    else {
-        return false;
-    }
+    return false;
 }
 
 void EntityMove::refuel(const double amount) {
@@ -60,9 +79,7 @@ bool EntityMove::remove_crystal() {
         --this->crystals;
         return true;
     }
-    else {
-        return false;
-    }
+    return false;
 }
 
 void EntityMove::set_group_id(const int group_id) {
@@ -74,12 +91,10 @@ void EntityMove::take_damage(const int damage) {
     //TODO die if 0?
 }
 
-bool EntityMove::use_fuel(const double amount) {
-    if (amount > 0 && this->fuel >= amount) {
-        this->fuel -= amount;
+bool EntityMove::use_fuel(const double quantity) {
+    if (this->fuel >= quantity) {
+        this->fuel -= quantity;
         return true;
     }
-    else {
-        return false;
-    }
+    return false;
 }

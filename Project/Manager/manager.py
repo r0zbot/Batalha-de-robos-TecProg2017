@@ -216,7 +216,7 @@ class ConfigScreen(ttk.Frame):
     def generateTerrain(self):
         height = self.heightEntry.entry.get()
         width = self.widthEntry.entry.get()
-        self.terrain = "\tvector<vector<int>> terrain {\n"
+        self.terrain = "\tconst vector<vector<int>> terrain {\n"
         for i in range(0, int(height)):
             self.terrain += "\t\t{"
             for j in range(0, int(width)):
@@ -263,21 +263,21 @@ class ConfigScreen(ttk.Frame):
         outputFile = open(self.outputFilename, "w")
         Builder.create_header(outputFile)
 
-        settings = {"int machineInstructionsPerCycle": self.machineInstructions.entry.get(),
-                    "int arenaSleepTime": self.sleepTime.entry.get(),
-                    "int availableCrystals": self.availableCrystals.entry.get(),
-                    "int maxCrystalsPerCell": self.maxCrystals.entry.get(),
-                    "unsigned int robotHealth": self.robotHealth.entry.get(),
-                    "int robotMeleeAttack": self.robotMeleeAttack.entry.get(),
-                    "double robotFuel": self.robotFuel.entry.get(),
-                    "double robotMovFuelUsage": self.robotFuelUsage.entry.get(),
-                    "double robotInstFuelUsage": self.robotInstructionFuelUsage.entry.get()}
+        settings = {"Config::machine_instructions_cycle": self.machineInstructions.entry.get(),
+                    # "int game_sleep_time": self.sleepTime.entry.get(),
+                    "Config::available_crystals": self.availableCrystals.entry.get(),
+                    "Config::max_crystals_per_cell": self.maxCrystals.entry.get(),
+                    "Config::machine_health": self.robotHealth.entry.get(),
+                    "Config::machine_melee_attack": self.robotMeleeAttack.entry.get(),
+                    "Config::machine_fuel": self.robotFuel.entry.get(),
+                    "Config::machine_mov_fuel_usage": self.robotFuelUsage.entry.get(),
+                    "Config::machine_inst_fuel_usage": self.robotInstructionFuelUsage.entry.get()}
 
-        Builder.create_globals(outputFile, settings)
+        Builder.create_main_beggining(outputFile, self.terrain, settings)
 
-        Builder.create_main_beggining(outputFile, self.terrain)
         currentArmy = 0
         currentRobot = 0
+
         for army in self.armies:
             currentArmy += 1
             Builder.create_army(outputFile, army.armyNameEntry.get(), currentArmy)
