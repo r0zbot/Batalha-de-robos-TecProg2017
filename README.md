@@ -27,7 +27,7 @@ Para executar o projeto, deve ser executado, usando Python2, o arquivo `Project/
 
 As configurações da arena podem ser alteradas nas na seção _Arena settings_. A seguir, o terreno da arena deve ser especificado. Ele pode ser importado de um arquivo ou gerado aleatóriamente.
 
-Para adicionar um robô à um dos exércitos, clicar em _Add Robots_ e selecionar um arquivo _.gubi_. É possível selecionar quantos robôs devem estar em cada exército com cada um dos programas. Além disso, é possível adicionar novos exércitos e renomeá-los.
+Para adicionar um robô a um dos exércitos, clicar em _Add Robots_ e selecionar um arquivo _.gubi_. É possível selecionar quantos robôs devem estar em cada exército com cada um dos programas. Além disso, é possível adicionar novos exércitos e renomeá-los.
 
 Ao clicar em _Save and Run_, o arquivo `Project/VirtualMachine/src/main.cpp` será substituido por um novo contendo as alterações feitas, ele será compilado usando o CMake e executado em uma nova janela.
 
