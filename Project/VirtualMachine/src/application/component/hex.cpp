@@ -76,7 +76,7 @@ Terrain Hex::get_terrain() const {
 }
 
 bool Hex::insert_crystal() {
-    if (this->crystals < maxCrystalsPerCell){
+    if (this->crystals < Config::max_crystals_per_cell){
         ++this->crystals;
         return true;
     }

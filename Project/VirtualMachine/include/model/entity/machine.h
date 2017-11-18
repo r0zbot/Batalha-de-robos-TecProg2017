@@ -9,6 +9,9 @@
 
 #include <model/interface/entity_move.h>
 
+#define MACHINE_EXECUTION_STACK_SIZE 600  ///< The execution stack size in a {@link #Machine}.
+#define MACHINE_MEMORY_SIZE          200  ///< The memory size in a {@link #Machine}.
+
 using namespace std;
 
 /**
@@ -525,14 +528,8 @@ class Machine : public EntityMove {
         /**
          * @brief Runs the current virtual machine for a determined
          *        amount of cycles.
-         *
-         * @param [cycles] The determined amount of cycles the machine
-         *                 should run for.
-         *
-         * @return True if the machine still has instructions left,
-         *         and false if the machine reaches an <b>END</b> instruction.
          */
-        void update(int cycles) override;
+        void update() override;
 };
 
 #endif

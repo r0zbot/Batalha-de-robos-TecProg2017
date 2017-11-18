@@ -2,32 +2,34 @@
 
 #include <vector>
 
-#include <controller/classes/code.h>
 #include <controller/classes/action.h>
+#include <controller/classes/code.h>
 #include <controller/classes/number.h>
 #include <controller/classes/instruction.h>
 
 #include <controller/classes/core.h>
-#include <model/entity/machine.h>
+
+#include <util/config.h>
 #include <util/globals.h>
-#include <util/sleep.h>
 
 using namespace std;
 
 //Global variables and settings
 Arena arena;
 int lastRobotPos = 0;
-int availableCrystals = 120;
-unsigned int robotHealth = 100;
-int game_sleep_time = 1000;
-double robotFuel = 100;
-int robotMeleeAttack = 20;
-int maxCrystalsPerCell = 20;
-double robotMovFuelUsage = 1.5;
-int machineInstructionsPerCycle = 50;
-double robotInstFuelUsage = 0.01;
 
 int main() {
+
+    Config::available_crystals         = 120;
+    Config::machine_health             = 100;
+    Config::machine_fuel               = 100;
+    Config::machine_melee_attack       = 20;
+    Config::machine_short_attack       = 10;
+    Config::machine_long_attack        = 20;
+    Config::machine_mov_fuel_usage     = 1.5;
+    Config::machine_inst_fuel_usage    = 0.01;
+    Config::machine_instructions_cycle = 50;
+    Config::max_crystals_per_cell      = 20;
 
 	const vector<vector<int>> terrain {
 		{3, 4, 3, 1, 0, 1, 4, 0, 3, 3, 4, 4}, 

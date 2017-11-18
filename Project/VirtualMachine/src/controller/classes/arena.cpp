@@ -39,7 +39,7 @@ int Arena::create_robot(const int id, const Hex &pos, const Program &prog) {
 }
 
 unsigned long long Arena::elapsed_time() const {
-    return this->time * game_sleep_time;
+    return this->time;
 }
 
 EntityMove& Arena::find_entity_move(const int id) {
@@ -125,8 +125,8 @@ void Arena::render(const View &view) {
     }
 }
 
-void Arena::request_attack_melee(EntityMove &e, const Hex &pos){
-    this->find_entity_move(this->ambient.find(pos)->get_occup()).take_damage(robotMeleeAttack);
+void Arena::request_attack_melee(EntityMove &e, const Hex &pos) {
+    this->find_entity_move(this->ambient.find(pos)->get_occup()).take_damage(e.get_dmg_melee());
 }
 
 void Arena::request_attack_short(EntityMove &e, const Hex &pos) {
@@ -180,22 +180,17 @@ void Arena::request_movement(EntityMove &e, const Hex &pos) {
         this->print(concat("Robot ", e.get_id(), " moving to [", pos.get_row(), ", ", pos.get_col(), "]"));
     }
     if (this->validate_insertion(pos, e)) {
-        if (e.use_fuel(robotMovFuelUsage)) {
-            auto oldPosIt = this->ambient.find(Hex(e.get_row(), e.get_col()));
-            auto newPosIt = this->ambient.find(pos);
-            Hex oldPosHex = *oldPosIt;
-            Hex newPosHex = *newPosIt;
-            oldPosHex.set_occup(-1);
-            newPosHex.set_occup(e.get_id());
-            e.set_position(newPosHex);
-            this->ambient.erase(oldPosIt);
-            this->ambient.insert(oldPosHex);
-            this->ambient.erase(newPosIt);
-            this->ambient.insert(newPosHex);
-        }
-        else {
-            this->print(concat("Stuck at [", e.get_row(), ", ", e.get_col(), "]. Out of fuel!"), e);
-        }
+        auto oldPosIt = this->ambient.find(Hex(e.get_row(), e.get_col()));
+        auto newPosIt = this->ambient.find(pos);
+        Hex oldPosHex = *oldPosIt;
+        Hex newPosHex = *newPosIt;
+        oldPosHex.set_occup(-1);
+        newPosHex.set_occup(e.get_id());
+        e.set_position(newPosHex);
+        this->ambient.erase(oldPosIt);
+        this->ambient.insert(oldPosHex);
+        this->ambient.erase(newPosIt);
+        this->ambient.insert(newPosHex);
     }
 }
 

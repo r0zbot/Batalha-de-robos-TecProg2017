@@ -121,10 +121,8 @@ class Entity {
          *
          * This method is an abstract method that any derived class must
          * implement with their logic behavior.
-         *
-         * @param [cycles] The amount of cycles the logic will execute.
          */
-        virtual void update(int cycles) = 0;
+        virtual void update() = 0;
 };
 
 #endif
