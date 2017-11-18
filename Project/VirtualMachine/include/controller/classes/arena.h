@@ -5,7 +5,7 @@
 
 #include <application/component/hex.h>
 
-#include <controller/classes/system.h>
+#include <controller/classes/syscall.h>
 
 #include <model/entity/army.h>
 #include <model/entity/machine.h>

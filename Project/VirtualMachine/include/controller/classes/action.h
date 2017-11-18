@@ -1,7 +1,7 @@
 #ifndef VIRTUALMACHINE_ACTION_H
 #define VIRTUALMACHINE_ACTION_H
 
-#include <controller/classes/system.h>
+#include <controller/classes/syscall.h>
 
 #include <controller/interface/operand.h>
 
