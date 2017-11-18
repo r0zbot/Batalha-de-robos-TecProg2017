@@ -9,7 +9,7 @@
 
 int Arena::create_robot(const int id, const Program &prog){
     //TODO: put this robot in the army's base
-    return this->create_robot(id, Hex(0, lastRobotPos++), prog);
+    return this->create_robot(id, Hex(0, this->last_pos++), prog);
 }
 
 int Arena::create_robot(const int id, const Hex &pos, const Program &prog) {

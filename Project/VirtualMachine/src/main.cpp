@@ -14,10 +14,6 @@
 
 using namespace std;
 
-//Global variables and settings
-Arena arena;
-int lastRobotPos = 0;
-
 int main() {
 
     Config::available_crystals         = 120;

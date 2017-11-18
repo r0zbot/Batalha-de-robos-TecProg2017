@@ -69,6 +69,8 @@ class Arena {
          */
         bool validate_insertion(const Hex &pos, EntityMove &e);
 
+        int last_pos = 0;
+
     public:
         /**
          * @brief Initialize a robot in the given {@link #Army},

@@ -25,7 +25,7 @@ EntityMovePtr Army::get_soldier(const int id) {
 }
 
 void Army::insert_soldier(EntityMovePtr &soldier) {
-    soldier.get()->set_group_id(this->get_id());
+    soldier->set_group_id(this->get_id());
     this->soldiers.emplace(soldier.get()->get_id(), soldier);
 }
 

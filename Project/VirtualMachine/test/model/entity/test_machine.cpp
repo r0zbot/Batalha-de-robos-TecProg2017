@@ -49,7 +49,7 @@ TEST_F(TestMachine, push_hexOperand_shouldPushHexOperandToMachineStack) {
     ASSERT_EQ(0,  top->get_row());
     ASSERT_EQ(2,  top->get_base());
     ASSERT_EQ(-1, top->get_occup());
-    ASSERT_EQ(Terrain::NONE, top->get_terrain());
+//    ASSERT_EQ(Terrain::NONE, top->get_terrain());
 }
 
 TEST_F(TestMachine, add_numberOperands_shouldCalculateAndReturnTheSumOfTwoNumberOperands) {
@@ -149,7 +149,7 @@ TEST_F(TestMachine, duplicate_hexOperand_shouldDuplicateTheTopmostElementOfTheSt
     ASSERT_EQ(0,  top->get_row());
     ASSERT_EQ(-1, top->get_base());
     ASSERT_EQ(-1, top->get_occup());
-    ASSERT_EQ(Terrain::NONE, top->get_terrain());
+//    ASSERT_EQ(Terrain::NONE, top->get_terrain());
 }
 
 TEST_F(TestMachine, atr_actionOperand_shouldPushActionOperandAttributeToMachineStack) {

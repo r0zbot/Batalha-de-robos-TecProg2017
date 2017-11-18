@@ -148,7 +148,7 @@ void Machine::equals() {
 
 void Machine::execute() {
     while (!this->stop) {
-//        this->update(1);
+        this->update();
     }
 }
 
