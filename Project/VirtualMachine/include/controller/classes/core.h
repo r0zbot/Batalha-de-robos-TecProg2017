@@ -3,6 +3,7 @@
 
 #ifdef linux
 #include <unistd.h>
+#include <limits.h>
 #endif
 
 #ifdef _WIN32
@@ -28,6 +29,10 @@ class Core {
 
     public:
         Core(const Arena &arena, unsigned int sleep_time);
+
+        static string getBinPath();
+
+        static string getViewPath();
 
         void onLoad();
 

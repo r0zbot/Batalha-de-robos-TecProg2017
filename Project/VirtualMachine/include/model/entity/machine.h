@@ -5,7 +5,7 @@
 #include <stack>
 
 #include <controller/classes/stack_frame.h>
-#include <controller/classes/system.h>
+#include <controller/classes/syscall.h>
 
 #include <model/interface/entity_move.h>
 

@@ -4,7 +4,7 @@
 #include <unordered_set>
 #include <vector>
 
-#include <controller/classes/system.h>
+#include <controller/classes/syscall.h>
 
 #include <controller/interface/operand.h>
 
