@@ -6,11 +6,12 @@ if sys.version_info > (3 , 0):
     os._exit(3)
 from builder import Builder
 import platform
+import random
 import Tkinter as tkinter
 import tkFileDialog
 import tkMessageBox
-import random
 if platform.system() == "Windows":
+    # ttk looks better on windows =)
     import ttk as ttk
 else:
     # ttk looks really bad on linux =(
@@ -124,14 +125,7 @@ class ArmySelector(ttk.Frame):
 
 
 # https://stackoverflow.com/questions/16188420/python-tkinter-scrollbar-for-frame
-
 class VerticalScrolledFrame(ttk.Frame):
-    """A pure Tkinter scrollable frame that actually works!
-    * Use the 'interior' attribute to place widgets inside the scrollable frame
-    * Construct and pack/place/grid normally
-    * This frame only allows vertical scrolling
-
-    """
 
     def __init__(self, parent, *args, **kw):
         ttk.Frame.__init__(self, parent, *args, **kw)
@@ -233,7 +227,7 @@ class ConfigScreen(ttk.Frame):
         self.terrainGenerateButton.configure(text="Done!", command=self.generateTerrain)
         print(self.terrain)
 
-    def showTerrainGenerationOptions(self, ):
+    def showTerrainGenerationOptions(self):
         self.shouldGenerateTerrain = True
         ttk.Label(self.terrainFrame, text="Generate random terrain:").pack()
         self.widthEntry = NumberSetting(self.terrainFrame, "Width", 20)
