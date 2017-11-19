@@ -109,6 +109,13 @@ class Arena {
         EntityMove& find_entity_move(int id);
 
         /**
+         * @brief Randomly place crystals throughout the arena.
+         *
+         * @param [crystals] The number of total crystals to generate
+         */
+        void generate_crystals(int crystals);
+
+        /**
          * @brief Finds and returns an {@link #Army} with the given ID,
          *        if it's currently active in the game.
          *
@@ -148,7 +155,7 @@ class Arena {
          * @param [terrain] A 2D vector containing integers which represent
          *        each type of terrain available.
          */
-        void import_terrain(const vector<vector<int>> &terrain);
+        void import_terrain(const vector<vector<int>> &terrainn);
 
         /**
          * @brief Inserts an {@link #Army} in the current game.

@@ -33,6 +33,7 @@ int Arena::create_robot(const int id, const Hex &pos, const Program &prog) {
     }
 
     EntityMovePtr soldier = make_shared<Machine>(prog, pos, Core::get_soldier_image_path(id));
+    cout << "path c:" << Core::get_soldier_image_path(id);
     this->armies.at(id).insert_soldier(soldier);
 
     // The set stores a const Hex, so we need a non-const copy
@@ -60,6 +61,18 @@ EntityMove& Arena::find_entity_move(const int id) {
     Log::warn(concat("Robot: ", id, " is not part of any army!"));
 }
 
+void Arena::generate_crystals(int crystals) {
+    while(crystals > 0){
+        auto cell = this->ambient.find(Hex(rand() % this->get_height(), rand() % this->get_width()));
+        Hex aux_cell = *cell;
+        int crystalsToAdd = min(crystals, min((int)Config::max_crystals_per_cell - aux_cell.get_crystals(), rand() % 5 ));
+        crystals -= crystalsToAdd;
+        aux_cell.set_crystals(aux_cell.get_crystals() + crystalsToAdd);
+        this->ambient.erase(cell);
+        this->ambient.insert(aux_cell);
+    }
+}
+
 Army& Arena::get_army(const int id) {
     return this->armies.at(id);
 }
@@ -84,6 +97,7 @@ void Arena::import_terrain(const vector<vector<int>> &terrain) {
             this->ambient.emplace(Hex(i, j, -1, -1, 0, static_cast<Terrain>(terrain[i][j])));
         }
     }
+    this->generate_crystals(Config::available_crystals);
 }
 
 void Arena::insert_army(const Army &army) {
@@ -217,7 +231,7 @@ void Arena::request_movement(EntityMove &e, const Hex &pos) {
     }
     if (this->validate_insertion(pos, e)) {
         if(e.use_fuel(Config::machine_mov_fuel_usage)){
-            auto oldPosIt = this->ambient.find(Hex(e.get_col(), e.get_row()));
+            auto oldPosIt = this->ambient.find(Hex(e.get_row(), e.get_col()));
             auto newPosIt = this->ambient.find(pos);
             Hex oldPosHex = *oldPosIt;
             Hex newPosHex = *newPosIt;

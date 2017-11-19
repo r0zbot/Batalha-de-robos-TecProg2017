@@ -26,7 +26,7 @@ string Core::get_view_path() {
 #endif
 
 #ifdef _WIN32
-    return concat(Core::getBinPath(), "\\..\\..\\View\\game_view.py");
+    return concat(Core::get_bin_path(), "\\..\\..\\View\\game_view.py");
 #endif
     return "Can't calculate path!";
 }
@@ -37,7 +37,7 @@ string Core::get_soldier_image_path(const int army_id) {
 #endif
 
 #ifdef _WIN32
-    return concat(Core::getBinPath(), "\\..\\..\\View\\properties\\soldier\\soldier_", army_id % 5, ".png");
+    return concat(Core::get_bin_path(), "\\..\\..\\View\\properties\\soldier\\soldier_", army_id % 5, ".png");
 #endif
     return "Can't calculate path!";
 }
@@ -72,11 +72,10 @@ void Core::sleep() const {
 void Core::start() {
     this->on_load();
     //TODO: detect when user closes the pygame window
-    for (int i = 0; i < 20; i++) {
+    while (true) {
         this->on_update();
         this->on_render();
         this->sleep();
-
     }
     this->on_unload();
 }

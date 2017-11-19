@@ -89,7 +89,7 @@ class Hex : public Operand {
             int base = -1,
             int occup = -1,
             int crystals = 0,
-            Terrain terrain = Terrain::NONE);
+            Terrain terrain = Terrain::GRASS);
 
         /**
          * @brief Copies the argument's attributes to this <b>Hex</b> object.
