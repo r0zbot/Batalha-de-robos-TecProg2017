@@ -25,7 +25,7 @@ Chamadas ao sistema dependem de um _SystemCode_ e uma _Direction_. Seus valores 
 * `MOVE` = Representa ação de movimento em um determinada direção
 * `COLLECT` = Representa ação de coleta em um determinada direção
 * `DROP` = Representa ação de deposito em um determinada direção
-* `ATKMELLE` = Representa ação de ataque corpo a corpo em um determinada direção
+* `ATKMELEE` = Representa ação de ataque corpo a corpo em um determinada direção
 * `ATKSHORT` = Representa ação de ataque de pequeno alcance em um determinada direção
 * `ATKLONG` = Representa ação de ataque de longo alcance em um determinada direção
 * `SEE` = Empilha a célula vizinha ao robô em uma determinada direção
