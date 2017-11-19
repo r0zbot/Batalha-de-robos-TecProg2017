@@ -92,12 +92,11 @@ $(document).ready(function(){initNavTree('class_arena.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a74f105bc709d4728fb07f1984abfd345"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a74f105bc709d4728fb07f1984abfd345">Arena</a> ()</td></tr>
-<tr class="memdesc:a74f105bc709d4728fb07f1984abfd345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the <b>Arena</b> and all the Hexagonal Grid Environment.  <a href="#a74f105bc709d4728fb07f1984abfd345">More...</a><br /></td></tr>
-<tr class="separator:a74f105bc709d4728fb07f1984abfd345"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9192da9aad23d196eaef2ef560196e9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#af9192da9aad23d196eaef2ef560196e9">create_robot</a> (int id, const <a class="el" href="class_hex.html">Hex</a> &amp;pos, <a class="el" href="machine_8h.html#af3ac1f36136753591c5239f30be94f77">Program</a> &amp;prog)</td></tr>
-<tr class="memdesc:af9192da9aad23d196eaef2ef560196e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a robot in the given <a class="el" href="class_army.html">Army</a>, at the specified cell, and with the given instructions.  <a href="#af9192da9aad23d196eaef2ef560196e9">More...</a><br /></td></tr>
-<tr class="separator:af9192da9aad23d196eaef2ef560196e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b49b4b1ef3c8399a0747d9bd7ec27ea"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a2b49b4b1ef3c8399a0747d9bd7ec27ea">create_robot</a> (int id, const <a class="el" href="class_hex.html">Hex</a> &amp;pos, const <a class="el" href="entity__move_8h.html#af3ac1f36136753591c5239f30be94f77">Program</a> &amp;prog)</td></tr>
+<tr class="memdesc:a2b49b4b1ef3c8399a0747d9bd7ec27ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a robot in the given <a class="el" href="class_army.html">Army</a>, at the specified cell, and with the given instructions.  <a href="#a2b49b4b1ef3c8399a0747d9bd7ec27ea">More...</a><br /></td></tr>
+<tr class="separator:a2b49b4b1ef3c8399a0747d9bd7ec27ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa54b9088122327266937c9dcced797ba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#aa54b9088122327266937c9dcced797ba">create_robot</a> (int id, const <a class="el" href="entity__move_8h.html#af3ac1f36136753591c5239f30be94f77">Program</a> &amp;prog)</td></tr>
+<tr class="separator:aa54b9088122327266937c9dcced797ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6aaa355ca07abb02d9bfc3bc063a87b7"><td class="memItemLeft" align="right" valign="top">unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a6aaa355ca07abb02d9bfc3bc063a87b7">elapsed_time</a> () const</td></tr>
 <tr class="memdesc:a6aaa355ca07abb02d9bfc3bc063a87b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the amount of time passed in the current game.  <a href="#a6aaa355ca07abb02d9bfc3bc063a87b7">More...</a><br /></td></tr>
 <tr class="separator:a6aaa355ca07abb02d9bfc3bc063a87b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,12 +106,25 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af488add9865eae3fe775cee18aae3cd4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_army.html">Army</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#af488add9865eae3fe775cee18aae3cd4">get_army</a> (int id)</td></tr>
 <tr class="memdesc:af488add9865eae3fe775cee18aae3cd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds and returns an <a class="el" href="class_army.html">Army</a> with the given ID, if it's currently active in the game.  <a href="#af488add9865eae3fe775cee18aae3cd4">More...</a><br /></td></tr>
 <tr class="separator:af488add9865eae3fe775cee18aae3cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af665d64f53babf5196bb965fe56a5bfc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_hex.html">Hex</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#af665d64f53babf5196bb965fe56a5bfc">get_cell</a> (const <a class="el" href="class_hex.html">Hex</a> &amp;pos) const</td></tr>
-<tr class="memdesc:af665d64f53babf5196bb965fe56a5bfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to a specific Grid Cell, if it's within the <b>Arena</b> limits.  <a href="#af665d64f53babf5196bb965fe56a5bfc">More...</a><br /></td></tr>
-<tr class="separator:af665d64f53babf5196bb965fe56a5bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad76e6087ad81bdb5a3ba2b5910802922"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_hex.html">Hex</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#ad76e6087ad81bdb5a3ba2b5910802922">get_cell</a> (const <a class="el" href="class_hex.html">Hex</a> &amp;pos) const</td></tr>
+<tr class="memdesc:ad76e6087ad81bdb5a3ba2b5910802922"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to a specific Grid Cell, if it's within the <b>Arena</b> limits.  <a href="#ad76e6087ad81bdb5a3ba2b5910802922">More...</a><br /></td></tr>
+<tr class="separator:ad76e6087ad81bdb5a3ba2b5910802922"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e38986faff90a01fc11b11d7a467f17"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a8e38986faff90a01fc11b11d7a467f17">get_height</a> () const</td></tr>
+<tr class="memdesc:a8e38986faff90a01fc11b11d7a467f17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets this <b>Arena</b> height, or number of rows in the grid.  <a href="#a8e38986faff90a01fc11b11d7a467f17">More...</a><br /></td></tr>
+<tr class="separator:a8e38986faff90a01fc11b11d7a467f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae303315884e016602a061f629695a668"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#ae303315884e016602a061f629695a668">get_width</a> () const</td></tr>
+<tr class="memdesc:ae303315884e016602a061f629695a668"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets this <b>Arena</b> width, or number of columns in the grid.  <a href="#ae303315884e016602a061f629695a668">More...</a><br /></td></tr>
+<tr class="separator:ae303315884e016602a061f629695a668"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8844fe9749b511448cd03658212eb5a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a8844fe9749b511448cd03658212eb5a3">import_terrain</a> (const vector&lt; vector&lt; int &gt;&gt; &amp;terrain)</td></tr>
+<tr class="memdesc:a8844fe9749b511448cd03658212eb5a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imports terrain from a 2D vector.  <a href="#a8844fe9749b511448cd03658212eb5a3">More...</a><br /></td></tr>
+<tr class="separator:a8844fe9749b511448cd03658212eb5a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22788a6b231636503663d7950f403248"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a22788a6b231636503663d7950f403248">insert_army</a> (const <a class="el" href="class_army.html">Army</a> &amp;army)</td></tr>
 <tr class="memdesc:a22788a6b231636503663d7950f403248"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts an <a class="el" href="class_army.html">Army</a> in the current game.  <a href="#a22788a6b231636503663d7950f403248">More...</a><br /></td></tr>
 <tr class="separator:a22788a6b231636503663d7950f403248"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:a6a882e69a9d8af733c615b5d9c54f142"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a6a882e69a9d8af733c615b5d9c54f142">load</a> (const <a class="el" href="class_view.html">View</a> &amp;view) const</td></tr>
+<tr class="memdesc:a6a882e69a9d8af733c615b5d9c54f142"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the <b>Arena</b> system in alink View}.  <a href="#a6a882e69a9d8af733c615b5d9c54f142">More...</a><br /></td></tr>
+<tr class="separator:a6a882e69a9d8af733c615b5d9c54f142"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09e415713a1dc48eb104ead95bd99c4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a09e415713a1dc48eb104ead95bd99c4b">print</a> (const string &amp;s)</td></tr>
 <tr class="memdesc:a09e415713a1dc48eb104ead95bd99c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a message in the <b>Arena</b>.  <a href="#a09e415713a1dc48eb104ead95bd99c4b">More...</a><br /></td></tr>
 <tr class="separator:a09e415713a1dc48eb104ead95bd99c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,6 +140,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae49cf822a06a809379aa97f19c408b64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#ae49cf822a06a809379aa97f19c408b64">remove_army</a> (int id)</td></tr>
 <tr class="memdesc:ae49cf822a06a809379aa97f19c408b64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an <a class="el" href="class_army.html">Army</a> and all the entities associated with it from the current game.  <a href="#ae49cf822a06a809379aa97f19c408b64">More...</a><br /></td></tr>
 <tr class="separator:ae49cf822a06a809379aa97f19c408b64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1589bb63126382bc9ad0539517c972d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#ae1589bb63126382bc9ad0539517c972d">render</a> (const <a class="el" href="class_view.html">View</a> &amp;view)</td></tr>
+<tr class="memdesc:ae1589bb63126382bc9ad0539517c972d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders the <b>Arena</b> system in alink View}.  <a href="#ae1589bb63126382bc9ad0539517c972d">More...</a><br /></td></tr>
+<tr class="separator:ae1589bb63126382bc9ad0539517c972d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a262c9c0a5b9bc1130c23fd7da59ee7f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a262c9c0a5b9bc1130c23fd7da59ee7f3">request_attack_melee</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
 <tr class="memdesc:a262c9c0a5b9bc1130c23fd7da59ee7f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an requisition for a melee attack in a specified position from the <b>Arena</b>.  <a href="#a262c9c0a5b9bc1130c23fd7da59ee7f3">More...</a><br /></td></tr>
 <tr class="separator:a262c9c0a5b9bc1130c23fd7da59ee7f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -146,44 +161,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aecfd89c238d57df0d4814275fddec340"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#aecfd89c238d57df0d4814275fddec340">request_movement</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
 <tr class="memdesc:aecfd89c238d57df0d4814275fddec340"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an requisition for a movement action in a specified position from the <b>Arena</b>.  <a href="#aecfd89c238d57df0d4814275fddec340">More...</a><br /></td></tr>
 <tr class="separator:aecfd89c238d57df0d4814275fddec340"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedbfadca4c9b3d6e3d097b14fef079ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#aedbfadca4c9b3d6e3d097b14fef079ba">update</a> ()</td></tr>
-<tr class="memdesc:aedbfadca4c9b3d6e3d097b14fef079ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the logic behavior of all the game entities currently active in the <b>Arena</b>.  <a href="#aedbfadca4c9b3d6e3d097b14fef079ba">More...</a><br /></td></tr>
-<tr class="separator:aedbfadca4c9b3d6e3d097b14fef079ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11a38d9a302c337f11611d9f22a502d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a11a38d9a302c337f11611d9f22a502d8">update</a> (const <a class="el" href="class_view.html">View</a> &amp;view)</td></tr>
+<tr class="memdesc:a11a38d9a302c337f11611d9f22a502d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the logic behavior of all the game entities currently active in the <b>Arena</b>.  <a href="#a11a38d9a302c337f11611d9f22a502d8">More...</a><br /></td></tr>
+<tr class="separator:a11a38d9a302c337f11611d9f22a502d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class represents the Hexagonal Grid and the Game System Manager. </p>
 <p>The <b>Arena</b> class represents the environment where the game will be executed. It's responsible for the entire game system requests and for update all the game entities. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a74f105bc709d4728fb07f1984abfd345"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74f105bc709d4728fb07f1984abfd345">&#9670;&nbsp;</a></span>Arena()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Arena::Arena </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initialize the <b>Arena</b> and all the Hexagonal Grid Environment. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="af9192da9aad23d196eaef2ef560196e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9192da9aad23d196eaef2ef560196e9">&#9670;&nbsp;</a></span>create_robot()</h2>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2b49b4b1ef3c8399a0747d9bd7ec27ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b49b4b1ef3c8399a0747d9bd7ec27ea">&#9670;&nbsp;</a></span>create_robot() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -203,7 +190,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="machine_8h.html#af3ac1f36136753591c5239f30be94f77">Program</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="entity__move_8h.html#af3ac1f36136753591c5239f30be94f77">Program</a> &amp;&#160;</td>
           <td class="paramname"><em>prog</em>&#160;</td>
         </tr>
         <tr>
@@ -224,6 +211,34 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The robot's ID if it's created with success, or -1 if it's impossible to create the robot. </dd></dl>
+
+</div>
+</div>
+<a id="aa54b9088122327266937c9dcced797ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa54b9088122327266937c9dcced797ba">&#9670;&nbsp;</a></span>create_robot() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Arena::create_robot </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="entity__move_8h.html#af3ac1f36136753591c5239f30be94f77">Program</a> &amp;&#160;</td>
+          <td class="paramname"><em>prog</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -301,14 +316,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af665d64f53babf5196bb965fe56a5bfc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af665d64f53babf5196bb965fe56a5bfc">&#9670;&nbsp;</a></span>get_cell()</h2>
+<a id="ad76e6087ad81bdb5a3ba2b5910802922"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad76e6087ad81bdb5a3ba2b5910802922">&#9670;&nbsp;</a></span>get_cell()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_hex.html">Hex</a>&amp; Arena::get_cell </td>
+          <td class="memname">const <a class="el" href="class_hex.html">Hex</a>&amp; Arena::get_cell </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_hex.html">Hex</a> &amp;&#160;</td>
           <td class="paramname"><em>pos</em></td><td>)</td>
@@ -325,6 +340,72 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the specified Grid Cell. </dd></dl>
+
+</div>
+</div>
+<a id="a8e38986faff90a01fc11b11d7a467f17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e38986faff90a01fc11b11d7a467f17">&#9670;&nbsp;</a></span>get_height()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Arena::get_height </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets this <b>Arena</b> height, or number of rows in the grid. </p>
+<dl class="section return"><dt>Returns</dt><dd>This <b>Arena</b> height, or number of rows in the grid. </dd></dl>
+
+</div>
+</div>
+<a id="ae303315884e016602a061f629695a668"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae303315884e016602a061f629695a668">&#9670;&nbsp;</a></span>get_width()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Arena::get_width </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets this <b>Arena</b> width, or number of columns in the grid. </p>
+<dl class="section return"><dt>Returns</dt><dd>Tthis <b>Arena</b> width, or number of columns in the grid.. </dd></dl>
+
+</div>
+</div>
+<a id="a8844fe9749b511448cd03658212eb5a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8844fe9749b511448cd03658212eb5a3">&#9670;&nbsp;</a></span>import_terrain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Arena::import_terrain </td>
+          <td>(</td>
+          <td class="paramtype">const vector&lt; vector&lt; int &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>terrain</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imports terrain from a 2D vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[terrain]</td><td>A 2D vector containing integers which represent each type of terrain available. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -348,6 +429,33 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">[army]</td><td>The <a class="el" href="class_army.html">Army</a> to be inserted in the current game. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6a882e69a9d8af733c615b5d9c54f142"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a882e69a9d8af733c615b5d9c54f142">&#9670;&nbsp;</a></span>load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Arena::load </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_view.html">View</a> &amp;&#160;</td>
+          <td class="paramname"><em>view</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loads the <b>Arena</b> system in alink View}. </p>
+<p>This methods initializes and loads this <b>Arena</b> system and all current activated <a class="el" href="class_entity.html">Entity</a> in the game into a <a class="el" href="class_view.html">View</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[view]</td><td>The <a class="el" href="class_view.html">View</a> where this <b>Arena</b> will be loaded. </td></tr>
   </table>
   </dd>
 </dl>
@@ -500,6 +608,33 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">[id]</td><td>The ID of the <a class="el" href="class_army.html">Army</a> that will be removed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae1589bb63126382bc9ad0539517c972d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1589bb63126382bc9ad0539517c972d">&#9670;&nbsp;</a></span>render()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Arena::render </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_view.html">View</a> &amp;&#160;</td>
+          <td class="paramname"><em>view</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renders the <b>Arena</b> system in alink View}. </p>
+<p>This methods renders this <b>Arena</b> system and all current activated <a class="el" href="class_entity.html">Entity</a> in the game into a <a class="el" href="class_view.html">View</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[view]</td><td>The <a class="el" href="class_view.html">View</a> that will show this <b>Arena</b>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -728,8 +863,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aedbfadca4c9b3d6e3d097b14fef079ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedbfadca4c9b3d6e3d097b14fef079ba">&#9670;&nbsp;</a></span>update()</h2>
+<a id="a11a38d9a302c337f11611d9f22a502d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11a38d9a302c337f11611d9f22a502d8">&#9670;&nbsp;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -737,7 +872,8 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Arena::update </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="class_view.html">View</a> &amp;&#160;</td>
+          <td class="paramname"><em>view</em></td><td>)</td>
           <td></td>
         </tr>
       </table>

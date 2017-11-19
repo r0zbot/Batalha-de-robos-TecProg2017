@@ -1,8 +1,11 @@
 var class_entity_move =
 [
-    [ "EntityMove", "class_entity_move.html#ab3bc0ccb47248ba72e4d0b847987cda9", null ],
+    [ "EntityMove", "class_entity_move.html#a72b3011edcfd4f805854576acd1aba47", null ],
     [ "clear_crystals", "class_entity_move.html#ada60d0e8a409c20fab7193ff7b1696fd", null ],
     [ "get_crystals", "class_entity_move.html#a529cbb604d84a5553e5b4e0869068dfa", null ],
+    [ "get_dmg_long", "class_entity_move.html#abdde40ad7008e578c52cc3c8d7dbf8e0", null ],
+    [ "get_dmg_melee", "class_entity_move.html#ad3c3106b69bd92248e76314cc4af8901", null ],
+    [ "get_dmg_short", "class_entity_move.html#a0ca543e7a577ad5758d87a3d3d308535", null ],
     [ "get_fuel", "class_entity_move.html#a23993c4d329d58938014497f472a4ea6", null ],
     [ "get_group_id", "class_entity_move.html#a6ab5a5caee12debcb4f306ddae35406b", null ],
     [ "get_hp", "class_entity_move.html#af05d1d38d0d6cf68dd90f79f6839851c", null ],
@@ -12,12 +15,17 @@ var class_entity_move =
     [ "refuel", "class_entity_move.html#aa57ec52e0597962a06a997e39689714b", null ],
     [ "remove_crystal", "class_entity_move.html#a6d5db4bbb1873081759cb5c47e689ae7", null ],
     [ "set_group_id", "class_entity_move.html#a0e932c48dceabbf521eeb0122b70a094", null ],
+    [ "set_program", "class_entity_move.html#aba21b8810489c4443cf1ff7e36ae9fba", null ],
     [ "take_damage", "class_entity_move.html#aeffb9072d3dca5ea1228d7c3420f299e", null ],
-    [ "use_fuel", "class_entity_move.html#a5c33de3bef3c3d2ee261433ac2b7e7c9", null ],
+    [ "use_fuel", "class_entity_move.html#ad11aae1989d2dfe44cc1759460e03327", null ],
     [ "crystals", "class_entity_move.html#a2fed8aabc2b9581c077243e3feb52712", null ],
+    [ "dmg_long_atk", "class_entity_move.html#aa8278c0d5997b2d7d6b73b1f3e983a5a", null ],
+    [ "dmg_melee_atk", "class_entity_move.html#af2bb0827e5ef24d411000bde9b81bda3", null ],
+    [ "dmg_short_atk", "class_entity_move.html#a8b05af771d3372950062dc11d8b7ff42", null ],
     [ "fuel", "class_entity_move.html#a88dc3b5bda827b928c91e6cc978a70ef", null ],
     [ "fuel_capacity", "class_entity_move.html#ac1ec384973ba68bf541942019822d8dc", null ],
     [ "group_id", "class_entity_move.html#a7cd02d3c0659095f672a70c61a283c19", null ],
     [ "hp", "class_entity_move.html#a3482824cb6bfc23ae57cef7f389fa9ba", null ],
-    [ "hp_capacity", "class_entity_move.html#a144f222cc11e995a72a16a0b09ec813b", null ]
+    [ "hp_capacity", "class_entity_move.html#a144f222cc11e995a72a16a0b09ec813b", null ],
+    [ "inventory_size", "class_entity_move.html#a99da7eae4ad2625e07c96c588a9a8b7b", null ]
 ];

@@ -26,16 +26,15 @@ int main() {
 	Config::machine_mov_fuel_usage = 1.5;
 
 	const vector<vector<int>> terrain {
-		{0, 3, 1, 0, 4, 3, 3, 0, 2, 4, 4, 1, 1, 1, 0, 3, 1, 3, 3, 3}, 
-		{0, 2, 2, 4, 2, 4, 0, 4, 0, 4, 3, 4, 3, 4, 2, 2, 2, 4, 0, 2}, 
-		{2, 0, 2, 2, 1, 4, 0, 1, 3, 1, 1, 4, 1, 1, 1, 2, 4, 1, 3, 4}, 
-		{1, 2, 0, 2, 4, 2, 0, 2, 2, 0, 1, 2, 3, 2, 4, 2, 2, 3, 4, 2}, 
-		{1, 0, 3, 3, 1, 3, 0, 2, 3, 4, 4, 2, 3, 4, 4, 2, 2, 0, 1, 3}, 
-		{2, 4, 0, 0, 0, 1, 0, 0, 1, 0, 4, 0, 4, 4, 3, 2, 0, 4, 0, 1}, 
-		{4, 4, 4, 1, 3, 3, 4, 1, 4, 3, 2, 2, 2, 4, 4, 3, 2, 4, 3, 1}, 
-		{4, 4, 1, 2, 4, 3, 4, 1, 0, 3, 4, 1, 3, 3, 4, 2, 4, 0, 1, 0}, 
-		{1, 4, 0, 2, 1, 0, 3, 3, 1, 1, 4, 1, 1, 4, 3, 1, 1, 2, 4, 1}, 
-		{4, 4, 4, 1, 2, 1, 2, 3, 3, 2, 2, 3, 0, 4, 3, 1, 2, 3, 2, 0}, 
+		{0, 3, 1, 0, 4, 3, 3, 0, 2, 4, 4, 1, 1, 1, 0, 3, 1, 3, 3, 3},
+		{0, 2, 2, 4, 2, 4, 0, 4, 0, 4, 3, 4, 3, 4, 2, 2, 2, 4, 0, 2},
+		{2, 0, 2, 2, 1, 4, 0, 1, 3, 1, 1, 4, 1, 1, 1, 2, 4, 1, 3, 4},
+		{1, 2, 0, 2, 4, 2, 0, 2, 2, 0, 1, 2, 3, 2, 4, 2, 2, 3, 4, 2},
+		{1, 0, 3, 3, 1, 3, 0, 2, 3, 4, 4, 2, 3, 4, 4, 2, 2, 0, 1, 3},
+		{2, 4, 0, 0, 0, 1, 0, 0, 1, 0, 4, 0, 4, 4, 3, 2, 0, 4, 0, 1},
+		{4, 4, 4, 1, 3, 3, 4, 1, 4, 3, 2, 2, 2, 4, 4, 3, 2, 4, 3, 1},
+		{4, 4, 1, 2, 4, 3, 4, 1, 0, 3, 4, 1, 3, 3, 4, 2, 4, 0, 1, 0},
+		{1, 4, 0, 2, 1, 0, 3, 3, 1, 1, 4, 1, 1, 4, 3, 1, 1, 2, 4, 1}
 	};
 
 	arena.import_terrain(terrain);
@@ -53,7 +52,7 @@ int main() {
         ,Instruction(Code::END,nullptr)
     });
 
-	for(int i=0; i<1; i++)
+	for(int i=0; i<3; i++)
 		arena.create_robot(army1.get_id(), prog1);
 
 	Army army2("Army 2");
@@ -69,7 +68,7 @@ int main() {
         ,Instruction(Code::END,nullptr)
     });
 
-	for(int i=0; i<1; i++)
+	for(int i=0; i<3; i++)
 		arena.create_robot(army2.get_id(), prog2);
 
 	Army army3("Army 3");
@@ -85,7 +84,7 @@ int main() {
         ,Instruction(Code::END,nullptr)
     });
 
-	for(int i=0; i<1; i++)
+	for(int i=0; i<3; i++)
 		arena.create_robot(army3.get_id(), prog3);
 
 	Army army4("Army 4");
@@ -101,7 +100,7 @@ int main() {
         ,Instruction(Code::END,nullptr)
     });
 
-	for(int i=0; i<1; i++)
+	for(int i=0; i<3; i++)
 		arena.create_robot(army4.get_id(), prog4);
 
 	//TODO: More than four armies but there are not images for their soldiers
@@ -119,7 +118,7 @@ int main() {
         ,Instruction(Code::END,nullptr)
     });
 
-	for(int i=0; i<1; i++)
+	for(int i=0; i<3; i++)
 		arena.create_robot(army5.get_id(), prog5);
 
 	Army army6("Army 6");
@@ -135,7 +134,7 @@ int main() {
         ,Instruction(Code::END,nullptr)
     });
 
-	for(int i=0; i<1; i++)
+	for(int i=0; i<3; i++)
 		arena.create_robot(army6.get_id(), prog6);
 
 	Army army7("Army 7");
@@ -151,8 +150,20 @@ int main() {
         ,Instruction(Code::END,nullptr)
     });
 
-	for(int i=0; i<1; i++)
+	Army army8  ("Army 8");
+	Army army9  ("Army 9");
+	Army army10 ("Army 10");
+
+	arena.insert_army(army8);
+	arena.insert_army(army9);
+	arena.insert_army(army10);
+
+	for(int i=0; i<3; i++) {
 		arena.create_robot(army7.get_id(), prog7);
+		arena.create_robot(army8.get_id(), prog7);
+		arena.create_robot(army9.get_id(), prog7);
+		arena.create_robot(army10.get_id(), prog7);
+	}
 
 	Core core(arena, 1000);
 	core.start();

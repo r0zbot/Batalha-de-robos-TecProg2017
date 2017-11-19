@@ -55,7 +55,7 @@ class Core {
          * This method initializes the system, and
          * initializes all the game entities.
          */
-        void onLoad();
+        void on_load();
 
         /**
          * @brief Renders the entire game system.
@@ -63,7 +63,7 @@ class Core {
          * This method renders the system in the current {@link #View},
          * and renders all the game entities.
          */
-        void onRender();
+        void on_render();
 
         /**
          * @brief Unload the entire game system.
@@ -71,7 +71,7 @@ class Core {
          * This method finishes the system execution,
          * and unload all the game entities.
          */
-        void onUnload();
+        void on_unload();
 
         /**
          * @brief Update the entire game system logic.
@@ -79,7 +79,7 @@ class Core {
          * This method updates the system logic, and
          * updates all the game entities logic.
          */
-        void onUpdate();
+        void on_update();
 
         /**
          * @brief Pauses the system for a specific amount of time.
@@ -95,11 +95,26 @@ class Core {
          */
         Core(const Arena &arena, unsigned int sleep_time);
 
-        static string getBinPath();
+        /**
+         * @brief Gets the path to the final binary.
+         *
+         * @return The path to the final binary.
+         */
+        static string get_bin_path();
 
-        static string getViewPath();
+        /**
+         * @brief Gets the path to the view project.
+         *
+         * @return The path to the view project.
+         */
+        static string get_view_path();
 
-        static string getSoldierImagePath(int armyId);
+        /**
+         * @brief Gets the path to an {@link #Entity} sprite.
+         *
+         * @return The path to to an {@link #Entity} sprite.
+         */
+        static string get_soldier_image_path(int army_id);
 
         /**
          * @brief Starts the execution of the game cycle.

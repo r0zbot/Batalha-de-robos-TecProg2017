@@ -22,7 +22,7 @@ class CellView(pygame.sprite.Sprite):
         self.col = int(col)
         self.cx, self.cy = util.convert(self.row, self.col)
 
-        self.base = base
+        self.base = int(base)
         self.crystals = crystals
         self.terrain = self.TERRAIN_TYPE[int(terrain)]
 
@@ -39,7 +39,12 @@ class CellView(pygame.sprite.Sprite):
         pygame.draw.polygon(screen, self.terrain, self.edges, 0)
         pygame.draw.lines(screen, (0, 0, 0), True, self.edges, 2)
 
-        # TODO: The code below prints the Cell [Row, Column] in the screen , just for Debug
-        font = pygame.font.SysFont("monospace", 12)
-        label = font.render("[{}, {}]".format(self.row, self.col), 1, (255, 255, 0))
-        screen.blit(label, (self.cx - 20, self.cy - 5))
+        if self.base != -1:
+            font = pygame.font.SysFont("monospace", 12)
+            label = font.render("B{}".format(self.base), 1, (255, 255, 0))
+            screen.blit(label, (self.cx - 20, self.cy - 5))
+        # else:
+        #     # TODO: The code below prints the Cell [Row, Column] in the screen , just for Debug
+        #     font = pygame.font.SysFont("monospace", 12)
+        #     label = font.render("[{}, {}]".format(self.row, self.col), 1, (255, 255, 0))
+        #     screen.blit(label, (self.cx - 20, self.cy - 5))

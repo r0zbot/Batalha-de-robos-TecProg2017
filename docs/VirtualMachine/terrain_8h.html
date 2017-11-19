@@ -90,9 +90,14 @@ $(document).ready(function(){initNavTree('terrain_8h.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a2fb802f7c8eefcfca976dff0572ea54b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54b">Terrain</a> { <a class="el" href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54ba713ff82e9a10a1655d34798aa3178449">MOUNTAIN</a> = 0, 
-<a class="el" href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54bac157bdf0b85a40d2619cbc8bc1ae5fe2">NONE</a> = 1, 
-<a class="el" href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54ba4bcaa53ccaacd4fb0a09eda9b8666ec8">STREET</a> = 2
+<tr class="memitem:a2fb802f7c8eefcfca976dff0572ea54b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54b">Terrain</a> { <br />
+&#160;&#160;<a class="el" href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54bab50339a10e1de285ac99d4c3990b8693">Terrain::NONE</a> = 0, 
+<a class="el" href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54ba9d1480267288b8146bb0756b67ddcbbe">Terrain::MOUNTAIN</a> = 1, 
+<a class="el" href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54ba78fce82336bbbdca7f6da7564b8f9325">Terrain::STREET</a> = 2, 
+<a class="el" href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54baafeb717aa2a101f7f64840e0be38c171">Terrain::ROCK</a> = 3, 
+<br />
+&#160;&#160;<a class="el" href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54baa3030e42cd8f04255711905a9182399f">Terrain::GRASS</a> = 4
+<br />
  }<tr class="memdesc:a2fb802f7c8eefcfca976dff0572ea54b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <b>Terrain</b> is a strongly typed enum that defines types of terrains that can exists in a grid cell.  <a href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54b">More...</a><br /></td></tr>
 </td></tr>
 <tr class="separator:a2fb802f7c8eefcfca976dff0572ea54b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -103,20 +108,32 @@ Enumerations</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">enum <a class="el" href="terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54b">Terrain</a></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>The <b>Terrain</b> is a strongly typed enum that defines types of terrains that can exists in a grid cell. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2fb802f7c8eefcfca976dff0572ea54ba713ff82e9a10a1655d34798aa3178449"></a>MOUNTAIN&#160;</td><td class="fielddoc"><p>Represents mountain terrains. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2fb802f7c8eefcfca976dff0572ea54bab50339a10e1de285ac99d4c3990b8693"></a>NONE&#160;</td><td class="fielddoc"><p>Represents normal terrains. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a2fb802f7c8eefcfca976dff0572ea54bac157bdf0b85a40d2619cbc8bc1ae5fe2"></a>NONE&#160;</td><td class="fielddoc"><p>Represents normal terrains. </p>
+<tr><td class="fieldname"><a id="a2fb802f7c8eefcfca976dff0572ea54ba9d1480267288b8146bb0756b67ddcbbe"></a>MOUNTAIN&#160;</td><td class="fielddoc"><p>Represents mountain terrains. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a2fb802f7c8eefcfca976dff0572ea54ba4bcaa53ccaacd4fb0a09eda9b8666ec8"></a>STREET&#160;</td><td class="fielddoc"><p>Represents street terrains. </p>
+<tr><td class="fieldname"><a id="a2fb802f7c8eefcfca976dff0572ea54ba78fce82336bbbdca7f6da7564b8f9325"></a>STREET&#160;</td><td class="fielddoc"><p>Represents street terrains. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2fb802f7c8eefcfca976dff0572ea54baafeb717aa2a101f7f64840e0be38c171"></a>ROCK&#160;</td><td class="fielddoc"><p>Represents a rock, so entities can't occupy this space. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2fb802f7c8eefcfca976dff0572ea54baa3030e42cd8f04255711905a9182399f"></a>GRASS&#160;</td><td class="fielddoc"><p>Represents grass terrains. </p>
 </td></tr>
 </table>
 

@@ -1,6 +1,6 @@
 var class_machine =
 [
-    [ "Machine", "class_machine.html#ae1080681692554ff4ea46ee5cb0d1103", null ],
+    [ "Machine", "class_machine.html#a4ce0f6f9b3312441982cc14e1abfecde", null ],
     [ "add", "class_machine.html#a182af94331503a6de66961f1eb677dfd", null ],
     [ "alloc", "class_machine.html#ae423e97b4ccd1519309bb59108204995", null ],
     [ "atr", "class_machine.html#a333fc367869d87b838d0fa38e6b1dc90", null ],
@@ -14,7 +14,7 @@ var class_machine =
     [ "duplicate", "class_machine.html#aa43c5a135ed59be05f0460e28073f6d7", null ],
     [ "equals", "class_machine.html#ab23e5b5e7d75393bb473e4a5ba54b125", null ],
     [ "execute", "class_machine.html#a75764e89cf3590178a30cc9a2021acc0", null ],
-    [ "fetch_arg", "class_machine.html#a579906431e76335191049ca16d6c4e7b", null ],
+    [ "fetch_arg", "class_machine.html#af27011ad7a49d5fea9766decd5517e38", null ],
     [ "fetch_code", "class_machine.html#a5e92ec23f9b6204cb3da9e4c22291f61", null ],
     [ "free", "class_machine.html#a39754b7546aea2c819215ef5c6d27149", null ],
     [ "greater", "class_machine.html#a834d085db5b85f330b46f927906d4dd7", null ],
@@ -34,10 +34,11 @@ var class_machine =
     [ "recall", "class_machine.html#aab8e8318815f1800f15cacbc46d27686", null ],
     [ "return_from_procedure", "class_machine.html#aac0e1efdd1b047f1923669100a236323", null ],
     [ "see", "class_machine.html#aa12a83921f0c1f3fb14d4d097e2eaf96", null ],
+    [ "set_program", "class_machine.html#a8bec613fd26703582a7b266cff303987", null ],
     [ "stl", "class_machine.html#a3dcf96898b74ea8dcdbeb7e9ddbc22c0", null ],
     [ "store", "class_machine.html#af6e501757d54f7d4bd7a0d4b6069ae30", null ],
     [ "subtract", "class_machine.html#abea24d9ce5d941f811df52dcaae5ddef", null ],
     [ "system", "class_machine.html#af59bcfc03abf54a0b2a6165f97c0427c", null ],
-    [ "top", "class_machine.html#a352bd119f3740ba90bc4fa712fa688f8", null ],
-    [ "update", "class_machine.html#ad8c4f949acd7558e1c15a76d7142581b", null ]
+    [ "top", "class_machine.html#ab446dd4109f9ed8978421602e03a8bc0", null ],
+    [ "update", "class_machine.html#a293ad78e27c2f831304dac89de011fcf", null ]
 ];

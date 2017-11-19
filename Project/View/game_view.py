@@ -1,5 +1,6 @@
 import fileinput
 import pygame
+import sys
 
 from arena_view  import ArenaView
 from cell_view   import CellView
@@ -58,6 +59,10 @@ class GameView:
 
     def update(self):
         for line in fileinput.input():
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.unload()
+
             token = line.split()
 
             if token[0] == 'quit':
@@ -78,6 +83,7 @@ class GameView:
 
     def unload(self):
         pygame.quit()
+        sys.exit()
 
     def show(self):
         self.load()

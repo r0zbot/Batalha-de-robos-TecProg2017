@@ -4,7 +4,6 @@ var searchData=
   ['add',['add',['../class_machine.html#a182af94331503a6de66961f1eb677dfd',1,'Machine']]],
   ['affect',['affect',['../class_entity_static.html#af5f1e859c5ee70e207050803b54ea87a',1,'EntityStatic']]],
   ['alloc',['alloc',['../class_stack_frame.html#ac6fd0915d90cd7622944e53643faac17',1,'StackFrame::alloc()'],['../class_machine.html#ae423e97b4ccd1519309bb59108204995',1,'Machine::alloc()']]],
-  ['arena',['Arena',['../class_arena.html#a74f105bc709d4728fb07f1984abfd345',1,'Arena']]],
   ['army',['Army',['../class_army.html#a09bade25e677dc85a9d856a6fd8f442d',1,'Army']]],
   ['atr',['atr',['../class_machine.html#a333fc367869d87b838d0fa38e6b1dc90',1,'Machine']]],
   ['attack_5flong',['attack_long',['../class_machine.html#a685171a06a4f770c9f334d66ca27ab76',1,'Machine']]],

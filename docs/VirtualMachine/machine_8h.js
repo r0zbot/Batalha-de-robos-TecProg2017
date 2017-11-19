@@ -1,5 +1,6 @@
 var machine_8h =
 [
     [ "Machine", "class_machine.html", "class_machine" ],
-    [ "Program", "machine_8h.html#af3ac1f36136753591c5239f30be94f77", null ]
+    [ "MACHINE_EXECUTION_STACK_SIZE", "machine_8h.html#ac138691982816163863e1c8347c38e3b", null ],
+    [ "MACHINE_MEMORY_SIZE", "machine_8h.html#a2422388577ac8bba8ea9fb23cf3a4190", null ]
 ];

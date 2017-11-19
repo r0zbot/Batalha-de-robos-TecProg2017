@@ -71,6 +71,9 @@ class Arena {
 
         int last_pos = 0;
 
+        int current_center_row = 1;
+        int current_center_col = 1;
+
     public:
         /**
          * @brief Initialize a robot in the given {@link #Army},

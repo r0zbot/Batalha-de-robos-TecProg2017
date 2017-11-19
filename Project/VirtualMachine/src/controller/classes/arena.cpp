@@ -10,7 +10,15 @@
 
 int Arena::create_robot(const int id, const Program &prog){
     //TODO: put this robot in the army's base
-    return this->create_robot(id, Hex(0, this->last_pos++), prog);
+    for (auto &cell : this->ambient) {
+        if (cell.get_base() == id  &&
+            cell.get_occup() == -1 &&
+            cell.get_terrain() != Terrain::ROCK) {
+            this->create_robot(id, cell, prog);
+            break;
+        }
+    }
+    return 0;
 }
 
 int Arena::create_robot(const int id, const Hex &pos, const Program &prog) {
@@ -24,7 +32,7 @@ int Arena::create_robot(const int id, const Hex &pos, const Program &prog) {
         return -1;
     }
 
-    EntityMovePtr soldier = make_shared<Machine>(prog, pos, Core::getSoldierImagePath(id));
+    EntityMovePtr soldier = make_shared<Machine>(prog, pos, Core::get_soldier_image_path(id));
     this->armies.at(id).insert_soldier(soldier);
 
     // The set stores a const Hex, so we need a non-const copy
@@ -73,13 +81,40 @@ void Arena::import_terrain(const vector<vector<int>> &terrain) {
     this->width  = (int) terrain[0].size();
     for (int i = 0; i < this->height; i++) {
         for (int j = 0; j < this->width; j++) {
-            this->ambient.emplace(Hex(i, j, -1, -1, rand() % Config::max_crystals_per_cell, static_cast<Terrain>(terrain[i][j])));
+            this->ambient.emplace(Hex(i, j, -1, -1, 0, static_cast<Terrain>(terrain[i][j])));
         }
     }
 }
 
 void Arena::insert_army(const Army &army) {
+    auto center_base = this->ambient.find(Hex(this->current_center_row, this->current_center_col));
+    Hex aux_center = *center_base;
+    aux_center.set_base(army.get_id());
+    this->ambient.erase(center_base);
+    this->ambient.insert(aux_center);
+
+    for (auto &cell : center_base->range(1)) {
+        if (cell.get_col() >= 0 && cell.get_col() < this->get_width()) {
+            if (cell.get_row() >= 0 && cell.get_row() < this->get_height()) {
+                auto newCell = this->ambient.find(cell);
+                Hex newPosCell = *newCell;
+                newPosCell.set_base(army.get_id());
+                newPosCell.set_crystals(0);
+                this->ambient.erase(newCell);
+                this->ambient.insert(newPosCell);
+            }
+        }
+    }
+
     this->armies.emplace(army.get_id(), army);
+
+    if (this->current_center_col + 4 > this->get_width()) {
+        this->current_center_col = 1;
+        this->current_center_row = this->get_height() - 2;
+    }
+    else {
+        this->current_center_col += 4;
+    }
 }
 
 void Arena::load(const View &view) const {

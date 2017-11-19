@@ -102,9 +102,9 @@ Inheritance diagram for Machine:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae1080681692554ff4ea46ee5cb0d1103"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#ae1080681692554ff4ea46ee5cb0d1103">Machine</a> (<a class="el" href="machine_8h.html#af3ac1f36136753591c5239f30be94f77">Program</a> &amp;prog, const <a class="el" href="class_hex.html">Hex</a> &amp;<a class="el" href="class_entity.html#ae87d8e666320416f2cee14948b41b666">pos</a>=<a class="el" href="class_hex.html">Hex</a>(0, 0))</td></tr>
-<tr class="memdesc:ae1080681692554ff4ea46ee5cb0d1103"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <b>Machine</b> with the specified set set of instructions and a position in the hexagonal grid.  <a href="#ae1080681692554ff4ea46ee5cb0d1103">More...</a><br /></td></tr>
-<tr class="separator:ae1080681692554ff4ea46ee5cb0d1103"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ce0f6f9b3312441982cc14e1abfecde"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#a4ce0f6f9b3312441982cc14e1abfecde">Machine</a> (const <a class="el" href="entity__move_8h.html#af3ac1f36136753591c5239f30be94f77">Program</a> &amp;program, const <a class="el" href="class_hex.html">Hex</a> &amp;<a class="el" href="class_entity.html#ae87d8e666320416f2cee14948b41b666">pos</a>=<a class="el" href="class_hex.html">Hex</a>(0, 0), const string &amp;<a class="el" href="class_entity.html#a3e49a7c9589de5cd923388bebf7eb9a4">image_path</a>=&quot;&quot;)</td></tr>
+<tr class="memdesc:a4ce0f6f9b3312441982cc14e1abfecde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <b>Machine</b> with the specified set set of instructions and a position in the hexagonal grid.  <a href="#a4ce0f6f9b3312441982cc14e1abfecde">More...</a><br /></td></tr>
+<tr class="separator:a4ce0f6f9b3312441982cc14e1abfecde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a182af94331503a6de66961f1eb677dfd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#a182af94331503a6de66961f1eb677dfd">add</a> ()</td></tr>
 <tr class="memdesc:a182af94331503a6de66961f1eb677dfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sums both of the topmost values of the stack.  <a href="#a182af94331503a6de66961f1eb677dfd">More...</a><br /></td></tr>
 <tr class="separator:a182af94331503a6de66961f1eb677dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,18 +114,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a333fc367869d87b838d0fa38e6b1dc90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#a333fc367869d87b838d0fa38e6b1dc90">atr</a> ()</td></tr>
 <tr class="memdesc:a333fc367869d87b838d0fa38e6b1dc90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes the specified attribute of the topmost element of the stack.  <a href="#a333fc367869d87b838d0fa38e6b1dc90">More...</a><br /></td></tr>
 <tr class="separator:a333fc367869d87b838d0fa38e6b1dc90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9cb386e4b0214564a6b2f25d1e432aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#af9cb386e4b0214564a6b2f25d1e432aa">call</a> ()</td></tr>
-<tr class="memdesc:af9cb386e4b0214564a6b2f25d1e432aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the execution of a subroutine.  <a href="#af9cb386e4b0214564a6b2f25d1e432aa">More...</a><br /></td></tr>
-<tr class="separator:af9cb386e4b0214564a6b2f25d1e432aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a685171a06a4f770c9f334d66ca27ab76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#a685171a06a4f770c9f334d66ca27ab76">attack_long</a> ()</td></tr>
+<tr class="memdesc:a685171a06a4f770c9f334d66ca27ab76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Long range attack on another robot. Called through a system call.  <a href="#a685171a06a4f770c9f334d66ca27ab76">More...</a><br /></td></tr>
+<tr class="separator:a685171a06a4f770c9f334d66ca27ab76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bb1db2b921f434e11695f04c0557ce4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#a0bb1db2b921f434e11695f04c0557ce4">attack_melee</a> ()</td></tr>
 <tr class="memdesc:a0bb1db2b921f434e11695f04c0557ce4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Melee attacks another robot. Called through a system call.  <a href="#a0bb1db2b921f434e11695f04c0557ce4">More...</a><br /></td></tr>
 <tr class="separator:a0bb1db2b921f434e11695f04c0557ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f9650cd71ada0fd34283ee10234a238"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#a7f9650cd71ada0fd34283ee10234a238">attack_short</a> ()</td></tr>
 <tr class="memdesc:a7f9650cd71ada0fd34283ee10234a238"><td class="mdescLeft">&#160;</td><td class="mdescRight">Short range attack on another robot. Called through a system call.  <a href="#a7f9650cd71ada0fd34283ee10234a238">More...</a><br /></td></tr>
 <tr class="separator:a7f9650cd71ada0fd34283ee10234a238"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a685171a06a4f770c9f334d66ca27ab76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#a685171a06a4f770c9f334d66ca27ab76">attack_long</a> ()</td></tr>
-<tr class="memdesc:a685171a06a4f770c9f334d66ca27ab76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Long range attack on another robot. Called through a system call.  <a href="#a685171a06a4f770c9f334d66ca27ab76">More...</a><br /></td></tr>
-<tr class="separator:a685171a06a4f770c9f334d66ca27ab76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9cb386e4b0214564a6b2f25d1e432aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#af9cb386e4b0214564a6b2f25d1e432aa">call</a> ()</td></tr>
+<tr class="memdesc:af9cb386e4b0214564a6b2f25d1e432aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the execution of a subroutine.  <a href="#af9cb386e4b0214564a6b2f25d1e432aa">More...</a><br /></td></tr>
+<tr class="separator:af9cb386e4b0214564a6b2f25d1e432aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade146e03b7e3367d20f219235d7e971c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#ade146e03b7e3367d20f219235d7e971c">collect_crystal</a> ()</td></tr>
 <tr class="memdesc:ade146e03b7e3367d20f219235d7e971c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collects a crystal. Called through a system call.  <a href="#ade146e03b7e3367d20f219235d7e971c">More...</a><br /></td></tr>
 <tr class="separator:ade146e03b7e3367d20f219235d7e971c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,14 +142,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab23e5b5e7d75393bb473e4a5ba54b125"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an equals comparison for both of the topmost values of the stack.  <a href="#ab23e5b5e7d75393bb473e4a5ba54b125">More...</a><br /></td></tr>
 <tr class="separator:ab23e5b5e7d75393bb473e4a5ba54b125"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75764e89cf3590178a30cc9a2021acc0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#a75764e89cf3590178a30cc9a2021acc0">execute</a> ()</td></tr>
-<tr class="memdesc:a75764e89cf3590178a30cc9a2021acc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <a class="el" href="class_machine.html#ad8c4f949acd7558e1c15a76d7142581b">update()</a> until the <b>Machine</b> no longer has code to execute.  <a href="#a75764e89cf3590178a30cc9a2021acc0">More...</a><br /></td></tr>
+<tr class="memdesc:a75764e89cf3590178a30cc9a2021acc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <a class="el" href="class_machine.html#a293ad78e27c2f831304dac89de011fcf">update()</a> until the <b>Machine</b> no longer has code to execute.  <a href="#a75764e89cf3590178a30cc9a2021acc0">More...</a><br /></td></tr>
 <tr class="separator:a75764e89cf3590178a30cc9a2021acc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39754b7546aea2c819215ef5c6d27149"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#a39754b7546aea2c819215ef5c6d27149">free</a> ()</td></tr>
 <tr class="memdesc:a39754b7546aea2c819215ef5c6d27149"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees an amount of space in the current subroutine active.  <a href="#a39754b7546aea2c819215ef5c6d27149">More...</a><br /></td></tr>
 <tr class="separator:a39754b7546aea2c819215ef5c6d27149"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a579906431e76335191049ca16d6c4e7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_operand.html">Operand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#a579906431e76335191049ca16d6c4e7b">fetch_arg</a> () const</td></tr>
-<tr class="memdesc:a579906431e76335191049ca16d6c4e7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the argument of the current instruction that is being executed.  <a href="#a579906431e76335191049ca16d6c4e7b">More...</a><br /></td></tr>
-<tr class="separator:a579906431e76335191049ca16d6c4e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af27011ad7a49d5fea9766decd5517e38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="operand_8h.html#ae64569797cb00ff8c0c3066577210556">OperandPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#af27011ad7a49d5fea9766decd5517e38">fetch_arg</a> () const</td></tr>
+<tr class="memdesc:af27011ad7a49d5fea9766decd5517e38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the argument of the current instruction that is being executed.  <a href="#af27011ad7a49d5fea9766decd5517e38">More...</a><br /></td></tr>
+<tr class="separator:af27011ad7a49d5fea9766decd5517e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e92ec23f9b6204cb3da9e4c22291f61"><td class="memItemLeft" align="right" valign="top"><a class="el" href="code_8h.html#af31477bc48f67856bedb0fa8e5b5281d">Code</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#a5e92ec23f9b6204cb3da9e4c22291f61">fetch_code</a> () const</td></tr>
 <tr class="memdesc:a5e92ec23f9b6204cb3da9e4c22291f61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the code of the current instruction that is being executed.  <a href="#a5e92ec23f9b6204cb3da9e4c22291f61">More...</a><br /></td></tr>
 <tr class="separator:a5e92ec23f9b6204cb3da9e4c22291f61"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -201,9 +201,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aab8e8318815f1800f15cacbc46d27686"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#aab8e8318815f1800f15cacbc46d27686">recall</a> ()</td></tr>
 <tr class="memdesc:aab8e8318815f1800f15cacbc46d27686"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes an global variable to the top of the stack.  <a href="#aab8e8318815f1800f15cacbc46d27686">More...</a><br /></td></tr>
 <tr class="separator:aab8e8318815f1800f15cacbc46d27686"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8c4f949acd7558e1c15a76d7142581b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#ad8c4f949acd7558e1c15a76d7142581b">update</a> (int cycles) override</td></tr>
-<tr class="memdesc:ad8c4f949acd7558e1c15a76d7142581b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the current virtual machine for a determined amount of cycles.  <a href="#ad8c4f949acd7558e1c15a76d7142581b">More...</a><br /></td></tr>
-<tr class="separator:ad8c4f949acd7558e1c15a76d7142581b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa12a83921f0c1f3fb14d4d097e2eaf96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#aa12a83921f0c1f3fb14d4d097e2eaf96">see</a> ()</td></tr>
+<tr class="memdesc:aa12a83921f0c1f3fb14d4d097e2eaf96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes a cell to the top of the stack.  <a href="#aa12a83921f0c1f3fb14d4d097e2eaf96">More...</a><br /></td></tr>
+<tr class="separator:aa12a83921f0c1f3fb14d4d097e2eaf96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bec613fd26703582a7b266cff303987"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#a8bec613fd26703582a7b266cff303987">set_program</a> (const <a class="el" href="entity__move_8h.html#af3ac1f36136753591c5239f30be94f77">Program</a> &amp;program) override</td></tr>
+<tr class="memdesc:a8bec613fd26703582a7b266cff303987"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a new set of instructions to this <b>Machine</b>.  <a href="#a8bec613fd26703582a7b266cff303987">More...</a><br /></td></tr>
+<tr class="separator:a8bec613fd26703582a7b266cff303987"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6e501757d54f7d4bd7a0d4b6069ae30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#af6e501757d54f7d4bd7a0d4b6069ae30">store</a> ()</td></tr>
 <tr class="memdesc:af6e501757d54f7d4bd7a0d4b6069ae30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a value as a global variable.  <a href="#af6e501757d54f7d4bd7a0d4b6069ae30">More...</a><br /></td></tr>
 <tr class="separator:af6e501757d54f7d4bd7a0d4b6069ae30"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -213,25 +216,34 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abea24d9ce5d941f811df52dcaae5ddef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#abea24d9ce5d941f811df52dcaae5ddef">subtract</a> ()</td></tr>
 <tr class="memdesc:abea24d9ce5d941f811df52dcaae5ddef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Substracts both of the topmost values of the stack.  <a href="#abea24d9ce5d941f811df52dcaae5ddef">More...</a><br /></td></tr>
 <tr class="separator:abea24d9ce5d941f811df52dcaae5ddef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa12a83921f0c1f3fb14d4d097e2eaf96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#aa12a83921f0c1f3fb14d4d097e2eaf96">see</a> ()</td></tr>
-<tr class="memdesc:aa12a83921f0c1f3fb14d4d097e2eaf96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes a cell to the top of the stack.  <a href="#aa12a83921f0c1f3fb14d4d097e2eaf96">More...</a><br /></td></tr>
-<tr class="separator:aa12a83921f0c1f3fb14d4d097e2eaf96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af59bcfc03abf54a0b2a6165f97c0427c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#af59bcfc03abf54a0b2a6165f97c0427c">system</a> ()</td></tr>
 <tr class="memdesc:af59bcfc03abf54a0b2a6165f97c0427c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls a system function given as a parameter.  <a href="#af59bcfc03abf54a0b2a6165f97c0427c">More...</a><br /></td></tr>
 <tr class="separator:af59bcfc03abf54a0b2a6165f97c0427c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a352bd119f3740ba90bc4fa712fa688f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_operand.html">Operand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#a352bd119f3740ba90bc4fa712fa688f8">top</a> () const</td></tr>
-<tr class="memdesc:a352bd119f3740ba90bc4fa712fa688f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the topmost element in the stack.  <a href="#a352bd119f3740ba90bc4fa712fa688f8">More...</a><br /></td></tr>
-<tr class="separator:a352bd119f3740ba90bc4fa712fa688f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab446dd4109f9ed8978421602e03a8bc0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="operand_8h.html#ae64569797cb00ff8c0c3066577210556">OperandPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#ab446dd4109f9ed8978421602e03a8bc0">top</a> () const</td></tr>
+<tr class="memdesc:ab446dd4109f9ed8978421602e03a8bc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the topmost element in the stack.  <a href="#ab446dd4109f9ed8978421602e03a8bc0">More...</a><br /></td></tr>
+<tr class="separator:ab446dd4109f9ed8978421602e03a8bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a293ad78e27c2f831304dac89de011fcf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_machine.html#a293ad78e27c2f831304dac89de011fcf">update</a> () override</td></tr>
+<tr class="memdesc:a293ad78e27c2f831304dac89de011fcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the current virtual machine for a determined amount of cycles.  <a href="#a293ad78e27c2f831304dac89de011fcf">More...</a><br /></td></tr>
+<tr class="separator:a293ad78e27c2f831304dac89de011fcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_entity_move"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_entity_move')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_entity_move.html">EntityMove</a></td></tr>
-<tr class="memitem:ab3bc0ccb47248ba72e4d0b847987cda9 inherit pub_methods_class_entity_move"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_move.html#ab3bc0ccb47248ba72e4d0b847987cda9">EntityMove</a> (const <a class="el" href="class_hex.html">Hex</a> &amp;<a class="el" href="class_entity.html#ae87d8e666320416f2cee14948b41b666">pos</a>, double <a class="el" href="class_entity_move.html#ac1ec384973ba68bf541942019822d8dc">fuel_capacity</a>=100.0, unsigned int <a class="el" href="class_entity_move.html#a144f222cc11e995a72a16a0b09ec813b">hp_capacity</a>=100)</td></tr>
-<tr class="memdesc:ab3bc0ccb47248ba72e4d0b847987cda9 inherit pub_methods_class_entity_move"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="class_entity.html">Entity</a> that moves at the specified position of the <a class="el" href="class_arena.html">Arena</a>.  <a href="class_entity_move.html#ab3bc0ccb47248ba72e4d0b847987cda9">More...</a><br /></td></tr>
-<tr class="separator:ab3bc0ccb47248ba72e4d0b847987cda9 inherit pub_methods_class_entity_move"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72b3011edcfd4f805854576acd1aba47 inherit pub_methods_class_entity_move"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_move.html#a72b3011edcfd4f805854576acd1aba47">EntityMove</a> (const <a class="el" href="class_hex.html">Hex</a> &amp;<a class="el" href="class_entity.html#ae87d8e666320416f2cee14948b41b666">pos</a>, const string &amp;<a class="el" href="class_entity.html#a3e49a7c9589de5cd923388bebf7eb9a4">image_path</a>, double <a class="el" href="class_entity_move.html#ac1ec384973ba68bf541942019822d8dc">fuel_capacity</a>=100, unsigned int <a class="el" href="class_entity_move.html#a99da7eae4ad2625e07c96c588a9a8b7b">inventory_size</a>=100, unsigned int <a class="el" href="class_entity_move.html#a144f222cc11e995a72a16a0b09ec813b">hp_capacity</a>=100, unsigned int <a class="el" href="class_entity_move.html#af2bb0827e5ef24d411000bde9b81bda3">dmg_melee_atk</a>=20, unsigned int <a class="el" href="class_entity_move.html#a8b05af771d3372950062dc11d8b7ff42">dmg_short_atk</a>=10, unsigned int <a class="el" href="class_entity_move.html#aa8278c0d5997b2d7d6b73b1f3e983a5a">dmg_long_atk</a>=10)</td></tr>
+<tr class="memdesc:a72b3011edcfd4f805854576acd1aba47 inherit pub_methods_class_entity_move"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="class_entity.html">Entity</a> that moves at the specified position of the <a class="el" href="class_arena.html">Arena</a>.  <a href="class_entity_move.html#a72b3011edcfd4f805854576acd1aba47">More...</a><br /></td></tr>
+<tr class="separator:a72b3011edcfd4f805854576acd1aba47 inherit pub_methods_class_entity_move"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada60d0e8a409c20fab7193ff7b1696fd inherit pub_methods_class_entity_move"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_move.html#ada60d0e8a409c20fab7193ff7b1696fd">clear_crystals</a> ()</td></tr>
 <tr class="memdesc:ada60d0e8a409c20fab7193ff7b1696fd inherit pub_methods_class_entity_move"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the amount of crystal this <a class="el" href="class_entity.html">Entity</a> is carrying to zero.  <a href="class_entity_move.html#ada60d0e8a409c20fab7193ff7b1696fd">More...</a><br /></td></tr>
 <tr class="separator:ada60d0e8a409c20fab7193ff7b1696fd inherit pub_methods_class_entity_move"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a529cbb604d84a5553e5b4e0869068dfa inherit pub_methods_class_entity_move"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_move.html#a529cbb604d84a5553e5b4e0869068dfa">get_crystals</a> () const</td></tr>
 <tr class="memdesc:a529cbb604d84a5553e5b4e0869068dfa inherit pub_methods_class_entity_move"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the amount of crystals this <a class="el" href="class_entity.html">Entity</a> is carrying.  <a href="class_entity_move.html#a529cbb604d84a5553e5b4e0869068dfa">More...</a><br /></td></tr>
 <tr class="separator:a529cbb604d84a5553e5b4e0869068dfa inherit pub_methods_class_entity_move"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3c3106b69bd92248e76314cc4af8901 inherit pub_methods_class_entity_move"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_move.html#ad3c3106b69bd92248e76314cc4af8901">get_dmg_melee</a> () const</td></tr>
+<tr class="memdesc:ad3c3106b69bd92248e76314cc4af8901 inherit pub_methods_class_entity_move"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the damage this <a class="el" href="class_entity.html">Entity</a> inflicts during melee attacks.  <a href="class_entity_move.html#ad3c3106b69bd92248e76314cc4af8901">More...</a><br /></td></tr>
+<tr class="separator:ad3c3106b69bd92248e76314cc4af8901 inherit pub_methods_class_entity_move"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ca543e7a577ad5758d87a3d3d308535 inherit pub_methods_class_entity_move"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_move.html#a0ca543e7a577ad5758d87a3d3d308535">get_dmg_short</a> () const</td></tr>
+<tr class="memdesc:a0ca543e7a577ad5758d87a3d3d308535 inherit pub_methods_class_entity_move"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the damage this <a class="el" href="class_entity.html">Entity</a> inflicts during melee attacks.  <a href="class_entity_move.html#a0ca543e7a577ad5758d87a3d3d308535">More...</a><br /></td></tr>
+<tr class="separator:a0ca543e7a577ad5758d87a3d3d308535 inherit pub_methods_class_entity_move"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdde40ad7008e578c52cc3c8d7dbf8e0 inherit pub_methods_class_entity_move"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_move.html#abdde40ad7008e578c52cc3c8d7dbf8e0">get_dmg_long</a> () const</td></tr>
+<tr class="memdesc:abdde40ad7008e578c52cc3c8d7dbf8e0 inherit pub_methods_class_entity_move"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the damage this <a class="el" href="class_entity.html">Entity</a> inflicts during short range attacks.  <a href="class_entity_move.html#abdde40ad7008e578c52cc3c8d7dbf8e0">More...</a><br /></td></tr>
+<tr class="separator:abdde40ad7008e578c52cc3c8d7dbf8e0 inherit pub_methods_class_entity_move"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23993c4d329d58938014497f472a4ea6 inherit pub_methods_class_entity_move"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_move.html#a23993c4d329d58938014497f472a4ea6">get_fuel</a> () const</td></tr>
 <tr class="memdesc:a23993c4d329d58938014497f472a4ea6 inherit pub_methods_class_entity_move"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the quantity of fuel this <a class="el" href="class_entity.html">Entity</a> has.  <a href="class_entity_move.html#a23993c4d329d58938014497f472a4ea6">More...</a><br /></td></tr>
 <tr class="separator:a23993c4d329d58938014497f472a4ea6 inherit pub_methods_class_entity_move"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -259,13 +271,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aeffb9072d3dca5ea1228d7c3420f299e inherit pub_methods_class_entity_move"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_move.html#aeffb9072d3dca5ea1228d7c3420f299e">take_damage</a> (int damage)</td></tr>
 <tr class="memdesc:aeffb9072d3dca5ea1228d7c3420f299e inherit pub_methods_class_entity_move"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes from the <a class="el" href="class_entity.html">Entity</a> healthy points the amount of damaged suffered.  <a href="class_entity_move.html#aeffb9072d3dca5ea1228d7c3420f299e">More...</a><br /></td></tr>
 <tr class="separator:aeffb9072d3dca5ea1228d7c3420f299e inherit pub_methods_class_entity_move"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c33de3bef3c3d2ee261433ac2b7e7c9 inherit pub_methods_class_entity_move"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_move.html#a5c33de3bef3c3d2ee261433ac2b7e7c9">use_fuel</a> (double amount)</td></tr>
-<tr class="memdesc:a5c33de3bef3c3d2ee261433ac2b7e7c9 inherit pub_methods_class_entity_move"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to use a specific quantity of fuel to a general action.  <a href="class_entity_move.html#a5c33de3bef3c3d2ee261433ac2b7e7c9">More...</a><br /></td></tr>
-<tr class="separator:a5c33de3bef3c3d2ee261433ac2b7e7c9 inherit pub_methods_class_entity_move"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad11aae1989d2dfe44cc1759460e03327 inherit pub_methods_class_entity_move"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_move.html#ad11aae1989d2dfe44cc1759460e03327">use_fuel</a> (double quantity)</td></tr>
+<tr class="memdesc:ad11aae1989d2dfe44cc1759460e03327 inherit pub_methods_class_entity_move"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to use a specific quantity of fuel to a general action.  <a href="class_entity_move.html#ad11aae1989d2dfe44cc1759460e03327">More...</a><br /></td></tr>
+<tr class="separator:ad11aae1989d2dfe44cc1759460e03327 inherit pub_methods_class_entity_move"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_entity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
-<tr class="memitem:a9b81edc52442cc7e418d2c97a6a552e1 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a9b81edc52442cc7e418d2c97a6a552e1">Entity</a> (const <a class="el" href="class_hex.html">Hex</a> &amp;<a class="el" href="class_entity.html#ae87d8e666320416f2cee14948b41b666">pos</a>)</td></tr>
-<tr class="memdesc:a9b81edc52442cc7e418d2c97a6a552e1 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <b>Entity</b> at the specified position.  <a href="class_entity.html#a9b81edc52442cc7e418d2c97a6a552e1">More...</a><br /></td></tr>
-<tr class="separator:a9b81edc52442cc7e418d2c97a6a552e1 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc9d9ac0aa64d80a4043d3138973a67e inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#abc9d9ac0aa64d80a4043d3138973a67e">Entity</a> (const <a class="el" href="class_hex.html">Hex</a> &amp;<a class="el" href="class_entity.html#ae87d8e666320416f2cee14948b41b666">pos</a>, const string &amp;<a class="el" href="class_entity.html#a3e49a7c9589de5cd923388bebf7eb9a4">image_path</a>)</td></tr>
+<tr class="memdesc:abc9d9ac0aa64d80a4043d3138973a67e inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <b>Entity</b> at the specified position.  <a href="class_entity.html#abc9d9ac0aa64d80a4043d3138973a67e">More...</a><br /></td></tr>
+<tr class="separator:abc9d9ac0aa64d80a4043d3138973a67e inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5533c18123a338d04e4a0d85569fd764 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a5533c18123a338d04e4a0d85569fd764">operator==</a> (const <a class="el" href="class_entity.html">Entity</a> &amp;e) const</td></tr>
 <tr class="memdesc:a5533c18123a338d04e4a0d85569fd764 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of "equals" operator so it can compare two <b>Entity</b> objects.  <a href="class_entity.html#a5533c18123a338d04e4a0d85569fd764">More...</a><br /></td></tr>
 <tr class="separator:a5533c18123a338d04e4a0d85569fd764 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -275,12 +287,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac9139375ff2f3f65b99ef71f30723a98 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ac9139375ff2f3f65b99ef71f30723a98">get_id</a> () const</td></tr>
 <tr class="memdesc:ac9139375ff2f3f65b99ef71f30723a98 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the entity's id.  <a href="class_entity.html#ac9139375ff2f3f65b99ef71f30723a98">More...</a><br /></td></tr>
 <tr class="separator:ac9139375ff2f3f65b99ef71f30723a98 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8925561a339b32897583ce424463b4de inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a8925561a339b32897583ce424463b4de">get_x</a> () const</td></tr>
-<tr class="memdesc:a8925561a339b32897583ce424463b4de inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the entity's x coordinate, or column position.  <a href="class_entity.html#a8925561a339b32897583ce424463b4de">More...</a><br /></td></tr>
-<tr class="separator:a8925561a339b32897583ce424463b4de inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af009ab83eccd466f6628d93c8615b499 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#af009ab83eccd466f6628d93c8615b499">get_y</a> () const</td></tr>
-<tr class="memdesc:af009ab83eccd466f6628d93c8615b499 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the entity's y coordinate, or row position.  <a href="class_entity.html#af009ab83eccd466f6628d93c8615b499">More...</a><br /></td></tr>
-<tr class="separator:af009ab83eccd466f6628d93c8615b499 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8fb96ae7f5d7f108637147003513fc2 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#af8fb96ae7f5d7f108637147003513fc2">get_image_path</a> () const</td></tr>
+<tr class="memdesc:af8fb96ae7f5d7f108637147003513fc2 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the path to this entity image representation.  <a href="class_entity.html#af8fb96ae7f5d7f108637147003513fc2">More...</a><br /></td></tr>
+<tr class="separator:af8fb96ae7f5d7f108637147003513fc2 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ad43babd06c49f888867b45e14396e8 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a4ad43babd06c49f888867b45e14396e8">get_col</a> () const</td></tr>
+<tr class="memdesc:a4ad43babd06c49f888867b45e14396e8 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the entity's column position.  <a href="class_entity.html#a4ad43babd06c49f888867b45e14396e8">More...</a><br /></td></tr>
+<tr class="separator:a4ad43babd06c49f888867b45e14396e8 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a085e9870e01482275b04ba8ec8253b2d inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a085e9870e01482275b04ba8ec8253b2d">get_row</a> () const</td></tr>
+<tr class="memdesc:a085e9870e01482275b04ba8ec8253b2d inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the entity's row position.  <a href="class_entity.html#a085e9870e01482275b04ba8ec8253b2d">More...</a><br /></td></tr>
+<tr class="separator:a085e9870e01482275b04ba8ec8253b2d inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22c987ad8493bc297711fbfe80b909b1 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a22c987ad8493bc297711fbfe80b909b1">set_position</a> (const <a class="el" href="class_hex.html">Hex</a> &amp;<a class="el" href="class_entity.html#ae87d8e666320416f2cee14948b41b666">pos</a>)</td></tr>
 <tr class="memdesc:a22c987ad8493bc297711fbfe80b909b1 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a new position to this entity.  <a href="class_entity.html#a22c987ad8493bc297711fbfe80b909b1">More...</a><br /></td></tr>
 <tr class="separator:a22c987ad8493bc297711fbfe80b909b1 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -290,6 +305,12 @@ Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_entity_move"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_entity_move')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_entity_move.html">EntityMove</a></td></tr>
 <tr class="memitem:a2fed8aabc2b9581c077243e3feb52712 inherit pro_attribs_class_entity_move"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_move.html#a2fed8aabc2b9581c077243e3feb52712">crystals</a></td></tr>
 <tr class="separator:a2fed8aabc2b9581c077243e3feb52712 inherit pro_attribs_class_entity_move"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2bb0827e5ef24d411000bde9b81bda3 inherit pro_attribs_class_entity_move"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_move.html#af2bb0827e5ef24d411000bde9b81bda3">dmg_melee_atk</a></td></tr>
+<tr class="separator:af2bb0827e5ef24d411000bde9b81bda3 inherit pro_attribs_class_entity_move"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b05af771d3372950062dc11d8b7ff42 inherit pro_attribs_class_entity_move"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_move.html#a8b05af771d3372950062dc11d8b7ff42">dmg_short_atk</a></td></tr>
+<tr class="separator:a8b05af771d3372950062dc11d8b7ff42 inherit pro_attribs_class_entity_move"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8278c0d5997b2d7d6b73b1f3e983a5a inherit pro_attribs_class_entity_move"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_move.html#aa8278c0d5997b2d7d6b73b1f3e983a5a">dmg_long_atk</a></td></tr>
+<tr class="separator:aa8278c0d5997b2d7d6b73b1f3e983a5a inherit pro_attribs_class_entity_move"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88dc3b5bda827b928c91e6cc978a70ef inherit pro_attribs_class_entity_move"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_move.html#a88dc3b5bda827b928c91e6cc978a70ef">fuel</a></td></tr>
 <tr class="separator:a88dc3b5bda827b928c91e6cc978a70ef inherit pro_attribs_class_entity_move"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1ec384973ba68bf541942019822d8dc inherit pro_attribs_class_entity_move"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_move.html#ac1ec384973ba68bf541942019822d8dc">fuel_capacity</a></td></tr>
@@ -300,9 +321,13 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a3482824cb6bfc23ae57cef7f389fa9ba inherit pro_attribs_class_entity_move"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a144f222cc11e995a72a16a0b09ec813b inherit pro_attribs_class_entity_move"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_move.html#a144f222cc11e995a72a16a0b09ec813b">hp_capacity</a></td></tr>
 <tr class="separator:a144f222cc11e995a72a16a0b09ec813b inherit pro_attribs_class_entity_move"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99da7eae4ad2625e07c96c588a9a8b7b inherit pro_attribs_class_entity_move"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_move.html#a99da7eae4ad2625e07c96c588a9a8b7b">inventory_size</a></td></tr>
+<tr class="separator:a99da7eae4ad2625e07c96c588a9a8b7b inherit pro_attribs_class_entity_move"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_entity')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
 <tr class="memitem:a14d838e5fd854a14d3ae443c5108282c inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a14d838e5fd854a14d3ae443c5108282c">id</a></td></tr>
 <tr class="separator:a14d838e5fd854a14d3ae443c5108282c inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e49a7c9589de5cd923388bebf7eb9a4 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a3e49a7c9589de5cd923388bebf7eb9a4">image_path</a></td></tr>
+<tr class="separator:a3e49a7c9589de5cd923388bebf7eb9a4 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae87d8e666320416f2cee14948b41b666 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_hex.html">Hex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ae87d8e666320416f2cee14948b41b666">pos</a></td></tr>
 <tr class="separator:ae87d8e666320416f2cee14948b41b666 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -370,8 +395,8 @@ Machine m (prog);
 m.execute();
 </pre><p> By doing this, the machine will execute the array of instructions until it reach an <b>END</b> code. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae1080681692554ff4ea46ee5cb0d1103"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1080681692554ff4ea46ee5cb0d1103">&#9670;&nbsp;</a></span>Machine()</h2>
+<a id="a4ce0f6f9b3312441982cc14e1abfecde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ce0f6f9b3312441982cc14e1abfecde">&#9670;&nbsp;</a></span>Machine()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -382,14 +407,20 @@ m.execute();
         <tr>
           <td class="memname">Machine::Machine </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="machine_8h.html#af3ac1f36136753591c5239f30be94f77">Program</a> &amp;&#160;</td>
-          <td class="paramname"><em>prog</em>, </td>
+          <td class="paramtype">const <a class="el" href="entity__move_8h.html#af3ac1f36136753591c5239f30be94f77">Program</a> &amp;&#160;</td>
+          <td class="paramname"><em>program</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="class_hex.html">Hex</a> &amp;&#160;</td>
-          <td class="paramname"><em>pos</em> = <code><a class="el" href="class_hex.html">Hex</a>(0,&#160;0)</code>&#160;</td>
+          <td class="paramname"><em>pos</em> = <code><a class="el" href="class_hex.html">Hex</a>(0,&#160;0)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>image_path</em> = <code>&quot;&quot;</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -407,8 +438,9 @@ m.execute();
 <p>Constructs a <b>Machine</b> with the specified set set of instructions and a position in the hexagonal grid. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">[prog]</td><td>A set of instructions representing a program. </td></tr>
-    <tr><td class="paramname">[pos]</td><td>The initial position in the grid. </td></tr>
+    <tr><td class="paramname">[prog]</td><td>A set of instructions representing a program.</td></tr>
+    <tr><td class="paramname">[pos]</td><td>The initial position in the grid.</td></tr>
+    <tr><td class="paramname">[image_path]</td><td>The path to this <b>Machine</b> sprite. </td></tr>
   </table>
   </dd>
 </dl>
@@ -671,18 +703,18 @@ m.execute();
       </table>
 </div><div class="memdoc">
 
-<p>Calls <a class="el" href="class_machine.html#ad8c4f949acd7558e1c15a76d7142581b">update()</a> until the <b>Machine</b> no longer has code to execute. </p>
+<p>Calls <a class="el" href="class_machine.html#a293ad78e27c2f831304dac89de011fcf">update()</a> until the <b>Machine</b> no longer has code to execute. </p>
 
 </div>
 </div>
-<a id="a579906431e76335191049ca16d6c4e7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a579906431e76335191049ca16d6c4e7b">&#9670;&nbsp;</a></span>fetch_arg()</h2>
+<a id="af27011ad7a49d5fea9766decd5517e38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af27011ad7a49d5fea9766decd5517e38">&#9670;&nbsp;</a></span>fetch_arg()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_operand.html">Operand</a>* Machine::fetch_arg </td>
+          <td class="memname"><a class="el" href="operand_8h.html#ae64569797cb00ff8c0c3066577210556">OperandPtr</a> Machine::fetch_arg </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1083,6 +1115,42 @@ m.execute();
 
 </div>
 </div>
+<a id="a8bec613fd26703582a7b266cff303987"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bec613fd26703582a7b266cff303987">&#9670;&nbsp;</a></span>set_program()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Machine::set_program </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="entity__move_8h.html#af3ac1f36136753591c5239f30be94f77">Program</a> &amp;&#160;</td>
+          <td class="paramname"><em>program</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialize a new set of instructions to this <b>Machine</b>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[program]</td><td>The new set of instructions to be executed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_entity_move.html#aba21b8810489c4443cf1ff7e36ae9fba">EntityMove</a>.</p>
+
+</div>
+</div>
 <a id="a3dcf96898b74ea8dcdbeb7e9ddbc22c0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3dcf96898b74ea8dcdbeb7e9ddbc22c0">&#9670;&nbsp;</a></span>stl()</h2>
 
@@ -1163,14 +1231,14 @@ m.execute();
 
 </div>
 </div>
-<a id="a352bd119f3740ba90bc4fa712fa688f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a352bd119f3740ba90bc4fa712fa688f8">&#9670;&nbsp;</a></span>top()</h2>
+<a id="ab446dd4109f9ed8978421602e03a8bc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab446dd4109f9ed8978421602e03a8bc0">&#9670;&nbsp;</a></span>top()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_operand.html">Operand</a>* Machine::top </td>
+          <td class="memname"><a class="el" href="operand_8h.html#ae64569797cb00ff8c0c3066577210556">OperandPtr</a> Machine::top </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1178,13 +1246,13 @@ m.execute();
       </table>
 </div><div class="memdoc">
 
-<p>Returns a reference to the topmost element in the stack. </p>
-<dl class="section return"><dt>Returns</dt><dd>A reference to the topmost element in the stack. </dd></dl>
+<p>Returns a pointer to the topmost element in the stack. </p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the topmost element in the stack. </dd></dl>
 
 </div>
 </div>
-<a id="ad8c4f949acd7558e1c15a76d7142581b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8c4f949acd7558e1c15a76d7142581b">&#9670;&nbsp;</a></span>update()</h2>
+<a id="a293ad78e27c2f831304dac89de011fcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a293ad78e27c2f831304dac89de011fcf">&#9670;&nbsp;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1195,8 +1263,7 @@ m.execute();
         <tr>
           <td class="memname">void Machine::update </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>cycles</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1208,15 +1275,8 @@ m.execute();
 </div><div class="memdoc">
 
 <p>Runs the current virtual machine for a determined amount of cycles. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">[cycles]</td><td>The determined amount of cycles the machine should run for.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the machine still has instructions left, and false if the machine reaches an <b>END</b> instruction. </dd></dl>
 
-<p>Implements <a class="el" href="class_entity.html#a98bc84d904bd954b59701afe60f555c1">Entity</a>.</p>
+<p>Implements <a class="el" href="class_entity.html#a59a29d9b7474baf13c9c76859242287d">Entity</a>.</p>
 
 </div>
 </div>

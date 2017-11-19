@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['machine',['Machine',['../class_machine.html',1,'']]]
+  ['log',['Log',['../class_log.html',1,'']]]
 ];
