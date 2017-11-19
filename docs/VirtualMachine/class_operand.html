@@ -96,7 +96,7 @@ Inheritance diagram for Operand:</div>
   <img src="class_operand.png" usemap="#Operand_map" alt=""/>
   <map id="Operand_map" name="Operand_map">
 <area href="class_action.html" title="The Action class represents a general action to be executed in a specific Direction. " alt="Action" shape="rect" coords="0,56,62,80"/>
-<area href="class_hex.html" title="The Hex class represents a flat-topped hexagonal position in a hexagonal grid of type &quot;Even-Q&quot;..." alt="Hex" shape="rect" coords="72,56,134,80"/>
+<area href="class_hex.html" title="The Hex class represents a pointy-topped hexagonal position in a hexagonal grid of type &quot;Odd-R&quot;..." alt="Hex" shape="rect" coords="72,56,134,80"/>
 <area href="class_number.html" title="The Number class represents a simple number Operand. " alt="Number" shape="rect" coords="144,56,206,80"/>
 </map>
  </div></div>
@@ -106,9 +106,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a78a4fe6ed119555626650c0d247008c0"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_operand.html#a78a4fe6ed119555626650c0d247008c0">get_atr</a> (int i) const =0</td></tr>
 <tr class="memdesc:a78a4fe6ed119555626650c0d247008c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the specified <b>Operand</b> attribute.  <a href="#a78a4fe6ed119555626650c0d247008c0">More...</a><br /></td></tr>
 <tr class="separator:a78a4fe6ed119555626650c0d247008c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a478215010c71786c159cd9cc9f4495ea"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_operand.html#a478215010c71786c159cd9cc9f4495ea">prn</a> () const =0</td></tr>
-<tr class="memdesc:a478215010c71786c159cd9cc9f4495ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string representation of the object.  <a href="#a478215010c71786c159cd9cc9f4495ea">More...</a><br /></td></tr>
-<tr class="separator:a478215010c71786c159cd9cc9f4495ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a780cbc8e95092447e19a8fd492b70657"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_operand.html#a780cbc8e95092447e19a8fd492b70657">info</a> () const =0</td></tr>
+<tr class="memdesc:a780cbc8e95092447e19a8fd492b70657"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string representation of the object.  <a href="#a780cbc8e95092447e19a8fd492b70657">More...</a><br /></td></tr>
+<tr class="separator:a780cbc8e95092447e19a8fd492b70657"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class is the topmost Abstract Base Class for operand objects. </p>
@@ -148,12 +148,12 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The attribute at the specified position. </dd></dl>
 
-<p>Implemented in <a class="el" href="class_hex.html#aa26547401a04ce1ccb1d868cf1ab897a">Hex</a>, <a class="el" href="class_action.html#aed4ac60ac6df8b4ef218bae161455cd2">Action</a>, and <a class="el" href="class_number.html#a1da5a00f7e70a729d9ef715a23ddf091">Number</a>.</p>
+<p>Implemented in <a class="el" href="class_number.html#a1da5a00f7e70a729d9ef715a23ddf091">Number</a>, <a class="el" href="class_hex.html#aa26547401a04ce1ccb1d868cf1ab897a">Hex</a>, and <a class="el" href="class_action.html#aed4ac60ac6df8b4ef218bae161455cd2">Action</a>.</p>
 
 </div>
 </div>
-<a id="a478215010c71786c159cd9cc9f4495ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a478215010c71786c159cd9cc9f4495ea">&#9670;&nbsp;</a></span>prn()</h2>
+<a id="a780cbc8e95092447e19a8fd492b70657"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a780cbc8e95092447e19a8fd492b70657">&#9670;&nbsp;</a></span>info()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,7 +162,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual string Operand::prn </td>
+          <td class="memname">virtual string Operand::info </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -178,7 +178,7 @@ Public Member Functions</h2></td></tr>
 <p>Returns a string representation of the object. </p>
 <dl class="section return"><dt>Returns</dt><dd>A string representation of the object. </dd></dl>
 
-<p>Implemented in <a class="el" href="class_hex.html#a6fc0afdf667f97ede00297bfc30fc1e1">Hex</a>, <a class="el" href="class_action.html#a77d1b282521dde30b1a8ace3de501520">Action</a>, and <a class="el" href="class_number.html#a4af8bb9846feaff2bb4dcaf3d5efb57c">Number</a>.</p>
+<p>Implemented in <a class="el" href="class_number.html#aa7036e8dad59a84aeac4553a08f35d45">Number</a>, <a class="el" href="class_hex.html#a075ee55b9ea31458590f2c4cfa0e5bf2">Hex</a>, and <a class="el" href="class_action.html#a2ab13db5cb7d4a2657c7f7cde7220ea1">Action</a>.</p>
 
 </div>
 </div>

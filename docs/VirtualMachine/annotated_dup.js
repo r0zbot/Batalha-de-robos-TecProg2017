@@ -4,6 +4,8 @@ var annotated_dup =
     [ "Action", "class_action.html", "class_action" ],
     [ "Arena", "class_arena.html", "class_arena" ],
     [ "Army", "class_army.html", "class_army" ],
+    [ "Config", "class_config.html", null ],
+    [ "Core", "class_core.html", "class_core" ],
     [ "Entity", "class_entity.html", "class_entity" ],
     [ "EntityMove", "class_entity_move.html", "class_entity_move" ],
     [ "EntityStatic", "class_entity_static.html", "class_entity_static" ],
@@ -14,5 +16,6 @@ var annotated_dup =
     [ "Machine", "class_machine.html", "class_machine" ],
     [ "Number", "class_number.html", "class_number" ],
     [ "Operand", "class_operand.html", "class_operand" ],
-    [ "StackFrame", "class_stack_frame.html", "class_stack_frame" ]
+    [ "StackFrame", "class_stack_frame.html", "class_stack_frame" ],
+    [ "View", "class_view.html", "class_view" ]
 ];

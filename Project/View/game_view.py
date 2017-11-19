@@ -1,14 +1,15 @@
 import fileinput
 import pygame
+import sys
 
 from arena_view  import ArenaView
 from cell_view   import CellView
 from entity_view import EntityView
 
 try:
-   input = raw_input
+    input = raw_input
 except NameError:
-   pass
+    pass
 
 
 class GameView:
@@ -22,11 +23,11 @@ class GameView:
         self.init_screen()
 
     def ini_entity(self, entity):
-        #Handle paths with spaces in them
-        imagePath = entity[3]
+        # Handle paths with spaces in them
+        img_path = entity[3]
         for i in range(4, len(entity)):
-            imagePath += " "+entity[i]
-        self.entities[int(entity[0])] = EntityView(entity[0], entity[1], entity[2], imagePath)
+            img_path += " " + entity[i]
+        self.entities[int(entity[0])] = EntityView(entity[0], entity[1], entity[2], img_path)
 
     def init_screen(self):
         token = input().split()
@@ -57,6 +58,10 @@ class GameView:
 
     def update(self):
         for line in fileinput.input():
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.unload()
+
             token = line.split()
 
             if token[0] == 'quit':
@@ -77,6 +82,7 @@ class GameView:
 
     def unload(self):
         pygame.quit()
+        sys.exit()
 
     def show(self):
         self.load()

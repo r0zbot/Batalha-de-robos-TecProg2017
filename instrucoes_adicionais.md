@@ -28,6 +28,7 @@ Chamadas ao sistema dependem de um _SystemCode_ e uma _Direction_. Seus valores 
 * `ATKMELLE` = Representa ação de ataque corpo a corpo em um determinada direção
 * `ATKSHORT` = Representa ação de ataque de pequeno alcance em um determinada direção
 * `ATKLONG` = Representa ação de ataque de longo alcance em um determinada direção
+* `SEE` = Olha na direção indicada e empilha o conteúdo da célula em questão
   
 2. Direction
 * `NE` = Representa direção nordeste

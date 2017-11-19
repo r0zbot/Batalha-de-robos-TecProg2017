@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['warn',['WARN',['../class_log.html#afb5d4c945d835d194a295461d752531eac377fc59ba8e467c14769baa39c70baa',1,'Log::WARN()'],['../class_log.html#ab8093e9891bd01170ec8410428ff0e39',1,'Log::warn(const string &amp;msg)']]],
-  ['what',['what',['../class_frame_operation_exception.html#a3d5c5b9ae9bd09ed6e8b7841d5f5d80d',1,'FrameOperationException']]]
+  ['view',['View',['../class_view.html',1,'View'],['../class_view.html#a44ad60a768422d3fa8fbd7576950080a',1,'View::View()']]],
+  ['view_2eh',['view.h',['../view_8h.html',1,'']]]
 ];

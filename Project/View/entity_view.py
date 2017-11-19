@@ -7,11 +7,11 @@ class EntityView(pygame.sprite.Sprite):
 
     def __init__(self, e_id, row, col, img_path):
         pygame.sprite.Sprite.__init__(self)
-        self.e_id  = int(e_id)
-        self.row   = int(row)
-        self.col   = int(col)
-        self.image = pygame.image.load(img_path)
-        self.bounds  = self.image.get_rect()
+        self.e_id   = int(e_id)
+        self.row    = int(row)
+        self.col    = int(col)
+        self.image  = pygame.image.load(img_path)
+        self.bounds = self.image.get_rect()
 
     def render(self, scr):
         x, y = util.convert(self.row, self.col)

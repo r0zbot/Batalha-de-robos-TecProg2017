@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Virtual Machine: system.h File Reference</title>
+<title>Virtual Machine: syscall.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,7 +61,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('system_8h.html','');});
+$(document).ready(function(){initNavTree('syscall_8h.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -82,46 +82,41 @@ $(document).ready(function(){initNavTree('system_8h.html','');});
   <div class="summary">
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">system.h File Reference</div>  </div>
+<div class="title">syscall.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This file stores enum classes that hold codes for operations realized in the system.  
-<a href="#details">More...</a></p>
-
-<p><a href="system_8h_source.html">Go to the source code of this file.</a></p>
+<p><a href="syscall_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a224b9163917ac32fc95a60d8c1eec3aa"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> { <br />
-&#160;&#160;<a class="el" href="system_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa4d3f872f5054b256b01ee4f2c8cf51db">NE</a> = 0, 
-<a class="el" href="system_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa2c63acbe79d9f41ba6bb7766e9c37702">N</a> = 1, 
-<a class="el" href="system_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa9b2eeb9b33247edbc638099452c6b46f">NW</a> = 2, 
-<a class="el" href="system_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa61c600c17d14bd4db73433ddbb8491e8">SE</a> = 3, 
+<tr class="memitem:a224b9163917ac32fc95a60d8c1eec3aa"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syscall_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> { <br />
+&#160;&#160;<a class="el" href="syscall_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa4d3f872f5054b256b01ee4f2c8cf51db">NE</a> = 0, 
+<a class="el" href="syscall_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa9b2eeb9b33247edbc638099452c6b46f">NW</a> = 1, 
+<a class="el" href="syscall_8h.html#a224b9163917ac32fc95a60d8c1eec3aaaea38cdb10c6fa0d2a1e30ecf46db0944">EA</a> = 2, 
+<a class="el" href="syscall_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa59170bf407047306fe861eff5b52a4b9">WE</a> = 3, 
 <br />
-&#160;&#160;<a class="el" href="system_8h.html#a224b9163917ac32fc95a60d8c1eec3aaaf1ce01387d2348f8b858721a7db81670">S</a> = 4, 
-<a class="el" href="system_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa247b880fc48dc1c74961ba58ae0f68a2">SW</a> = 5
+&#160;&#160;<a class="el" href="syscall_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa61c600c17d14bd4db73433ddbb8491e8">SE</a> = 4, 
+<a class="el" href="syscall_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa247b880fc48dc1c74961ba58ae0f68a2">SW</a> = 5
 <br />
- }<tr class="memdesc:a224b9163917ac32fc95a60d8c1eec3aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <b>Direction</b> is a base enum that defines the six possible directions of movement in a flat-topped hexagonal grid.  <a href="system_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">More...</a><br /></td></tr>
+ }<tr class="memdesc:a224b9163917ac32fc95a60d8c1eec3aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <b>Direction</b> is a base enum that defines the six possible directions of movement in a pointy-topped hexagonal grid.  <a href="syscall_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">More...</a><br /></td></tr>
 </td></tr>
 <tr class="separator:a224b9163917ac32fc95a60d8c1eec3aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a355181b5a7b6128ebf4d3d3951652f7e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_8h.html#a355181b5a7b6128ebf4d3d3951652f7e">SystemCode</a> { <br />
-&#160;&#160;<a class="el" href="system_8h.html#a355181b5a7b6128ebf4d3d3951652f7eaed3ef32890b6da0919b57254c5206c62">MOVE</a> = 1, 
-<a class="el" href="system_8h.html#a355181b5a7b6128ebf4d3d3951652f7eaab0d73b507a86099007b619c09617a5e">COLLECT</a> = 2, 
-<a class="el" href="system_8h.html#a355181b5a7b6128ebf4d3d3951652f7ea8b0b0025af76a3d8f0b7b1d4758e51a6">DROP</a> = 3, 
-<a class="el" href="system_8h.html#a355181b5a7b6128ebf4d3d3951652f7eaec97674e4cbe291234e262bcfac31c2f">ATKMELEE</a> = 4, 
+<tr class="memitem:a355181b5a7b6128ebf4d3d3951652f7e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="syscall_8h.html#a355181b5a7b6128ebf4d3d3951652f7e">SystemCode</a> { <br />
+&#160;&#160;<a class="el" href="syscall_8h.html#a355181b5a7b6128ebf4d3d3951652f7eaed3ef32890b6da0919b57254c5206c62">MOVE</a> = 1, 
+<a class="el" href="syscall_8h.html#a355181b5a7b6128ebf4d3d3951652f7eaab0d73b507a86099007b619c09617a5e">COLLECT</a> = 2, 
+<a class="el" href="syscall_8h.html#a355181b5a7b6128ebf4d3d3951652f7ea8b0b0025af76a3d8f0b7b1d4758e51a6">DROP</a> = 3, 
+<a class="el" href="syscall_8h.html#a355181b5a7b6128ebf4d3d3951652f7eaec97674e4cbe291234e262bcfac31c2f">ATKMELEE</a> = 4, 
 <br />
-&#160;&#160;<a class="el" href="system_8h.html#a355181b5a7b6128ebf4d3d3951652f7ead3c05b270178701db9fd1304b7ead5e2">ATKSHORT</a> = 5, 
-<a class="el" href="system_8h.html#a355181b5a7b6128ebf4d3d3951652f7ea19a1d0b4f08610aa5a1aed80f24581cf">ATKLONG</a> = 6, 
-<a class="el" href="system_8h.html#a355181b5a7b6128ebf4d3d3951652f7eaf3032584d79623b84750b6eb37b9e181">SEE</a> = 7
+&#160;&#160;<a class="el" href="syscall_8h.html#a355181b5a7b6128ebf4d3d3951652f7ead3c05b270178701db9fd1304b7ead5e2">ATKSHORT</a> = 5, 
+<a class="el" href="syscall_8h.html#a355181b5a7b6128ebf4d3d3951652f7ea19a1d0b4f08610aa5a1aed80f24581cf">ATKLONG</a> = 6, 
+<a class="el" href="syscall_8h.html#a355181b5a7b6128ebf4d3d3951652f7eaf3032584d79623b84750b6eb37b9e181">SEE</a> = 7
 <br />
- }<tr class="memdesc:a355181b5a7b6128ebf4d3d3951652f7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <b>SystemCode</b> is a strongly typed enum that defines operations codes for general actions.  <a href="system_8h.html#a355181b5a7b6128ebf4d3d3951652f7e">More...</a><br /></td></tr>
+ }<tr class="memdesc:a355181b5a7b6128ebf4d3d3951652f7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <b>SystemCode</b> is a strongly typed enum that defines operations codes for general actions.  <a href="syscall_8h.html#a355181b5a7b6128ebf4d3d3951652f7e">More...</a><br /></td></tr>
 </td></tr>
 <tr class="separator:a355181b5a7b6128ebf4d3d3951652f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file stores enum classes that hold codes for operations realized in the system. </p>
-</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a224b9163917ac32fc95a60d8c1eec3aa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a224b9163917ac32fc95a60d8c1eec3aa">&#9670;&nbsp;</a></span>Direction</h2>
 
@@ -129,22 +124,22 @@ Enumerations</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="system_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a></td>
+          <td class="memname">enum <a class="el" href="syscall_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>The <b>Direction</b> is a base enum that defines the six possible directions of movement in a flat-topped hexagonal grid. </p>
+<p>The <b>Direction</b> is a base enum that defines the six possible directions of movement in a pointy-topped hexagonal grid. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a224b9163917ac32fc95a60d8c1eec3aaa4d3f872f5054b256b01ee4f2c8cf51db"></a>NE&#160;</td><td class="fielddoc"><p>Represents the direction Northeast. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a224b9163917ac32fc95a60d8c1eec3aaa2c63acbe79d9f41ba6bb7766e9c37702"></a>N&#160;</td><td class="fielddoc"><p>Represents the direction North. </p>
-</td></tr>
 <tr><td class="fieldname"><a id="a224b9163917ac32fc95a60d8c1eec3aaa9b2eeb9b33247edbc638099452c6b46f"></a>NW&#160;</td><td class="fielddoc"><p>Represents the direction Northwest. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a224b9163917ac32fc95a60d8c1eec3aaa61c600c17d14bd4db73433ddbb8491e8"></a>SE&#160;</td><td class="fielddoc"><p>Represents the direction Southeast. </p>
+<tr><td class="fieldname"><a id="a224b9163917ac32fc95a60d8c1eec3aaaea38cdb10c6fa0d2a1e30ecf46db0944"></a>EA&#160;</td><td class="fielddoc"><p>Represents the direction East. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a224b9163917ac32fc95a60d8c1eec3aaaf1ce01387d2348f8b858721a7db81670"></a>S&#160;</td><td class="fielddoc"><p>Represents the direction South. </p>
+<tr><td class="fieldname"><a id="a224b9163917ac32fc95a60d8c1eec3aaa59170bf407047306fe861eff5b52a4b9"></a>WE&#160;</td><td class="fielddoc"><p>Represents the direction West. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a224b9163917ac32fc95a60d8c1eec3aaa61c600c17d14bd4db73433ddbb8491e8"></a>SE&#160;</td><td class="fielddoc"><p>Represents the direction Southeast. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a224b9163917ac32fc95a60d8c1eec3aaa247b880fc48dc1c74961ba58ae0f68a2"></a>SW&#160;</td><td class="fielddoc"><p>Represents the direction Southwest. </p>
 </td></tr>
@@ -159,7 +154,7 @@ Enumerations</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="system_8h.html#a355181b5a7b6128ebf4d3d3951652f7e">SystemCode</a></td>
+          <td class="memname">enum <a class="el" href="syscall_8h.html#a355181b5a7b6128ebf4d3d3951652f7e">SystemCode</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -178,7 +173,8 @@ Enumerations</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a355181b5a7b6128ebf4d3d3951652f7ea19a1d0b4f08610aa5a1aed80f24581cf"></a>ATKLONG&#160;</td><td class="fielddoc"><p>Represents the long attack action. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a355181b5a7b6128ebf4d3d3951652f7eaf3032584d79623b84750b6eb37b9e181"></a>SEE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a355181b5a7b6128ebf4d3d3951652f7eaf3032584d79623b84750b6eb37b9e181"></a>SEE&#160;</td><td class="fielddoc"><p>Represents the see action. </p>
+</td></tr>
 </table>
 
 </div>
@@ -188,7 +184,7 @@ Enumerations</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_39b9d54b040febeebc00140e5c10ba61.html">controller</a></li><li class="navelem"><a class="el" href="dir_b27f8e0833986872907463214eec8821.html">classes</a></li><li class="navelem"><a class="el" href="system_8h.html">system.h</a></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_39b9d54b040febeebc00140e5c10ba61.html">controller</a></li><li class="navelem"><a class="el" href="dir_b27f8e0833986872907463214eec8821.html">classes</a></li><li class="navelem"><a class="el" href="syscall_8h.html">syscall.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>

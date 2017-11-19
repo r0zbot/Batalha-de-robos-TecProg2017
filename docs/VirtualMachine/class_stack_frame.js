@@ -4,7 +4,8 @@ var class_stack_frame =
     [ "alloc", "class_stack_frame.html#ac6fd0915d90cd7622944e53643faac17", null ],
     [ "back", "class_stack_frame.html#a00931305179aaa8150655033d0919b68", null ],
     [ "free", "class_stack_frame.html#a6b922098c90f148e0b7b3f0730915a31", null ],
-    [ "get", "class_stack_frame.html#a7a28df6fa6f8eab2df7adc5e137a8c03", null ],
-    [ "push", "class_stack_frame.html#aaa51f6b2bfaf1abcd61460fb9536506e", null ],
-    [ "set", "class_stack_frame.html#a992d478ab2a49a01115172e489bb52c7", null ]
+    [ "get", "class_stack_frame.html#a81e3d1a36f36fbb645c1b38e5183e84f", null ],
+    [ "push", "class_stack_frame.html#acaf26071bb60ee552316b6cf15f2ca02", null ],
+    [ "reset", "class_stack_frame.html#add63710a63417d5633869376c67556a3", null ],
+    [ "set", "class_stack_frame.html#a92c2d9906635a9c4e97efcb8987ca1bf", null ]
 ];

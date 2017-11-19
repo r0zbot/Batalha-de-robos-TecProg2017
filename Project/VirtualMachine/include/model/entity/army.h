@@ -113,7 +113,7 @@ class Army {
         /**
          * @brief Renders this <b>Army</b> in a @{link #View}.
          *
-         * This methods irenders all entities associated with
+         * This methods renders all entities associated with
          * this <b>Army</b> into a {@link #View}.
          *
          * @param [view] The {@link #View} that will show this <b>Army</b>.

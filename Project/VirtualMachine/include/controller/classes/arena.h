@@ -15,7 +15,7 @@
 using namespace std;
 
 /**
- * @file arena.h
+ * @file  arena.h
  * @class Arena
  *
  * @brief This class represents the Hexagonal Grid and the Game System Manager.
@@ -69,7 +69,8 @@ class Arena {
          */
         bool validate_insertion(const Hex &pos, EntityMove &e);
 
-        int last_pos = 0;
+        int current_center_row = 1;
+        int current_center_col = 1;
 
     public:
         /**

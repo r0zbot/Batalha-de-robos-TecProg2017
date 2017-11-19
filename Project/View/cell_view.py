@@ -24,7 +24,7 @@ class CellView(pygame.sprite.Sprite):
         self.col = int(col)
         self.cx, self.cy = util.convert(self.row, self.col)
 
-        self.base = base
+        self.base = int(base)
         self.crystals = crystals
         self.terrain = self.TERRAIN_TYPE[int(terrain)]
         self.crystalImage = pygame.image.load(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'assets/crystal.png'))
@@ -59,7 +59,12 @@ class CellView(pygame.sprite.Sprite):
             label = font.render(str(self.crystals), 1, (243, 52, 156))
             screen.blit(label, (rect[0] - 1, rect[1] - 8))
 
-        # TODO: The code below prints the Cell [Row, Column] in the screen , just for Debug
-        # font = pygame.font.SysFont("monospace", 12)
-        # label = font.render("[{}, {}]".format(self.row, self.col), 1, (255, 255, 0))
-        # screen.blit(label, (self.cx - 20, self.cy - 5))
+        if self.base != -1:
+            font = pygame.font.SysFont("monospace", 12)
+            label = font.render("B{}".format(self.base), 1, (255, 255, 0))
+            screen.blit(label, (self.cx - 20, self.cy - 5))
+        # else:
+        #     # TODO: The code below prints the Cell [Row, Column] in the screen , just for Debug
+        #     font = pygame.font.SysFont("monospace", 12)
+        #     label = font.render("[{}, {}]".format(self.row, self.col), 1, (255, 255, 0))
+        #     screen.blit(label, (self.cx - 20, self.cy - 5))
