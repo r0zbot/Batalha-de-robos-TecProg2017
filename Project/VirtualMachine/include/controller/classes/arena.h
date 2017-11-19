@@ -69,8 +69,6 @@ class Arena {
          */
         bool validate_insertion(const Hex &pos, EntityMove &e);
 
-        int last_pos = 0;
-
         int current_center_row = 1;
         int current_center_col = 1;
 
