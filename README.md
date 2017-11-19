@@ -47,3 +47,6 @@ Ao clicar em _Save and Run_, o arquivo `Project/VirtualMachine/src/main.cpp` ser
 * Daniel Martinez
 * Lucas Moretto
 * Pedro Paulo Bambace
+
+## Comentários
+Infelizmente, nosso visualizador _game_view.py_ não está muito rápido, então é necessário que a máquina virtual tenha um tempo de espera maior quando há muitos robôs presentes, para que o visualizador não fique atrasado em relação ao que acontece na máquina.
