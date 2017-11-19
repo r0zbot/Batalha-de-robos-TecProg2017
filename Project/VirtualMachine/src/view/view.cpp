@@ -1,6 +1,7 @@
 #include <view/view.h>
+#include <controller/classes/core.h>
 
-View::View() : window (popen("python3 ../../View/game_view.py", "w"), pclose) {
+View::View() : window (popen(concat("python3 ", Core::getViewPath()).c_str(), "w"), pclose) {
     if (!this->window) {
         throw runtime_error("View Program not found");
     }

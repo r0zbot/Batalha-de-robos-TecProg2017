@@ -4,8 +4,8 @@
  *        for operations realized in the system.
  */
 
-#ifndef VIRTUALMACHINE_SYSTEM_H
-#define VIRTUALMACHINE_SYSTEM_H
+#ifndef VIRTUALMACHINE_SYSCALL_H
+#define VIRTUALMACHINE_SYSCALL_H
 
 /**
  * @enum  Direction

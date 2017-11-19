@@ -33,10 +33,49 @@ void Core::sleep() const {
 
 void Core::start() {
     this->onLoad();
+    //TODO: detect when user closes the pygame window
     for (int i = 0; i < 20; i++) {
         this->onUpdate();
         this->onRender();
         this->sleep();
     }
     this->onUnload();
+}
+
+string Core::getBinPath() {
+#ifdef linux
+    char result[ PATH_MAX ];
+    ssize_t count = readlink( "/proc/self/exe", result, PATH_MAX );
+    string output = string( result, (count > 0) ? count : 0 );
+    return output.substr(0, output.find_last_of('/'));
+#endif
+
+#ifdef _WIN32
+    char result[ MAX_PATH ];
+    string output = string( result, GetModuleFileName( NULL, result, MAX_PATH ) );
+    return output.substr(0, output.find_last_of('\\'));
+#endif
+    return "Can't calculate path!";
+}
+
+string Core::getViewPath(){
+#ifdef linux
+    return concat("\'", Core::getBinPath(), "/../../View/game_view.py", "\'");
+#endif
+
+#ifdef _WIN32
+    return concat(Core::getBinPath(), "\\..\\..\\View\\game_view.py");
+#endif
+    return "Can't calculate path!";
+}
+
+string Core::getSoldierImagePath(int armyId){
+#ifdef linux
+    return concat("\'", Core::getBinPath(), "/../../View/properties/soldier/soldier_", armyId, ".png'");
+#endif
+
+#ifdef _WIN32
+    return concat(Core::getBinPath(), "\\..\\..\\View\\properties\\soldier\\soldier_", armyId, ".png");
+#endif
+    return "Can't calculate path!";
 }

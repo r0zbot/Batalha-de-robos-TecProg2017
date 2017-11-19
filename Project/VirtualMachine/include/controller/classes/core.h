@@ -3,6 +3,7 @@
 
 #ifdef linux
 #include <unistd.h>
+#include <limits.h>
 #endif
 
 #ifdef _WIN32
@@ -93,6 +94,12 @@ class Core {
          * @param [sleep_time] The system sleep time in milliseconds.
          */
         Core(const Arena &arena, unsigned int sleep_time);
+
+        static string getBinPath();
+
+        static string getViewPath();
+
+        static string getSoldierImagePath(int armyId);
 
         /**
          * @brief Starts the execution of the game cycle.
