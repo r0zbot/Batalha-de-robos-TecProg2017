@@ -29,6 +29,4 @@ class Config {
         static unsigned int max_crystals_per_cell;      ///< The maximum amount of crystals a single cell can hold.
 };
 
-//extern int lastRobotPos; //TODO: remove this after implementing army bases
-
 #endif

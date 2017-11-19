@@ -104,6 +104,8 @@ int main() {
 	for(int i=0; i<1; i++)
 		arena.create_robot(army4.get_id(), prog4);
 
+	//TODO: More than four armies but there are not images for their soldiers
+
 	Army army5("Army 5");
 	arena.insert_army(army5);
 	const vector<Instruction> prog5 ({

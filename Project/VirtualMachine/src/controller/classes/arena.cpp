@@ -73,7 +73,7 @@ void Arena::import_terrain(const vector<vector<int>> &terrain) {
     this->width  = (int) terrain[0].size();
     for (int i = 0; i < this->height; i++) {
         for (int j = 0; j < this->width; j++) {
-            this->ambient.emplace(Hex(i, j, -1, -1, -1, static_cast<Terrain>(terrain[i][j])));
+            this->ambient.emplace(Hex(i, j, -1, -1, rand() % Config::max_crystals_per_cell, static_cast<Terrain>(terrain[i][j])));
         }
     }
 }
