@@ -6,6 +6,7 @@ Obs: Em todos os casos abaixo, _X_ é um inteiro.
 * `FRE X`: Libera _X_ espaços de variáveis locais na pilha de execução.
 * `STL X`: Remove o elemento do topo da pilha e o armazena no espaço de variáveis locais na pilha de execução na posição _X_.
 * `RCE X`: Empilha o elemento da posição _X_ do espaço de variáveis locais na pilha de execução .
+* `ATR X`: Empilha o argumento de uma célula na posição _X_ dela.
 
 ## Instruções com tipos de dados compostos
 Para passar um tipo composto em Assembly basta utilizar a seguinte sintaxe: `INTR {TYPE, {ARGUMENTS}}`,onde _INTR_ é o código da instrução a ser executa, _TYPE_ é o tipo do objeto que esta sendo passado, e _ARGUMENTS_ são os parametros necessários para a construção do objeto.
@@ -28,7 +29,7 @@ Chamadas ao sistema dependem de um _SystemCode_ e uma _Direction_. Seus valores 
 * `ATKMELLE` = Representa ação de ataque corpo a corpo em um determinada direção
 * `ATKSHORT` = Representa ação de ataque de pequeno alcance em um determinada direção
 * `ATKLONG` = Representa ação de ataque de longo alcance em um determinada direção
-* `SEE` = Olha na direção indicada e empilha o conteúdo da célula em questão
+* `SEE` = Empilha a célula vizinha ao robô em uma determinada direção
   
 2. Direction
 * `NE` = Representa direção nordeste
