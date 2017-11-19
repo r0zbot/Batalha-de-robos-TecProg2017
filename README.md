@@ -30,7 +30,7 @@ As configurações da arena podem ser alteradas nas na seção _Arena settings_.
 Para adicionar um robô a um dos exércitos, clicar em _Add Robots_ e selecionar um arquivo _.gubi_. É possível selecionar quantos robôs devem estar em cada exército com cada um dos programas. Além disso, é possível adicionar novos exércitos e renomeá-los.
 
 Ao clicar em _Save and Run_, o arquivo `Project/VirtualMachine/src/main.cpp` será substituido por um novo contendo as alterações feitas, ele será compilado usando o CMake e executado em uma nova janela.
-
+![interface manager.py](https://s33.postimg.org/xzypsl68f/image.png)
 ## Compilando manualmente 
 
 1. Criar um arquivo _main.cpp_, usando para isso o manager.py encontrado em `Project/Manager/`, e salvá-lo sobre o existente em `Project/VirtualMachine/src/main.cpp`.
