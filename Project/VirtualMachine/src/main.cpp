@@ -26,16 +26,16 @@ int main() {
 	Config::machine_mov_fuel_usage = 1.5;
 
 	const vector<vector<int>> terrain {
-		{3, 4, 3, 3, 1, 0, 1, 1, 2, 4, 3, 1, 1, 3, 0, 0, 1, 3, 2, 0}, 
-		{3, 4, 0, 4, 4, 0, 1, 4, 2, 1, 1, 3, 1, 4, 1, 2, 1, 3, 2, 4}, 
-		{1, 3, 3, 2, 0, 3, 2, 3, 4, 1, 1, 4, 0, 3, 1, 0, 0, 4, 1, 0}, 
-		{1, 4, 2, 1, 3, 3, 1, 4, 4, 4, 1, 2, 4, 4, 2, 4, 1, 4, 2, 2}, 
-		{4, 3, 1, 2, 3, 3, 2, 1, 3, 3, 2, 1, 2, 3, 2, 0, 3, 1, 2, 4}, 
-		{1, 2, 3, 0, 4, 4, 0, 4, 2, 0, 0, 3, 2, 0, 3, 1, 3, 1, 2, 0}, 
-		{3, 2, 1, 0, 0, 3, 1, 4, 0, 0, 1, 1, 0, 3, 1, 0, 1, 1, 4, 1}, 
-		{4, 0, 0, 4, 1, 1, 1, 3, 0, 2, 1, 0, 1, 1, 1, 0, 0, 2, 3, 2}, 
-		{2, 0, 3, 3, 2, 4, 4, 4, 0, 3, 4, 3, 0, 2, 2, 2, 1, 1, 4, 0}, 
-		{4, 2, 0, 0, 0, 2, 1, 1, 1, 2, 3, 1, 4, 2, 2, 1, 0, 2, 1, 0}, 
+		{0, 3, 1, 0, 4, 3, 3, 0, 2, 4, 4, 1, 1, 1, 0, 3, 1, 3, 3, 3}, 
+		{0, 2, 2, 4, 2, 4, 0, 4, 0, 4, 3, 4, 3, 4, 2, 2, 2, 4, 0, 2}, 
+		{2, 0, 2, 2, 1, 4, 0, 1, 3, 1, 1, 4, 1, 1, 1, 2, 4, 1, 3, 4}, 
+		{1, 2, 0, 2, 4, 2, 0, 2, 2, 0, 1, 2, 3, 2, 4, 2, 2, 3, 4, 2}, 
+		{1, 0, 3, 3, 1, 3, 0, 2, 3, 4, 4, 2, 3, 4, 4, 2, 2, 0, 1, 3}, 
+		{2, 4, 0, 0, 0, 1, 0, 0, 1, 0, 4, 0, 4, 4, 3, 2, 0, 4, 0, 1}, 
+		{4, 4, 4, 1, 3, 3, 4, 1, 4, 3, 2, 2, 2, 4, 4, 3, 2, 4, 3, 1}, 
+		{4, 4, 1, 2, 4, 3, 4, 1, 0, 3, 4, 1, 3, 3, 4, 2, 4, 0, 1, 0}, 
+		{1, 4, 0, 2, 1, 0, 3, 3, 1, 1, 4, 1, 1, 4, 3, 1, 1, 2, 4, 1}, 
+		{4, 4, 4, 1, 2, 1, 2, 3, 3, 2, 2, 3, 0, 4, 3, 1, 2, 3, 2, 0}, 
 	};
 
 	arena.import_terrain(terrain);
@@ -53,7 +53,7 @@ int main() {
         ,Instruction(Code::END,nullptr)
     });
 
-	for(int i=0; i<5; i++)
+	for(int i=0; i<1; i++)
 		arena.create_robot(army1.get_id(), prog1);
 
 	Army army2("Army 2");
@@ -69,8 +69,88 @@ int main() {
         ,Instruction(Code::END,nullptr)
     });
 
-	for(int i=0; i<5; i++)
+	for(int i=0; i<1; i++)
 		arena.create_robot(army2.get_id(), prog2);
+
+	Army army3("Army 3");
+	arena.insert_army(army3);
+	const vector<Instruction> prog3 ({
+        Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::NE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::COLLECT, Direction::SE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::SE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::COLLECT, Direction::SE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::NW))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::COLLECT, Direction::NW))
+        ,Instruction(Code::JMP,make_shared<Number>(0))
+        ,Instruction(Code::END,nullptr)
+    });
+
+	for(int i=0; i<1; i++)
+		arena.create_robot(army3.get_id(), prog3);
+
+	Army army4("Army 4");
+	arena.insert_army(army4);
+	const vector<Instruction> prog4 ({
+        Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::NE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::COLLECT, Direction::SE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::SE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::COLLECT, Direction::SE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::NW))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::COLLECT, Direction::NW))
+        ,Instruction(Code::JMP,make_shared<Number>(0))
+        ,Instruction(Code::END,nullptr)
+    });
+
+	for(int i=0; i<1; i++)
+		arena.create_robot(army4.get_id(), prog4);
+
+	Army army5("Army 5");
+	arena.insert_army(army5);
+	const vector<Instruction> prog5 ({
+        Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::NE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::COLLECT, Direction::SE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::SE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::COLLECT, Direction::SE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::NW))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::COLLECT, Direction::NW))
+        ,Instruction(Code::JMP,make_shared<Number>(0))
+        ,Instruction(Code::END,nullptr)
+    });
+
+	for(int i=0; i<1; i++)
+		arena.create_robot(army5.get_id(), prog5);
+
+	Army army6("Army 6");
+	arena.insert_army(army6);
+	const vector<Instruction> prog6 ({
+        Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::NE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::COLLECT, Direction::SE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::SE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::COLLECT, Direction::SE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::NW))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::COLLECT, Direction::NW))
+        ,Instruction(Code::JMP,make_shared<Number>(0))
+        ,Instruction(Code::END,nullptr)
+    });
+
+	for(int i=0; i<1; i++)
+		arena.create_robot(army6.get_id(), prog6);
+
+	Army army7("Army 7");
+	arena.insert_army(army7);
+	const vector<Instruction> prog7 ({
+        Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::NE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::COLLECT, Direction::SE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::SE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::COLLECT, Direction::SE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::NW))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::COLLECT, Direction::NW))
+        ,Instruction(Code::JMP,make_shared<Number>(0))
+        ,Instruction(Code::END,nullptr)
+    });
+
+	for(int i=0; i<1; i++)
+		arena.create_robot(army7.get_id(), prog7);
 
 	Core core(arena, 1000);
 	core.start();
