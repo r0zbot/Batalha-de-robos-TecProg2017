@@ -9,11 +9,11 @@
  *        types of terrains that can exists in a grid cell.
  */
 enum class Terrain {
-    NONE     = 0, ///< Represents normal terrains
+    GRASS     = 0, ///< Represents normal (grass) terrains
     MOUNTAIN = 1, ///< Represents mountain terrains
     STREET   = 2, ///< Represents street terrains
     ROCK     = 3, ///< Represents a rock, so entities can't occupy this space
-    GRASS    = 4  ///< Represents grass terrains
+    MUD    = 4  ///< Represents muddy terrains
 };
 
 #endif

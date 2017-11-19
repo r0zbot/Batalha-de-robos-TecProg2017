@@ -26,7 +26,6 @@ class GameView:
         imagePath = entity[3]
         for i in range(4, len(entity)):
             imagePath += " "+entity[i]
-        print("imagePath: "+imagePath)
         self.entities[int(entity[0])] = EntityView(entity[0], entity[1], entity[2], imagePath)
 
     def init_screen(self):

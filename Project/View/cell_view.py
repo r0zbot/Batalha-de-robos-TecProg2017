@@ -1,4 +1,6 @@
 import math
+
+import os
 import pygame
 
 import util
@@ -6,11 +8,11 @@ import util
 
 class CellView(pygame.sprite.Sprite):
 
-    TERRAIN_TYPE = [(200, 200, 200),
-                    (85,  107, 47),
-                    (30,  144, 255),
-                    (218, 165, 32),
-                    (34,  139, 34)]
+    TERRAIN_TYPE = [(76, 147, 44),
+                    (31,  60, 18),
+                    (100,  100, 100),
+                    (76, 147, 44),
+                    (67,  39, 14)]
 
     WIDTH  = 30
     HEIGHT = 2 * WIDTH / math.sqrt(3)
@@ -25,6 +27,11 @@ class CellView(pygame.sprite.Sprite):
         self.base = base
         self.crystals = crystals
         self.terrain = self.TERRAIN_TYPE[int(terrain)]
+        self.crystalImage = pygame.image.load(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'assets/crystal.png'))
+        if terrain == "3":
+            self.image = pygame.image.load(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'assets/rock.png'))
+        else:
+            self.image = None
 
         self.edges = (
             (self.cx,  self.cy - self.HEIGHT),
@@ -38,8 +45,21 @@ class CellView(pygame.sprite.Sprite):
     def render(self, screen):
         pygame.draw.polygon(screen, self.terrain, self.edges, 0)
         pygame.draw.lines(screen, (0, 0, 0), True, self.edges, 2)
+        if self.image is not None:
+            rect = self.image.get_rect()
+            rect.topleft = [self.edges[5][0] + 8, self.edges[5][1] - 10]
+            screen.blit(self.image, rect)
+
+        if self.crystals > 0:
+            rect = self.crystalImage.get_rect()
+            rect.topleft = [self.edges[3][0] - 6, self.edges[3][1] - 12]
+            screen.blit(self.crystalImage, rect)
+
+            font = pygame.font.SysFont("monospace", 8)
+            label = font.render(str(self.crystals), 1, (243, 52, 156))
+            screen.blit(label, (rect[0] - 1, rect[1] - 8))
 
         # TODO: The code below prints the Cell [Row, Column] in the screen , just for Debug
-        font = pygame.font.SysFont("monospace", 12)
-        label = font.render("[{}, {}]".format(self.row, self.col), 1, (255, 255, 0))
-        screen.blit(label, (self.cx - 20, self.cy - 5))
+        # font = pygame.font.SysFont("monospace", 12)
+        # label = font.render("[{}, {}]".format(self.row, self.col), 1, (255, 255, 0))
+        # screen.blit(label, (self.cx - 20, self.cy - 5))

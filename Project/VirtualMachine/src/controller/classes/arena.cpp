@@ -181,17 +181,22 @@ void Arena::request_movement(EntityMove &e, const Hex &pos) {
         this->print(concat("Robot ", e.get_id(), " moving to [", pos.get_row(), ", ", pos.get_col(), "]"));
     }
     if (this->validate_insertion(pos, e)) {
-        auto oldPosIt = this->ambient.find(Hex(e.get_row(), e.get_col()));
-        auto newPosIt = this->ambient.find(pos);
-        Hex oldPosHex = *oldPosIt;
-        Hex newPosHex = *newPosIt;
-        oldPosHex.set_occup(-1);
-        newPosHex.set_occup(e.get_id());
-        e.set_position(newPosHex);
-        this->ambient.erase(oldPosIt);
-        this->ambient.insert(oldPosHex);
-        this->ambient.erase(newPosIt);
-        this->ambient.insert(newPosHex);
+        if(e.use_fuel(Config::machine_mov_fuel_usage)){
+            auto oldPosIt = this->ambient.find(Hex(e.get_col(), e.get_row()));
+            auto newPosIt = this->ambient.find(pos);
+            Hex oldPosHex = *oldPosIt;
+            Hex newPosHex = *newPosIt;
+            oldPosHex.set_occup(-1);
+            newPosHex.set_occup(e.get_id());
+            e.set_position(newPosHex);
+            this->ambient.erase(oldPosIt);
+            this->ambient.insert(oldPosHex);
+            this->ambient.erase(newPosIt);
+            this->ambient.insert(newPosHex);
+        }
+        else{
+            this->print(concat("Stuck at [", e.get_col(), ", ", e.get_row(), "]. Out of fuel!"), e);
+        }
     }
 }
 

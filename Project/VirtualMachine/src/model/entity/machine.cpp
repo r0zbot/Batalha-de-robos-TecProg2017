@@ -247,14 +247,7 @@ void Machine::lower_equal() {
 }
 
 void Machine::move() {
-    if (this->use_fuel(Config::machine_mov_fuel_usage)) {
-        arena.request_movement(*this, this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)));
-    }
-    else {
-        arena.print(concat("Stuck at [",
-                           this->get_row(), ", ",
-                           this->get_col(), "]. Out of fuel!"), *this);
-    }
+    arena.request_movement(*this, this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)));
 }
 
 void Machine::multiply() {
@@ -398,6 +391,11 @@ void Machine::update() {
         }
         else if (!this->use_fuel(Config::machine_inst_fuel_usage)) {
             arena.print("Not enough fuel to process!", *this);
+            this->stop = true;
+            return;
+        }
+        else if(this->hp <= 0){
+            arena.print("Im dead!", *this);
             this->stop = true;
             return;
         }
