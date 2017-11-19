@@ -27,7 +27,7 @@ class GameView:
         img_path = entity[3]
         for i in range(4, len(entity)):
             img_path += " " + entity[i]
-        self.entities[int(entity[0])] = EntityView(entity[0], entity[1], entity[2], img_path)
+        self.entities[int(entity[0])] = EntityView(entity[0], entity[1], entity[2], 0, 100, img_path)
 
     def init_screen(self):
         token = input().split()

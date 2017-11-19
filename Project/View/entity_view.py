@@ -5,7 +5,7 @@ import util
 
 class EntityView(pygame.sprite.Sprite):
 
-    def __init__(self, e_id, row, col, img_path):
+    def __init__(self, e_id, row, col, crystals, hp, img_path):
         pygame.sprite.Sprite.__init__(self)
         self.e_id   = int(e_id)
         self.row    = int(row)
@@ -20,6 +20,10 @@ class EntityView(pygame.sprite.Sprite):
 
         self.bounds.topleft = [x - l1 / 2, y - h1 / 2]
         scr.blit(self.image, self.bounds)
+
+        # font = pygame.font.SysFont("monospace", 9)
+        # label = font.render(str(self.crystals), 1, (243, 52, 156))
+        # screen.blit(label, (self.edges[3][0] - 2, rect[1] - 8))
 
     def update(self, row, col):
         self.row = int(row)

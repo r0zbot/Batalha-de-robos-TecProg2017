@@ -9,16 +9,44 @@
 #include <controller/classes/core.h>
 
 int Arena::create_robot(const int id, const Program &prog){
-    //TODO: put this robot in the army's base
+    //put this robot in the army's base
     for (auto &cell : this->ambient) {
         if (cell.get_base() == id  &&
             cell.get_occup() == -1 &&
             cell.get_terrain() != Terrain::ROCK) {
-            this->create_robot(id, cell, prog);
-            break;
+                this->create_robot(id, cell, prog);
+                return 0;
         }
     }
-    return 0;
+    // If all the bases are occupied:
+    // Get any base cell
+    Hex base_cell(0, 0);
+    for (auto &cell : this->ambient) {
+        if (cell.get_base() == id) {
+            base_cell = cell;
+        }
+    }
+
+    // Try to put it in a range from that cell as close as possible
+    // outside of enemy bases
+    for (int i = 0; i < this->get_height() || i < this->get_width(); ++i) {
+        Log::debug("Procurando base...");
+        for (auto &cell : base_cell.range(i)) {
+            Log::debug("Procurando celula valida vazia...");
+            if (cell.get_col() >= 0 && cell.get_col() < this->get_width()) {
+                if (cell.get_row() >= 0 && cell.get_row() < this->get_height()) {
+                    auto current_cell = this->ambient.find(cell);
+                    if (current_cell->get_base() == -1  &&
+                            current_cell->get_occup() == -1 &&
+                            current_cell->get_terrain() != Terrain::ROCK) {
+                        this->create_robot(id, cell, prog);
+                        return 0;
+                    }
+                }
+            }
+        }
+    }
+    Log::warn("Can't put new robot. Arena is full!");
 }
 
 int Arena::create_robot(const int id, const Hex &pos, const Program &prog) {
@@ -33,7 +61,6 @@ int Arena::create_robot(const int id, const Hex &pos, const Program &prog) {
     }
 
     EntityMovePtr soldier = make_shared<Machine>(prog, pos, Core::get_soldier_image_path(id));
-    cout << "path c:" << Core::get_soldier_image_path(id);
     this->armies.at(id).insert_soldier(soldier);
 
     // The set stores a const Hex, so we need a non-const copy
