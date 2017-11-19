@@ -71,11 +71,11 @@ string Core::getViewPath(){
 
 string Core::getSoldierImagePath(int armyId){
 #ifdef linux
-    return concat("\'", Core::getBinPath(), "/../../View/properties/soldier/soldier_", armyId, ".png'");
+    return concat(Core::getBinPath(), "/../../View/properties/soldier/soldier_", armyId, ".png");
 #endif
 
 #ifdef _WIN32
-    return concat(Core::getBinPath(), "\\..\\..\\View\\properties\\soldier\\soldier_", armyId, ".png");
+    return concat(Core::getBinPath(), "\\..\\..\\View\\properties\\soldier\\soldier_", armyId % 5, ".png");
 #endif
     return "Can't calculate path!";
 }
