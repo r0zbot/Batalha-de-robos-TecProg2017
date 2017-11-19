@@ -32,10 +32,10 @@ Chamadas ao sistema dependem de um _SystemCode_ e uma _Direction_. Seus valores 
   
 2. Direction
 * `NE` = Representa direção nordeste
-* `N`  = Representa direção norte
 * `NW` = Representa direção noroeste
+* `EA`  = Representa direção leste
+* `WE`  = Representa direção oeste
 * `SE` = Representa direção sudeste
-* `S`  = Representa direção sul
 * `SW` = Representa direção sudoeste
 
 As chamadas ao sistema são realizadas por meio da instrução `SYS` que recebe como parametro um objeto do tipo _Action_.
