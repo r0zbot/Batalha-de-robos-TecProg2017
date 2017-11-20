@@ -21,7 +21,7 @@ Para executar o projeto é necessário ter instaladas e no PATH do seu sistema a
 
 ## Execução
 
-Inicialmente, é necessário criar um arquivo assembly ( _.gubi_ ) de teste de acordo com as especificações do projeto e salvá-lo em qualquer local (Há alguns exemplos em `Project/data`). 
+Inicialmente, é necessário criar um arquivo assembly ( _.gubi_ ) de teste de acordo com as especificações do projeto e salvá-lo em qualquer local (Há alguns exemplos em `Project/data`. Veja mais detalhes [aqui](Project/data/0testfiles.md)). 
 
 Para executar o projeto, deve ser executado, usando Python2, o arquivo `Project/Manager/manager.py`. Esse script gerará um novo `main.cpp` e o executará.
 
@@ -49,4 +49,4 @@ Ao clicar em _Save and Run_, o arquivo `Project/VirtualMachine/src/main.cpp` ser
 * Pedro Paulo Bambace
 
 ## Comentários
-Infelizmente, nosso visualizador _game_view.py_ não está muito rápido, então é necessário que a máquina virtual tenha um tempo de espera maior quando há muitos robôs presentes, para que o visualizador não fique atrasado em relação ao que acontece na máquina.
+Em alguns casos (em alguns sistemas operacionas e hardware específico), é possível que nosso visualizador _game_view.py_ atualize um pouco lentamente, então talvez seja necessário que a máquina virtual tenha um tempo de espera um pouco maior quando há muitos robôs presentes, para que o visualizador não fique atrasado em relação ao que acontece no motor.
