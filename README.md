@@ -50,3 +50,5 @@ Ao clicar em _Save and Run_, o arquivo `Project/VirtualMachine/src/main.cpp` ser
 
 ## Comentários
 Em alguns casos (em alguns sistemas operacionas e hardware específico), é possível que nosso visualizador _game_view.py_ atualize um pouco lentamente, então talvez seja necessário que a máquina virtual tenha um tempo de espera um pouco maior quando há muitos robôs presentes, para que o visualizador não fique atrasado em relação ao que acontece no motor.
+
+Além disso, alguns testes mais avançados que fizemos não funcionaram, então tiveram que ser removidos.

@@ -18,7 +18,7 @@ int main() {
 	//Settings
 	Config::machine_health = 100;
 	Config::machine_instructions_cycle = 50;
-	Config::machine_melee_attack = 500;
+	Config::machine_melee_attack = 20;
 	Config::machine_fuel = 100;
 	Config::max_crystals_per_cell = 20;
 	Config::machine_inst_fuel_usage = 0.01;
@@ -26,16 +26,16 @@ int main() {
 	Config::machine_mov_fuel_usage = 1.5;
 
 	const vector<vector<int>> terrain {
-		{1, 1, 1, 1, 4, 0, 4, 3, 1, 4, 3, 2, 3, 4, 2, 0, 2, 4, 2, 3}, 
-		{0, 3, 2, 0, 4, 2, 1, 3, 4, 3, 4, 2, 4, 2, 2, 1, 1, 4, 4, 1}, 
-		{1, 2, 1, 2, 0, 1, 2, 3, 4, 2, 1, 0, 0, 0, 3, 4, 2, 4, 1, 2}, 
-		{2, 4, 3, 0, 4, 1, 2, 1, 2, 4, 2, 0, 3, 4, 0, 1, 2, 1, 3, 2}, 
-		{4, 3, 3, 3, 4, 4, 2, 4, 2, 1, 2, 4, 1, 0, 0, 1, 0, 2, 1, 4}, 
-		{4, 3, 1, 3, 3, 1, 3, 0, 2, 3, 3, 2, 2, 0, 2, 1, 4, 3, 3, 3}, 
-		{0, 2, 0, 1, 4, 0, 0, 3, 0, 2, 0, 1, 4, 2, 1, 1, 4, 3, 2, 3}, 
-		{4, 4, 0, 3, 1, 4, 0, 1, 3, 0, 4, 3, 1, 3, 4, 3, 4, 1, 0, 2}, 
-		{4, 4, 0, 2, 4, 1, 4, 4, 3, 4, 3, 0, 4, 0, 4, 4, 3, 3, 2, 0}, 
-		{2, 0, 4, 0, 3, 1, 3, 4, 4, 3, 4, 4, 2, 4, 3, 1, 0, 4, 4, 1}, 
+		{2, 0, 2, 1, 2, 2, 1, 1, 3, 1, 2, 2, 2, 2, 4, 2, 1, 4, 3, 4}, 
+		{1, 3, 0, 3, 3, 2, 1, 2, 2, 2, 4, 1, 3, 3, 2, 4, 4, 4, 1, 2}, 
+		{0, 2, 2, 1, 3, 3, 3, 1, 1, 1, 2, 4, 3, 3, 3, 3, 2, 1, 3, 4}, 
+		{1, 2, 2, 2, 3, 1, 3, 2, 3, 4, 0, 3, 3, 1, 0, 4, 1, 3, 4, 0}, 
+		{2, 4, 4, 3, 3, 0, 4, 2, 0, 4, 2, 4, 1, 2, 0, 0, 4, 4, 3, 3}, 
+		{1, 3, 3, 1, 3, 3, 0, 2, 0, 3, 3, 2, 2, 1, 0, 2, 2, 3, 3, 3}, 
+		{3, 2, 2, 1, 1, 2, 4, 3, 3, 1, 4, 1, 0, 3, 4, 1, 0, 2, 2, 0}, 
+		{4, 0, 4, 2, 1, 4, 2, 3, 2, 0, 1, 0, 2, 0, 2, 3, 3, 0, 4, 3}, 
+		{4, 2, 0, 0, 2, 1, 0, 2, 3, 3, 2, 1, 3, 3, 1, 0, 1, 2, 1, 1}, 
+		{0, 2, 1, 2, 4, 4, 3, 3, 4, 4, 3, 2, 2, 4, 4, 3, 2, 4, 3, 4}, 
 	};
 
 	arena.import_terrain(terrain);
@@ -65,18 +65,12 @@ int main() {
 	Army army2("Army 2");
 	arena.insert_army(army2);
 	const vector<Instruction> prog2 ({
-        Instruction(Code::SYS,make_shared<Action>(SystemCode::ATKMELEE, Direction::EA))
-        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::SW))
-        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::ATKMELEE, Direction::SE))
-        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::WE))
-        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::ATKMELEE, Direction::SW))
-        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::NW))
-        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::ATKMELEE, Direction::WE))
-        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::NE))
-        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::ATKMELEE, Direction::NW))
-        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::EA))
-        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::ATKMELEE, Direction::NE))
+        Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::NE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::COLLECT, Direction::SE))
         ,Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::SE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::COLLECT, Direction::SE))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::MOVE, Direction::NW))
+        ,Instruction(Code::SYS,make_shared<Action>(SystemCode::COLLECT, Direction::NW))
         ,Instruction(Code::JMP,make_shared<Number>(0))
         ,Instruction(Code::END,nullptr)
     });

@@ -30,9 +30,7 @@ int Arena::create_robot(const int id, const Program &prog){
     // Try to put it in a range from that cell as close as possible
     // outside of enemy bases
     for (int i = 0; i < this->get_height() || i < this->get_width(); ++i) {
-        Log::debug("Procurando base...");
         for (auto &cell : base_cell.range(i)) {
-            Log::debug("Procurando celula valida vazia...");
             if (cell.get_col() >= 0 && cell.get_col() < this->get_width()) {
                 if (cell.get_row() >= 0 && cell.get_row() < this->get_height()) {
                     auto current_cell = this->ambient.find(cell);
@@ -115,7 +113,9 @@ Army& Arena::get_army(const int id) {
 }
 
 const Hex& Arena::get_cell(const Hex &pos) const {
-    return *this->ambient.find(pos);
+    if (pos.get_col() >= 0 && pos.get_col() < this->get_width() && pos.get_row() >= 0 && pos.get_row() < this->get_height()){
+        return *this->ambient.find(pos);
+    }
 }
 
 int Arena::get_height() const {
