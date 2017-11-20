@@ -91,6 +91,8 @@ class Arena {
 
         int create_robot(int id, const Program &prog);
 
+        void die(EntityMove &e);
+
         /**
          * @brief Gets the amount of time passed in the current game.
          *

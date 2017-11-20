@@ -23,7 +23,7 @@ class EntityView(pygame.sprite.Sprite):
 
         # font = pygame.font.SysFont("monospace", 9)
         # label = font.render(str(self.crystals), 1, (243, 52, 156))
-        # screen.blit(label, (self.edges[3][0] - 2, rect[1] - 8))
+        # scr.blit(label, (self.edges[3][0] - 2, rect[1] - 8))
 
     def update(self, row, col):
         self.row = int(row)

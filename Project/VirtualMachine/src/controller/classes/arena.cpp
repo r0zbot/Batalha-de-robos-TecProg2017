@@ -75,6 +75,16 @@ int Arena::create_robot(const int id, const Hex &pos, const Program &prog) {
     return soldier->get_id();
 }
 
+void Arena::die(EntityMove &e) {
+    auto cell = this->ambient.find(Hex(e.get_row(), e.get_col()));
+    Hex new_cell = *cell;
+    new_cell.set_occup(-1);
+    e.set_position(Hex(-1, -1));
+    this->ambient.erase(cell);
+    this->ambient.insert(new_cell);
+    this->print("I died =(", e);
+}
+
 unsigned long long Arena::elapsed_time() const {
     return this->time;
 }

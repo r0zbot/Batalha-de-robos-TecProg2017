@@ -2,6 +2,7 @@
 
 #include <model/interface/entity_move.h>
 #include <util/config.h>
+#include <util/globals.h>
 
 EntityMove::EntityMove(
         const Hex &pos,
@@ -88,7 +89,9 @@ void EntityMove::set_group_id(const int group_id) {
 
 void EntityMove::take_damage(const int damage) {
     this->hp = max(0, this->hp - damage);
-    //TODO die if 0?
+    if(this->hp <= 0 ){
+        arena.die(*this);
+    }
 }
 
 bool EntityMove::use_fuel(const double quantity) {

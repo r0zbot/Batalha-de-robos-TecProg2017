@@ -74,7 +74,7 @@ class RobotSelector(ttk.Frame):
         ttk.Label(self, text="Quantity:  ").pack(side="left")
         self.robotAmountInput = ttk.Entry(self, width=5, validate="key")
         self.robotAmountInput['validatecommand'] = (self.robotAmountInput.register(validateInt), '%P', '%i', '%d')
-        self.robotAmountInput.insert(0, "5")
+        self.robotAmountInput.insert(0, "1")
         self.robotAmountInput.pack(side="left")
 
         self.robotFilename = tkFileDialog.askopenfilename(title="Select Robot's Program",
