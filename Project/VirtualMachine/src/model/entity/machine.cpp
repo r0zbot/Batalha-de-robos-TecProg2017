@@ -334,7 +334,7 @@ void Machine::return_from_procedure() {
 
 void Machine::see() {
     auto d = (Direction) this->fetch_arg()->get_atr(1);
-    auto cell = make_shared<Hex>(arena.get_cell(this->pos.neighbor(d)));
+    auto cell = make_shared<Hex>(* new Hex(arena.get_cell(this->pos.neighbor(d))));
     this->data.push(cell);
 }
 

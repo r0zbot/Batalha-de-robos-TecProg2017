@@ -116,6 +116,9 @@ const Hex& Arena::get_cell(const Hex &pos) const {
     if (pos.get_col() >= 0 && pos.get_col() < this->get_width() && pos.get_row() >= 0 && pos.get_row() < this->get_height()){
         return *this->ambient.find(pos);
     }
+    else{
+        return * new Hex(-1, -1, -1, -1, 0, Terrain::ROCK);
+    }
 }
 
 int Arena::get_height() const {
