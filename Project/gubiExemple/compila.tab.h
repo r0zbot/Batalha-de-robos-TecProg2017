@@ -62,8 +62,12 @@
      WHILE = 279,
      FUNC = 280,
      PRINT = 281,
-     NEG = 282,
-     PWR = 283
+     TERR = 282,
+     CRI = 283,
+     OCP = 284,
+     BAS = 285,
+     NEG = 286,
+     PWR = 287
    };
 #endif
 
@@ -83,7 +87,7 @@ typedef union YYSTYPE
 
 
 /* Line 1685 of yacc.c  */
-#line 87 "compila.tab.h"
+#line 91 "compila.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

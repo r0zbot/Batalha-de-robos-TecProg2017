@@ -18,6 +18,11 @@ if      { return IF; }
 while	{ return WHILE; }
 func|def { return FUNC; }
 print   { return PRINT; }
+\.terreno  { return TERR; }
+\.cristais { return CRI; }
+\.ocup     { return OCP; }
+\.base     { return BAS; }
+
 
 
 {L}{H}* { 
@@ -47,7 +52,7 @@ print   { return PRINT; }
 ">"		{ return GTt; }
 ">="	{ return GEt; }
 
-.	{  fprintf(stderr, "Entrada ignorada\n-->%s\n", yytext); }
+	    /* { return PONTO; }  {  fprintf(stderr, "Entrada ignorada\n-->%s\n", yytext); } */
 
 %%
 

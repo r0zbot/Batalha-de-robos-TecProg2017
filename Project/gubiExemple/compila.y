@@ -38,7 +38,7 @@ void AddInstr(OpCode op, int val) {
 %token <cod> ID
 %token ADDt SUBt MULt DIVt ASGN OPEN CLOSE RETt EOL
 %token EQt NEt LTt LEt GTt GEt ABRE FECHA SEP
-%token IF WHILE FUNC PRINT
+%token IF WHILE FUNC PRINT TERR CRI OCP BAS
 
 %right ASGN
 %left ADDt SUBt
@@ -82,19 +82,47 @@ Expr: NUMt { int valor = $1; AddInstr(PUSH, $1); printf("PUSH %i\n", valor);}
 			 if (s==0) s = putsym($1); /* não definida */
 			 AddInstr(RCL, s->val);
 			 printf("RCL %i\n", s->val);
-	       }
+	       }       
 	| ID ASGN Expr {
 	         symrec *s = getsym($1);
 			 if (s==0) s = putsym($1); /* não definida */
 			 AddInstr(STO, s->val);
 			 printf("STO %i\n", s->val);
  		 }
-	/* | ID PONTO NUMt  {  % v.4 */
-	/*          symrec *s = getsym($1); */
-	/* 		 if (s==0) s = putsym($1); /\* não definida *\/ */
-	/* 		 AddInstr(PUSH, s->val); */
-	/* 		 AddInstr(ATR, $3); */
- 	/* 	 } */
+ 	| ID TERR  {
+	         symrec *s = getsym($1); 
+			 if (s==0) s = putsym($1); /* não definida */ 
+			 AddInstr(RCL, s->val);
+			 printf("RCL %i\n", s->val); 
+			 AddInstr(ATR, 0); 
+			 printf("ATR 0\n");
+ 		 }
+ 	| ID CRI  {
+	         symrec *s = getsym($1); 
+			 if (s==0) s = putsym($1); /* não definida */ 
+			 AddInstr(RCL, s->val);
+			 printf("RCL %i\n", s->val); 
+			 AddInstr(ATR, 1); 
+			 printf("ATR 1\n");
+ 		 }
+ 	| ID OCP  {
+	         symrec *s = getsym($1); 
+			 if (s==0) s = putsym($1); /* não definida */ 
+			 AddInstr(RCL, s->val);
+			 printf("RCL %i\n", s->val); 
+			 AddInstr(ATR, 2); 
+			 printf("ATR 2\n");
+ 		 }
+ 	| ID BAS  {
+	         symrec *s = getsym($1); 
+			 if (s==0) s = putsym($1); /* não definida */ 
+			 AddInstr(RCL, s->val);
+			 printf("RCL %i\n", s->val); 
+			 AddInstr(ATR, 3); 
+			 printf("ATR 3\n");
+ 		 }
+	
+
 	| Chamada 
     | Expr ADDt Expr { AddInstr(ADD,  0); printf("ADD 0\n");}
 	| Expr SUBt Expr { AddInstr(SUB,  0); printf("SUB 0\n");}
