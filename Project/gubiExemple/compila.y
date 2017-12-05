@@ -29,16 +29,18 @@ void AddInstr(OpCode op, int val) {
   double val;
   /* symrec *cod; */
   char cod[30];
+  char dir[2];
 }
 
 
 /* %type  Expr */
 
-%token <val>  NUMt
+%token <val> NUMt
 %token <cod> ID
+%token <dir> DIR
 %token ADDt SUBt MULt DIVt ASGN OPEN CLOSE RETt EOL
 %token EQt NEt LTt LEt GTt GEt ABRE FECHA SEP
-%token IF WHILE FUNC PRINT TERR CRI OCP BAS
+%token IF WHILE FUNC PRINT TERR CRI OCP BAS MOV ATKM ATKS ATKL COL DRP SEEt
 
 %right ASGN
 %left ADDt SUBt
@@ -72,7 +74,42 @@ Comando: Expr EOL
 			     AddInstr(RET,0);
 			     printf("RET 0\n");
  		      }
-
+ 	   | MOV OPEN DIR CLOSE EOL {
+ 	      AddInstr(ADD, 0);
+ 	      char *direc;
+ 	      direc = $3;
+ 	      printf("SYS {ACTION, {MOVE, %s}}\n", direc);
+ 	   }
+ 	   | ATKM OPEN DIR CLOSE EOL {
+ 	      AddInstr(ADD, 0);
+ 	      char *direc;
+ 	      direc = $3;
+ 	      printf("SYS {ACTION, {ATKMELEE, %s}}\n", direc);
+ 	   }
+ 	   | ATKS OPEN DIR CLOSE EOL {
+ 	      AddInstr(ADD, 0);
+ 	      char *direc;
+ 	      direc = $3;
+ 	      printf("SYS {ACTION, {ATKSHORT, %s}}\n", direc);
+ 	   }
+ 	   | ATKL OPEN DIR CLOSE EOL {
+ 	      AddInstr(ADD, 0);
+ 	      char *direc;
+ 	      direc = $3;
+ 	      printf("SYS {ACTION, {ATKLONG, %s}}\n", direc);
+ 	   }
+ 	   | COL OPEN DIR CLOSE EOL {
+ 	      AddInstr(ADD, 0);
+ 	      char *direc;
+ 	      direc = $3;
+ 	      printf("SYS {ACTION, {COLLECT, %s}}\n", direc);
+ 	   }
+ 	   | DRP OPEN DIR CLOSE EOL {
+ 	      AddInstr(ADD, 0);
+ 	      char *direc;
+ 	      direc = $3;
+ 	      printf("SYS {ACTION, {DROP, %s}}\n", direc);
+ 	   }
 	   /* | EOL {printf("--> %d\n", ip);} */
 ;
 
@@ -239,6 +276,7 @@ ListParms:
 	| Expr { parmcnt++;}
 	| Expr { parmcnt++;} SEP ListParms
 ;
+
 
 %%
 extern FILE *yyin;

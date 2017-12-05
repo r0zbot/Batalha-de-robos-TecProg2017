@@ -18,10 +18,19 @@ if      { return IF; }
 while	{ return WHILE; }
 func|def { return FUNC; }
 print   { return PRINT; }
+CE|NE|NW|EA|WE|SE|SW { return DIR; }
 \.terreno  { return TERR; }
 \.cristais { return CRI; }
 \.ocup     { return OCP; }
 \.base     { return BAS; }
+move       { return MOV; }
+atkmelee   { return ATKM; }
+atkshort   { return ATKS; }
+atklong    { return ATKL; }
+collect    { return COL; }
+drop       { return DRP; }
+see        { return SEEt; }
+
 
 
 

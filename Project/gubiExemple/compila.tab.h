@@ -40,34 +40,42 @@
    enum yytokentype {
      NUMt = 258,
      ID = 259,
-     ADDt = 260,
-     SUBt = 261,
-     MULt = 262,
-     DIVt = 263,
-     ASGN = 264,
-     OPEN = 265,
-     CLOSE = 266,
-     RETt = 267,
-     EOL = 268,
-     EQt = 269,
-     NEt = 270,
-     LTt = 271,
-     LEt = 272,
-     GTt = 273,
-     GEt = 274,
-     ABRE = 275,
-     FECHA = 276,
-     SEP = 277,
-     IF = 278,
-     WHILE = 279,
-     FUNC = 280,
-     PRINT = 281,
-     TERR = 282,
-     CRI = 283,
-     OCP = 284,
-     BAS = 285,
-     NEG = 286,
-     PWR = 287
+     DIR = 260,
+     ADDt = 261,
+     SUBt = 262,
+     MULt = 263,
+     DIVt = 264,
+     ASGN = 265,
+     OPEN = 266,
+     CLOSE = 267,
+     RETt = 268,
+     EOL = 269,
+     EQt = 270,
+     NEt = 271,
+     LTt = 272,
+     LEt = 273,
+     GTt = 274,
+     GEt = 275,
+     ABRE = 276,
+     FECHA = 277,
+     SEP = 278,
+     IF = 279,
+     WHILE = 280,
+     FUNC = 281,
+     PRINT = 282,
+     TERR = 283,
+     CRI = 284,
+     OCP = 285,
+     BAS = 286,
+     MOV = 287,
+     ATKM = 288,
+     ATKS = 289,
+     ATKL = 290,
+     COL = 291,
+     DRP = 292,
+     SEEt = 293,
+     NEG = 294,
+     PWR = 295
    };
 #endif
 
@@ -83,11 +91,12 @@ typedef union YYSTYPE
   double val;
   /* symrec *cod; */
   char cod[30];
+  char dir[2];
 
 
 
 /* Line 1685 of yacc.c  */
-#line 91 "compila.tab.h"
+#line 100 "compila.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
