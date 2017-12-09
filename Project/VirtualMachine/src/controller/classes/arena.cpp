@@ -188,7 +188,7 @@ void Arena::print(const string &s) {
 void Arena::print(const EntityMove &e) {
     cout << "Robot " << e.get_id() << ' ';
     if (e.get_group_id() != -1) {
-        cout << "[" << this->armies.at(e.get_group_id()).get_name() << "]:\n";
+        cout << "(" << this->armies.at(e.get_group_id()).get_name() << ") says:\n";
     }
     else {
         cout << "[Orphan]:\n";
@@ -202,7 +202,7 @@ void Arena::print(const string &s, const EntityMove &e) {
 
 void Arena::print(const Operand &op, const EntityMove &e) {
     this->print(e);
-    cout << "\tOperand " << op.info() << '\n';
+    cout << "\t" << op.info() << '\n';
 }
 
 void Arena::remove_army(const int id) {

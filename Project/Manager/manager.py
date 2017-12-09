@@ -296,11 +296,11 @@ class ConfigScreen(ttk.Frame):
                         process = Popen([assemblerPath, robot.robotFilename], shell=True, stdout=PIPE, stderr=PIPE)
                         (assembledOutput, err) = process.communicate()
                         exit_code = process.wait()
+                        print(assembledOutput)
                         if exit_code != 0:
                             print "Error: "+err
                             tkMessageBox.showerror("Error assembling code", "Error assembling code for robot "+str(currentRobot)+"!\n"+str(err))
                             return
-                        print(assembledOutput)
                     else:
                         assembledOutput = open(robot.robotFilename, "r").read()
                     Builder.create_robots(outputFile, assembledOutput, robot.robotAmountInput.get(), currentArmy,

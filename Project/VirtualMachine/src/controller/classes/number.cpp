@@ -106,5 +106,5 @@ int Number::get_value() const {
 }
 
 string Number::info() const {
-    return concat("Type = Number; Value = ", this->value);
+    return concat("Number: ", this->value);
 }
