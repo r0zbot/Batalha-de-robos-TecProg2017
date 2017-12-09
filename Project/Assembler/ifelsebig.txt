@@ -1,0 +1,45 @@
+PUSH 4
+STO 0
+PUSH 1
+STO 1
+RCL 0
+PUSH 3
+GT 0
+DUP 0
+JIF label0
+RCL 1
+PUSH 1
+LT 0
+DUP 0
+JIF label1
+RCL 0
+PUSH 1
+SUB 0
+STO 1
+label1: NOP 0
+PUSH 0
+PUSH 0
+EQ 0
+label0: NOP 0
+JIT label2
+RCL 1
+PUSH 1
+LT 0
+DUP 0
+JIF label3
+RCL 1
+PUSH 1
+ADD 0
+STO 0
+PUSH 0
+PUSH 0
+EQ 0
+label3: NOP 0
+JIT label4
+RCL 0
+PUSH 1
+ADD 0
+STO 0
+label4: NOP 0
+label2: NOP 0
+END 0

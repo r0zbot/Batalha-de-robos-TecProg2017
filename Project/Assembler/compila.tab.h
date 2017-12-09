@@ -62,20 +62,21 @@
      IF = 279,
      WHILE = 280,
      FUNC = 281,
-     PRINT = 282,
-     TERR = 283,
-     CRI = 284,
-     OCP = 285,
-     BAS = 286,
-     MOV = 287,
-     ATKM = 288,
-     ATKS = 289,
-     ATKL = 290,
-     COL = 291,
-     DRP = 292,
-     SEEt = 293,
-     NEG = 294,
-     PWR = 295
+     ELSE = 282,
+     PRINT = 283,
+     TERR = 284,
+     CRI = 285,
+     OCP = 286,
+     BAS = 287,
+     MOV = 288,
+     ATKM = 289,
+     ATKS = 290,
+     ATKL = 291,
+     COL = 292,
+     DRP = 293,
+     SEEt = 294,
+     NEG = 295,
+     PWR = 296
    };
 #endif
 
@@ -96,7 +97,7 @@ typedef union YYSTYPE
 
 
 /* Line 1685 of yacc.c  */
-#line 100 "compila.tab.h"
+#line 101 "compila.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
