@@ -11,14 +11,14 @@ E [Ee][+-]?{D}+
 
 %%
 {D}*[.]?{D}+{E}?	{ yylval.val = atof(yytext); return NUMt; }
-
+"CE"|"NE"|"NW"|"EA"|"WE"|"SE"|"SW" { strncpy(yylval.dir, yytext, 2); return DIR; }
 ret(urn)?  { return RETt; }
 
 if      { return IF; }
 while	{ return WHILE; }
 func|def { return FUNC; }
+else     { return ELSE; }
 print   { return PRINT; }
-CE|NE|NW|EA|WE|SE|SW { return DIR; }
 \.terreno  { return TERR; }
 \.cristais { return CRI; }
 \.ocup     { return OCP; }

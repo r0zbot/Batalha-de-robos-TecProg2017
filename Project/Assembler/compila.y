@@ -40,7 +40,7 @@ void AddInstr(OpCode op, int val) {
 %token <dir> DIR
 %token ADDt SUBt MULt DIVt ASGN OPEN CLOSE RETt EOL
 %token EQt NEt LTt LEt GTt GEt ABRE FECHA SEP
-%token IF WHILE FUNC PRINT TERR CRI OCP BAS MOV ATKM ATKS ATKL COL DRP SEEt
+%token IF WHILE FUNC ELSE PRINT TERR CRI OCP BAS MOV ATKM ATKS ATKL COL DRP SEEt
 
 %right ASGN
 %left ADDt SUBt
@@ -175,17 +175,46 @@ Expr: NUMt { int valor = $1; AddInstr(PUSH, $1); printf("PUSH %i\n", valor);}
 	| Expr NEt Expr  { AddInstr(NE,   0); printf("NE 0\n");}
 ;
 
-Cond: IF OPEN  Expr {
+Cond: if 
+		{
+		   AddInstr(JMP, 0);
+		   printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
+		   prog[pega_end()].op.val.n = ip;
+		} 
+	| if { AddInstr(PUSH, 0);
+		   printf("PUSH 0\n");
+		   AddInstr(PUSH, 0);
+		   printf("PUSH 0\n");
+		   AddInstr(EQ, 0);
+		   printf("EQ 0\n");
+		   AddInstr(JMP, 0);
+		   printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
+		   prog[pega_end()].op.val.n = ip;
+		}
+		 else
+	;
+if: IF OPEN  Expr {
+			   AddInstr(DUP, 0);
+		       printf("DUP 0\n");
   	  	 	   salva_end(ip);
 			   AddInstr(JIF,  0);
 			   printf("JIF label%i\n", indiceLabel);
 			   labelPilha[labelPilhaTop++] = indiceLabel++;
  		 }
-		 CLOSE  Bloco {
-		   AddInstr(ADD, 0);
+		 CLOSE  Bloco 
+;
+else: ELSE {
+		 	salva_end(ip);
+			AddInstr(JIT,  0);
+			printf("JIT label%i\n", indiceLabel);
+			labelPilha[labelPilhaTop++] = indiceLabel++;
+		 }
+		 Bloco {
+		   AddInstr(JMP, 0);
 		   printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
 		   prog[pega_end()].op.val.n = ip;
-		 };
+		 } 
+;
 
 Loop: WHILE OPEN  {salva_end(ip);}
 	  		Expr  { 
