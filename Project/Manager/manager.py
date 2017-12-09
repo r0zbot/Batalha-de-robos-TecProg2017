@@ -10,6 +10,7 @@ import random
 import Tkinter as tkinter
 import tkFileDialog
 import tkMessageBox
+from subprocess import Popen, PIPE
 if platform.system() == "Windows":
     # ttk looks better on windows =)
     import ttk as ttk
@@ -78,7 +79,7 @@ class RobotSelector(ttk.Frame):
         self.robotAmountInput.pack(side="left")
 
         self.robotFilename = tkFileDialog.askopenfilename(title="Select Robot's Program",
-                                                          filetypes=[(".gubi", "*.gubi"), ("All files", "*")])
+                                                          filetypes=[("Gubi High Level Code", "*.gubic"), ("Gubi Assembly", "*.gubi "),("All files", "*")])
         if not self.robotFilename:
             configWindow.after(0, self.remove)
 
@@ -284,7 +285,25 @@ class ConfigScreen(ttk.Frame):
             for robot in army.robots:
                 if robot is not None:
                     currentRobot += 1
-                    Builder.create_robots(outputFile, robot.robotFilename, robot.robotAmountInput.get(), currentArmy,
+                    assembledOutput = ""
+                    if robot.robotFilename.endswith(".gubic"):
+                        print("Assembling code for robot "+str(currentRobot)+"...")
+                        assemblerPath = ""
+                        if platform.system() == "Windows":
+                            assemblerPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..\\Assembler\\assembler.exe')
+                        else:
+                            assemblerPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../Assembler/assembler')
+                        process = Popen([assemblerPath, robot.robotFilename], shell=True, stdout=PIPE, stderr=PIPE)
+                        (assembledOutput, err) = process.communicate()
+                        exit_code = process.wait()
+                        if exit_code != 0:
+                            print "Error: "+err
+                            tkMessageBox.showerror("Error assembling code", "Error assembling code for robot "+str(currentRobot)+"!\n"+str(err))
+                            return
+                        print(assembledOutput)
+                    else:
+                        assembledOutput = open(robot.robotFilename, "r").read()
+                    Builder.create_robots(outputFile, assembledOutput, robot.robotAmountInput.get(), currentArmy,
                                           currentRobot)
         Builder.create_main_end(outputFile, self.sleepTime.entry.get())
         outputFile.close()

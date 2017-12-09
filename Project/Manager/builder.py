@@ -47,8 +47,8 @@ class Builder:
         outputFile.write("\tarena.insert_army(army"+str(id)+");\n")
 
     @classmethod
-    def create_robots(cls, outputFile, filename, amount, army_id, id):
-        cls.decode_file(outputFile, open(filename, "r"), id)
+    def create_robots(cls, outputFile, assembledText, amount, army_id, id):
+        cls.decode_file(outputFile, assembledText, id)
         outputFile.write("\tfor(int i=0; i<"+amount+"; i++)\n")
         outputFile.write("\t\tarena.create_robot(army"+str(army_id)+".get_id(), prog"+str(id)+");\n")
 
@@ -132,11 +132,11 @@ class Builder:
         outputFile.write("    });\n\n")
 
     @classmethod
-    def map_labels(cls, file, instructions, labels):
+    def map_labels(cls, input, instructions, labels):
         """Maps any functions labels present in the Assembly input.
 
         Args:
-            file: a file handle to read from.
+            input: a string to read from.
 
             instructions (list): The list of instructions from the input.
 
@@ -144,7 +144,7 @@ class Builder:
                                  in the input.
         """
         ip = 0
-        for line in file:
+        for line in input.splitlines():
             line = cls.remove_comments(line)
             if line.strip():
                 instructions.append(line)
