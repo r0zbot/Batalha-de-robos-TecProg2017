@@ -47,6 +47,8 @@ enum class Code {
 
     NE,   ///< Execute a not equal condition in both topmost elements and pushes the result
 
+    NOP,  ///< No operation
+
     POP,  ///< Pops the topmost element of the stack
 
     PRN,  ///< Pops and prints the topmost element of the stack

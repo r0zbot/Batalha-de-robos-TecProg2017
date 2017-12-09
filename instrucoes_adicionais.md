@@ -6,6 +6,7 @@ Obs: Em todos os casos abaixo, _X_ é um inteiro.
 * `FRE X`: Libera _X_ espaços de variáveis locais na pilha de execução.
 * `STL X`: Remove o elemento do topo da pilha e o armazena no espaço de variáveis locais na pilha de execução na posição _X_.
 * `RCE X`: Empilha o elemento da posição _X_ do espaço de variáveis locais na pilha de execução .
+* `NOP 0`: Nenhuma operação.
 
 ## Instruções com tipos de dados compostos
 Para passar um tipo composto em Assembly basta utilizar a seguinte sintaxe: `INTR {TYPE, {ARGUMENTS}}`,onde _INTR_ é o código da instrução a ser executa, _TYPE_ é o tipo do objeto que esta sendo passado, e _ARGUMENTS_ são os parametros necessários para a construção do objeto.
