@@ -264,6 +264,8 @@ void Machine::multiply() {
     }
 }
 
+void Machine::no_operation(){}
+
 void Machine::not_equal() {
     auto n1 = dynamic_pointer_cast<Number>(this->data.top());
     this->data.pop();
@@ -322,7 +324,7 @@ void Machine::reset() {
     this->ip = 0;
     this->exec.reset();
     this->memo.clear();
-    
+
     while (!this->data.empty()) {
         this->data.pop();
     }
@@ -415,6 +417,7 @@ void Machine::update() {
     }
 }
 
+
 void Machine::map_functions() {
     this->functions.insert({Code::ADD,  &Machine::add});
     this->functions.insert({Code::ALC,  &Machine::alloc});
@@ -433,6 +436,7 @@ void Machine::map_functions() {
     this->functions.insert({Code::LE,   &Machine::lower_equal});
     this->functions.insert({Code::MUL,  &Machine::multiply});
     this->functions.insert({Code::NE,   &Machine::not_equal});
+    this->functions.insert({Code::NOP,  &Machine::no_operation});
     this->functions.insert({Code::POP,  &Machine::pop});
     this->functions.insert({Code::PRN,  &Machine::print});
     this->functions.insert({Code::PUSH, &Machine::push});

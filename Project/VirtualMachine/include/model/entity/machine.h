@@ -428,6 +428,11 @@ class Machine : public EntityMove {
         void not_equal();
 
         /**
+         * @brief Executes an instruction that does nothing
+         */
+        void no_operation();
+
+        /**
          * @brief Pops the topmost (most recent) value of the stack.
          */
         void pop();
