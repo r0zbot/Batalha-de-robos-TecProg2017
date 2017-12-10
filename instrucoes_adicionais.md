@@ -23,12 +23,12 @@ Obs: no caso de Cell os únicos argumentos obrigatórios para sua construção s
 Chamadas ao sistema dependem de um _SystemCode_ e uma _Direction_. Seus valores estão declarados em seus respectivos enums e são os seguintes:
 
 1. SystemCode
-* `MOVE` = Representa ação de movimento em um determinada direção
-* `COLLECT` = Representa ação de coleta em um determinada direção
-* `DROP` = Representa ação de deposito em um determinada direção
-* `ATKMELEE` = Representa ação de ataque corpo a corpo em um determinada direção
-* `ATKSHORT` = Representa ação de ataque de pequeno alcance em um determinada direção
-* `ATKLONG` = Representa ação de ataque de longo alcance em um determinada direção
+* `MOVE` = Representa ação de movimento em um determinada direção. Também empilha seu resultado como booleano.
+* `COLLECT` = Representa ação de coleta em um determinada direção. Também empilha seu resultado como booleano.
+* `DROP` = Representa ação de deposito em um determinada direção. Também empilha seu resultado como booleano.
+* `ATKMELEE` = Representa ação de ataque corpo a corpo em um determinada direção. Também empilha seu resultado como booleano.
+* `ATKSHORT` = Representa ação de ataque de pequeno alcance em um determinada direção. Também empilha seu resultado como booleano.
+* `ATKLONG` = Representa ação de ataque de longo alcance em um determinada direção. Também empilha seu resultado como booleano.
 * `SEE` = Empilha a célula vizinha ao robô em uma determinada direção
   
 2. Direction

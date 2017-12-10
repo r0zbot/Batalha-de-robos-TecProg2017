@@ -215,11 +215,12 @@ void Arena::render(const View &view) {
     }
 }
 
-void Arena::request_attack_melee(EntityMove &e, const Hex &pos) {
+bool Arena::request_attack_melee(EntityMove &e, const Hex &pos) {
     if (pos.get_col() >= 0 && pos.get_col() < this->get_width() && pos.get_row() >= 0 && pos.get_row() < this->get_height()){
         if(this->ambient.find(pos)->get_occup() != -1){
             this->find_entity_move(this->ambient.find(pos)->get_occup()).take_damage(e.get_dmg_melee());
             this->print(concat("Attacking robot at [", pos.get_row(), ",", pos.get_col() ,"]"), e);
+            return true;
         }
         else{
             this->print(concat("Attacking nothing at [", pos.get_row(), ",", pos.get_col() ,"]"), e);
@@ -228,17 +229,20 @@ void Arena::request_attack_melee(EntityMove &e, const Hex &pos) {
     else{
         this->print(concat("Attacking out of bounds at [", pos.get_row(), ",", pos.get_col() ,"]"), e);
     }
+    return false;
 }
 
-void Arena::request_attack_short(EntityMove &e, const Hex &pos) {
+bool Arena::request_attack_short(EntityMove &e, const Hex &pos) {
     //TODO Implement Hex ranged-neighbors
+    return false;
 }
 
-void Arena::request_attack_long(EntityMove &e, const Hex &pos) {
+bool Arena::request_attack_long(EntityMove &e, const Hex &pos) {
     //TODO Implement Hex ranged-neighbors
+    return false;
 }
 
-void Arena::request_collect(EntityMove &e, const Hex &pos) {
+bool Arena::request_collect(EntityMove &e, const Hex &pos) {
     if (Log::LOGGING_LEVEL == Log::DEBUG) {
         this->print(concat("Robot ", e.get_id(), " collecting from [", pos.get_row(), ", ", pos.get_col(), "]"));
     }
@@ -250,12 +254,14 @@ void Arena::request_collect(EntityMove &e, const Hex &pos) {
                 this->print(concat("Robot ", e.get_id(), " now has ", e.get_crystals(), " crystals."));
                 this->ambient.erase(newPosIt);
                 this->ambient.insert(newPosHex);
+                return true;
             }
         }
     }
+    return false;
 }
 
-void Arena::request_drop(EntityMove &e, const Hex &pos) {
+bool Arena::request_drop(EntityMove &e, const Hex &pos) {
     if (Log::LOGGING_LEVEL == Log::DEBUG) {
         this->print(concat("Robot ", e.get_id(), " dropping in [", pos.get_row(), ", ", pos.get_col(), "]"));
     }
@@ -267,6 +273,7 @@ void Arena::request_drop(EntityMove &e, const Hex &pos) {
                 this->print(concat("Robot ", e.get_id(), " now has ", e.get_crystals(), " crystals."));
                 this->ambient.erase(newPosIt);
                 this->ambient.insert(newPosHex);
+                return true;
             }
             else {
                 //Forgets about it and gives the crystals back to the Entity.
@@ -274,9 +281,10 @@ void Arena::request_drop(EntityMove &e, const Hex &pos) {
             }
         }
     }
+    return false;
 }
 
-void Arena::request_movement(EntityMove &e, const Hex &pos) {
+bool Arena::request_movement(EntityMove &e, const Hex &pos) {
     if (Log::LOGGING_LEVEL == Log::DEBUG) {
         this->print(concat("Robot ", e.get_id(), " moving to [", pos.get_row(), ", ", pos.get_col(), "]"));
     }
@@ -293,11 +301,13 @@ void Arena::request_movement(EntityMove &e, const Hex &pos) {
             this->ambient.insert(oldPosHex);
             this->ambient.erase(newPosIt);
             this->ambient.insert(newPosHex);
+            return true;
         }
         else{
             this->print(concat("Stuck at [", e.get_col(), ", ", e.get_row(), "]. Out of fuel!"), e);
         }
     }
+    return false;
 }
 
 void Arena::update(const View &view) {

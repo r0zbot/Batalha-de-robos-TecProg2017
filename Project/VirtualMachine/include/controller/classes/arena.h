@@ -233,8 +233,10 @@ class Arena {
          * @param [e] The {@link #EntityMove} that requested the action.
          *
          * @param [pos] The position where the action will be performed.
+         *
+         * @return A boolean indicating whether it was successfull or not.
          */
-        void request_attack_melee(EntityMove &e, const Hex &pos);
+        bool request_attack_melee(EntityMove &e, const Hex &pos);
 
         /**
          * @brief Executes an requisition for a short range attack in a
@@ -243,8 +245,10 @@ class Arena {
          * @param [e] The {@link #EntityMove} that requested the action.
          *
          * @param [pos] The position where the action will be performed.
+         *
+         * @return A boolean indicating whether it was successfull or not.
          */
-        void request_attack_short(EntityMove &e, const Hex &pos);
+        bool request_attack_short(EntityMove &e, const Hex &pos);
 
         /**
          * @brief Executes an requisition for a long range attack in a
@@ -253,8 +257,10 @@ class Arena {
          * @param [e] The {@link #EntityMove} that requested the action.
          *
          * @param [pos] The position where the action will be performed.
+         *
+         * @return A boolean indicating whether it was successfull or not.
          */
-        void request_attack_long(EntityMove &e, const Hex &pos);
+        bool request_attack_long(EntityMove &e, const Hex &pos);
 
         /**
          * @brief Executes an requisition for a collect action in a
@@ -263,8 +269,10 @@ class Arena {
          * @param [e] The {@link #EntityMove} that requested the action.
          *
          * @param [pos] The position where the action will be performed.
+         *
+         * @return A boolean indicating whether it was successfull or not.
          */
-        void request_collect(EntityMove &e, const Hex &pos);
+        bool request_collect(EntityMove &e, const Hex &pos);
 
         /**
          * @brief Executes an requisition for a deposit action in a
@@ -273,8 +281,10 @@ class Arena {
          * @param [e] The {@link #EntityMove} that requested the action.
          *
          * @param [pos] The position where the action will be performed.
+         *
+         * @return A boolean indicating whether it was successfull or not.
          */
-        void request_drop(EntityMove &e, const Hex &pos);
+        bool request_drop(EntityMove &e, const Hex &pos);
 
         /**
          * @brief Executes an requisition for a movement action in a
@@ -283,8 +293,10 @@ class Arena {
          * @param [e] The {@link #EntityMove} that requested the action.
          *
          * @param [pos] The position where the action will be performed.
+         *
+         * @return A boolean indicating whether it was successfull or not.
          */
-        void request_movement(EntityMove &e, const Hex &pos);
+        bool request_movement(EntityMove &e, const Hex &pos);
 
         /**
          * @brief Executes the logic behavior of all the game entities
