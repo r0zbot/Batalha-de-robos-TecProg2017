@@ -79,21 +79,15 @@ void Machine::atr() {
 }
 
 void Machine::attack_melee() {
-    arena.request_attack_melee(
-            *this,
-            this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)));
+    this->data.push(make_shared<Number>(arena.request_attack_melee(*this, this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)))));
 }
 
 void Machine::attack_short() {
-    arena.request_attack_short(
-            *this,
-            this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)));
+    this->data.push(make_shared<Number>(arena.request_attack_short(*this, this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)))));
 }
 
 void Machine::attack_long() {
-    arena.request_attack_long(
-            *this,
-            this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)));
+    this->data.push(make_shared<Number>(arena.request_attack_long(*this, this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)))));
 }
 
 void Machine::call() {
@@ -102,9 +96,7 @@ void Machine::call() {
 }
 
 void Machine::collect_crystal() {
-    arena.request_collect(
-            *this,
-            this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)));
+    this->data.push(make_shared<Number>(arena.request_collect(*this, this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)))));
 }
 
 void Machine::divide() {
@@ -122,9 +114,7 @@ void Machine::divide() {
 }
 
 void Machine::drop_crystal() {
-    arena.request_drop(
-            *this,
-            this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)));
+    this->data.push(make_shared<Number>(arena.request_drop(*this, this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)))));
 }
 
 void Machine::duplicate() {
@@ -247,7 +237,7 @@ void Machine::lower_equal() {
 }
 
 void Machine::move() {
-    arena.request_movement(*this, this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)));
+    this->data.push(make_shared<Number>(arena.request_movement(*this, this->pos.neighbor((Direction) this->fetch_arg()->get_atr(1)))));
 }
 
 void Machine::multiply() {
