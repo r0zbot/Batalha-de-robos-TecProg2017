@@ -233,6 +233,8 @@ class Arena {
          * @param [e] The {@link #EntityMove} that requested the action.
          *
          * @param [pos] The position where the action will be performed.
+         *
+         * @return A boolean indicating whether it was successfull or not.
          */
         bool request_attack_melee(EntityMove &e, const Hex &pos);
 
@@ -243,6 +245,8 @@ class Arena {
          * @param [e] The {@link #EntityMove} that requested the action.
          *
          * @param [pos] The position where the action will be performed.
+         *
+         * @return A boolean indicating whether it was successfull or not.
          */
         bool request_attack_short(EntityMove &e, const Hex &pos);
 
@@ -253,6 +257,8 @@ class Arena {
          * @param [e] The {@link #EntityMove} that requested the action.
          *
          * @param [pos] The position where the action will be performed.
+         *
+         * @return A boolean indicating whether it was successfull or not.
          */
         bool request_attack_long(EntityMove &e, const Hex &pos);
 
@@ -263,6 +269,8 @@ class Arena {
          * @param [e] The {@link #EntityMove} that requested the action.
          *
          * @param [pos] The position where the action will be performed.
+         *
+         * @return A boolean indicating whether it was successfull or not.
          */
         bool request_collect(EntityMove &e, const Hex &pos);
 
@@ -273,6 +281,8 @@ class Arena {
          * @param [e] The {@link #EntityMove} that requested the action.
          *
          * @param [pos] The position where the action will be performed.
+         *
+         * @return A boolean indicating whether it was successfull or not.
          */
         bool request_drop(EntityMove &e, const Hex &pos);
 
@@ -283,6 +293,8 @@ class Arena {
          * @param [e] The {@link #EntityMove} that requested the action.
          *
          * @param [pos] The position where the action will be performed.
+         *
+         * @return A boolean indicating whether it was successfull or not.
          */
         bool request_movement(EntityMove &e, const Hex &pos);
 
