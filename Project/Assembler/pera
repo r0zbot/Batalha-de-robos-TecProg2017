@@ -1,0 +1,16 @@
+x = my_id;
+y = 22;
+z = move(WE);
+if(z)
+{
+	o = see(NW);
+	cmp = o.base;
+	if(cmp > x)
+	{
+		drop(NW);
+	}
+	else
+	{
+		atkmelee(NW);
+	}
+}

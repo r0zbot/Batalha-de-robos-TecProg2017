@@ -40,7 +40,7 @@ void AddInstr(OpCode op, int val) {
 %token <dir> DIR
 %token ADDt SUBt MULt DIVt ASGN OPEN CLOSE RETt EOL
 %token EQt NEt LTt LEt GTt GEt ABRE FECHA SEP
-%token IF WHILE FUNC ELSE FOR PRINT TERR CRI OCP BAS MOV ATKM ATKS ATKL COL DRP SEEt
+%token IF WHILE FUNC ELSE FOR PRINT TERR CRI OCP BAS MOV ATKM ATKS ATKL COL DRP SEEt MY
 
 %right ASGN
 %left ADDt SUBt
@@ -74,42 +74,7 @@ Comando: Expr EOL
 			     AddInstr(RET,0);
 			     printf("RET 0\n");
  		      }
- 	   | MOV OPEN DIR CLOSE EOL {
- 	      AddInstr(SIS, 0);
- 	      char *direc;
- 	      direc = $3;
- 	      printf("SYS {ACTION, {MOVE, %s}}\n", direc);
- 	   }
- 	   | ATKM OPEN DIR CLOSE EOL {
- 	      AddInstr(SIS, 0);
- 	      char *direc;
- 	      direc = $3;
- 	      printf("SYS {ACTION, {ATKMELEE, %s}}\n", direc);
- 	   }
- 	   | ATKS OPEN DIR CLOSE EOL {
- 	      AddInstr(SIS, 0);
- 	      char *direc;
- 	      direc = $3;
- 	      printf("SYS {ACTION, {ATKSHORT, %s}}\n", direc);
- 	   }
- 	   | ATKL OPEN DIR CLOSE EOL {
- 	      AddInstr(SIS, 0);
- 	      char *direc;
- 	      direc = $3;
- 	      printf("SYS {ACTION, {ATKLONG, %s}}\n", direc);
- 	   }
- 	   | COL OPEN DIR CLOSE EOL {
- 	      AddInstr(SIS, 0);
- 	      char *direc;
- 	      direc = $3;
- 	      printf("SYS {ACTION, {COLLECT, %s}}\n", direc);
- 	   }
- 	   | DRP OPEN DIR CLOSE EOL {
- 	      AddInstr(SIS, 0);
- 	      char *direc;
- 	      direc = $3;
- 	      printf("SYS {ACTION, {DROP, %s}}\n", direc);
- 	   }
+ 	   
 	   /* | EOL {printf("--> %d\n", ip);} */
 ;
 
@@ -158,8 +123,7 @@ Expr: NUMt { int valor = $1; AddInstr(PUSH, $1); printf("PUSH %i\n", valor);}
 			 AddInstr(ATR, 3); 
 			 printf("ATR 3\n");
  		 }
-	
-
+ 	| Syscall
 	| Chamada 
     | Expr ADDt Expr { AddInstr(ADD,  0); printf("ADD 0\n");}
 	| Expr SUBt Expr { AddInstr(SUB,  0); printf("SUB 0\n");}
@@ -173,6 +137,7 @@ Expr: NUMt { int valor = $1; AddInstr(PUSH, $1); printf("PUSH %i\n", valor);}
 	| Expr GEt Expr  { AddInstr(GE,   0); printf("GE 0\n");}
 	| Expr EQt Expr  { AddInstr(EQ,   0); printf("EQ 0\n");}
 	| Expr NEt Expr  { AddInstr(NE,   0); printf("NE 0\n");}
+	
 ;
 
 Cond: if 
@@ -183,10 +148,6 @@ Cond: if
 		} 
 	| if { AddInstr(PUSH, 0);
 		   printf("PUSH 0\n");
-		   AddInstr(PUSH, 0);
-		   printf("PUSH 0\n");
-		   AddInstr(EQ, 0);
-		   printf("EQ 0\n");
 		   AddInstr(NOP, 0);
 		   printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
 		   prog[pega_end()].op.val.n = ip;
@@ -278,6 +239,56 @@ Args:
 	  	 putsym($3);
 	  }
 	;
+
+Syscall: MOV OPEN DIR CLOSE {
+ 	      AddInstr(PUSH, 1);
+ 	      char *direc;
+ 	      direc = $3;
+ 	      printf("SYS {ACTION, {MOVE, %s}}\n", direc);
+ 	   }
+ 	| ATKM OPEN DIR CLOSE {
+ 	      AddInstr(PUSH, 1);
+ 	      char *direc;
+ 	      direc = $3;
+ 	      printf("SYS {ACTION, {ATKMELEE, %s}}\n", direc);
+ 	   }
+    | ATKS OPEN DIR CLOSE {
+ 	      AddInstr(PUSH, 1);
+ 	      char *direc;
+ 	      direc = $3;
+ 	      printf("SYS {ACTION, {ATKSHORT, %s}}\n", direc);
+ 	   }
+	| ATKL OPEN DIR CLOSE {
+ 	      AddInstr(PUSH, 1);
+ 	      char *direc;
+ 	      direc = $3;
+ 	      printf("SYS {ACTION, {ATKLONG, %s}}\n", direc);
+ 	   }
+ 	| COL OPEN DIR CLOSE {
+ 	      AddInstr(PUSH, 1);
+ 	      char *direc;
+ 	      direc = $3;
+ 	      printf("SYS {ACTION, {COLLECT, %s}}\n", direc);
+ 	   }
+ 	| DRP OPEN DIR CLOSE {
+ 	      AddInstr(PUSH, 1);
+ 	      char *direc;
+ 	      direc = $3;
+ 	      printf("SYS {ACTION, {DROP, %s}}\n", direc);
+ 	   }
+ 	| SEEt OPEN DIR CLOSE {
+ 		  AddInstr(PUSH, 1);
+ 	      char *direc;
+ 	      direc = $3;
+ 	      printf("SYS {ACTION, {SEE, %s}}\n", direc);
+ 	}
+ 	| MY {
+ 		  AddInstr(PUSH, 1);
+ 	      printf("SYS {ACTION, {SEE, CE}}\n");
+ 	      AddInstr(ATR, 2);
+ 	      printf("ATR 2\n");
+ 	}
+ ;
 
 Chamada: ID OPEN
 		 {

@@ -76,8 +76,9 @@
      COL = 293,
      DRP = 294,
      SEEt = 295,
-     NEG = 296,
-     PWR = 297
+     MY = 296,
+     NEG = 297,
+     PWR = 298
    };
 #endif
 
@@ -98,7 +99,7 @@ typedef union YYSTYPE
 
 
 /* Line 1685 of yacc.c  */
-#line 102 "compila.tab.h"
+#line 103 "compila.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

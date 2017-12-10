@@ -33,6 +33,7 @@ atklong    { return ATKL; }
 collect    { return COL; }
 drop       { return DRP; }
 see        { return SEEt; }
+my_id      { return MY; }
 
 
 
