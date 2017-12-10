@@ -18,6 +18,7 @@ static int parmcnt = 0;		/* contador de parâmetros */
 static int labelPilha[90];
 static int indiceLabel = 0;
 static int labelPilhaTop = 0;
+static int ForLabel = 0;
 
 void AddInstr(OpCode op, int val) {
   prog[ip++] = (INSTR) {op,  {NUM, {val}}};
@@ -146,8 +147,8 @@ Cond: if
 		   printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
 		   prog[pega_end()].op.val.n = ip;
 		} 
-	| if { AddInstr(PUSH, 0);
-		   printf("PUSH 0\n");
+	| if { AddInstr(PUSH, 1);
+		   printf("PUSH 1\n");
 		   AddInstr(NOP, 0);
 		   printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
 		   prog[pega_end()].op.val.n = ip;
@@ -177,6 +178,7 @@ else: ELSE {
 		 } 
 ;
 Loop: while
+	| for
 	;
 while: WHILE OPEN  {salva_end(ip);}
 	  		Expr  { 
@@ -189,10 +191,39 @@ while: WHILE OPEN  {salva_end(ip);}
 			  int ip2 = pega_end();
 			  int ipToJump = pega_end();
 			  AddInstr(JMP, ipToJump);
-			  printf("JMP %i\n", ipToJump);
-			  AddInstr(NOP, 0); 
-			  printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
+			  printf("JMP %i\n", ipToJump); 
 			  prog[ip2].op.val.n = ip;
+			  AddInstr(NOP, 0);
+			  printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
+			};
+for: FOR OPEN Expr SEP {salva_end(ip);}
+			Expr { 
+	  			AddInstr(JIF, 0);
+	  			printf("JIF label%i\n", indiceLabel); 
+			    labelPilha[labelPilhaTop++] = indiceLabel++;
+			    salva_end(ip);
+			    AddInstr(JMP, 0);
+			    printf("JMP For%i\n", ForLabel);
+			}
+			SEP Expr {
+				int ip2 = pega_end();
+				int ipToJump = pega_end();
+				AddInstr(JMP, ipToJump);
+			  	printf("JMP %i\n", ipToJump);
+			  	prog[ip2].op.val.n = ip;
+			  	AddInstr(NOP, 0);
+			  	printf("For%i: NOP 0\n", ForLabel++);
+			  	salva_end(ip2 + 1);
+			  	salva_end(ip2 - 1);
+			}
+			CLOSE Bloco {
+			  	int ip2 = pega_end();
+			  	int ipToJump = pega_end();
+			  	AddInstr(JMP, ipToJump);
+			 	printf("JMP %i\n", ipToJump); 
+			 	prog[ip2].op.val.n = ip;
+			 	AddInstr(NOP, 0);
+			 	printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
 			};
 
 Bloco: ABRE Comandos FECHA;

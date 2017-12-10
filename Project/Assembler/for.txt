@@ -1,0 +1,49 @@
+PUSH 4
+STO 0
+RCL 0
+PUSH 0
+GT 0
+JIF label0
+JMP For0
+RCL 0
+PUSH 1
+SUB 0
+STO 0
+JMP 2
+For1: NOP 0
+PUSH 0
+STO 1
+RCL 1
+RCL 0
+LT 0
+JIF label1
+JMP For1
+RCL 1
+PUSH 1
+ADD 0
+STO 1
+JMP 15
+For2: NOP 0
+RCL 0
+PRN 0
+JMP 20
+label1: NOP 0
+PUSH 2
+STO 2
+RCL 2
+PUSH 2
+EQ 0
+DUP 0
+JIF label2
+RCL 2
+PUSH 0
+GT 0
+JIF label3
+RCL 2
+PRN 0
+JMP 37
+label3: NOP 0
+label2: NOP 0
+JMP 7
+label0: NOP 0
+END 0

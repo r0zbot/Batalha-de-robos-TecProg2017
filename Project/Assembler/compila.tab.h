@@ -89,7 +89,7 @@ typedef union YYSTYPE
 {
 
 /* Line 1685 of yacc.c  */
-#line 28 "compila.y"
+#line 29 "compila.y"
 
   double val;
   /* symrec *cod; */

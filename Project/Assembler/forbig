@@ -1,0 +1,15 @@
+for(x = 4, x > 0, x = x - 1)
+{
+	for(i = 0, i < x, i = i + 1)
+	{
+		print(x);
+	}
+	j = 2;
+	if(j == 2)
+	{
+		while(j > 0)
+		{
+			print(j);
+		}
+	}
+}
