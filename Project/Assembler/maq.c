@@ -34,7 +34,8 @@ char *CODES[] = {
   "ATR",
   "SIS",
   "ENTRY",
-  "LEAVE"
+  "LEAVE",
+  "NOP"
 };
 #else
 #  define D(X)
@@ -241,6 +242,8 @@ void exec_maquina(Maquina *m, int n) {
 	case LEAVE:
 	  del_frame(m);
 	  break;
+	case NOP:
+		break;
 	}
 
 	D(imprime(pil,5));

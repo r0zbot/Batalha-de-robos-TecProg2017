@@ -12,12 +12,15 @@ E [Ee][+-]?{D}+
 %%
 {D}*[.]?{D}+{E}?	{ yylval.val = atof(yytext); return NUMt; }
 "CE"|"NE"|"NW"|"EA"|"WE"|"SE"|"SW" { strncpy(yylval.dir, yytext, 2); return DIR; }
+true { yylval.val = 1; return NUMt; }
+false { yylval.val = 0; return NUMt; }
 ret(urn)?  { return RETt; }
 
 if      { return IF; }
 while	{ return WHILE; }
 func|def { return FUNC; }
 else     { return ELSE; }
+for      {return FOR; }
 print   { return PRINT; }
 \.terreno  { return TERR; }
 \.cristais { return CRI; }

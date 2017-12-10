@@ -30,7 +30,8 @@ typedef enum {
   ATR,
   SIS,							/* chamada de sistema */
   ENTRY,
-  LEAVE
+  LEAVE,
+	NOP
 } OpCode;
 
 /* Tipos dos operandos */

@@ -40,7 +40,7 @@ void AddInstr(OpCode op, int val) {
 %token <dir> DIR
 %token ADDt SUBt MULt DIVt ASGN OPEN CLOSE RETt EOL
 %token EQt NEt LTt LEt GTt GEt ABRE FECHA SEP
-%token IF WHILE FUNC ELSE PRINT TERR CRI OCP BAS MOV ATKM ATKS ATKL COL DRP SEEt
+%token IF WHILE FUNC ELSE FOR PRINT TERR CRI OCP BAS MOV ATKM ATKS ATKL COL DRP SEEt
 
 %right ASGN
 %left ADDt SUBt
@@ -75,37 +75,37 @@ Comando: Expr EOL
 			     printf("RET 0\n");
  		      }
  	   | MOV OPEN DIR CLOSE EOL {
- 	      AddInstr(ADD, 0);
+ 	      AddInstr(SIS, 0);
  	      char *direc;
  	      direc = $3;
  	      printf("SYS {ACTION, {MOVE, %s}}\n", direc);
  	   }
  	   | ATKM OPEN DIR CLOSE EOL {
- 	      AddInstr(ADD, 0);
+ 	      AddInstr(SIS, 0);
  	      char *direc;
  	      direc = $3;
  	      printf("SYS {ACTION, {ATKMELEE, %s}}\n", direc);
  	   }
  	   | ATKS OPEN DIR CLOSE EOL {
- 	      AddInstr(ADD, 0);
+ 	      AddInstr(SIS, 0);
  	      char *direc;
  	      direc = $3;
  	      printf("SYS {ACTION, {ATKSHORT, %s}}\n", direc);
  	   }
  	   | ATKL OPEN DIR CLOSE EOL {
- 	      AddInstr(ADD, 0);
+ 	      AddInstr(SIS, 0);
  	      char *direc;
  	      direc = $3;
  	      printf("SYS {ACTION, {ATKLONG, %s}}\n", direc);
  	   }
  	   | COL OPEN DIR CLOSE EOL {
- 	      AddInstr(ADD, 0);
+ 	      AddInstr(SIS, 0);
  	      char *direc;
  	      direc = $3;
  	      printf("SYS {ACTION, {COLLECT, %s}}\n", direc);
  	   }
  	   | DRP OPEN DIR CLOSE EOL {
- 	      AddInstr(ADD, 0);
+ 	      AddInstr(SIS, 0);
  	      char *direc;
  	      direc = $3;
  	      printf("SYS {ACTION, {DROP, %s}}\n", direc);
@@ -177,7 +177,7 @@ Expr: NUMt { int valor = $1; AddInstr(PUSH, $1); printf("PUSH %i\n", valor);}
 
 Cond: if 
 		{
-		   AddInstr(JMP, 0);
+		   AddInstr(NOP, 0);
 		   printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
 		   prog[pega_end()].op.val.n = ip;
 		} 
@@ -187,7 +187,7 @@ Cond: if
 		   printf("PUSH 0\n");
 		   AddInstr(EQ, 0);
 		   printf("EQ 0\n");
-		   AddInstr(JMP, 0);
+		   AddInstr(NOP, 0);
 		   printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
 		   prog[pega_end()].op.val.n = ip;
 		}
@@ -210,13 +210,14 @@ else: ELSE {
 			labelPilha[labelPilhaTop++] = indiceLabel++;
 		 }
 		 Bloco {
-		   AddInstr(JMP, 0);
+		   AddInstr(NOP, 0);
 		   printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
 		   prog[pega_end()].op.val.n = ip;
 		 } 
 ;
-
-Loop: WHILE OPEN  {salva_end(ip);}
+Loop: while
+	;
+while: WHILE OPEN  {salva_end(ip);}
 	  		Expr  { 
 	  			salva_end(ip); 
 	  			AddInstr(JIF, 0);
@@ -225,12 +226,13 @@ Loop: WHILE OPEN  {salva_end(ip);}
 	  		}
 	  		CLOSE Bloco {
 			  int ip2 = pega_end();
-			  AddInstr(JMP, pega_end());
-			  printf("JMP %i\n", pega_end());
-			  AddInstr(ADD, 0); 
+			  int ipToJump = pega_end();
+			  AddInstr(JMP, ipToJump);
+			  printf("JMP %i\n", ipToJump);
+			  AddInstr(NOP, 0); 
 			  printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
 			  prog[ip2].op.val.n = ip;
-			}; 
+			};
 
 Bloco: ABRE Comandos FECHA;
 
@@ -261,7 +263,7 @@ Func: FUNC ID
 		printf("LEAVE 0\n");
 		AddInstr(RET, 0);
 		printf("RET 0\n");
-		AddInstr(ADD, 0); 
+		AddInstr(NOP, 0); 
 		printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
 		prog[pega_end()].op.val.n = ip;
 		deltab();
@@ -293,8 +295,10 @@ Chamada: ID OPEN
 		   printf("ENTRY %i\n", lastval());
 		   /* Cópia dos parâmetros */
 		   while (parmcnt > 0) 
+		   {
 			 AddInstr( STO, --parmcnt);
 			 printf("STO %i\n", parmcnt);
+			}
 		   AddInstr(CALL, s->val);
 		   printf("CALL %i\n", s->val);
 		 }
