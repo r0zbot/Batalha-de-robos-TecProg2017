@@ -30,6 +30,6 @@ As System Calls foram definidas como `Expr` e são feitas das seguindo o Padrão
 * `atkmelee` = Representa ação de ataque corpo a corpo em um determinada direção. Também retorna seu resultado como booleano.
 * `atkshort` = Representa ação de ataque de pequeno alcance em um determinada direção. Também retorna seu resultado como booleano.
 * `atklong` = Representa ação de ataque de longo alcance em um determinada direção. Também retorna seu resultado como booleano.
-* `see` = retorna a célula vizinha ao robô em uma determinada direção
-* `my_id` = retorna o seu próprio id.
+* `see` = retorna a célula vizinha ao robô em uma determinada direção.
+* `my_id` = retorna o seu próprio id. (Esta System Call funciona apenas escrevendo seu nome, diferente das outras).
 
