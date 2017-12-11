@@ -1,6 +1,9 @@
 # Changelog
 
 ## Quarta fase
+* Correção de bugs:
+    * Resolvida Segfault ao modificar uma célula entre uma chamada de SEE e ATR
+    * Resolvida segfault ao chamar ATR em uma célula de fora da Arena
 * Adicionado montador para linguagem de alto nível
 
 ## Terceira fase
