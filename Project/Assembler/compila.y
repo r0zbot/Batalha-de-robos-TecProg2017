@@ -130,7 +130,7 @@ Expr: NUMt { int valor = $1; AddInstr(PUSH, $1); printf("PUSH %i\n", valor);}
 	| Expr SUBt Expr { AddInstr(SUB,  0); printf("SUB 0\n");}
 	| Expr MULt Expr { AddInstr(MUL,  0); printf("MUL 0\n");}
 	| Expr DIVt Expr { AddInstr(DIV,  0); printf("DIV 0\n");}
-    | '-' Expr %prec NEG  { printf(" {CHS 0},\n"); }
+    | SUBt Expr %prec NEG  { AddInstr(PUSH, -1); printf("PUSH -1\n");  AddInstr(MUL, 0); printf("MUL 0\n");}
 	| OPEN Expr CLOSE
 	| Expr LTt Expr  { AddInstr(LT,   0); printf("LT 0\n");}
 	| Expr GTt Expr  { AddInstr(GT,   0); printf("GT 0\n");}
