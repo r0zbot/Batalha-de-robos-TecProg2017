@@ -16,6 +16,7 @@ Para executar o projeto é necessário ter instaladas e no PATH do seu sistema a
 * `g++ >= 6.0` (são usadas features do C++11)
 * `Python 2`
 * `TKinter`
+* `Pygame`
 * Linux: `xterm`
 * Windows: `MinGW >= 2013072200`
 
