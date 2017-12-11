@@ -11,17 +11,17 @@ Novos Simbolos Terminais acrecentados
     * `.cristais`: retorna o atributo contendo a quantidade de cristais naquelaa célula.
     * `.ocup`: retorna o atributo contendo o id do robô naquela célula, ou -1, caso não haja robôs.
     * `.base`: retorna o atributo contendo o id da exrcito a qual a base existente naquela célula pertence, ou -1 se não há base.
-##Condicionais
+## Condicionais
 
 Gramaticalmente Condicionais foram definidas podendoo ser um `if` (já definido) ou um `if` seguido de um `else`
 `else`: o `else` segue o a gramática: `ELSE` `Bloco`.
 
-##Loops
+## Loops
 
 Gramaticalmente Loops foram definidos podendo ser um `while` (já definido) ou um `for`
 `for`: um for segue a gramática: `FOR` `OPEN` `Expr` `SEP` `Expr` `SEP` `Expr` `CLOSE`
 
-##System Calls
+## System Calls
 
 As System Calls foram definidas como `Expr` e são feitas das seguindo o Padrão: nome_da_ação `OPEN` `DIR` `CLOSE` sendo elas:
 * `move` = Representa ação de movimento em um determinada direção. Também retorna seu resultado como booleano.
