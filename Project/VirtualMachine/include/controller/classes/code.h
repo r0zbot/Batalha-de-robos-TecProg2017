@@ -43,6 +43,8 @@ enum class Code {
 
     LT,   ///< Execute a lower condition in both topmost elements and pushes the result
 
+    MATR, ///< Pushes the specified atribute
+
     MUL,  ///< Pops both topmost elements from the stack and pushes its product
 
     NE,   ///< Execute a not equal condition in both topmost elements and pushes the result

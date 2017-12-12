@@ -89,13 +89,13 @@ Hex Hex::neighbor(const Direction d) const {
 }
 
 string Hex::info() const {
-    return concat("Type = Cell;",
-                  "\nCell Col = ",      this->col,
-                  "\nCell Row = ",      this->row,
-                  "\ncell Base = ",     this->base,
-                  "\nCell Occup = ",    this->occup,
-                  "\nCell Crystals = ", this->crystals,
-                  "\nCell Terrain = ",  static_cast<int>(this->terrain));
+    return concat("Cell: ",
+                  "Col ",      this->col,
+                  ", Row ",      this->row,
+                  ", Base for ",     this->base,
+                  ", Occupied by ",    this->occup,
+                  ", ", this->crystals, " crystals",
+                  ", Terrain type ",  static_cast<int>(this->terrain));
 }
 
 unordered_set<Hex> Hex::range(const int n) const {

@@ -254,6 +254,43 @@ void Machine::multiply() {
     }
 }
 
+void Machine::my_attribute() {
+    auto arg = dynamic_pointer_cast<Number>(this->fetch_arg());
+    if (arg) {
+        if(arg->get_value() == 5){
+            this->data.push(make_shared<Hex>(* new Hex(arena.get_cell(Hex(this->get_row(), this->get_col())))));
+        }
+        else{
+            int value = -1;
+            switch (arg->get_value()){
+                case 0:
+                    value = this->get_id();
+                    break;
+                case 1:
+                    value = this->get_group_id();
+                    break;
+                case 2:
+                    value = (int) this->get_fuel();
+                    //TODO maybe implement Float/Double operand?
+                    break;
+                case 3:
+                    value = this->get_hp();
+                    break;
+                case 4:
+                    value = this->get_crystals();
+                    break;
+                default:
+                    this->print("<WARN> Unknown atribute");
+            }
+            this->data.push(make_shared<Number>(value));
+        }
+    }
+    else {
+        this->print("<ERROR> Operand in Code::ATR is not Number");
+        this->stop = true;
+    }
+}
+
 void Machine::no_operation(){}
 
 void Machine::not_equal() {
@@ -371,6 +408,7 @@ void Machine::system() {
     (this->*f)();
 }
 
+
 void Machine::update() {
     if (this->stop || this->hp <= 0) {
         return;
@@ -407,7 +445,6 @@ void Machine::update() {
     }
 }
 
-
 void Machine::map_functions() {
     this->functions.insert({Code::ADD,  &Machine::add});
     this->functions.insert({Code::ALC,  &Machine::alloc});
@@ -424,6 +461,7 @@ void Machine::map_functions() {
     this->functions.insert({Code::JIT,  &Machine::jump_if_true});
     this->functions.insert({Code::LT,   &Machine::lower});
     this->functions.insert({Code::LE,   &Machine::lower_equal});
+    this->functions.insert({Code::MATR,  &Machine::my_attribute});
     this->functions.insert({Code::MUL,  &Machine::multiply});
     this->functions.insert({Code::NE,   &Machine::not_equal});
     this->functions.insert({Code::NOP,  &Machine::no_operation});

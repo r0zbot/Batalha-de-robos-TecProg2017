@@ -77,6 +77,19 @@ int main() {
         ,Instruction(Code::NOP,make_shared<Number>(0))
         ,Instruction(Code::JMP,make_shared<Number>(0))
         ,Instruction(Code::NOP,make_shared<Number>(0))
+		 ,Instruction(Code::MATR,make_shared<Number>(0))
+		 ,Instruction(Code::PRN,make_shared<Number>(0))
+		 ,Instruction(Code::MATR,make_shared<Number>(1))
+		 ,Instruction(Code::PRN,make_shared<Number>(0))
+		 ,Instruction(Code::MATR,make_shared<Number>(2))
+		 ,Instruction(Code::PRN,make_shared<Number>(0))
+		 ,Instruction(Code::MATR,make_shared<Number>(3))
+		 ,Instruction(Code::PRN,make_shared<Number>(0))
+		 ,Instruction(Code::MATR,make_shared<Number>(4))
+		 ,Instruction(Code::PRN,make_shared<Number>(0))
+		 ,Instruction(Code::MATR,make_shared<Number>(5))
+		 ,Instruction(Code::PRN,make_shared<Number>(0))
+
         ,Instruction(Code::END,make_shared<Number>(0))
     });
 
