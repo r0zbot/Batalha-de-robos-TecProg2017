@@ -11,7 +11,8 @@ Novos Simbolos Terminais acrecentados
     * `.cristais`: retorna o atributo contendo a quantidade de cristais naquelaa célula.
     * `.ocup`: retorna o atributo contendo o id do robô naquela célula, ou -1, caso não haja robôs.
     * `.base`: retorna o atributo contendo o id da exrcito a qual a base existente naquela célula pertence, ou -1 se não há base.
-* Os símbolos `grass` `mountain` `street` `rock` `mud` representando os respectivos tipos de terreno. 
+* Os símbolos `grass` `mountain` `street` `rock` `mud` representando os respectivos tipos de terreno.
+* Os símbolos `!` `&` e `|` representação respectivamente a negação de um booleano e as operação de "E" e a "OU" entre booleanos. 
 ## Condicionais
 
 Gramaticalmente Condicionais foram definidas podendoo ser um `if` (já definido) ou um `if` seguido de um `else`
