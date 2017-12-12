@@ -8,6 +8,8 @@
 #include <util/log.h>
 #include <controller/classes/core.h>
 
+
+
 int Arena::create_robot(const int id, const Program &prog){
     //put this robot in the army's base
     for (auto &cell : this->ambient) {
@@ -210,6 +212,11 @@ void Arena::remove_army(const int id) {
 }
 
 void Arena::render(const View &view) {
+    while(this->updated_cells.size() > 0){
+        view.load(this->updated_cells.front());
+        this->updated_cells.pop();
+        this->print("Updating cell");
+    }
     for (auto &army : this->armies) {
         army.second.render(view);
     }
@@ -244,7 +251,7 @@ bool Arena::request_attack_long(EntityMove &e, const Hex &pos) {
 
 bool Arena::request_collect(EntityMove &e, const Hex &pos) {
     if (Log::LOGGING_LEVEL == Log::DEBUG) {
-        this->print(concat("Robot ", e.get_id(), " collecting from [", pos.get_row(), ", ", pos.get_col(), "]"));
+        this->print(concat("Robot ", e.get_id(), " trying to collect from [", pos.get_row(), ", ", pos.get_col(), "]..."));
     }
     if (this->validate_insertion(pos, e)) {
         auto newPosIt = this->ambient.find(pos);
@@ -254,6 +261,7 @@ bool Arena::request_collect(EntityMove &e, const Hex &pos) {
                 this->print(concat("Robot ", e.get_id(), " now has ", e.get_crystals(), " crystals."));
                 this->ambient.erase(newPosIt);
                 this->ambient.insert(newPosHex);
+                this->updated_cells.push(newPosHex);
                 return true;
             }
         }
@@ -273,6 +281,7 @@ bool Arena::request_drop(EntityMove &e, const Hex &pos) {
                 this->print(concat("Robot ", e.get_id(), " now has ", e.get_crystals(), " crystals."));
                 this->ambient.erase(newPosIt);
                 this->ambient.insert(newPosHex);
+                this->updated_cells.push(newPosHex);
                 return true;
             }
             else {

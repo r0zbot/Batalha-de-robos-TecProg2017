@@ -1,0 +1,47 @@
+def try_move_right() {
+    if(move(WE) == false) {
+        if(move(SW) == false) {
+            if(move(NW) == false) {
+                print(-1);
+                return(false);
+            }
+        }
+    }
+    return(true);
+}
+
+def try_move_left() {
+    if(move(EA) == false) {
+        if(move(SE) == false) {
+            if(move(NE) == false) {
+                print(-1);
+                return(false);
+            }
+        }
+    }
+    return(true);
+}
+
+def collect_all() {
+    collect(WE);
+    collect(SW);
+    collect(NW);
+    collect(EA);
+    collect(SE);
+    collect(NE);
+}
+
+def pause (x){
+    i = 0;
+    while (i<x){
+        i = i + 1;
+    }
+}
+
+while (true) {
+    while (try_move_left()) {
+        collect_all();
+        print(self.mycristals);
+    }
+}
+

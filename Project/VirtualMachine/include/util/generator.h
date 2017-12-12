@@ -19,7 +19,7 @@ int Army::id_gen;
 /// These defaults should NEVER be used!
 unsigned int Config::available_crystals         = 0;
 
-unsigned int Config::machine_inventory_size     = 0;
+unsigned int Config::machine_inventory_size     = 100; //Except for this one
 unsigned int Config::machine_instructions_cycle = 0;
 unsigned int Config::machine_health             = 0;
 unsigned int Config::machine_melee_attack       = 0;
