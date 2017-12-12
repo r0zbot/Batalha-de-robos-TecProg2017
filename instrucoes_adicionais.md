@@ -17,7 +17,7 @@ Obs: Em todos os casos abaixo, _X_ é um inteiro.
     * `3`: Base. Empilha a ID do exército que tem base ali, ou -1 se nenhum. 
     
     
-* `MEE X`: Lê atributos sobre a máquina atual e empilha o resultado. X pode ser:
+* `MATR X`: Lê atributos sobre a máquina atual e empilha o resultado. X pode ser:
     * `0`: ID do robô
     * `1`: ID do exército
     * `2`: Combustível restante

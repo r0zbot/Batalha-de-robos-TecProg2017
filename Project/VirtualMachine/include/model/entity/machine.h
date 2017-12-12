@@ -418,6 +418,13 @@ class Machine : public EntityMove {
         void multiply();
 
         /**
+         * @brief Pushes the specified attribute of the current entity.
+         *
+         * Pushes the attribute specified by the instruction's argument.
+         */
+        void my_attribute();
+
+        /**
          * @brief Executes an not equals comparison for both of the topmost
          *        values of the stack.
          *
