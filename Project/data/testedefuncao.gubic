@@ -1,0 +1,19 @@
+def teste(x, y, z)
+{
+	w = x + y + z;
+	while(w > 0)
+	{
+		move(EA);
+		move(SE);
+		move(SW);
+		move(WE);
+		move(NE);
+		move(NW);
+		w = w - 1;
+	}
+}
+a = 2;
+b = 3;
+c = b - a;
+teste(a, b, c);
+
