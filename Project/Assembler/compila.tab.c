@@ -518,13 +518,13 @@ static const yytype_int8 yyrhs[] =
 static const yytype_uint16 yyrline[] =
 {
        0,    57,    57,    58,    61,    62,    63,    64,    65,    66,
-      72,    82,    83,    89,    95,   103,   111,   119,   127,   128,
-     129,   130,   131,   132,   133,   134,   135,   136,   137,   138,
-     139,   140,   141,   145,   151,   151,   159,   159,   169,   169,
-     181,   182,   184,   185,   184,   200,   201,   209,   200,   230,
-     232,   233,   237,   250,   236,   266,   267,   270,   275,   279,
-     283,   287,   291,   295,   299,   305,   306,   307,   308,   309,
-     310,   313,   318,   312,   338,   339,   340,   340
+      70,    78,    79,    85,    91,    99,   107,   115,   123,   124,
+     125,   126,   127,   128,   129,   130,   131,   132,   133,   134,
+     135,   136,   137,   141,   147,   147,   155,   155,   165,   165,
+     177,   178,   180,   181,   180,   196,   197,   205,   196,   226,
+     228,   229,   233,   246,   232,   259,   260,   263,   268,   272,
+     276,   280,   284,   288,   292,   298,   299,   300,   301,   302,
+     303,   306,   311,   305,   331,   332,   333,   333
 };
 #endif
 
@@ -1572,9 +1572,7 @@ yyreduce:
 /* Line 1464 of yacc.c  */
 #line 66 "compila.y"
     {
-		 	     AddInstr(LEAVE, 0);
-		 	     printf("LEAVE 0\n");
-			     AddInstr(RET,0);
+			     AddInstr(RET, 0);
 			     printf("RET 0\n");
  			  ;}
     break;
@@ -1582,10 +1580,8 @@ yyreduce:
   case 10:
 
 /* Line 1464 of yacc.c  */
-#line 72 "compila.y"
-    {
-		 	     AddInstr(LEAVE, 0);	
-		 	     printf("LEAVE 0\n");
+#line 70 "compila.y"
+    {	
 			     AddInstr(RET,0);
 			     printf("RET 0\n");
  		      ;}
@@ -1594,14 +1590,14 @@ yyreduce:
   case 11:
 
 /* Line 1464 of yacc.c  */
-#line 82 "compila.y"
+#line 78 "compila.y"
     { int valor = (yyvsp[(1) - (1)].val); AddInstr(PUSH, (yyvsp[(1) - (1)].val)); printf("PUSH %i\n", valor);;}
     break;
 
   case 12:
 
 /* Line 1464 of yacc.c  */
-#line 83 "compila.y"
+#line 79 "compila.y"
     {
 	         symrec *s = getsym((yyvsp[(1) - (1)].cod));
 			 if (s==0) s = putsym((yyvsp[(1) - (1)].cod)); /* não definida */
@@ -1613,7 +1609,7 @@ yyreduce:
   case 13:
 
 /* Line 1464 of yacc.c  */
-#line 89 "compila.y"
+#line 85 "compila.y"
     {
 	         symrec *s = getsym((yyvsp[(1) - (3)].cod));
 			 if (s==0) s = putsym((yyvsp[(1) - (3)].cod)); /* não definida */
@@ -1625,7 +1621,7 @@ yyreduce:
   case 14:
 
 /* Line 1464 of yacc.c  */
-#line 95 "compila.y"
+#line 91 "compila.y"
     {
 	         symrec *s = getsym((yyvsp[(1) - (2)].cod)); 
 			 if (s==0) s = putsym((yyvsp[(1) - (2)].cod)); /* não definida */ 
@@ -1639,7 +1635,7 @@ yyreduce:
   case 15:
 
 /* Line 1464 of yacc.c  */
-#line 103 "compila.y"
+#line 99 "compila.y"
     {
 	         symrec *s = getsym((yyvsp[(1) - (2)].cod)); 
 			 if (s==0) s = putsym((yyvsp[(1) - (2)].cod)); /* não definida */ 
@@ -1653,7 +1649,7 @@ yyreduce:
   case 16:
 
 /* Line 1464 of yacc.c  */
-#line 111 "compila.y"
+#line 107 "compila.y"
     {
 	         symrec *s = getsym((yyvsp[(1) - (2)].cod)); 
 			 if (s==0) s = putsym((yyvsp[(1) - (2)].cod)); /* não definida */ 
@@ -1667,7 +1663,7 @@ yyreduce:
   case 17:
 
 /* Line 1464 of yacc.c  */
-#line 119 "compila.y"
+#line 115 "compila.y"
     {
 	         symrec *s = getsym((yyvsp[(1) - (2)].cod)); 
 			 if (s==0) s = putsym((yyvsp[(1) - (2)].cod)); /* não definida */ 
@@ -1681,84 +1677,84 @@ yyreduce:
   case 21:
 
 /* Line 1464 of yacc.c  */
-#line 130 "compila.y"
+#line 126 "compila.y"
     { AddInstr(ADD,  0); printf("ADD 0\n");;}
     break;
 
   case 22:
 
 /* Line 1464 of yacc.c  */
-#line 131 "compila.y"
+#line 127 "compila.y"
     { AddInstr(SUB,  0); printf("SUB 0\n");;}
     break;
 
   case 23:
 
 /* Line 1464 of yacc.c  */
-#line 132 "compila.y"
+#line 128 "compila.y"
     { AddInstr(MUL,  0); printf("MUL 0\n");;}
     break;
 
   case 24:
 
 /* Line 1464 of yacc.c  */
-#line 133 "compila.y"
+#line 129 "compila.y"
     { AddInstr(DIV,  0); printf("DIV 0\n");;}
     break;
 
   case 25:
 
 /* Line 1464 of yacc.c  */
-#line 134 "compila.y"
+#line 130 "compila.y"
     { AddInstr(PUSH, -1); printf("PUSH -1\n");  AddInstr(MUL, 0); printf("MUL 0\n");;}
     break;
 
   case 27:
 
 /* Line 1464 of yacc.c  */
-#line 136 "compila.y"
+#line 132 "compila.y"
     { AddInstr(LT,   0); printf("LT 0\n");;}
     break;
 
   case 28:
 
 /* Line 1464 of yacc.c  */
-#line 137 "compila.y"
+#line 133 "compila.y"
     { AddInstr(GT,   0); printf("GT 0\n");;}
     break;
 
   case 29:
 
 /* Line 1464 of yacc.c  */
-#line 138 "compila.y"
+#line 134 "compila.y"
     { AddInstr(LE,   0); printf("LE 0\n");;}
     break;
 
   case 30:
 
 /* Line 1464 of yacc.c  */
-#line 139 "compila.y"
+#line 135 "compila.y"
     { AddInstr(GE,   0); printf("GE 0\n");;}
     break;
 
   case 31:
 
 /* Line 1464 of yacc.c  */
-#line 140 "compila.y"
+#line 136 "compila.y"
     { AddInstr(EQ,   0); printf("EQ 0\n");;}
     break;
 
   case 32:
 
 /* Line 1464 of yacc.c  */
-#line 141 "compila.y"
+#line 137 "compila.y"
     { AddInstr(NE,   0); printf("NE 0\n");;}
     break;
 
   case 33:
 
 /* Line 1464 of yacc.c  */
-#line 146 "compila.y"
+#line 142 "compila.y"
     {
 		   AddInstr(NOP, 0);
 		   printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
@@ -1769,7 +1765,7 @@ yyreduce:
   case 34:
 
 /* Line 1464 of yacc.c  */
-#line 151 "compila.y"
+#line 147 "compila.y"
     { AddInstr(PUSH, 1);
 		   printf("PUSH 1\n");
 		   AddInstr(NOP, 0);
@@ -1781,7 +1777,7 @@ yyreduce:
   case 36:
 
 /* Line 1464 of yacc.c  */
-#line 159 "compila.y"
+#line 155 "compila.y"
     {
 			   AddInstr(DUP, 0);
 		       printf("DUP 0\n");
@@ -1795,7 +1791,7 @@ yyreduce:
   case 38:
 
 /* Line 1464 of yacc.c  */
-#line 169 "compila.y"
+#line 165 "compila.y"
     {
 		 	salva_end(ip);
 			AddInstr(JIT,  0);
@@ -1807,7 +1803,7 @@ yyreduce:
   case 39:
 
 /* Line 1464 of yacc.c  */
-#line 175 "compila.y"
+#line 171 "compila.y"
     {
 		   AddInstr(NOP, 0);
 		   printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
@@ -1818,14 +1814,14 @@ yyreduce:
   case 42:
 
 /* Line 1464 of yacc.c  */
-#line 184 "compila.y"
+#line 180 "compila.y"
     {salva_end(ip);;}
     break;
 
   case 43:
 
 /* Line 1464 of yacc.c  */
-#line 185 "compila.y"
+#line 181 "compila.y"
     { 
 	  			salva_end(ip); 
 	  			AddInstr(JIF, 0);
@@ -1837,7 +1833,7 @@ yyreduce:
   case 44:
 
 /* Line 1464 of yacc.c  */
-#line 191 "compila.y"
+#line 187 "compila.y"
     {
 			  int ip2 = pega_end();
 			  int ipToJump = pega_end();
@@ -1852,14 +1848,14 @@ yyreduce:
   case 45:
 
 /* Line 1464 of yacc.c  */
-#line 200 "compila.y"
+#line 196 "compila.y"
     {salva_end(ip);;}
     break;
 
   case 46:
 
 /* Line 1464 of yacc.c  */
-#line 201 "compila.y"
+#line 197 "compila.y"
     { 
 	  			AddInstr(JIF, 0);
 	  			printf("JIF label%i\n", indiceLabel); 
@@ -1873,7 +1869,7 @@ yyreduce:
   case 47:
 
 /* Line 1464 of yacc.c  */
-#line 209 "compila.y"
+#line 205 "compila.y"
     {
 				int ip2 = pega_end();
 				int ipToJump = pega_end();
@@ -1890,7 +1886,7 @@ yyreduce:
   case 48:
 
 /* Line 1464 of yacc.c  */
-#line 220 "compila.y"
+#line 216 "compila.y"
     {
 			  	int ip2 = pega_end();
 			  	int ipToJump = pega_end();
@@ -1905,7 +1901,7 @@ yyreduce:
   case 52:
 
 /* Line 1464 of yacc.c  */
-#line 237 "compila.y"
+#line 233 "compila.y"
     {
 		salva_end(ip);
 		AddInstr(JMP,  0);
@@ -1924,7 +1920,7 @@ yyreduce:
   case 53:
 
 /* Line 1464 of yacc.c  */
-#line 250 "compila.y"
+#line 246 "compila.y"
     {
 		newtab(0);
 	  ;}
@@ -1933,10 +1929,8 @@ yyreduce:
   case 54:
 
 /* Line 1464 of yacc.c  */
-#line 254 "compila.y"
+#line 249 "compila.y"
     {
-		AddInstr(LEAVE, 0);
-		printf("LEAVE 0\n");
 		AddInstr(RET, 0);
 		printf("RET 0\n");
 		AddInstr(NOP, 0); 
@@ -1949,7 +1943,7 @@ yyreduce:
   case 56:
 
 /* Line 1464 of yacc.c  */
-#line 267 "compila.y"
+#line 260 "compila.y"
     {
 	  	 putsym((yyvsp[(1) - (1)].cod));
 	  ;}
@@ -1958,7 +1952,7 @@ yyreduce:
   case 57:
 
 /* Line 1464 of yacc.c  */
-#line 270 "compila.y"
+#line 263 "compila.y"
     {
 	  	 putsym((yyvsp[(3) - (3)].cod));
 	  ;}
@@ -1967,7 +1961,7 @@ yyreduce:
   case 58:
 
 /* Line 1464 of yacc.c  */
-#line 275 "compila.y"
+#line 268 "compila.y"
     {
  	      AddInstr(PUSH, 1);
  	      printf("SYS {ACTION, {MOVE, %s}}\n", (yyvsp[(3) - (4)].dir));
@@ -1977,7 +1971,7 @@ yyreduce:
   case 59:
 
 /* Line 1464 of yacc.c  */
-#line 279 "compila.y"
+#line 272 "compila.y"
     {
  	      AddInstr(PUSH, 1);
  	      printf("SYS {ACTION, {ATKMELEE, %s}}\n", (yyvsp[(3) - (4)].dir));
@@ -1987,7 +1981,7 @@ yyreduce:
   case 60:
 
 /* Line 1464 of yacc.c  */
-#line 283 "compila.y"
+#line 276 "compila.y"
     {
  	      AddInstr(PUSH, 1);
  	      printf("SYS {ACTION, {ATKSHORT, %s}}\n", (yyvsp[(3) - (4)].dir));
@@ -1997,7 +1991,7 @@ yyreduce:
   case 61:
 
 /* Line 1464 of yacc.c  */
-#line 287 "compila.y"
+#line 280 "compila.y"
     {
  	      AddInstr(PUSH, 1);
  	      printf("SYS {ACTION, {ATKLONG, %s}}\n", (yyvsp[(3) - (4)].dir));
@@ -2007,7 +2001,7 @@ yyreduce:
   case 62:
 
 /* Line 1464 of yacc.c  */
-#line 291 "compila.y"
+#line 284 "compila.y"
     {
  	      AddInstr(PUSH, 1);
  	      printf("SYS {ACTION, {COLLECT, %s}}\n", (yyvsp[(3) - (4)].dir));
@@ -2017,7 +2011,7 @@ yyreduce:
   case 63:
 
 /* Line 1464 of yacc.c  */
-#line 295 "compila.y"
+#line 288 "compila.y"
     {
  	      AddInstr(PUSH, 1);
  	      printf("SYS {ACTION, {DROP, %s}}\n", (yyvsp[(3) - (4)].dir));
@@ -2027,7 +2021,7 @@ yyreduce:
   case 64:
 
 /* Line 1464 of yacc.c  */
-#line 299 "compila.y"
+#line 292 "compila.y"
     {
  		  AddInstr(PUSH, 1);
  	      printf("SYS {ACTION, {SEE, %s}}\n", (yyvsp[(3) - (4)].dir));
@@ -2037,49 +2031,49 @@ yyreduce:
   case 65:
 
 /* Line 1464 of yacc.c  */
-#line 305 "compila.y"
+#line 298 "compila.y"
     {AddInstr(PUSH, 1); printf("MATR 0\n");;}
     break;
 
   case 66:
 
 /* Line 1464 of yacc.c  */
-#line 306 "compila.y"
+#line 299 "compila.y"
     {AddInstr(PUSH, 1); printf("MATR 1\n");;}
     break;
 
   case 67:
 
 /* Line 1464 of yacc.c  */
-#line 307 "compila.y"
+#line 300 "compila.y"
     {AddInstr(PUSH, 1); printf("MATR 2\n");;}
     break;
 
   case 68:
 
 /* Line 1464 of yacc.c  */
-#line 308 "compila.y"
+#line 301 "compila.y"
     {AddInstr(PUSH, 1); printf("MATR 3\n");;}
     break;
 
   case 69:
 
 /* Line 1464 of yacc.c  */
-#line 309 "compila.y"
+#line 302 "compila.y"
     {AddInstr(PUSH, 1); printf("MATR 4\n");;}
     break;
 
   case 70:
 
 /* Line 1464 of yacc.c  */
-#line 310 "compila.y"
+#line 303 "compila.y"
     {AddInstr(PUSH, 1); printf("MATR 5\n");;}
     break;
 
   case 71:
 
 /* Line 1464 of yacc.c  */
-#line 313 "compila.y"
+#line 306 "compila.y"
     {
 			 parmcnt = 0;
 			 /* posição da memória mais avançada */
@@ -2089,14 +2083,14 @@ yyreduce:
   case 72:
 
 /* Line 1464 of yacc.c  */
-#line 318 "compila.y"
+#line 311 "compila.y"
     {
 		   symrec *s = getsym((yyvsp[(1) - (4)].cod));
 		   if (s == 0) {
 			 yyerror("Função não definida\n");
 			 YYABORT;
 		   }
-		   AddInstr(ENTRY, 1);
+		   AddInstr(ENTRY, lastval());
 		   printf("ENTRY %i\n", lastval());
 		   /* Cópia dos parâmetros */
 		   while (parmcnt > 0) 
@@ -2112,21 +2106,21 @@ yyreduce:
   case 75:
 
 /* Line 1464 of yacc.c  */
-#line 339 "compila.y"
+#line 332 "compila.y"
     { parmcnt++;;}
     break;
 
   case 76:
 
 /* Line 1464 of yacc.c  */
-#line 340 "compila.y"
+#line 333 "compila.y"
     { parmcnt++;;}
     break;
 
 
 
 /* Line 1464 of yacc.c  */
-#line 2130 "compila.tab.c"
+#line 2124 "compila.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -2338,7 +2332,7 @@ yyreturn:
 
 
 /* Line 1684 of yacc.c  */
-#line 344 "compila.y"
+#line 337 "compila.y"
 
 extern FILE *yyin;
 

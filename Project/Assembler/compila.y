@@ -64,14 +64,10 @@ Comando: Expr EOL
        | Func
 	   | PRINT Expr EOL { AddInstr(PRN, 0); printf("PRN 0\n");}
 	   | RETt EOL {
-		 	     AddInstr(LEAVE, 0);
-		 	     printf("LEAVE 0\n");
-			     AddInstr(RET,0);
+			     AddInstr(RET, 0);
 			     printf("RET 0\n");
  			  }
-	   | RETt OPEN  Expr CLOSE EOL {
-		 	     AddInstr(LEAVE, 0);	
-		 	     printf("LEAVE 0\n");
+	   | RETt OPEN  Expr CLOSE EOL {	
 			     AddInstr(RET,0);
 			     printf("RET 0\n");
  		      }
@@ -250,10 +246,7 @@ Func: FUNC ID
 	  {
 		newtab(0);
 	  }
-	  Args CLOSE  Bloco
-	  {
-		AddInstr(LEAVE, 0);
-		printf("LEAVE 0\n");
+	  Args CLOSE  Bloco {+
 		AddInstr(RET, 0);
 		printf("RET 0\n");
 		AddInstr(NOP, 0); 
@@ -321,7 +314,7 @@ Chamada: ID OPEN
 			 yyerror("Função não definida\n");
 			 YYABORT;
 		   }
-		   AddInstr(ENTRY, 1);
+		   AddInstr(ENTRY, lastval());
 		   printf("ENTRY %i\n", lastval());
 		   /* Cópia dos parâmetros */
 		   while (parmcnt > 0) 

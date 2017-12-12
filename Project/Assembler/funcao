@@ -1,13 +1,17 @@
 x = 3;
 y = 4;
-def f(g, h)
+def g(t, u)
+{
+	var = t + u;
+	return (var);
+}
+def f(i, j)
 {
 	local = 1;
 	lo = 2;
-	local = f(local, lo);
+	lo = g(local, lo);
 	return (lo);
 }
-y = 3;
 s = 7;
 r = 3;
-j = f(1,2);
+resp = f(x,y);

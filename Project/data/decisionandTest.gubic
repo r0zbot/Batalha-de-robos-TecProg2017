@@ -1,0 +1,185 @@
+eu = self.army;
+while(true)
+{
+	def walk(dir)
+	{
+		if(dir == 0)
+		{
+			move(EA);
+			cel = see(EA);
+			if(cel.terreno != rock)
+			{
+				if(cel.ocup == -1)
+				{
+					if(cel.base == -1)
+					{
+						walk(0);
+					}
+					else
+					{
+						if(cel.base == eu)
+						{
+							drop(EA);
+						}
+						else
+						{
+							collect(EA);
+						}
+					}
+				}
+				else
+				{
+					if(cel.ocup != eu)
+					{
+						atkmelee(EA);
+					}
+				}
+			}
+		}
+		cel = see(SE);
+		if(cel.terreno != rock)
+		{
+			if(cel.ocup == -1)
+			{
+				if(cel.base == -1)
+				{
+					move(SE);
+				}
+				else
+				{
+					if(cel.base == eu)
+					{
+						drop(SE);
+					}
+					else
+					{
+						collect(SE);
+					}
+				}
+			}
+			else
+			{
+				if(cel.ocup != eu)
+				{
+					atkmelee(SE);
+				}
+			}
+		}
+		cel = see(SW);
+		if(cel.terreno != rock)
+		{
+			if(cel.ocup == -1)
+			{
+				if(cel.base == -1)
+				{
+					move(SW);
+				}
+				else
+				{
+					if(cel.base == eu)
+					{
+						drop(SW);
+					}
+					else
+					{
+						collect(SW);
+					}
+				}
+			}
+			else
+			{
+				if(cel.ocup != eu)
+				{
+					atkmelee(SW);
+				}
+			}
+		}
+		cel = see(WE);
+		if(cel.terreno != rock)
+		{
+			if(cel.ocup == -1)
+			{
+				if(cel.base == -1)
+				{
+					move(WE);
+				}
+				else
+				{
+					if(cel.base == eu)
+					{
+						drop(WE);
+					}
+					else
+					{
+						collect(WE);
+					}
+				}
+			}
+			else
+			{
+				if(cel.ocup != eu)
+				{
+					atkmelee(WE);
+				}
+			}
+		}
+		cel = see(NW);
+		if(cel.terreno != rock)
+		{
+			if(cel.ocup == -1)
+			{
+				if(cel.base == -1)
+				{
+					move(NW);
+				}
+				else
+				{
+					if(cel.base == eu)
+					{
+						drop(NW);
+					}
+					else
+					{
+						collect(NW);
+					}
+				}
+			}
+			else
+			{
+				if(cel.ocup != eu)
+				{
+					atkmelee(NW);
+				}
+			}
+		}
+		cel = see(NE);
+		if(cel.terreno != rock)
+		{
+			if(cel.ocup == -1)
+			{
+				if(cel.base == -1)
+				{
+					move(NE);
+				}
+				else
+				{
+					if(cel.base == eu)
+					{
+						drop(NE);
+					}
+					else
+					{
+						collect(NE);
+					}
+				}
+			}
+			else
+			{
+				if(cel.ocup != eu)
+				{
+					atkmelee(NE);
+				}
+			}
+		}
+	}
+}
