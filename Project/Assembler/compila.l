@@ -11,9 +11,14 @@ E [Ee][+-]?{D}+
 
 %%
 {D}*[.]?{D}+{E}?	{ yylval.val = atof(yytext); return NUMt; }
-"CE"|"NE"|"NW"|"EA"|"WE"|"SE"|"SW" { strncpy(yylval.dir, yytext, 2); return DIR; }
+"NE"|"NW"|"EA"|"WE"|"SE"|"SW" { strncpy(yylval.dir, yytext, 3); return DIR; }
 true { yylval.val = 1; return NUMt; }
 false { yylval.val = 0; return NUMt; }
+grass { yylval.val = 0; return NUMt; }
+mountain { yylval.val = 1; return NUMt; }
+street { yylval.val = 2; return NUMt; }
+rock { yylval.val = 3; return NUMt; }
+mud { yylval.val = 4; return NUMt; }
 ret(urn)?  { return RETt; }
 
 if      { return IF; }
@@ -26,6 +31,13 @@ print   { return PRINT; }
 \.cristais { return CRI; }
 \.ocup     { return OCP; }
 \.base     { return BAS; }
+self       { return SELFt; }
+\.id       { return MYSELF; }
+\.army     { return MYARMY; }
+\.full     { return FULL; }
+\.hp       { return HP; }
+\.mycristals { return MYCR; }
+\.cell     { return MYCELL; }
 move       { return MOV; }
 atkmelee   { return ATKM; }
 atkshort   { return ATKS; }
@@ -33,7 +45,6 @@ atklong    { return ATKL; }
 collect    { return COL; }
 drop       { return DRP; }
 see        { return SEEt; }
-my_id      { return MY; }
 
 
 

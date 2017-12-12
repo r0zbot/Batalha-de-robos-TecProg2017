@@ -1,2 +1,8 @@
-x = 3;
-x.terreno;
+ceee = see(NE);
+ceee.base;
+ola = move(WE);
+x = self.army;
+if(ceee.terreno != rock)
+{
+	move(NE);
+}

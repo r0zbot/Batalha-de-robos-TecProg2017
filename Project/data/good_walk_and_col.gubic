@@ -1,0 +1,27 @@
+while (true)
+{
+	while(move(WE))
+	{
+		collect(NW);
+	}
+	while(move(NW))
+	{
+		collect(NE);
+	}
+	while(move(NE))
+	{
+		collect(EA);
+	}
+	while(move(EA))
+	{
+		collect(SE);
+	}
+	while(move(SE))
+	{
+		collect(SW);
+	}
+	while(move(SW))
+	{
+		collect(WE);
+	}
+}

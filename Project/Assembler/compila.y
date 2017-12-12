@@ -30,7 +30,7 @@ void AddInstr(OpCode op, int val) {
   double val;
   /* symrec *cod; */
   char cod[30];
-  char dir[2];
+  char dir[3];
 }
 
 
@@ -41,7 +41,7 @@ void AddInstr(OpCode op, int val) {
 %token <dir> DIR
 %token ADDt SUBt MULt DIVt ASGN OPEN CLOSE RETt EOL
 %token EQt NEt LTt LEt GTt GEt ABRE FECHA SEP
-%token IF WHILE FUNC ELSE FOR PRINT TERR CRI OCP BAS MOV ATKM ATKS ATKL COL DRP SEEt MY
+%token IF WHILE FUNC ELSE FOR PRINT TERR CRI OCP BAS MOV ATKM ATKS ATKL COL DRP SEEt SELFt MYSELF MYARMY FULL HP MYCR MYCELL
 
 %right ASGN
 %left ADDt SUBt
@@ -125,6 +125,7 @@ Expr: NUMt { int valor = $1; AddInstr(PUSH, $1); printf("PUSH %i\n", valor);}
 			 printf("ATR 3\n");
  		 }
  	| Syscall
+ 	| SELFt self
 	| Chamada 
     | Expr ADDt Expr { AddInstr(ADD,  0); printf("ADD 0\n");}
 	| Expr SUBt Expr { AddInstr(SUB,  0); printf("SUB 0\n");}
@@ -273,53 +274,40 @@ Args:
 
 Syscall: MOV OPEN DIR CLOSE {
  	      AddInstr(PUSH, 1);
- 	      char *direc;
- 	      direc = $3;
- 	      printf("SYS {ACTION, {MOVE, %s}}\n", direc);
+ 	      printf("SYS {ACTION, {MOVE, %s}}\n", $3);
  	   }
  	| ATKM OPEN DIR CLOSE {
  	      AddInstr(PUSH, 1);
- 	      char *direc;
- 	      direc = $3;
- 	      printf("SYS {ACTION, {ATKMELEE, %s}}\n", direc);
+ 	      printf("SYS {ACTION, {ATKMELEE, %s}}\n", $3);
  	   }
     | ATKS OPEN DIR CLOSE {
  	      AddInstr(PUSH, 1);
- 	      char *direc;
- 	      direc = $3;
- 	      printf("SYS {ACTION, {ATKSHORT, %s}}\n", direc);
+ 	      printf("SYS {ACTION, {ATKSHORT, %s}}\n", $3);
  	   }
 	| ATKL OPEN DIR CLOSE {
  	      AddInstr(PUSH, 1);
- 	      char *direc;
- 	      direc = $3;
- 	      printf("SYS {ACTION, {ATKLONG, %s}}\n", direc);
+ 	      printf("SYS {ACTION, {ATKLONG, %s}}\n", $3);
  	   }
  	| COL OPEN DIR CLOSE {
  	      AddInstr(PUSH, 1);
- 	      char *direc;
- 	      direc = $3;
- 	      printf("SYS {ACTION, {COLLECT, %s}}\n", direc);
+ 	      printf("SYS {ACTION, {COLLECT, %s}}\n", $3);
  	   }
  	| DRP OPEN DIR CLOSE {
  	      AddInstr(PUSH, 1);
- 	      char *direc;
- 	      direc = $3;
- 	      printf("SYS {ACTION, {DROP, %s}}\n", direc);
+ 	      printf("SYS {ACTION, {DROP, %s}}\n", $3);
  	   }
  	| SEEt OPEN DIR CLOSE {
  		  AddInstr(PUSH, 1);
- 	      char *direc;
- 	      direc = $3;
- 	      printf("SYS {ACTION, {SEE, %s}}\n", direc);
- 	}
- 	| MY {
- 		  AddInstr(PUSH, 1);
- 	      printf("SYS {ACTION, {SEE, CE}}\n");
- 	      AddInstr(ATR, 2);
- 	      printf("ATR 2\n");
+ 	      printf("SYS {ACTION, {SEE, %s}}\n", $3);
  	}
  ;
+
+ self: MYSELF {AddInstr(PUSH, 1); printf("MATR 0\n");}
+	 | MYARMY {AddInstr(PUSH, 1); printf("MATR 1\n");}
+	 | FULL   {AddInstr(PUSH, 1); printf("MATR 2\n");}
+	 | HP     {AddInstr(PUSH, 1); printf("MATR 3\n");}
+	 | MYCR   {AddInstr(PUSH, 1); printf("MATR 4\n");}
+	 | MYCELL {AddInstr(PUSH, 1); printf("MATR 5\n");}
 
 Chamada: ID OPEN
 		 {

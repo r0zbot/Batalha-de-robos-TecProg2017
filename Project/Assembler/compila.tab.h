@@ -76,9 +76,15 @@
      COL = 293,
      DRP = 294,
      SEEt = 295,
-     MY = 296,
-     NEG = 297,
-     PWR = 298
+     SELFt = 296,
+     MYSELF = 297,
+     MYARMY = 298,
+     FULL = 299,
+     HP = 300,
+     MYCR = 301,
+     MYCELL = 302,
+     NEG = 303,
+     PWR = 304
    };
 #endif
 
@@ -94,12 +100,12 @@ typedef union YYSTYPE
   double val;
   /* symrec *cod; */
   char cod[30];
-  char dir[2];
+  char dir[3];
 
 
 
 /* Line 1685 of yacc.c  */
-#line 103 "compila.tab.h"
+#line 109 "compila.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
