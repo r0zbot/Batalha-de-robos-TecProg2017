@@ -1,0 +1,23 @@
+a = 1;
+b = 2;
+c = 3;
+d = 4;
+
+def funcao_um(x, y, z) {
+    e = 5;
+    f = 6;
+    g = 7;
+    print(g);
+    print(x);
+}
+
+def funcao_dois(w, j, k) {
+    h = 11;
+    print(h);
+    print(j);
+    funcao_um(12, 13, 14);
+}
+
+funcao_dois(8, 9, 10);
+
+print(d);
