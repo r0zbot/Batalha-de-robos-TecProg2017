@@ -11,23 +11,21 @@
  * implemented in the <b>Machine</b>.
  */
 enum class Code {
-    ADD,  ///< Pops both topmost elements from the stack and pushes its sum
+    ADD,   ///< Pops both topmost elements from the stack and pushes its sum
 
-    ALC,  ///< Allocates a specific amount of space in the current frame scope
+    ATR,   ///< Pops the topmost element from the stack and pushes its specified attribute
 
-    ATR,  ///< Pops the topmost element from the stack and pushes its specified attribute
+    CALL,  ///< Call a specific function
 
-    CALL, ///< Call a specific function
+    DIV,   ///< Pops both topmost elements from the stack and pushes its quotient
 
-    DIV,  ///< Pops both topmost elements from the stack and pushes its quotient
+    DUP,   ///< Duplicates the topmost element of the stack
 
-    DUP,  ///< Duplicates the topmost element of the stack
+    EQ,    ///< Verify if both topmost elements are equal and pushes the result
 
-    EQ,   ///< Verify if both topmost elements are equal and pushes the result
+    END,   ///< Stops the execution of the <b>Machine</b>
 
-    END,  ///< Stops the execution of the <b>Machine</b>
-
-    FRE,  ///< Frees a specific amount of space in the current frame scope
+    ENTRY, ///< Stores the new function offset.
 
     GE,   ///< Execute a greater/equal condition in both topmost elements and pushes the result
 
@@ -57,15 +55,11 @@ enum class Code {
 
     PUSH, ///< Pushes an element to the top of the stack
 
-    RCE,  ///< Pushes the specified subprogram local variable to the main stack
-
     RCL,  ///< Pushes the specified global variable to the main stack
 
     RET,  ///< Stops the current subprocess and return to the last function activated
 
     SEE,  ///< Pushes the cell at the specified direction
-
-    STL,  ///< Stores the topmost value of the stack as a local variable in the current subroutine active
 
     STO,  ///< Stores the topmost value of the stack as a global variable
 
