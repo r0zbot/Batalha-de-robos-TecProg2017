@@ -2096,7 +2096,7 @@ yyreduce:
 			 yyerror("Função não definida\n");
 			 YYABORT;
 		   }
-		   AddInstr(ENTRY, lastval());
+		   AddInstr(ENTRY, 1);
 		   printf("ENTRY %i\n", lastval());
 		   /* Cópia dos parâmetros */
 		   while (parmcnt > 0) 
