@@ -1582,7 +1582,7 @@ yyreduce:
 /* Line 1464 of yacc.c  */
 #line 70 "compila.y"
     {	
-			     AddInstr(RET,0);
+			     AddInstr(RET, 0);
 			     printf("RET 0\n");
  		      ;}
     break;

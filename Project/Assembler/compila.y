@@ -68,7 +68,7 @@ Comando: Expr EOL
 			     printf("RET 0\n");
  			  }
 	   | RETt OPEN  Expr CLOSE EOL {	
-			     AddInstr(RET,0);
+			     AddInstr(RET, 0);
 			     printf("RET 0\n");
  		      }
  	   
@@ -246,7 +246,7 @@ Func: FUNC ID
 	  {
 		newtab(0);
 	  }
-	  Args CLOSE  Bloco {+
+	  Args CLOSE  Bloco {
 		AddInstr(RET, 0);
 		printf("RET 0\n");
 		AddInstr(NOP, 0); 
