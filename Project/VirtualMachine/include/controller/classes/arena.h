@@ -11,6 +11,7 @@
 #include <model/entity/machine.h>
 
 #include <view/view.h>
+#include <queue>
 
 using namespace std;
 
@@ -36,6 +37,8 @@ class Arena {
          * Stores all the armies currently actives in the game.
          */
         map<int, Army> armies;
+
+        queue<Hex> updated_cells;
 
         /**
          * Represents this <b>Arena</b> height, or number of rows in the grid.

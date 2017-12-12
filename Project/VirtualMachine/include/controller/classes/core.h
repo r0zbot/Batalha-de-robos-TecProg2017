@@ -34,10 +34,7 @@ using namespace std;
 class Core {
 
     private:
-        /**
-         * Represents the {@link #Arena} for the current game.
-         */
-        Arena arena;
+
 
         /**
          * Represents the system sleep time in milliseconds.
@@ -93,7 +90,7 @@ class Core {
          * @param [arena]      The {@link #Arena} in the current game.
          * @param [sleep_time] The system sleep time in milliseconds.
          */
-        Core(const Arena &arena, unsigned int sleep_time);
+        explicit Core(unsigned int sleep_time);
 
         /**
          * @brief Gets the path to the final binary.

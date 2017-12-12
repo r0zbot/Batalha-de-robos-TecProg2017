@@ -1,8 +1,8 @@
 #include <controller/classes/core.h>
+#include <util/globals.h>
 
-Core::Core(const Arena &arena, const unsigned int sleep_time)
-        : arena(arena),
-          sleep_time(sleep_time) {}
+Core::Core(const unsigned int sleep_time)
+        : sleep_time(sleep_time) {}
 
 string Core::get_bin_path() {
 #ifdef linux
@@ -43,11 +43,11 @@ string Core::get_soldier_image_path(const int army_id) {
 }
 
 void Core::on_load() {
-    this->arena.load(this->view);
+    arena.load(this->view);
 }
 
 void Core::on_render() {
-    this->arena.render(this->view);
+    arena.render(this->view);
     this->view.update();
 }
 
@@ -56,7 +56,7 @@ void Core::on_unload() {
 }
 
 void Core::on_update() {
-    this->arena.update(this->view);
+    arena.update(this->view);
 }
 
 void Core::sleep() const {
