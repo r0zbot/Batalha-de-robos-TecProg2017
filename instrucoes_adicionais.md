@@ -8,6 +8,23 @@ Obs: Em todos os casos abaixo, _X_ é um inteiro.
 * `RCE X`: Empilha o elemento da posição _X_ do espaço de variáveis locais na pilha de execução .
 * `NOP 0`: Nenhuma operação.
 
+## Instruções leitura de dados
+
+* `ATR X`: Lê  atributos da célula empilhada. X pode ser:
+    * `0`: Tipo de terreno. Empilha um inteiro que representa o tipo de terreno da célula.
+    * `1`: Quantidade de cristais. Empilha a quantidade de cristais que o robô esta carregando.
+    * `2`: Ocupação. Empilha a ID do robô que se encontra ali, ou -1 se nenhum.
+    * `3`: Base. Empilha a ID do exército que tem base ali, ou -1 se nenhum. 
+    
+    
+* `MEE X`: Lê atributos sobre a máquina atual e empilha o resultado. X pode ser:
+    * `0`: ID do robô
+    * `1`: ID do exército
+    * `2`: Combustível restante
+    * `3`: HP restante
+    * `4`: Quantidade de cristais
+    * `5`: Célula atual. Empilha a célula em que o robô se encontra
+
 ## Instruções com tipos de dados compostos
 Para passar um tipo composto em Assembly basta utilizar a seguinte sintaxe: `INTR {TYPE, {ARGUMENTS}}`,onde _INTR_ é o código da instrução a ser executa, _TYPE_ é o tipo do objeto que esta sendo passado, e _ARGUMENTS_ são os parametros necessários para a construção do objeto.
 
