@@ -14,7 +14,6 @@
 Machine::Machine(const Program &program, const Hex &pos, const string &image_path)
     : stop(false),
       ip(0),
-      exec(MACHINE_EXECUTION_STACK_SIZE),
       memo(MACHINE_MEMORY_SIZE),
       program(program),
       EntityMove(pos,
@@ -54,17 +53,6 @@ void Machine::add() {
     }
 }
 
-void Machine::alloc() {
-    auto n = dynamic_pointer_cast<Number>(this->fetch_arg());
-    if (n) {
-        this->exec.alloc(n->get_value());
-    }
-    else {
-        this->print("<ERROR> Operand in Code::ALC is not Number");
-        this->stop = true;
-    }
-}
-
 void Machine::atr() {
     auto aux = &this->data.top();
     this->data.pop();
@@ -91,7 +79,7 @@ void Machine::attack_long() {
 }
 
 void Machine::call() {
-    this->exec.push(make_shared<Number>(this->ip));
+    this->memo.push(this->ip);
     this->jump();
 }
 
@@ -122,6 +110,17 @@ void Machine::duplicate() {
     this->data.push(*top);
 }
 
+void Machine::entry() {
+    auto n = dynamic_pointer_cast<Number>(this->fetch_arg());
+    if (n) {
+        this->memo.offset(n->get_value());
+    }
+    else {
+        this->print("<ERROR> Operand in Code::ENTRY is not Number");
+        this->stop = true;
+    }
+}
+
 void Machine::equals() {
     auto n1 = dynamic_pointer_cast<Number>(this->data.top());
     this->data.pop();
@@ -139,17 +138,6 @@ void Machine::equals() {
 void Machine::execute() {
     while (!this->stop) {
         this->update();
-    }
-}
-
-void Machine::free() {
-    auto n = dynamic_pointer_cast<Number>(this->fetch_arg());
-    if (n) {
-        this->exec.free(n->get_value());
-    }
-    else {
-        this->print("<ERROR> Operand in Code::FRE is not Number");
-        this->stop = true;
     }
 }
 
@@ -324,21 +312,10 @@ void Machine::push() {
     this->data.push(this->fetch_arg());
 }
 
-void Machine::rce() {
-    auto n = dynamic_pointer_cast<Number>(this->fetch_arg());
-    if (n) {
-        this->data.push(this->exec.get(n->get_value()));
-    }
-    else {
-        this->print("<ERROR> Operand in Code::RCE is not Number");
-        this->stop = true;
-    }
-}
-
 void Machine::recall() {
     auto n = dynamic_pointer_cast<Number>(this->fetch_arg());
     if (n) {
-        this->data.push(this->memo[n->get_value()]);
+        this->data.push(this->memo.get(n->get_value()));
     }
     else {
         this->print("<ERROR> Operand in Code::RCL is not Number");
@@ -349,16 +326,14 @@ void Machine::recall() {
 void Machine::reset() {
     this->stop = false;
     this->ip = 0;
-    this->exec.reset();
-    this->memo.clear();
-
+    this->memo.reset();
     while (!this->data.empty()) {
         this->data.pop();
     }
 }
 
 void Machine::return_from_procedure() {
-    this->ip = this->exec.back();
+    this->ip = this->memo.back();
 }
 
 void Machine::see() {
@@ -375,14 +350,9 @@ void Machine::set_program(const Program &program) {
 void Machine::store() {
     auto n = dynamic_pointer_cast<Number>(this->fetch_arg());
     if (n) {
-        this->memo[n->get_value()] = this->data.top();
+        this->memo.set(n->get_value(), this->data.top());
         this->data.pop();
     }
-}
-
-void Machine::stl() {
-    this->exec.set(this->fetch_arg()->get_atr(0), this->data.top());
-    this->data.pop();
 }
 
 void Machine::subtract() {
@@ -447,13 +417,12 @@ void Machine::update() {
 
 void Machine::map_functions() {
     this->functions.insert({Code::ADD,  &Machine::add});
-    this->functions.insert({Code::ALC,  &Machine::alloc});
     this->functions.insert({Code::ATR,  &Machine::atr});
     this->functions.insert({Code::CALL, &Machine::call});
     this->functions.insert({Code::DIV,  &Machine::divide});
     this->functions.insert({Code::DUP,  &Machine::duplicate});
+    this->functions.insert({Code::ENTRY,&Machine::entry});
     this->functions.insert({Code::EQ,   &Machine::equals});
-    this->functions.insert({Code::FRE,  &Machine::free});
     this->functions.insert({Code::GT,   &Machine::greater});
     this->functions.insert({Code::GE,   &Machine::greater_equal});
     this->functions.insert({Code::JMP,  &Machine::jump});
@@ -468,10 +437,8 @@ void Machine::map_functions() {
     this->functions.insert({Code::POP,  &Machine::pop});
     this->functions.insert({Code::PRN,  &Machine::print});
     this->functions.insert({Code::PUSH, &Machine::push});
-    this->functions.insert({Code::RCE,  &Machine::rce});
     this->functions.insert({Code::RCL,  &Machine::recall});
     this->functions.insert({Code::RET,  &Machine::return_from_procedure});
-    this->functions.insert({Code::STL,  &Machine::stl});
     this->functions.insert({Code::STO,  &Machine::store});
     this->functions.insert({Code::SUB,  &Machine::subtract});
     this->functions.insert({Code::SYS,  &Machine::system});

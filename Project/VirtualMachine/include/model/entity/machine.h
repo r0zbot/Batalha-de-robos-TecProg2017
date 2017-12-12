@@ -126,13 +126,6 @@ class Machine : public EntityMove {
         stack<OperandPtr> data;
 
         /**
-         * Represents a call-return stack in memory to organize
-         * and store short-lived local variables and return links
-         * for all currently active procedures or functions.
-         */
-        StackFrame exec;
-
-        /**
          * Stores functions pointers and its respective code.
          */
         map<Code, Function> functions;
@@ -145,10 +138,11 @@ class Machine : public EntityMove {
         int ip;
 
         /**
-         * The memory vector is used to store and access global variables.
-         * It's managed by the functions {@link #store()} and {@link #recall()}.
+         * Represents a call-return stack in memory to organize
+         * and store short-lived local variables and return links
+         * for all currently active procedures or functions.
          */
-        vector<OperandPtr> memo;
+        StackFrame memo;
 
         /**
          * Represents the program, a set of instructions to be
@@ -209,14 +203,6 @@ class Machine : public EntityMove {
          * stack, then replaces those two values by their sum.
          */
         void add();
-
-        /**
-         * @brief Reserves an amount of space for subroutine variables.
-         *
-         * Allocates the amount of space specified by the argument
-         * of the current instruction in the <b>StackFrame</b>.
-         */
-        void alloc();
 
         /**
          * @brief Pushes the specified attribute of the topmost element of the stack.
@@ -295,6 +281,14 @@ class Machine : public EntityMove {
         void duplicate();
 
         /**
+         * @brief Sets the new offset at memory.
+         *
+         * Sets the offset specified by the argument of the
+         * current instruction in the <b>StackFrame</b>.
+         */
+        void entry();
+
+        /**
          * @brief Executes an equals comparison for both of the topmost
          *        values of the stack.
          *
@@ -309,14 +303,6 @@ class Machine : public EntityMove {
          *        code to execute.
          */
         void execute();
-
-        /**
-         * @brief Frees an amount of space in the current subroutine active.
-         *
-         * Frees the amount of space, specified by the argument of
-         * the current instruction, in the <b>StackFrame</b>.
-         */
-        void free();
 
         /**
          * @brief Returns the argument of the current instruction that is
@@ -435,7 +421,7 @@ class Machine : public EntityMove {
         void not_equal();
 
         /**
-         * @brief Executes an instruction that does nothing
+         * @brief Executes an instruction that does nothing.
          */
         void no_operation();
 
@@ -458,16 +444,6 @@ class Machine : public EntityMove {
          * the Instruction Pointer.
          */
         void push();
-
-        /**
-         * @brief Access the value of a subroutine's local variable and pushes
-         *        it to the top of the stack.
-         *
-         * Pushes the element of the {@link #StackFrame} at the position
-         * indicate by the argument of the current instruction pointed by
-         * the Instruction Pointer.
-         */
-        void rce();
 
         /**
          * @brief Returns to the last subroutine active.
@@ -505,14 +481,6 @@ class Machine : public EntityMove {
          * a global variable in the memory of the <b>Machine</b>.
          */
         void store();
-
-        /**
-         * @brief Stores a value as a local variable in the current subroutine active.
-         *
-         * Stores the topmost (most recent) value of the stack as a local
-         * variable in the current subroutine active at the {@link #StackFrame}.
-         */
-        void stl();
 
         /**
          * @brief Substracts both of the topmost values of the stack.

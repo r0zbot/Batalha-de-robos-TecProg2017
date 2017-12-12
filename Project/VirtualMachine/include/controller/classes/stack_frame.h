@@ -1,6 +1,7 @@
 #ifndef VIRTUALMACHINE_STACK_FRAME_H
 #define VIRTUALMACHINE_STACK_FRAME_H
 
+#include <stack>
 #include <vector>
 
 #include <controller/interface/operand.h>
@@ -34,31 +35,28 @@ class StackFrame {
 
     private:
         /**
-         * Represents the "Base Pointer" for the current function
-         * so that all parameters and local variables would be at
-         * a fixed offset from the base pointer.
-         */
-        int ebp;
-
-        /**
-         * Represents the "Top Pointer" and serves as an indirect memory
-         * operand pointing to the top of the frame at any time.
-         */
-        int esp;
-
-        /**
          * Stores all functions local variables that are being used in
          * subprogram calls and all the callers returning addresses.
          */
         vector<OperandPtr> data;
 
         /**
-         * @brief Removes any unused data in tha stack from a specific point.
-         *
-         * @param [start] The index from where the data will start to be
-         *                erased.
+         * Stores all the entries values that still being used
+         * in function calls.
          */
-        void clear(int start = 0);
+        stack<int> entries;
+
+        /**
+         * Represents the "Base Pointer" for the current function
+         * so that all parameters and local variables would be at
+         * a fixed offset from this pointer.
+         */
+        int entry;
+
+        /**
+         * Stores all the return address for functions.
+         */
+        stack<int> history;
 
     public:
         /**
@@ -69,16 +67,15 @@ class StackFrame {
         explicit StackFrame(unsigned long size);
 
         /**
-         * @brief  Allocates the specified amount of space
-         *         from the current top pointer.
+         * @brief  Sets the specified offset from the current
+         *         base pointer.
          *
-         * @param  [n] The amount of space that must be allocated
-         *             in the <b>StackFrame</b>.
+         * @param  [n] The offset from current base pointer.
          *
          * @throws FrameOperationException if impossible to allocate
          *         the specified amount of space.
          */
-        void alloc(int n);
+        void offset(int n);
 
         /**
          * @brief  Returns the address from where the {@link #Machine}
@@ -88,17 +85,6 @@ class StackFrame {
          *         shall continue the program execution.
          */
         int back();
-
-        /**
-         * @brief  Frees the specified amount of space in the current frame scope.
-         *
-         * @param  [n] The amount of space that must be freed in
-         *             the current <b>StackFrame</b> scope.
-         *
-         * @throws FrameOperationException if trying to free space
-         *         out of the current <b>StackFrame</b> scope.
-         */
-        void free(int n);
 
         /**
          * @brief   Returns the element at an "i" offset from the
@@ -115,22 +101,14 @@ class StackFrame {
         OperandPtr get(int i) const;
 
         /**
-         * @brief  Stores the specified value at the top
-         *         of the <b>StackFrame</b>.
+         * @brief  Stores the address to the last function call.
          *
-         * @param  [val] The value to be stored at the top
-         *               of the <b>StackFrame</b>.
-         *
-         * @throws FrameOperationException if impossible to store
-         *         more data in the <b>StackFrame</b>.
+         * @param  [address] The address to the last function call.
          */
-        void push(const OperandPtr &val);
+        void push(int address);
 
         /**
-         * @brief Resets the <b>StackFrame</b> data.
-         *
-         * This function cleans all data stored in the <b>StackFrame</b>
-         * and resets its pointers.
+         * @brief Resets all the StackFrame content.
          */
         void reset();
 
