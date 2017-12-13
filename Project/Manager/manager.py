@@ -293,7 +293,7 @@ class ConfigScreen(ttk.Frame):
                             assemblerPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..\\Assembler\\assembler.exe')
                         else:
                             assemblerPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../Assembler/assembler')
-                        process = Popen([assemblerPath, robot.robotFilename], shell=True, stdout=PIPE, stderr=PIPE)
+                        process = Popen([assemblerPath, robot.robotFilename], shell=False, stdout=PIPE, stderr=PIPE)
                         (assembledOutput, err) = process.communicate()
                         exit_code = process.wait()
                         print(assembledOutput)
@@ -310,7 +310,7 @@ class ConfigScreen(ttk.Frame):
         if platform.system() == "Windows":
             os.startfile(os.path.join(os.path.dirname(self.outputFilename), '..\\build.bat'))
         else:
-            os.system("xterm -e \'"+os.path.join(os.path.dirname(self.outputFilename), '../build.sh')+"\'")
+            os.system("xterm -e \'sh "+os.path.join(os.path.dirname(self.outputFilename), '../build.sh')+"\'")
 
 
 if __name__ == "__main__":
