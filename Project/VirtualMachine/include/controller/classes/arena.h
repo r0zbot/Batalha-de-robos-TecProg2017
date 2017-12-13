@@ -72,6 +72,21 @@ class Arena {
          */
         bool validate_insertion(const Hex &pos, EntityMove &e);
 
+        /**
+         * @brief Validates the given position
+         *
+         * This method verifies if the current position is valid.
+         * If the position is within the <b>Arena</b>
+         * limits, it will return true, and false otherwise.
+         *
+         * @param [pos] The specified position to be checked.
+         *
+         * @param [e] The {@link #Entity} to be stored at the given position.
+         *
+         * @return True if the given position is valid, and false otherwise.
+         */
+        bool validate_position(const Hex &pos, EntityMove &e);
+
         int current_center_row = 1;
         int current_center_col = 1;
 

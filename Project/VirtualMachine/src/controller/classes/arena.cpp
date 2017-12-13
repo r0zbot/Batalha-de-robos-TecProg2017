@@ -252,7 +252,7 @@ bool Arena::request_collect(EntityMove &e, const Hex &pos) {
     if (Log::LOGGING_LEVEL == Log::DEBUG) {
         this->print(concat("Robot ", e.get_id(), " trying to collect from [", pos.get_row(), ", ", pos.get_col(), "]..."));
     }
-    if (this->validate_insertion(pos, e)) {
+    if (this->validate_position(pos, e)) {
         auto newPosIt = this->ambient.find(pos);
         Hex newPosHex = *newPosIt;
         if (newPosHex.remove_crystal()) {
@@ -272,7 +272,7 @@ bool Arena::request_drop(EntityMove &e, const Hex &pos) {
     if (Log::LOGGING_LEVEL == Log::DEBUG) {
         this->print(concat("Robot ", e.get_id(), " dropping in [", pos.get_row(), ", ", pos.get_col(), "]"));
     }
-    if (this->validate_insertion(pos, e)) {
+    if (this->validate_position(pos, e)) {
         auto newPosIt = this->ambient.find(pos);
         Hex newPosHex = *newPosIt;
         if (e.remove_crystal()) {
@@ -327,8 +327,7 @@ void Arena::update(const View &view) {
 
 bool Arena::validate_insertion(const Hex &pos, EntityMove &e) {
     auto it = this->ambient.find(pos);
-    if (it == this->ambient.end()) {
-        this->print(concat("The position [", pos.get_row(), ",", pos.get_col(), "] is outside the play area"), e);
+    if (!this->validate_position(pos, e)) {
         return false;
     }
     else if (it->get_occup() != -1) {
@@ -337,6 +336,15 @@ bool Arena::validate_insertion(const Hex &pos, EntityMove &e) {
     }
     else if (it->get_terrain() == Terrain::ROCK){
         this->print(concat("Can't go to [", pos.get_row(), ",", pos.get_col(), "]. There is a rock there!"), e);
+        return false;
+    }
+    return true;
+}
+
+bool Arena::validate_position(const Hex &pos, EntityMove &e) {
+    auto it = this->ambient.find(pos);
+    if (it == this->ambient.end()) {
+        this->print(concat("The position [", pos.get_row(), ",", pos.get_col(), "] is outside the play area"), e);
         return false;
     }
     return true;
