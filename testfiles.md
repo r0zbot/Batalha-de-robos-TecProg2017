@@ -1,8 +1,15 @@
 ## Arquivos de teste
 
+#### Arenas disponíveis
+
+* `empty.terrain`: Arena 20x10 vazia, feita 100% de grama.
+* `random.terrain`: Arena 20x10 com terreno aleatório.
+* `separated.terrain`: Arena 20x10 com separações entre os locais onde ficam as bases dos exércitos.
+* `no_rocks.terrain`: Arena 20x10 com terreno aleatório, mas sem nenhum pedra.
+
 #### Alto nível
 
-*
+* `smart_walk_collect_drop`: Anda a arena inteira para a direita coletando cristais, volta pra esquerda coletando cristais, e quando chega na base, coloca todos lá.
 
 #### Assembly
 Esses arquivos são exemplos de programas em assembly serem executados na maquina virtual para testar o funcionamento do projeto.

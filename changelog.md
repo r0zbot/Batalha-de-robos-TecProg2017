@@ -5,6 +5,7 @@
     * Resolvida segfault ao modificar uma célula entre uma chamada de SEE e ATR
     * Resolvida segfault ao chamar ATR em uma célula de fora da Arena
     * Corrigido bug no qual a arena não atualizava corretamente em alguns casos
+    * Robôs adicionados além dos que cabem na base não correm o risco de ocupar inicialmente uma base inimiga
 * Adicionado montador para linguagem de alto nível
     * Implementadas variaveis booleanas
     * Implementado operadores booleanos

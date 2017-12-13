@@ -215,7 +215,6 @@ void Arena::render(const View &view) {
     while(this->updated_cells.size() > 0){
         view.load(this->updated_cells.front());
         this->updated_cells.pop();
-        this->print("Updating cell");
     }
     for (auto &army : this->armies) {
         army.second.render(view);
