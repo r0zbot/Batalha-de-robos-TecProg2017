@@ -1,10 +1,17 @@
 # Changelog
 
 ## Quarta fase
-* Correção de bugs:
-    * Resolvida Segfault ao modificar uma célula entre uma chamada de SEE e ATR
+* Correção de bugs (em relação a requisitos da terceira fase):
+    * Resolvida segfault ao modificar uma célula entre uma chamada de SEE e ATR
     * Resolvida segfault ao chamar ATR em uma célula de fora da Arena
+    * Corrigido bug no qual a arena não atualizava corretamente em alguns casos
 * Adicionado montador para linguagem de alto nível
+    * Implementadas variaveis booleanas
+    * Implementado operadores booleanos
+    * Implementado else
+    * Implementadas chamadas de sistema
+    * Implementado for
+* Manager agora aceita tanto arquivos _.gubi_ (assembly) quanto arquivos _.gubic_ (alto nível)
 
 ## Terceira fase
 * Implementado manager.py
