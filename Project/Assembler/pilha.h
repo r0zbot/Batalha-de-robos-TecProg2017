@@ -3,7 +3,7 @@
 
 #include "instr.h"
 
-#define PILMAX 99
+#define PILMAX 9999
 
 typedef struct {
   int topo;

@@ -9,8 +9,8 @@
 
 #include <model/interface/entity_move.h>
 
-#define MACHINE_EXECUTION_STACK_SIZE 600  ///< The execution stack size in a {@link #Machine}.
-#define MACHINE_MEMORY_SIZE          200  ///< The memory size in a {@link #Machine}.
+#define MACHINE_EXECUTION_STACK_SIZE 6000  ///< The execution stack size in a {@link #Machine}.
+#define MACHINE_MEMORY_SIZE          2000  ///< The memory size in a {@link #Machine}.
 
 using namespace std;
 

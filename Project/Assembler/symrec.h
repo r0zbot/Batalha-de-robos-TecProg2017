@@ -9,7 +9,7 @@ struct symrec
 typedef struct symrec symrec;
 
 /* Stack size of sym tables */
-#define SYM_STACK_SIZE 20
+#define SYM_STACK_SIZE 2000
 
 
 /* The symbol table: a chain of `struct symrec'.     */

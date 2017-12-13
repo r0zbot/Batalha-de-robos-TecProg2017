@@ -15,7 +15,7 @@ static int ip  = 0;					/* ponteiro de instruções */
 static int mem = 6;					/* ponteiro da memória */
 static INSTR *prog;
 static int parmcnt = 0;		/* contador de parâmetros */
-static int labelPilha[90];
+static int labelPilha[9000];
 static int indiceLabel = 0;
 static int labelPilhaTop = 0;
 static int ForLabel = 0;
