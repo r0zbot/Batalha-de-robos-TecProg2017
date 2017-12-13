@@ -7,6 +7,8 @@
 #### Assembly
 Esses arquivos são exemplos de programas em assembly serem executados na maquina virtual para testar o funcionamento do projeto.
 
+* `contaSimples.gubi`: Imprime (10+4)*3. Saida esperada: 42.
+
 * `move_collect.gubi`: este programa faz o robô andar e coletar
 
 * `move_attack_in_circles.gubi`: este programa faz o robô andar em volta da célula a sua equerda, atacando a cada 
