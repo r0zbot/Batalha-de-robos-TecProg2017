@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "compila.tab.h"
-#include "maq.h"
+#include "pilha.h"
 
 INSTR p1[2000];
 
