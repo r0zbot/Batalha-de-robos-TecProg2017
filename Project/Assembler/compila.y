@@ -39,11 +39,12 @@ void AddInstr(OpCode op, int val) {
 %token <val> NUMt
 %token <cod> ID
 %token <dir> DIR
-%token ADDt SUBt MULt DIVt ASGN OPEN CLOSE RETt EOL
+%token ADDt SUBt MULt DIVt ASGN OPEN CLOSE RETt EOL NEGA
 %token EQt NEt LTt LEt GTt GEt ABRE FECHA SEP
 %token IF WHILE FUNC ELSE FOR PRINT TERR CRI OCP BAS MOV ATKM ATKS ATKL COL DRP SEEt SELFt MYSELF MYARMY FULL HP MYCR MYCELL
 
 %right ASGN
+%right NEGA
 %left ADDt SUBt
 %left MULt DIVt
 %left NEG
@@ -128,6 +129,7 @@ Expr: NUMt { int valor = $1; AddInstr(PUSH, $1); printf("PUSH %i\n", valor);}
 	| Expr MULt Expr { AddInstr(MUL,  0); printf("MUL 0\n");}
 	| Expr DIVt Expr { AddInstr(DIV,  0); printf("DIV 0\n");}
     | SUBt Expr %prec NEG  { AddInstr(PUSH, -1); printf("PUSH -1\n");  AddInstr(MUL, 0); printf("MUL 0\n");}
+    | NEGA Expr {AddInstr(PUSH, 0); printf("PUSH 0\n");  AddInstr(EQ, 0); printf("EQ 0\n");}
 	| OPEN Expr CLOSE
 	| Expr LTt Expr  { AddInstr(LT,   0); printf("LT 0\n");}
 	| Expr GTt Expr  { AddInstr(GT,   0); printf("GT 0\n");}
@@ -159,6 +161,9 @@ if: IF OPEN  Expr {
 			   AddInstr(JIF,  0);
 			   printf("JIF label%i\n", indiceLabel);
 			   labelPilha[labelPilhaTop++] = indiceLabel++;
+			   AddInstr(POP, 0);
+			   printf("POP 0\n");
+
  		 }
 		 CLOSE  Bloco 
 ;

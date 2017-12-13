@@ -23,6 +23,8 @@ Novos Simbolos Terminais acrecentados
     * `.ocup`: retorna um número que representa o id do robô naquela célula, ou -1, caso não haja robôs.
     * `.base`: retorna um número que representa o id da exército ao qual a base existente naquela célula pertence, ou -1 caso não for uma base.
 * Os símbolos `grass` `mountain` `street` `rock` `mud` representando os respectivos tipos de terreno. 
+* Os símbolos `!` `&` e `|` representação respectivamente a negação de um booleano e as operação de "E" e a "OU" entre booleanos. 
+
 ## Condicionais
 
 Gramaticalmente Condicionais foram definidas podendoo ser um `if` (já definido) ou um `if` seguido de um `else`

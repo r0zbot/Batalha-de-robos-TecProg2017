@@ -61,13 +61,14 @@ see        { return SEEt; }
 ;		{ return EOL; }
 ,		{ return SEP; }
 =		{ return ASGN; }
+!       { return NEGA; }
 [(]		{ return OPEN; }
 [)]		{ return CLOSE; }
 [{]		{ return ABRE; }
 [}]		{ return FECHA; }
-[+]		{ return ADDt; }
+[+|]	{ return ADDt; }
 [-]		{ return SUBt; }
-[*]		{ return MULt; }
+[*&]	{ return MULt; }
 [/]		{ return DIVt; }
 ==		{ return EQt; }
 !=		{ return NEt; }
