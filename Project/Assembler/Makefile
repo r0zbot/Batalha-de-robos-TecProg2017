@@ -1,4 +1,4 @@
-compila: compila.tab.o lex.yy.o symrec.o acertos.o maq.o pilha.o motor.o
+assembler: compila.tab.o lex.yy.o symrec.o acertos.o maq.o pilha.o motor.o
 	gcc -o $@ $^ -lm -lfl
 
 compila.tab.o: compila.y

@@ -1,0 +1,27 @@
+def a(){
+    return(5);
+}
+
+def b(){
+    return(10);
+}
+
+def ax(){
+    10 + 11;
+    return(5);
+}
+
+def bx(){
+    1 + 2;
+    return(10);
+}
+
+c = a() + b();
+d = a() * b();
+e = ax() + bx();
+f = ax() * bx();
+
+print(c);
+print(d);
+print(e);
+print(f);

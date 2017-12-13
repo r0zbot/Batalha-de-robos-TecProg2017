@@ -16,6 +16,7 @@ Para executar o projeto é necessário ter instaladas e no PATH do seu sistema a
 * `g++ >= 6.0` (são usadas features do C++11)
 * `Python 2.7.12`
 * `TKinter`
+* `Tk`
 * `Pygame 1.9.3`
 * Linux: `xterm`
 * Windows: `MinGW >= 2013072200`
@@ -37,6 +38,10 @@ Para adicionar um robô a um dos exércitos, clicar em _Add Robots_ e selecionar
 Ao clicar em _Save and Run_, o arquivo `Project/VirtualMachine/src/main.cpp` será substituido por um novo contendo as alterações feitas, ele será compilado usando o CMake e executado em uma nova janela.
 ![interface manager.py](https://s33.postimg.org/xzypsl68f/image.png)
 ## Compilando manualmente 
+
+1. Entrar no diretório do Assembler. `cd Project/Assembler`
+
+1. Compilar o Assembler usando `make assembler`
 
 1. Criar um arquivo _main.cpp_, usando para isso o manager.py encontrado em `Project/Manager/`, e salvá-lo sobre o existente em `Project/VirtualMachine/src/main.cpp`.
 

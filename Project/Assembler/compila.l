@@ -11,7 +11,7 @@ E [Ee][+-]?{D}+
 
 %%
 {D}*[.]?{D}+{E}?	{ yylval.val = atof(yytext); return NUMt; }
-"NE"|"NW"|"EA"|"WE"|"SE"|"SW" { strncpy(yylval.dir, yytext, 3); return DIR; }
+"NE"|"NW"|"EA"|"WE"|"SE"|"SW"|"CE" { strncpy(yylval.dir, yytext, 3); return DIR; }
 true { yylval.val = 1; return NUMt; }
 false { yylval.val = 0; return NUMt; }
 grass { yylval.val = 0; return NUMt; }

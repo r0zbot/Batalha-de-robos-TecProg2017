@@ -78,7 +78,7 @@ class Builder:
 
     @classmethod
     def create_main_end(cls, outputFile, sleep_time):
-        outputFile.write("\n\tCore core(arena, {});\n".format(sleep_time))
+        outputFile.write("\n\tCore core({});\n".format(sleep_time))
         outputFile.write("\tcore.start();\n")
         outputFile.write("}\n\n")
 
