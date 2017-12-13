@@ -19,7 +19,8 @@ enum Direction {
     EA  = 2, ///< Represents the direction East
     WE  = 3, ///< Represents the direction West
     SE  = 4, ///< Represents the direction Southeast
-    SW  = 5  ///< Represents the direction Southwest
+    SW  = 5, ///< Represents the direction Southwest
+    CE  = 6  ///< Represents the center/current cell
 };
 
 /**

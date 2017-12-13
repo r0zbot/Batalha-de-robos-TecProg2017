@@ -1,7 +1,7 @@
 def try_move_right() {
     if(move(WE) == false) {
-        if(move(SW) == false) {
-            if(move(NW) == false) {
+        if(move(NW) == false) {
+            if(move(SW) == false) {
                 print(-1);
                 return(false);
             }
@@ -22,6 +22,16 @@ def try_move_left() {
     return(true);
 }
 
+def try_move_up() {
+    if(move(NE) == false) {
+        if(move(NW) == false) {
+            print(-1);
+            return(false);
+        }
+    }
+    return(true);
+}
+
 def collect_all() {
     collect(WE);
     collect(SW);
@@ -31,17 +41,62 @@ def collect_all() {
     collect(NE);
 }
 
-def pause (x){
+# Pauses code for x instructions
+def pause (x) {
     i = 0;
     while (i<x){
         i = i + 1;
     }
 }
 
+def is_in_base(){
+    cell = self.cell;
+    if(cell.base == self.army) {
+        return(true);
+    }
+    else {
+        return(false);
+    }
+}
+
+def is_not_in_base(){
+    if(is_in_base()) {
+        return(false);
+    }
+    else {
+        return(true);
+    }
+}
+
 while (true) {
+    
+    # Anda pra direita coletando todos os cristais do caminho
     while (try_move_left()) {
         collect_all();
-        print(self.mycristals);
+        print(self.mycristals); #TODO update to mycrystals
+    }
+
+    # Anda pra esquerda procurando sua base, tambem coletando cristais
+    while( is_not_in_base() & try_move_right()) {
+        collect_all();
+    }
+
+    # Se achou a base
+    if(is_in_base()) {
+        while(drop(CE)){
+            print(self.cristais);
+        }
+    }
+    # se nao achou, tenta ir pra cima e depois pra direita até achar
+    else {
+        while(try_move_up() & is_not_in_base()) { }
+        # Se agora achou, dropa os cristais
+        if(is_in_base()) {
+            while(drop(CE)){
+                print(self.cristais);
+            }
+        }
+        # E se ainda assim nao achou, comeca de novo e quem sabe na proxima iteracao ele acha.
     }
 }
 

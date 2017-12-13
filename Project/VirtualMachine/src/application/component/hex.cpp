@@ -84,8 +84,13 @@ bool Hex::insert_crystal() {
 }
 
 Hex Hex::neighbor(const Direction d) const {
-    Hex dir = directions[this->row & 1][d];
-    return {this->row + dir.row, this->col + dir.col};
+    if(d == CE){
+        return *this;
+    }
+    else{
+        Hex dir = directions[this->row & 1][d];
+        return {this->row + dir.row, this->col + dir.col};
+    }
 }
 
 string Hex::info() const {
