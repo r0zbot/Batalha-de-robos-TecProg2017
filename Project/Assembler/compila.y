@@ -142,17 +142,10 @@ Expr: NUMt { int valor = $1; AddInstr(PUSH, $1); printf("PUSH %i\n", valor);}
 
 Cond: if 
 		{
-		   AddInstr(NOP, 0);
-		   printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
-		   prog[pega_end()].op.val.n = ip;
+		   AddInstr(POP, 0);
+		   printf("POP 0\n");
 		} 
-	| if { AddInstr(PUSH, 1);
-		   printf("PUSH 1\n");
-		   AddInstr(NOP, 0);
-		   printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
-		   prog[pega_end()].op.val.n = ip;
-		}
-		 else
+	| if else
 	;
 if: IF OPEN  Expr {
 			   AddInstr(DUP, 0);
@@ -165,7 +158,13 @@ if: IF OPEN  Expr {
 			   printf("POP 0\n");
 
  		 }
-		 CLOSE  Bloco 
+		 CLOSE  Bloco {
+		   AddInstr(PUSH, 1);
+		   printf("PUSH 1\n");
+		   AddInstr(NOP, 0);
+		   printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
+		   prog[pega_end()].op.val.n = ip;
+		 }
 ;
 else: ELSE {
 		 	salva_end(ip);
