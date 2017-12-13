@@ -1,4 +1,7 @@
 ## Arquivos de teste
+Arquivos para teste, encontrados em `Project/data`.
+
+OBS: há arquivos de teste além dos especificados nesse arquivo, porém talvez não tenham o funcionamento esperado.
 
 #### Arenas disponíveis
 
@@ -9,7 +12,7 @@
 
 #### Alto nível
 
-* `smart_walk_collect_drop`: Anda a arena inteira para a direita coletando cristais, volta pra esquerda coletando cristais, e quando chega na base, coloca todos lá.
+* `smart_walk_collect_drop.gubi`: Anda a arena inteira para a direita coletando cristais, volta pra esquerda coletando cristais, e quando chega na base, coloca todos lá.
 
 #### Assembly
 Esses arquivos são exemplos de programas em assembly serem executados na maquina virtual para testar o funcionamento do projeto.

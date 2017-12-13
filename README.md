@@ -31,7 +31,7 @@ Nosso projeto é dividido em 4 módulos:
 
 ## Execução
 
-Inicialmente, é necessário criar um arquivo assembly ( _.gubi_ ) ou um arquivo de linguagem de alto nível ( _.gubic_ )de teste de acordo com as especificações do projeto e salvá-lo em qualquer local (Há alguns exemplos em `Project/data`. Veja mais detalhes [aqui](Project/data/0testfiles.md)). 
+Inicialmente, é necessário criar um arquivo assembly ( _.gubi_ ) ou um arquivo de linguagem de alto nível ( _.gubic_ )de teste de acordo com as especificações do projeto e salvá-lo em qualquer local (Há alguns exemplos em `Project/data`. Veja mais detalhes [aqui](testfiles.md)). 
 
 Em seguida, é necessario compilar o assembler, localizado em `Project/Assembler`, usando para isso o comando `make assembler` no Linux ou `build.bat` no Windows. 
 
