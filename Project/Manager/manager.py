@@ -282,6 +282,10 @@ class ConfigScreen(ttk.Frame):
         for army in self.armies:
             currentArmy += 1
             Builder.create_army(outputFile, army.armyNameEntry.get(), currentArmy)
+
+        currentArmy = 0
+        for army in self.armies:
+            currentArmy += 1
             for robot in army.robots:
                 if robot is not None:
                     currentRobot += 1

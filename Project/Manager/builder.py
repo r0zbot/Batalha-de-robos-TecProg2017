@@ -50,7 +50,7 @@ class Builder:
     def create_robots(cls, outputFile, assembledText, amount, army_id, id):
         cls.decode_file(outputFile, assembledText, id)
         outputFile.write("\tfor(int i=0; i<"+amount+"; i++)\n")
-        outputFile.write("\t\tarena.create_robot(army"+str(army_id)+".get_id(), prog"+str(id)+");\n")
+        outputFile.write("\t\tarena.create_robot(army"+str(army_id)+".get_id(), prog"+str(id)+");\n\n")
 
     @classmethod
     def create_header(cls, outputFile):
