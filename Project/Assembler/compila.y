@@ -41,7 +41,7 @@ void AddInstr(OpCode op, int val) {
 %token <dir> DIR
 %token ADDt SUBt MULt DIVt ASGN OPEN CLOSE RETt EOL NEGA
 %token EQt NEt LTt LEt GTt GEt ABRE FECHA SEP
-%token IF WHILE FUNC ELSE FOR PRINT TERR CRI OCP BAS MOV ATKM ATKS ATKL COL DRP SEEt SELFt MYSELF MYARMY FULL HP MYCR MYCELL
+%token IF WHILE FUNC ELSE FOR PRINT TERR CRI OCP BAS MOV ATKM ATKS ATKL COL DRP SEEt SELFt MYSELF MYARMY FUEL HP MYCR MYCELL
 
 %right ASGN
 %right NEGA
@@ -302,7 +302,7 @@ Syscall: MOV OPEN DIR CLOSE {
 
  self: MYSELF {AddInstr(PUSH, 1); printf("MATR 0\n");}
 	 | MYARMY {AddInstr(PUSH, 1); printf("MATR 1\n");}
-	 | FULL   {AddInstr(PUSH, 1); printf("MATR 2\n");}
+	 | FUEL   {AddInstr(PUSH, 1); printf("MATR 2\n");}
 	 | HP     {AddInstr(PUSH, 1); printf("MATR 3\n");}
 	 | MYCR   {AddInstr(PUSH, 1); printf("MATR 4\n");}
 	 | MYCELL {AddInstr(PUSH, 1); printf("MATR 5\n");}
@@ -343,7 +343,7 @@ ListParms:
 extern FILE *yyin;
 
 void yyerror(char const *msg) {
-  fprintf(stderr, "ERRO: %s",msg);
+  fprintf(stderr, "ERRO na linha %d: %s ", yylineno, msg);
 }
 
 int compilador(FILE *cod, INSTR *dest) {

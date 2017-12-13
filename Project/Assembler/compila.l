@@ -8,6 +8,7 @@ E [Ee][+-]?{D}+
 #include "compila.tab.h"
 %}
 
+%option yylineno
 
 %%
 {D}*[.]?{D}+{E}?	{ yylval.val = atof(yytext); return NUMt; }
@@ -34,9 +35,9 @@ print   { return PRINT; }
 self       { return SELFt; }
 \.id       { return MYSELF; }
 \.army     { return MYARMY; }
-\.full     { return FULL; }
+\.fuel     { return FUEL; }
 \.hp       { return HP; }
-\.mycristals { return MYCR; }
+\.mycrystals { return MYCR; }
 \.cell     { return MYCELL; }
 move       { return MOV; }
 atkmelee   { return ATKM; }

@@ -163,7 +163,7 @@ void AddInstr(OpCode op, int val) {
      SELFt = 297,
      MYSELF = 298,
      MYARMY = 299,
-     FULL = 300,
+     FUEL = 300,
      HP = 301,
      MYCR = 302,
      MYCELL = 303,
@@ -539,7 +539,7 @@ static const char *const yytname[] =
   "NEt", "LTt", "LEt", "GTt", "GEt", "ABRE", "FECHA", "SEP", "IF", "WHILE",
   "FUNC", "ELSE", "FOR", "PRINT", "TERR", "CRI", "OCP", "BAS", "MOV",
   "ATKM", "ATKS", "ATKL", "COL", "DRP", "SEEt", "SELFt", "MYSELF",
-  "MYARMY", "FULL", "HP", "MYCR", "MYCELL", "NEG", "PWR", "$accept",
+  "MYARMY", "FUEL", "HP", "MYCR", "MYCELL", "NEG", "PWR", "$accept",
   "Programa", "Comando", "Expr", "Cond", "$@1", "if", "$@2", "else", "$@3",
   "Loop", "while", "$@4", "$@5", "for", "$@6", "$@7", "$@8", "Bloco",
   "Comandos", "Func", "$@9", "$@10", "Args", "Syscall", "self", "Chamada",
@@ -2349,7 +2349,7 @@ yyreturn:
 extern FILE *yyin;
 
 void yyerror(char const *msg) {
-  fprintf(stderr, "ERRO: %s",msg);
+  fprintf(stderr, "ERRO na linha %d: %s ", yylineno, msg);
 }
 
 int compilador(FILE *cod, INSTR *dest) {

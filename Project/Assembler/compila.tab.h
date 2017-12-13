@@ -80,7 +80,7 @@
      SELFt = 297,
      MYSELF = 298,
      MYARMY = 299,
-     FULL = 300,
+     FUEL = 300,
      HP = 301,
      MYCR = 302,
      MYCELL = 303,

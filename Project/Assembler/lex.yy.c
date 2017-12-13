@@ -169,7 +169,20 @@ extern FILE *yyin, *yyout;
 #define EOB_ACT_END_OF_FILE 1
 #define EOB_ACT_LAST_MATCH 2
 
-    #define YY_LESS_LINENO(n)
+    /* Note: We specifically omit the test for yy_rule_can_match_eol because it requires
+     *       access to the local variable yy_act. Since yyless() is a macro, it would break
+     *       existing scanners that call yyless() from OUTSIDE yylex. 
+     *       One obvious solution it to make yy_act a global. I tried that, and saw
+     *       a 5% performance hit in a non-yylineno scanner, because yy_act is
+     *       normally declared as a register variable-- so it is not worth it.
+     */
+    #define  YY_LESS_LINENO(n) \
+            do { \
+                int yyl;\
+                for ( yyl = n; yyl < yyleng; ++yyl )\
+                    if ( yytext[yyl] == '\n' )\
+                        --yylineno;\
+            }while(0)
     
 /* Return all but the first "n" matched characters back to the input stream. */
 #define yyless(n) \
@@ -452,14 +465,14 @@ static yyconst flex_int16_t yy_base[189] =
       169,  150,  168,  165,  180,   74,   91,  219,  219,  219,
         0,    0,  158,  156,  160,  151,  147,  152,  146,  148,
       159,    0,   46,  155,  149,  139,  153,   63,  139,  135,
-      144,  140,  134,  139,  140,  137,  219,  219,  144,  127,
+      144,  140,  134,  139,  140,  143,  219,  219,  144,  127,
       129,  155,  154,   70,  131,    0,  126,  135,  122,    0,
 
       135,  120,  123,  130,    0,  121,  114,  122,    0,  125,
       125,  124,  117,  105,  121,  114,  107,  112,  106,  106,
       104,  105,  113,  109,  111,    0,    0,  110,   97,   95,
         0,   94,   95,    0,    0,  105,    0,  104,  219,  219,
-      219,   90,  219,   98,  219,  101,   92,   93,   89,   99,
+      219,   90,  219,   85,  219,  101,   92,   93,   89,   99,
         0,    0,  100,    0,   87,   81,    0,   97,   80,   83,
        88,   89,   77,   74,   82,    0,    0,   80,   68,   71,
         0,   79,   65,    0,   65,   59,   69,  219,    0,    0,
@@ -556,6 +569,13 @@ static yyconst flex_int16_t yy_chk[270] =
       186,  186,  186,  186,  186,  186,  186,  186,  186
     } ;
 
+/* Table of booleans, true if rule could match eol. */
+static yyconst flex_int32_t yy_rule_can_match_eol[57] =
+    {   0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     };
+
 static yy_state_type yy_last_accepting_state;
 static char *yy_last_accepting_cpos;
 
@@ -574,7 +594,7 @@ char *yytext;
 #line 7 "compila.l"
 #include <math.h>
 #include "compila.tab.h"
-#line 578 "lex.yy.c"
+#line 598 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -761,9 +781,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 12 "compila.l"
+#line 13 "compila.l"
 
-#line 767 "lex.yy.c"
+#line 787 "lex.yy.c"
 
 	if ( !(yy_init) )
 		{
@@ -835,6 +855,16 @@ yy_find_action:
 
 		YY_DO_BEFORE_ACTION;
 
+		if ( yy_act != YY_END_OF_BUFFER && yy_rule_can_match_eol[yy_act] )
+			{
+			int yyl;
+			for ( yyl = 0; yyl < yyleng; ++yyl )
+				if ( yytext[yyl] == '\n' )
+					   
+    yylineno++;
+;
+			}
+
 do_action:	/* This label is used only to access EOF actions. */
 
 		switch ( yy_act )
@@ -848,177 +878,177 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 13 "compila.l"
+#line 14 "compila.l"
 { yylval.val = atof(yytext); return NUMt; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 14 "compila.l"
+#line 15 "compila.l"
 { strncpy(yylval.dir, yytext, 3); return DIR; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 15 "compila.l"
+#line 16 "compila.l"
 { yylval.val = 1; return NUMt; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 16 "compila.l"
+#line 17 "compila.l"
 { yylval.val = 0; return NUMt; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 17 "compila.l"
+#line 18 "compila.l"
 { yylval.val = 0; return NUMt; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 18 "compila.l"
+#line 19 "compila.l"
 { yylval.val = 1; return NUMt; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 19 "compila.l"
+#line 20 "compila.l"
 { yylval.val = 2; return NUMt; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 20 "compila.l"
+#line 21 "compila.l"
 { yylval.val = 3; return NUMt; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 21 "compila.l"
+#line 22 "compila.l"
 { yylval.val = 4; return NUMt; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 22 "compila.l"
+#line 23 "compila.l"
 { return RETt; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 24 "compila.l"
+#line 25 "compila.l"
 { return IF; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 25 "compila.l"
+#line 26 "compila.l"
 { return WHILE; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 26 "compila.l"
+#line 27 "compila.l"
 { return FUNC; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 27 "compila.l"
+#line 28 "compila.l"
 { return ELSE; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 28 "compila.l"
+#line 29 "compila.l"
 {return FOR; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 29 "compila.l"
+#line 30 "compila.l"
 { return PRINT; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 30 "compila.l"
+#line 31 "compila.l"
 { return TERR; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 31 "compila.l"
+#line 32 "compila.l"
 { return CRI; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 32 "compila.l"
+#line 33 "compila.l"
 { return OCP; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 33 "compila.l"
+#line 34 "compila.l"
 { return BAS; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 34 "compila.l"
+#line 35 "compila.l"
 { return SELFt; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 35 "compila.l"
+#line 36 "compila.l"
 { return MYSELF; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 36 "compila.l"
+#line 37 "compila.l"
 { return MYARMY; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 37 "compila.l"
-{ return FULL; }
+#line 38 "compila.l"
+{ return FUEL; }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 38 "compila.l"
+#line 39 "compila.l"
 { return HP; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 39 "compila.l"
+#line 40 "compila.l"
 { return MYCR; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 40 "compila.l"
+#line 41 "compila.l"
 { return MYCELL; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 41 "compila.l"
+#line 42 "compila.l"
 { return MOV; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 42 "compila.l"
+#line 43 "compila.l"
 { return ATKM; }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 43 "compila.l"
+#line 44 "compila.l"
 { return ATKS; }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 44 "compila.l"
+#line 45 "compila.l"
 { return ATKL; }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 45 "compila.l"
+#line 46 "compila.l"
 { return COL; }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 46 "compila.l"
+#line 47 "compila.l"
 { return DRP; }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 47 "compila.l"
+#line 48 "compila.l"
 { return SEEt; }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 52 "compila.l"
+#line 53 "compila.l"
 { 
   strncpy(yylval.cod, yytext, 30);
   return ID;
@@ -1027,111 +1057,111 @@ YY_RULE_SETUP
 case 36:
 /* rule 36 can match eol */
 YY_RULE_SETUP
-#line 57 "compila.l"
+#line 58 "compila.l"
 /* pula espacos em branco */
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 59 "compila.l"
+#line 60 "compila.l"
 /* comentarios simples */
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 61 "compila.l"
+#line 62 "compila.l"
 { return EOL; }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 62 "compila.l"
+#line 63 "compila.l"
 { return SEP; }
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 63 "compila.l"
+#line 64 "compila.l"
 { return ASGN; }
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 64 "compila.l"
+#line 65 "compila.l"
 { return NEGA; }
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 65 "compila.l"
+#line 66 "compila.l"
 { return OPEN; }
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 66 "compila.l"
+#line 67 "compila.l"
 { return CLOSE; }
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 67 "compila.l"
+#line 68 "compila.l"
 { return ABRE; }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 68 "compila.l"
+#line 69 "compila.l"
 { return FECHA; }
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 69 "compila.l"
+#line 70 "compila.l"
 { return ADDt; }
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 70 "compila.l"
+#line 71 "compila.l"
 { return SUBt; }
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 71 "compila.l"
+#line 72 "compila.l"
 { return MULt; }
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 72 "compila.l"
+#line 73 "compila.l"
 { return DIVt; }
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 73 "compila.l"
+#line 74 "compila.l"
 { return EQt; }
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 74 "compila.l"
+#line 75 "compila.l"
 { return NEt; }
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 75 "compila.l"
+#line 76 "compila.l"
 { return LTt; }
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 76 "compila.l"
+#line 77 "compila.l"
 { return LEt; }
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 77 "compila.l"
+#line 78 "compila.l"
 { return GTt; }
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 78 "compila.l"
+#line 79 "compila.l"
 { return GEt; }
 	YY_BREAK
 /* { return PONTO; }  {  fprintf(stderr, "Entrada ignorada\n-->%s\n", yytext); } */
 case 56:
 YY_RULE_SETUP
-#line 82 "compila.l"
+#line 83 "compila.l"
 ECHO;
 	YY_BREAK
-#line 1135 "lex.yy.c"
+#line 1165 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1492,6 +1522,10 @@ static int yy_get_next_buffer (void)
 
 	*--yy_cp = (char) c;
 
+    if ( c == '\n' ){
+        --yylineno;
+    }
+
 	(yytext_ptr) = yy_bp;
 	(yy_hold_char) = *yy_cp;
 	(yy_c_buf_p) = yy_cp;
@@ -1566,6 +1600,11 @@ static int yy_get_next_buffer (void)
 	c = *(unsigned char *) (yy_c_buf_p);	/* cast for 8-bit char's */
 	*(yy_c_buf_p) = '\0';	/* preserve yytext */
 	(yy_hold_char) = *++(yy_c_buf_p);
+
+	if ( c == '\n' )
+		   
+    yylineno++;
+;
 
 	return c;
 }
@@ -2037,6 +2076,9 @@ static int yy_init_globals (void)
      * This function is called from yylex_destroy(), so don't allocate here.
      */
 
+    /* We do not touch yylineno unless the option is enabled. */
+    yylineno =  1;
+    
     (yy_buffer_stack) = 0;
     (yy_buffer_stack_top) = 0;
     (yy_buffer_stack_max) = 0;
@@ -2129,7 +2171,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 82 "compila.l"
+#line 83 "compila.l"
 
 
 
