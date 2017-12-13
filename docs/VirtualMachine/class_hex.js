@@ -1,6 +1,6 @@
 var class_hex =
 [
-    [ "Hex", "class_hex.html#ace6a23eb402ed893de04759cdf5e0e01", null ],
+    [ "Hex", "class_hex.html#a0b7f9548477c20e1e2eaedf9f70aa7b7", null ],
     [ "distance", "class_hex.html#a540b909ebbccdea8f62d4bbb881eb145", null ],
     [ "get_atr", "class_hex.html#aa26547401a04ce1ccb1d868cf1ab897a", null ],
     [ "get_base", "class_hex.html#aba57e96ad40a001bdee5a7f860f93496", null ],

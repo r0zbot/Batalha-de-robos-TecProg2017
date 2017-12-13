@@ -6,7 +6,8 @@ var syscall_8h =
       [ "EA", "syscall_8h.html#a224b9163917ac32fc95a60d8c1eec3aaaea38cdb10c6fa0d2a1e30ecf46db0944", null ],
       [ "WE", "syscall_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa59170bf407047306fe861eff5b52a4b9", null ],
       [ "SE", "syscall_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa61c600c17d14bd4db73433ddbb8491e8", null ],
-      [ "SW", "syscall_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa247b880fc48dc1c74961ba58ae0f68a2", null ]
+      [ "SW", "syscall_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa247b880fc48dc1c74961ba58ae0f68a2", null ],
+      [ "CE", "syscall_8h.html#a224b9163917ac32fc95a60d8c1eec3aaab3b3837e98d56572a2c0a928ab72fa35", null ]
     ] ],
     [ "SystemCode", "syscall_8h.html#a355181b5a7b6128ebf4d3d3951652f7e", [
       [ "MOVE", "syscall_8h.html#a355181b5a7b6128ebf4d3d3951652f7eaed3ef32890b6da0919b57254c5206c62", null ],

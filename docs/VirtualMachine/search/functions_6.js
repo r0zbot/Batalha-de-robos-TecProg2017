@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['generate_5fcrystals',['generate_crystals',['../class_arena.html#a5937c884064367cd7c416f489c2609b5',1,'Arena']]],
   ['get',['get',['../class_stack_frame.html#a81e3d1a36f36fbb645c1b38e5183e84f',1,'StackFrame']]],
   ['get_5farg',['get_arg',['../class_instruction.html#a737ab7d6f6b4f47043d033a6927eef98',1,'Instruction']]],
   ['get_5farmy',['get_army',['../class_arena.html#af488add9865eae3fe775cee18aae3cd4',1,'Arena']]],

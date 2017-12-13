@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['mountain',['MOUNTAIN',['../terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54ba9d1480267288b8146bb0756b67ddcbbe',1,'terrain.h']]],
-  ['move',['MOVE',['../syscall_8h.html#a355181b5a7b6128ebf4d3d3951652f7eaed3ef32890b6da0919b57254c5206c62',1,'syscall.h']]],
-  ['mul',['MUL',['../code_8h.html#af31477bc48f67856bedb0fa8e5b5281da2cdf52a55876063ec93b7d18bc741f6c',1,'code.h']]]
+  ['ne',['NE',['../syscall_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa4d3f872f5054b256b01ee4f2c8cf51db',1,'NE():&#160;syscall.h'],['../code_8h.html#af31477bc48f67856bedb0fa8e5b5281dadc33066c3993e0d50896e533fd692ce0',1,'NE():&#160;code.h']]],
+  ['none',['NONE',['../class_log.html#afb5d4c945d835d194a295461d752531ea01bfaaeef38ef033ef28468316082661',1,'Log']]],
+  ['nop',['NOP',['../code_8h.html#af31477bc48f67856bedb0fa8e5b5281da1a004f5abe2b334db21328be1ea6b593',1,'code.h']]],
+  ['nw',['NW',['../syscall_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa9b2eeb9b33247edbc638099452c6b46f',1,'syscall.h']]]
 ];

@@ -93,9 +93,9 @@ $(document).ready(function(){initNavTree('class_core.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9b4310f33db6e8e0b4ab8d6282c4ce8a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core.html#a9b4310f33db6e8e0b4ab8d6282c4ce8a">Core</a> (const <a class="el" href="class_arena.html">Arena</a> &amp;arena, unsigned int sleep_time)</td></tr>
-<tr class="memdesc:a9b4310f33db6e8e0b4ab8d6282c4ce8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <b>Core</b> object to manage the system.  <a href="#a9b4310f33db6e8e0b4ab8d6282c4ce8a">More...</a><br /></td></tr>
-<tr class="separator:a9b4310f33db6e8e0b4ab8d6282c4ce8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d48d48f31d9d26fbca564dce57d0527"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core.html#a7d48d48f31d9d26fbca564dce57d0527">Core</a> (unsigned int sleep_time)</td></tr>
+<tr class="memdesc:a7d48d48f31d9d26fbca564dce57d0527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <b>Core</b> object to manage the system.  <a href="#a7d48d48f31d9d26fbca564dce57d0527">More...</a><br /></td></tr>
+<tr class="separator:a7d48d48f31d9d26fbca564dce57d0527"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e1d6754f6c2cabd2cd2862d541fe127"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core.html#a0e1d6754f6c2cabd2cd2862d541fe127">start</a> ()</td></tr>
 <tr class="memdesc:a0e1d6754f6c2cabd2cd2862d541fe127"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the execution of the game cycle.  <a href="#a0e1d6754f6c2cabd2cd2862d541fe127">More...</a><br /></td></tr>
 <tr class="separator:a0e1d6754f6c2cabd2cd2862d541fe127"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -116,30 +116,28 @@ Static Public Member Functions</h2></td></tr>
 <div class="textblock"><p>This class controls the entire system and its properties. </p>
 <p>The <b>Core</b> class is in charge of controlling the game system during the execution of its functions. This class manages the game cycle, which includes three main phases: the <b>Load</b> phase, when every <a class="el" href="class_entity.html">Entity</a> in the game is initialized. The <b>Update</b> phase, when the entities in the current game have their logic updated. The <b>Render</b> phase, when every <a class="el" href="class_entity.html">Entity</a> is rendered in the main screen. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9b4310f33db6e8e0b4ab8d6282c4ce8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b4310f33db6e8e0b4ab8d6282c4ce8a">&#9670;&nbsp;</a></span>Core()</h2>
+<a id="a7d48d48f31d9d26fbca564dce57d0527"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d48d48f31d9d26fbca564dce57d0527">&#9670;&nbsp;</a></span>Core()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Core::Core </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_arena.html">Arena</a> &amp;&#160;</td>
-          <td class="paramname"><em>arena</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>sleep_time</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>sleep_time</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Constructs a <b>Core</b> object to manage the system. </p>

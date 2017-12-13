@@ -12,7 +12,6 @@ var searchData=
   ['size',['size',['../class_army.html#aba1a88814b9b568aacd32a6a16483beb',1,'Army']]],
   ['stackframe',['StackFrame',['../class_stack_frame.html#a45eb3b3c142bec623cb2222b49023370',1,'StackFrame']]],
   ['start',['start',['../class_core.html#a0e1d6754f6c2cabd2cd2862d541fe127',1,'Core']]],
-  ['stl',['stl',['../class_machine.html#a3dcf96898b74ea8dcdbeb7e9ddbc22c0',1,'Machine']]],
   ['store',['store',['../class_machine.html#af6e501757d54f7d4bd7a0d4b6069ae30',1,'Machine']]],
   ['subtract',['subtract',['../class_machine.html#abea24d9ce5d941f811df52dcaae5ddef',1,'Machine']]],
   ['system',['system',['../class_machine.html#af59bcfc03abf54a0b2a6165f97c0427c',1,'Machine']]]

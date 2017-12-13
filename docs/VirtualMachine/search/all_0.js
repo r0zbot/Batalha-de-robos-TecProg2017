@@ -4,8 +4,6 @@ var searchData=
   ['action_2eh',['action.h',['../action_8h.html',1,'']]],
   ['add',['add',['../class_machine.html#a182af94331503a6de66961f1eb677dfd',1,'Machine::add()'],['../code_8h.html#af31477bc48f67856bedb0fa8e5b5281da9eeb52badb613229884838847294b90d',1,'ADD():&#160;code.h']]],
   ['affect',['affect',['../class_entity_static.html#af5f1e859c5ee70e207050803b54ea87a',1,'EntityStatic']]],
-  ['alc',['ALC',['../code_8h.html#af31477bc48f67856bedb0fa8e5b5281da56c0bc0e475820687969fbc9797b4361',1,'code.h']]],
-  ['alloc',['alloc',['../class_stack_frame.html#ac6fd0915d90cd7622944e53643faac17',1,'StackFrame::alloc()'],['../class_machine.html#ae423e97b4ccd1519309bb59108204995',1,'Machine::alloc()']]],
   ['arena',['Arena',['../class_arena.html',1,'Arena'],['../generator_8h.html#ab6292a05e36b44426aaf1bf847611977',1,'arena():&#160;generator.h'],['../globals_8h.html#ab6292a05e36b44426aaf1bf847611977',1,'arena():&#160;generator.h']]],
   ['arena_2eh',['arena.h',['../arena_8h.html',1,'']]],
   ['army',['Army',['../class_army.html',1,'Army'],['../class_army.html#a09bade25e677dc85a9d856a6fd8f442d',1,'Army::Army()']]],

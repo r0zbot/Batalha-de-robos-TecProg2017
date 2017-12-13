@@ -1,6 +1,7 @@
 var searchData=
 [
   ['debug',['debug',['../class_log.html#aba414d67a011f67f787d20645e1ada86',1,'Log::debug(const string &amp;msg)'],['../class_log.html#afb5d4c945d835d194a295461d752531ea4e49113de847d4ce568b7f0d5647a715',1,'Log::DEBUG()']]],
+  ['die',['die',['../class_arena.html#ab66658b4727f2a3d5ec6036030ac3667',1,'Arena']]],
   ['direction',['Direction',['../syscall_8h.html#a224b9163917ac32fc95a60d8c1eec3aa',1,'syscall.h']]],
   ['directions',['directions',['../hex_8h.html#a02e69b5307e08735ee83676fc23266e7',1,'hex.h']]],
   ['distance',['distance',['../class_hex.html#a540b909ebbccdea8f62d4bbb881eb145',1,'Hex']]],

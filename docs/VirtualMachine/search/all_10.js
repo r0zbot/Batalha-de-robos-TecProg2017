@@ -15,7 +15,6 @@ var searchData=
   ['stackframe',['StackFrame',['../class_stack_frame.html',1,'StackFrame'],['../class_stack_frame.html#a45eb3b3c142bec623cb2222b49023370',1,'StackFrame::StackFrame()']]],
   ['start',['start',['../class_core.html#a0e1d6754f6c2cabd2cd2862d541fe127',1,'Core']]],
   ['std',['std',['../namespacestd.html',1,'']]],
-  ['stl',['stl',['../class_machine.html#a3dcf96898b74ea8dcdbeb7e9ddbc22c0',1,'Machine::stl()'],['../code_8h.html#af31477bc48f67856bedb0fa8e5b5281da2523e0c272cb676c4f59f97828966f78',1,'STL():&#160;code.h']]],
   ['sto',['STO',['../code_8h.html#af31477bc48f67856bedb0fa8e5b5281da1c79844d86bafd69a5119632d52321aa',1,'code.h']]],
   ['store',['store',['../class_machine.html#af6e501757d54f7d4bd7a0d4b6069ae30',1,'Machine']]],
   ['street',['STREET',['../terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54ba78fce82336bbbdca7f6da7564b8f9325',1,'terrain.h']]],

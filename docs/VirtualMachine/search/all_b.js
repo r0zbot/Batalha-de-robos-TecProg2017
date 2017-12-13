@@ -13,9 +13,12 @@ var searchData=
   ['machine_5fmemory_5fsize',['MACHINE_MEMORY_SIZE',['../machine_8h.html#a2422388577ac8bba8ea9fb23cf3a4190',1,'machine.h']]],
   ['machine_5fmov_5ffuel_5fusage',['machine_mov_fuel_usage',['../class_config.html#a76bfb47b02ccf120cf664e1c13791c2a',1,'Config']]],
   ['machine_5fshort_5fattack',['machine_short_attack',['../class_config.html#ae4efcafa37e3a3ecfa11e85d06cc3e03',1,'Config']]],
+  ['matr',['MATR',['../code_8h.html#af31477bc48f67856bedb0fa8e5b5281dafbd1f8a9b757278f81699723fb3543f5',1,'code.h']]],
   ['max_5fcrystals_5fper_5fcell',['max_crystals_per_cell',['../class_config.html#adcc1f43010ce2adba8f8313568106473',1,'Config']]],
   ['mountain',['MOUNTAIN',['../terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54ba9d1480267288b8146bb0756b67ddcbbe',1,'terrain.h']]],
   ['move',['move',['../class_machine.html#ae7b97bb0beec3215503c2d88a4da10ee',1,'Machine::move()'],['../class_entity_move.html#a291d249e3f4d5dda0c24fd8c8ad416ad',1,'EntityMove::move()'],['../syscall_8h.html#a355181b5a7b6128ebf4d3d3951652f7eaed3ef32890b6da0919b57254c5206c62',1,'MOVE():&#160;syscall.h']]],
+  ['mud',['MUD',['../terrain_8h.html#a2fb802f7c8eefcfca976dff0572ea54bab442c9fc693830ed83516517512aed73',1,'terrain.h']]],
   ['mul',['MUL',['../code_8h.html#af31477bc48f67856bedb0fa8e5b5281da2cdf52a55876063ec93b7d18bc741f6c',1,'code.h']]],
-  ['multiply',['multiply',['../class_machine.html#a73c6359b599ed11924b0f868a23a5be2',1,'Machine']]]
+  ['multiply',['multiply',['../class_machine.html#a73c6359b599ed11924b0f868a23a5be2',1,'Machine']]],
+  ['my_5fattribute',['my_attribute',['../class_machine.html#a984cf23fff190b9588eb801c7467490d',1,'Machine']]]
 ];

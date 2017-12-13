@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['offset',['offset',['../class_stack_frame.html#ab65806d02e94a563e05989c5d98cdf0c',1,'StackFrame']]],
   ['operator_21_3d',['operator!=',['../class_hex.html#a4aa6b39940ba6bc85c2a28ab7c7c039b',1,'Hex::operator!=()'],['../class_number.html#ace050fd20a544fa42872bcb4e30d1644',1,'Number::operator!=()'],['../class_entity.html#af11f37abcbc49ac898a724765df3e0e9',1,'Entity::operator!=()']]],
   ['operator_25',['operator%',['../class_number.html#af635db4c3ad5c6818213472478a9a340',1,'Number']]],
   ['operator_25_3d',['operator%=',['../class_number.html#a54bfb31ae00573ff04b7932e77ad948e',1,'Number']]],

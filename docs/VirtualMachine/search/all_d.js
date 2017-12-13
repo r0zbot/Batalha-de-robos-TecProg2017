@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['offset',['offset',['../class_stack_frame.html#ab65806d02e94a563e05989c5d98cdf0c',1,'StackFrame']]],
   ['operand',['Operand',['../class_operand.html',1,'']]],
   ['operand_2eh',['operand.h',['../operand_8h.html',1,'']]],
   ['operandptr',['OperandPtr',['../operand_8h.html#ae64569797cb00ff8c0c3066577210556',1,'operand.h']]],

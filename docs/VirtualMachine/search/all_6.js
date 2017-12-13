@@ -1,6 +1,7 @@
 var searchData=
 [
   ['ge',['GE',['../code_8h.html#af31477bc48f67856bedb0fa8e5b5281daf803729628adf4199f224c2a225038e9',1,'code.h']]],
+  ['generate_5fcrystals',['generate_crystals',['../class_arena.html#a5937c884064367cd7c416f489c2609b5',1,'Arena']]],
   ['generator_2eh',['generator.h',['../generator_8h.html',1,'']]],
   ['get',['get',['../class_stack_frame.html#a81e3d1a36f36fbb645c1b38e5183e84f',1,'StackFrame']]],
   ['get_5farg',['get_arg',['../class_instruction.html#a737ab7d6f6b4f47043d033a6927eef98',1,'Instruction']]],

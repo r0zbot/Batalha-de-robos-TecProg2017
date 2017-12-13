@@ -97,12 +97,17 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2b49b4b1ef3c8399a0747d9bd7ec27ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa54b9088122327266937c9dcced797ba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#aa54b9088122327266937c9dcced797ba">create_robot</a> (int id, const <a class="el" href="entity__move_8h.html#af3ac1f36136753591c5239f30be94f77">Program</a> &amp;prog)</td></tr>
 <tr class="separator:aa54b9088122327266937c9dcced797ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab66658b4727f2a3d5ec6036030ac3667"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#ab66658b4727f2a3d5ec6036030ac3667">die</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e)</td></tr>
+<tr class="separator:ab66658b4727f2a3d5ec6036030ac3667"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6aaa355ca07abb02d9bfc3bc063a87b7"><td class="memItemLeft" align="right" valign="top">unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a6aaa355ca07abb02d9bfc3bc063a87b7">elapsed_time</a> () const</td></tr>
 <tr class="memdesc:a6aaa355ca07abb02d9bfc3bc063a87b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the amount of time passed in the current game.  <a href="#a6aaa355ca07abb02d9bfc3bc063a87b7">More...</a><br /></td></tr>
 <tr class="separator:a6aaa355ca07abb02d9bfc3bc063a87b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdf9c28e0e22ccbf4dab5eb3ae6a2cd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#afdf9c28e0e22ccbf4dab5eb3ae6a2cd2">find_entity_move</a> (int id)</td></tr>
 <tr class="memdesc:afdf9c28e0e22ccbf4dab5eb3ae6a2cd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds and returns an <a class="el" href="class_entity_move.html">EntityMove</a> with the given ID, if it's currently active in the game.  <a href="#afdf9c28e0e22ccbf4dab5eb3ae6a2cd2">More...</a><br /></td></tr>
 <tr class="separator:afdf9c28e0e22ccbf4dab5eb3ae6a2cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5937c884064367cd7c416f489c2609b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a5937c884064367cd7c416f489c2609b5">generate_crystals</a> (int crystals)</td></tr>
+<tr class="memdesc:a5937c884064367cd7c416f489c2609b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Randomly place crystals throughout the arena.  <a href="#a5937c884064367cd7c416f489c2609b5">More...</a><br /></td></tr>
+<tr class="separator:a5937c884064367cd7c416f489c2609b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af488add9865eae3fe775cee18aae3cd4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_army.html">Army</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#af488add9865eae3fe775cee18aae3cd4">get_army</a> (int id)</td></tr>
 <tr class="memdesc:af488add9865eae3fe775cee18aae3cd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds and returns an <a class="el" href="class_army.html">Army</a> with the given ID, if it's currently active in the game.  <a href="#af488add9865eae3fe775cee18aae3cd4">More...</a><br /></td></tr>
 <tr class="separator:af488add9865eae3fe775cee18aae3cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -115,9 +120,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae303315884e016602a061f629695a668"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#ae303315884e016602a061f629695a668">get_width</a> () const</td></tr>
 <tr class="memdesc:ae303315884e016602a061f629695a668"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets this <b>Arena</b> width, or number of columns in the grid.  <a href="#ae303315884e016602a061f629695a668">More...</a><br /></td></tr>
 <tr class="separator:ae303315884e016602a061f629695a668"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8844fe9749b511448cd03658212eb5a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a8844fe9749b511448cd03658212eb5a3">import_terrain</a> (const vector&lt; vector&lt; int &gt;&gt; &amp;terrain)</td></tr>
-<tr class="memdesc:a8844fe9749b511448cd03658212eb5a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imports terrain from a 2D vector.  <a href="#a8844fe9749b511448cd03658212eb5a3">More...</a><br /></td></tr>
-<tr class="separator:a8844fe9749b511448cd03658212eb5a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1f7e2b77fc3b3a03327ba190cc090fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#ac1f7e2b77fc3b3a03327ba190cc090fc">import_terrain</a> (const vector&lt; vector&lt; int &gt;&gt; &amp;terrainn)</td></tr>
+<tr class="memdesc:ac1f7e2b77fc3b3a03327ba190cc090fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imports terrain from a 2D vector.  <a href="#ac1f7e2b77fc3b3a03327ba190cc090fc">More...</a><br /></td></tr>
+<tr class="separator:ac1f7e2b77fc3b3a03327ba190cc090fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22788a6b231636503663d7950f403248"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a22788a6b231636503663d7950f403248">insert_army</a> (const <a class="el" href="class_army.html">Army</a> &amp;army)</td></tr>
 <tr class="memdesc:a22788a6b231636503663d7950f403248"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts an <a class="el" href="class_army.html">Army</a> in the current game.  <a href="#a22788a6b231636503663d7950f403248">More...</a><br /></td></tr>
 <tr class="separator:a22788a6b231636503663d7950f403248"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,24 +148,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae1589bb63126382bc9ad0539517c972d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#ae1589bb63126382bc9ad0539517c972d">render</a> (const <a class="el" href="class_view.html">View</a> &amp;view)</td></tr>
 <tr class="memdesc:ae1589bb63126382bc9ad0539517c972d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders the <b>Arena</b> system in alink View}.  <a href="#ae1589bb63126382bc9ad0539517c972d">More...</a><br /></td></tr>
 <tr class="separator:ae1589bb63126382bc9ad0539517c972d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a262c9c0a5b9bc1130c23fd7da59ee7f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a262c9c0a5b9bc1130c23fd7da59ee7f3">request_attack_melee</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
-<tr class="memdesc:a262c9c0a5b9bc1130c23fd7da59ee7f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an requisition for a melee attack in a specified position from the <b>Arena</b>.  <a href="#a262c9c0a5b9bc1130c23fd7da59ee7f3">More...</a><br /></td></tr>
-<tr class="separator:a262c9c0a5b9bc1130c23fd7da59ee7f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0b06053b96a3dda2cfcf77613d66bd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#ac0b06053b96a3dda2cfcf77613d66bd2">request_attack_short</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
-<tr class="memdesc:ac0b06053b96a3dda2cfcf77613d66bd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an requisition for a short range attack in a specified position from the <b>Arena</b>.  <a href="#ac0b06053b96a3dda2cfcf77613d66bd2">More...</a><br /></td></tr>
-<tr class="separator:ac0b06053b96a3dda2cfcf77613d66bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a579ffd485cff89cf75a58009f190c7b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a579ffd485cff89cf75a58009f190c7b3">request_attack_long</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
-<tr class="memdesc:a579ffd485cff89cf75a58009f190c7b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an requisition for a long range attack in a specified position from the <b>Arena</b>.  <a href="#a579ffd485cff89cf75a58009f190c7b3">More...</a><br /></td></tr>
-<tr class="separator:a579ffd485cff89cf75a58009f190c7b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa15674e1bdca7f19351f616359e7e063"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#aa15674e1bdca7f19351f616359e7e063">request_collect</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
-<tr class="memdesc:aa15674e1bdca7f19351f616359e7e063"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an requisition for a collect action in a specified position from the <b>Arena</b>.  <a href="#aa15674e1bdca7f19351f616359e7e063">More...</a><br /></td></tr>
-<tr class="separator:aa15674e1bdca7f19351f616359e7e063"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeccd65f8d18dc9611bda6d9f24f55892"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#aeccd65f8d18dc9611bda6d9f24f55892">request_drop</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
-<tr class="memdesc:aeccd65f8d18dc9611bda6d9f24f55892"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an requisition for a deposit action in a specified position from the <b>Arena</b>.  <a href="#aeccd65f8d18dc9611bda6d9f24f55892">More...</a><br /></td></tr>
-<tr class="separator:aeccd65f8d18dc9611bda6d9f24f55892"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecfd89c238d57df0d4814275fddec340"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#aecfd89c238d57df0d4814275fddec340">request_movement</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
-<tr class="memdesc:aecfd89c238d57df0d4814275fddec340"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an requisition for a movement action in a specified position from the <b>Arena</b>.  <a href="#aecfd89c238d57df0d4814275fddec340">More...</a><br /></td></tr>
-<tr class="separator:aecfd89c238d57df0d4814275fddec340"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac559cfb58a7241a72a197439bf3b3bee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#ac559cfb58a7241a72a197439bf3b3bee">request_attack_melee</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
+<tr class="memdesc:ac559cfb58a7241a72a197439bf3b3bee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an requisition for a melee attack in a specified position from the <b>Arena</b>.  <a href="#ac559cfb58a7241a72a197439bf3b3bee">More...</a><br /></td></tr>
+<tr class="separator:ac559cfb58a7241a72a197439bf3b3bee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaed39de09f82c07e1e2a960648af3567"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#aaed39de09f82c07e1e2a960648af3567">request_attack_short</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
+<tr class="memdesc:aaed39de09f82c07e1e2a960648af3567"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an requisition for a short range attack in a specified position from the <b>Arena</b>.  <a href="#aaed39de09f82c07e1e2a960648af3567">More...</a><br /></td></tr>
+<tr class="separator:aaed39de09f82c07e1e2a960648af3567"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9785ccc24c99138e42f05f2ac0c402e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#ac9785ccc24c99138e42f05f2ac0c402e">request_attack_long</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
+<tr class="memdesc:ac9785ccc24c99138e42f05f2ac0c402e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an requisition for a long range attack in a specified position from the <b>Arena</b>.  <a href="#ac9785ccc24c99138e42f05f2ac0c402e">More...</a><br /></td></tr>
+<tr class="separator:ac9785ccc24c99138e42f05f2ac0c402e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a491fee834cc939c1fd350ffb7c4ffa75"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a491fee834cc939c1fd350ffb7c4ffa75">request_collect</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
+<tr class="memdesc:a491fee834cc939c1fd350ffb7c4ffa75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an requisition for a collect action in a specified position from the <b>Arena</b>.  <a href="#a491fee834cc939c1fd350ffb7c4ffa75">More...</a><br /></td></tr>
+<tr class="separator:a491fee834cc939c1fd350ffb7c4ffa75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6695061bc5559af83dc61d5b222a388"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#aa6695061bc5559af83dc61d5b222a388">request_drop</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
+<tr class="memdesc:aa6695061bc5559af83dc61d5b222a388"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an requisition for a deposit action in a specified position from the <b>Arena</b>.  <a href="#aa6695061bc5559af83dc61d5b222a388">More...</a><br /></td></tr>
+<tr class="separator:aa6695061bc5559af83dc61d5b222a388"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8a495f397346966603196e8cb4eedab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#ae8a495f397346966603196e8cb4eedab">request_movement</a> (<a class="el" href="class_entity_move.html">EntityMove</a> &amp;e, const <a class="el" href="class_hex.html">Hex</a> &amp;pos)</td></tr>
+<tr class="memdesc:ae8a495f397346966603196e8cb4eedab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an requisition for a movement action in a specified position from the <b>Arena</b>.  <a href="#ae8a495f397346966603196e8cb4eedab">More...</a><br /></td></tr>
+<tr class="separator:ae8a495f397346966603196e8cb4eedab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11a38d9a302c337f11611d9f22a502d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arena.html#a11a38d9a302c337f11611d9f22a502d8">update</a> (const <a class="el" href="class_view.html">View</a> &amp;view)</td></tr>
 <tr class="memdesc:a11a38d9a302c337f11611d9f22a502d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the logic behavior of all the game entities currently active in the <b>Arena</b>.  <a href="#a11a38d9a302c337f11611d9f22a502d8">More...</a><br /></td></tr>
 <tr class="separator:a11a38d9a302c337f11611d9f22a502d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -242,6 +247,24 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ab66658b4727f2a3d5ec6036030ac3667"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab66658b4727f2a3d5ec6036030ac3667">&#9670;&nbsp;</a></span>die()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Arena::die </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a6aaa355ca07abb02d9bfc3bc063a87b7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6aaa355ca07abb02d9bfc3bc063a87b7">&#9670;&nbsp;</a></span>elapsed_time()</h2>
 
@@ -286,6 +309,32 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the searched <a class="el" href="class_entity_move.html">EntityMove</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a5937c884064367cd7c416f489c2609b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5937c884064367cd7c416f489c2609b5">&#9670;&nbsp;</a></span>generate_crystals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Arena::generate_crystals </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>crystals</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Randomly place crystals throughout the arena. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[crystals]</td><td>The number of total crystals to generate </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -383,8 +432,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a8844fe9749b511448cd03658212eb5a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8844fe9749b511448cd03658212eb5a3">&#9670;&nbsp;</a></span>import_terrain()</h2>
+<a id="ac1f7e2b77fc3b3a03327ba190cc090fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1f7e2b77fc3b3a03327ba190cc090fc">&#9670;&nbsp;</a></span>import_terrain()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -393,7 +442,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void Arena::import_terrain </td>
           <td>(</td>
           <td class="paramtype">const vector&lt; vector&lt; int &gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>terrain</em></td><td>)</td>
+          <td class="paramname"><em>terrainn</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -641,14 +690,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a579ffd485cff89cf75a58009f190c7b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a579ffd485cff89cf75a58009f190c7b3">&#9670;&nbsp;</a></span>request_attack_long()</h2>
+<a id="ac9785ccc24c99138e42f05f2ac0c402e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9785ccc24c99138e42f05f2ac0c402e">&#9670;&nbsp;</a></span>request_attack_long()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Arena::request_attack_long </td>
+          <td class="memname">bool Arena::request_attack_long </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
           <td class="paramname"><em>e</em>, </td>
@@ -671,21 +720,22 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">[e]</td><td>The <a class="el" href="class_entity_move.html">EntityMove</a> that requested the action.</td></tr>
-    <tr><td class="paramname">[pos]</td><td>The position where the action will be performed. </td></tr>
+    <tr><td class="paramname">[pos]</td><td>The position where the action will be performed.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A boolean indicating whether it was successfull or not. </dd></dl>
 
 </div>
 </div>
-<a id="a262c9c0a5b9bc1130c23fd7da59ee7f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a262c9c0a5b9bc1130c23fd7da59ee7f3">&#9670;&nbsp;</a></span>request_attack_melee()</h2>
+<a id="ac559cfb58a7241a72a197439bf3b3bee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac559cfb58a7241a72a197439bf3b3bee">&#9670;&nbsp;</a></span>request_attack_melee()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Arena::request_attack_melee </td>
+          <td class="memname">bool Arena::request_attack_melee </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
           <td class="paramname"><em>e</em>, </td>
@@ -708,21 +758,22 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">[e]</td><td>The <a class="el" href="class_entity_move.html">EntityMove</a> that requested the action.</td></tr>
-    <tr><td class="paramname">[pos]</td><td>The position where the action will be performed. </td></tr>
+    <tr><td class="paramname">[pos]</td><td>The position where the action will be performed.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A boolean indicating whether it was successfull or not. </dd></dl>
 
 </div>
 </div>
-<a id="ac0b06053b96a3dda2cfcf77613d66bd2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0b06053b96a3dda2cfcf77613d66bd2">&#9670;&nbsp;</a></span>request_attack_short()</h2>
+<a id="aaed39de09f82c07e1e2a960648af3567"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaed39de09f82c07e1e2a960648af3567">&#9670;&nbsp;</a></span>request_attack_short()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Arena::request_attack_short </td>
+          <td class="memname">bool Arena::request_attack_short </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
           <td class="paramname"><em>e</em>, </td>
@@ -745,21 +796,22 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">[e]</td><td>The <a class="el" href="class_entity_move.html">EntityMove</a> that requested the action.</td></tr>
-    <tr><td class="paramname">[pos]</td><td>The position where the action will be performed. </td></tr>
+    <tr><td class="paramname">[pos]</td><td>The position where the action will be performed.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A boolean indicating whether it was successfull or not. </dd></dl>
 
 </div>
 </div>
-<a id="aa15674e1bdca7f19351f616359e7e063"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa15674e1bdca7f19351f616359e7e063">&#9670;&nbsp;</a></span>request_collect()</h2>
+<a id="a491fee834cc939c1fd350ffb7c4ffa75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a491fee834cc939c1fd350ffb7c4ffa75">&#9670;&nbsp;</a></span>request_collect()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Arena::request_collect </td>
+          <td class="memname">bool Arena::request_collect </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
           <td class="paramname"><em>e</em>, </td>
@@ -782,21 +834,22 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">[e]</td><td>The <a class="el" href="class_entity_move.html">EntityMove</a> that requested the action.</td></tr>
-    <tr><td class="paramname">[pos]</td><td>The position where the action will be performed. </td></tr>
+    <tr><td class="paramname">[pos]</td><td>The position where the action will be performed.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A boolean indicating whether it was successfull or not. </dd></dl>
 
 </div>
 </div>
-<a id="aeccd65f8d18dc9611bda6d9f24f55892"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeccd65f8d18dc9611bda6d9f24f55892">&#9670;&nbsp;</a></span>request_drop()</h2>
+<a id="aa6695061bc5559af83dc61d5b222a388"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6695061bc5559af83dc61d5b222a388">&#9670;&nbsp;</a></span>request_drop()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Arena::request_drop </td>
+          <td class="memname">bool Arena::request_drop </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
           <td class="paramname"><em>e</em>, </td>
@@ -819,21 +872,22 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">[e]</td><td>The <a class="el" href="class_entity_move.html">EntityMove</a> that requested the action.</td></tr>
-    <tr><td class="paramname">[pos]</td><td>The position where the action will be performed. </td></tr>
+    <tr><td class="paramname">[pos]</td><td>The position where the action will be performed.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A boolean indicating whether it was successfull or not. </dd></dl>
 
 </div>
 </div>
-<a id="aecfd89c238d57df0d4814275fddec340"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aecfd89c238d57df0d4814275fddec340">&#9670;&nbsp;</a></span>request_movement()</h2>
+<a id="ae8a495f397346966603196e8cb4eedab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8a495f397346966603196e8cb4eedab">&#9670;&nbsp;</a></span>request_movement()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Arena::request_movement </td>
+          <td class="memname">bool Arena::request_movement </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_entity_move.html">EntityMove</a> &amp;&#160;</td>
           <td class="paramname"><em>e</em>, </td>
@@ -856,10 +910,11 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">[e]</td><td>The <a class="el" href="class_entity_move.html">EntityMove</a> that requested the action.</td></tr>
-    <tr><td class="paramname">[pos]</td><td>The position where the action will be performed. </td></tr>
+    <tr><td class="paramname">[pos]</td><td>The position where the action will be performed.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A boolean indicating whether it was successfull or not. </dd></dl>
 
 </div>
 </div>
