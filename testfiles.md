@@ -12,9 +12,9 @@ OBS: há arquivos de teste além dos especificados nesse arquivo, porém talvez 
 
 #### Alto nível
 
-* `smart_walk_collect_drop.gubi`: Anda a arena inteira para a direita coletando cristais, volta pra esquerda coletando cristais, e quando chega na base, coloca todos lá.
-*`fighter` anda e ataca inteligente,ente
-* good_walk_and_col : anda e coleta
+* `smart_walk_collect_drop.gubic`: Anda a arena inteira para a direita coletando cristais, volta pra esquerda coletando cristais, e quando chega na base, coloca todos lá.
+* `defender.gubic`: Ataca todos os robos que não são do seu exército.
+* `attacker.gubic`: Anda pela arena e ataca todos os robôs de outros exércitos.
 
 #### Assembly
 Esses arquivos são exemplos de programas em assembly serem executados na maquina virtual para testar o funcionamento do projeto.
