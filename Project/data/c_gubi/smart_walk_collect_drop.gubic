@@ -114,17 +114,18 @@ while (true) {
         }
 
         # Se agora achou, dropa os cristais
-        inbase = is_in_base();
-        if(inbase){
+        #inbase = ;
+        if(is_in_base()){
             drop_all_in_base();
         }
         # Se ainda nao achou, tentar agora ir pra direita
         else {
-            continue = true;
-            while(continue) {
-                inbase = is_not_in_base();
-                couldMove = try_move_right();
-                continue = inbase & couldMove();
+            #continue = true;
+            while(is_not_in_base() & try_move_right()) {
+                #inbase = is_not_in_base();
+                #couldMove = try_move_right();
+                #continue = inbase & couldMove();
+                x = 1;
             }
         }
         # Tenta dropar os cristais na base.

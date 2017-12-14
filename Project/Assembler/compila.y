@@ -200,7 +200,7 @@ while: WHILE OPEN  {salva_end(ip);}
 			  AddInstr(NOP, 0);
 			  printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
 			};
-for: FOR OPEN Expr {AddInstr(POP, 0); printf("POP 0\n")} 
+for: FOR OPEN Expr {AddInstr(POP, 0); printf("POP 0\n");} 
 			SEP {salva_end(ip);}
 			Expr { 
 	  			AddInstr(JIF, 0);
