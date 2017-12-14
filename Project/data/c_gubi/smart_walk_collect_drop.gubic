@@ -50,6 +50,7 @@ def pause (x) {
 }
 
 def is_in_base(){
+    cell = self.cell;
     if(cell.base == self.army) {
         return(true);
     }
@@ -68,6 +69,7 @@ def is_not_in_base(){
 }
 
 def drop_all_in_base(){
+    #inbase = ;
     if(is_in_base()) {
         while(drop(CE)) {
             print(self.mycrystals);
@@ -85,31 +87,35 @@ while (true) {
 
     # Anda pra esquerda procurando sua base, tambem coletando cristais
     print(-2);
-    continue = true;
-    while(continue) {
-        inbase = is_not_in_base();
-        couldMove = try_move_left();
-        continue = inbase & couldMove;
-        collect_all();
+    #continue = true;
+    while(is_not_in_base() & try_move_left()) {
+        #inbase = is_not_in_base();
+        #couldMove = try_move_left();
+        #continue = inbase & couldMove;
+        x = collect_all();
         print(-3);
     }
     print(-4);
 
     # Se achou a base, dropa os cristais
+    #inbase = ;
     if(is_in_base()){
         drop_all_in_base();
     }
     # se nao achou, tenta ir pra cima e depois pra direita até achar
     else {
-        continue = true;
-        while(continue) {
-            inbase = is_not_in_base();
-            couldMove = try_move_up();
-            continue = inbase & couldMove();
+        x = 0;
+        #continue = true;
+        while(is_not_in_base() & try_move_up()) {
+            #inbase = is_not_in_base();
+            #couldMove = try_move_up();
+            #continue = inbase & couldMove;
+            x = 0;
         }
 
         # Se agora achou, dropa os cristais
-        if(is_in_base()){
+        inbase = is_in_base();
+        if(inbase){
             drop_all_in_base();
         }
         # Se ainda nao achou, tentar agora ir pra direita
