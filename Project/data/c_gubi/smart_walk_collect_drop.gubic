@@ -98,7 +98,7 @@ while (true) {
     print(-4);
 
     # Se achou a base, dropa os cristais
-    #inbase = ;
+    #inbase = is_in_base();
     if(is_in_base()){
         drop_all_in_base();
     }
