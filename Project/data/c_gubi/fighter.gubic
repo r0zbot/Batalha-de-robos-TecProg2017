@@ -1,0 +1,88 @@
+def ataque(dir)
+{
+	if(dir == 0)
+	{
+		atkmelee(EA);
+	}
+	if(dir == 1)
+	{
+		atkmelee(SE);
+	}
+	if(dir == 2)
+	{
+		atkmelee(SW);
+	}
+	if(dir == 3)
+	{
+		atkmelee(WE);
+	}
+	if(dir == 4)
+	{
+		atkmelee(NW);
+	}
+	if(dir == 5)
+	{
+		atkmelee(NE);
+	}	
+}
+def walk(dir)
+{
+	if(dir == 0)
+	{
+		move(EA);
+	}
+	if(dir == 1)
+	{
+		move(SE);
+	}
+	if(dir == 2)
+	{
+		move(SW);
+	}
+	if(dir == 3)
+	{
+		move(WE);
+	}
+	if(dir == 4)
+	{
+		move(NW);
+	}
+	if(dir == 5)
+	{
+		move(NE);
+	}
+}
+def deal(cel, eu, dir)
+{
+	bool = false;
+	while(!bool)
+	{
+		enemy = cel.ocup;
+		if(enemy == -1)
+		{
+			t = cel.terreno();
+			if(t == rock)
+			{
+				bool = walk(dir);
+			}
+		}
+		if(! enemy == eu)
+		{
+			bool = ataque(dir);
+		}
+	}
+}
+eu = self.army;
+cel = see(EA);
+deal(cel, eu, 0);
+cel = see(SE);
+deal(cel, eu, 1);
+cel = see(SW);
+deal(cel, eu, 2);
+cel = see(WE);
+deal(cel, eu, 3);
+cel = see(NW);
+deal(cel, eu, 4);
+cel = see(NE);
+deal(cel, eu, 5);
+
