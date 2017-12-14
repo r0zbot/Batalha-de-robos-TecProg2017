@@ -89,7 +89,7 @@ Expr: NUMt { int valor = $1; AddInstr(PUSH, $1); printf("PUSH %i\n", valor);}
 			 AddInstr(STO, s->val);
 			 printf("STO %i\n", s->val);
 			 AddInstr(PUSH, 0);
-			 printf("PUSH 0");
+			 printf("PUSH 0\n");
 
  		 }
  	| ID TERR  {
@@ -200,7 +200,7 @@ while: WHILE OPEN  {salva_end(ip);}
 			  AddInstr(NOP, 0);
 			  printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
 			};
-for: FOR OPEN Expr {AddInstr(POP, 0); printf("POP 0")} 
+for: FOR OPEN Expr {AddInstr(POP, 0); printf("POP 0\n")} 
 			SEP {salva_end(ip);}
 			Expr { 
 	  			AddInstr(JIF, 0);
