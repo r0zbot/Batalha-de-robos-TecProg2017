@@ -43,7 +43,8 @@ int Hex::get_atr(const int i) const {
         return this->crystals;
     }
     if (i == 2) {
-        return this->occup;
+        //Serve pra saber se a instancia atual eh um HEX
+        return HEX_IDENTIFIER; //TODO remover essa fucken gambiarra
     }
     if (i == 3) {
         return this->base;

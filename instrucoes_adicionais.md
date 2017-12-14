@@ -13,7 +13,7 @@ Obs: Em todos os casos abaixo, _X_ é um inteiro.
 * `ATR X`: Lê  atributos da célula empilhada. X pode ser:
     * `0`: Tipo de terreno. Empilha um inteiro que representa o tipo de terreno da célula.
     * `1`: Quantidade de cristais. Empilha a quantidade de cristais que o robô esta carregando.
-    * `2`: Ocupação. Empilha a ID do robô que se encontra ali, ou -1 se nenhum.
+    * `2`: Ocupação. Empilha a ID do exército do robô que se encontra ali, ou -1 se nenhum.
     * `3`: Base. Empilha a ID do exército que tem base ali, ou -1 se nenhum. 
     
     
