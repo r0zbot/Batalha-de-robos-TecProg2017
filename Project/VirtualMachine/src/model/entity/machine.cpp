@@ -55,10 +55,22 @@ void Machine::add() {
 
 void Machine::atr() {
     auto aux = &this->data.top();
-    this->data.pop();
     auto arg = dynamic_pointer_cast<Number>(this->fetch_arg());
     if (arg) {
-        this->data.push(make_shared<Number>(aux->get()->get_atr(arg->get_value())));
+        if(arg->get_value() == 2 && aux->get()->get_atr(arg->get_value()) == HEX_IDENTIFIER){
+            auto cell = dynamic_pointer_cast<Hex>(this->data.top());
+            this->data.pop();
+            if(cell->get_occup() == -1){
+                this->data.push(make_shared<Number>(-1));
+            }
+            else{
+                this->data.push(make_shared<Number>(arena.find_entity_move(cell->get_occup()).get_group_id()));
+            }
+        }
+        else{
+            this->data.top();
+            this->data.push(make_shared<Number>(aux->get()->get_atr(arg->get_value())));
+        }
     }
     else {
         this->print("<ERROR> Operand in Code::ATR is not Number");

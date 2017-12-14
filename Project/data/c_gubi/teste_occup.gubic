@@ -1,0 +1,5 @@
+cell = see(CE);
+print(cell.ocup);
+
+cell = see(NE);
+print(cell.ocup);

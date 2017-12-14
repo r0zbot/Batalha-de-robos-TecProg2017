@@ -10,6 +10,8 @@
 
 #include <model/entity/terrain.h>
 
+#define HEX_IDENTIFIER -95293747
+
 using namespace std;
 
 /**

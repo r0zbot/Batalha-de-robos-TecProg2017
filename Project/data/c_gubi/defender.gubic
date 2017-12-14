@@ -1,0 +1,31 @@
+def attack_different_team() {
+    
+}
+
+while(true) {
+    cell = see(NE);
+    if(cell.ocup != self.army){
+        atkmelee(NE);
+    }
+
+    cell = see(NW);
+    if(cell.ocup != self.army){
+        atkmelee(NW);
+    }
+    cell = see(EA);
+    if(cell.ocup != self.army){
+        atkmelee(EA);
+    }
+    cell = see(WE);
+    if(cell.ocup != self.army){
+        atkmelee(NE);
+    }
+    cell = see(SW);
+    if(cell.ocup != self.army){
+        atkmelee(SW);
+    }
+    cell = see(SE);
+    if(cell.ocup != self.army){
+        atkmelee(SE);
+    }
+}
