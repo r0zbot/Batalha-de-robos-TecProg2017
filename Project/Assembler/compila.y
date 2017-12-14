@@ -59,7 +59,7 @@ Programa: Comando
        | Programa Comando
 	   ;
 
-Comando: Expr EOL
+Comando: Expr EOL {AddInstr(POP, 0); printf("POP 0\n");}
        | Cond
        | Loop
        | Func
@@ -88,6 +88,9 @@ Expr: NUMt { int valor = $1; AddInstr(PUSH, $1); printf("PUSH %i\n", valor);}
 			 if (s==0) s = putsym($1); /* não definida */
 			 AddInstr(STO, s->val);
 			 printf("STO %i\n", s->val);
+			 AddInstr(PUSH, 0);
+			 printf("PUSH 0");
+
  		 }
  	| ID TERR  {
 	         symrec *s = getsym($1); 
@@ -197,7 +200,8 @@ while: WHILE OPEN  {salva_end(ip);}
 			  AddInstr(NOP, 0);
 			  printf("label%i: NOP 0\n", labelPilha[--labelPilhaTop]);
 			};
-for: FOR OPEN Expr SEP {salva_end(ip);}
+for: FOR OPEN Expr {AddInstr(POP, 0); printf("POP 0")} 
+			SEP {salva_end(ip);}
 			Expr { 
 	  			AddInstr(JIF, 0);
 	  			printf("JIF label%i\n", indiceLabel); 
