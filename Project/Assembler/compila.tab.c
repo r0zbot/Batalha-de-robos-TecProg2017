@@ -1621,7 +1621,7 @@ yyreduce:
 			 AddInstr(STO, s->val);
 			 printf("STO %i\n", s->val);
 			 AddInstr(PUSH, 0);
-			 printf("PUSH 0");
+			 printf("PUSH 0\n");
 
  		 ;}
     break;
@@ -1867,7 +1867,7 @@ yyreduce:
 
 /* Line 1464 of yacc.c  */
 #line 203 "compila.y"
-    {AddInstr(POP, 0); printf("POP 0");}
+    {AddInstr(POP, 0); printf("POP 0\n");}
     break;
 
   case 46:
