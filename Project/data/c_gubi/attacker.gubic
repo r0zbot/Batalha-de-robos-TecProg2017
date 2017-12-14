@@ -1,9 +1,8 @@
-while(true) {
+def attack_all(){
     cell = see(NE);
     if(cell.ocup != self.army & cell.ocup != -1){
         atkmelee(NE);
     }
-
     cell = see(NW);
     if(cell.ocup != self.army & cell.ocup != -1){
         atkmelee(NW);
@@ -23,5 +22,32 @@ while(true) {
     cell = see(SE);
     if(cell.ocup != self.army & cell.ocup != -1){
         atkmelee(SE);
+    }
+}
+
+while (true) {
+    while(move(WE)) {
+        collect(NW);
+        attack_all();
+    }
+    while(move(NW)) {
+        collect(NE);
+        attack_all();
+    }
+    while(move(NE)) {
+        collect(EA);
+        attack_all();
+    }
+    while(move(EA)) {
+        collect(SE);
+        attack_all();
+    }
+    while(move(SE)) {
+        collect(SW);
+        attack_all();
+    }
+    while(move(SW)) {
+        collect(WE);
+        attack_all();
     }
 }

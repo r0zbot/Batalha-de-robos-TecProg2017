@@ -229,11 +229,11 @@ bool Arena::request_attack_melee(EntityMove &e, const Hex &pos) {
             return true;
         }
         else{
-            this->print(concat("Attacking nothing at [", pos.get_row(), ",", pos.get_col() ,"]"), e);
+            //this->print(concat("Attacking nothing at [", pos.get_row(), ",", pos.get_col() ,"]"), e);
         }
     }
     else{
-        this->print(concat("Attacking out of bounds at [", pos.get_row(), ",", pos.get_col() ,"]"), e);
+        //this->print(concat("Attacking out of bounds at [", pos.get_row(), ",", pos.get_col() ,"]"), e);
     }
     return false;
 }

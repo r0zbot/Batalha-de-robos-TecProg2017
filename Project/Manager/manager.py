@@ -195,7 +195,7 @@ class ConfigScreen(ttk.Frame):
         self.robotHealth = NumberSetting(self, "Robot starting health", 100)
         self.robotMeleeAttack = NumberSetting(self, "Robot melee attack damage", 20)
         self.robotFuel = NumberSetting(self, "Robot starting fuel", 100, True)
-        self.robotFuelUsage = NumberSetting(self, "Fuel usage per movement", 1.5, True)
+        self.robotFuelUsage = NumberSetting(self, "Fuel usage per movement", 0.5, True)
         self.robotInstructionFuelUsage = NumberSetting(self, "Fuel usage per instruction", 0.01, True)
         # uncoment when implemented
         # self.robotShortAttack = NumberSetting(self, "Robot short range attack damage", 25)
